@@ -1,0 +1,453 @@
+{
+  "innovations": [
+    {
+      "id": "lytro-camera",
+      "name": "Lytro Light Field Camera",
+      "inventor": "Ren Ng",
+      "patentId": "US8289440B2",
+      "yearFiled": 2011,
+      "status": "Discontinued",
+      "sector": "Computational Photography",
+      "commercialPotential": 88,
+      "marketGrowth": "CAGR 22.4%",
+      "revivalViability": 89,
+      "readinessLevel": 7,
+      "recommendationScore": 92,
+      "failureBottlenecks": [
+        "High Manufacturing Cost: Custom microlens arrays were extremely expensive to manufacture at scale.",
+        "Slow Processing Speeds: Volumetric calculations for refocusing took minutes per photo on standard consumer CPUs.",
+        "Low Export Resolution: High sensor data resulted in low final pixel output resolution (1-2 megapixels).",
+        "Mobile Smartphone Boom: Consumers shifted to convenience and app-centric smartphone cameras."
+      ],
+      "aiEnhancementVector": [
+        "Apply Modern AI Volumetric Neural Fields: Use NeRF (Neural Radiance Fields) and 3D Gaussian Splatting for real-time volumetric photo reconstruction.",
+        "Edge-AI Coprocessors: Leverage modern mobile NPUs (Neural Processing Units) for instant light-field depth calculations.",
+        "AR/VR Volumetric Capturing: Reposition the tech as standard capturing modules for Apple Vision Pro and Meta Quest contents.",
+        "Dual-Camera Sensor Fusion: Combine standard high-res sensors with small light-field arrays for high-fidelity hybrid imaging."
+      ],
+      "marketTrend": [
+        {"year": 2020, "value": 35},
+        {"year": 2022, "value": 52},
+        {"year": 2024, "value": 75},
+        {"year": 2026, "value": 90}
+      ],
+      "swot": {
+        "strengths": ["Captures full directional light data", "Post-capture refocusing capabilities", "Deep depth field information"],
+        "weaknesses": ["Massive file sizes", "Complex hardware requirements", "Low static image quality"],
+        "opportunities": ["Spatial computing boom", "Metaverse volumetric content", "Industrial inspection 3D scanning"],
+        "threats": ["Computational photography models mimicking depth digitally", "High-resolution standard stereo-cameras"]
+      },
+      "roadmap": [
+        {"step": "Phase 1: Sensor Redesign", "desc": "Design a hybrid CMOS sensor integrating a standard micro-lens grid, targeting 4K volumetric resolution."},
+        {"step": "Phase 2: Depth-Splatting Algorithm", "desc": "Write custom CUDA/Metal kernels to compile volumetric depth information in under 50ms."},
+        {"step": "Phase 3: Spatial API Integration", "desc": "Build plugins for Unity and Unreal Engine to directly export volumetric footage for spatial devices."},
+        {"step": "Phase 4: Hardware Prototyping", "desc": "Release an open-source optical module compatible with mobile developers and hobbyist camera rigs."}
+      ],
+      "financials": {
+        "estimatedCost": "$850,000",
+        "requiredSkills": ["Computational Photography", "Optics Engineering", "CUDA/GPU programming", "Spatial computing API development"],
+        "targetIndustries": ["VR/AR Content Creation", "Medical Imaging", "Autonomous Vehicle Vision Systems"],
+        "potentialInvestors": ["Meta Reality Labs", "Apple Inc.", "Sony Ventures", "Sequoia Capital"]
+      }
+    },
+    {
+      "id": "pebble-smartwatch",
+      "name": "Pebble Smartwatch",
+      "inventor": "Eric Migicovsky",
+      "patentId": "US9455796B2",
+      "yearFiled": 2012,
+      "status": "Acquired & Discontinued",
+      "sector": "Wearable Technology",
+      "commercialPotential": 82,
+      "marketGrowth": "CAGR 14.8%",
+      "revivalViability": 84,
+      "readinessLevel": 8,
+      "recommendationScore": 86,
+      "failureBottlenecks": [
+        "Under-funded Operating System: Couldn't compete with massive software budgets of Apple (watchOS) and Google (Wear OS).",
+        "Display Competitiveness: Consumers quickly favored full-color, high-brightness OLED screens over reflective monochrome e-ink.",
+        "Lack of Cellular Integration: Lacked standalone LTE capabilities, making it dependent on smartphone tethering."
+      ],
+      "aiEnhancementVector": [
+        "Smarter Low-Power UI: Use localized LLMs to parse and summarize incoming notifications directly on-device with minimal energy.",
+        "Ultra-low Power Color E-Ink: Integrate modern Kaleido 3 color e-paper displays for vibrant but static screen tech.",
+        "Digital Detox positioning: Market the watch as an anti-addiction, high-focus productivity screen.",
+        "Solar Energy Harvesting: Build micro-solar cells into the screen bezel to support indefinite battery life."
+      ],
+      "marketTrend": [
+        {"year": 2020, "value": 40},
+        {"year": 2022, "value": 45},
+        {"year": 2024, "value": 68},
+        {"year": 2026, "value": 84}
+      ],
+      "swot": {
+        "strengths": ["7-10 day battery life", "Outdoor sunlight visibility", "Highly active developer fanbase"],
+        "weaknesses": ["Limited UI graphical abilities", "No cellular connectivity", "No advanced biological health sensors"],
+        "opportunities": ["Digital detox movement", "E-paper dashboard smartwatches", "Long-term patient biometric monitoring"],
+        "threats": ["Ultra-cheap smartbands", "Premium high-battery sports watches (Garmin)"]
+      },
+      "roadmap": [
+        {"step": "Phase 1: Solar Bezel R&D", "desc": "Engineer a solar-harvesting crystal bezel to trickle charge the wearable."},
+        {"step": "Phase 2: Color E-Ink OS", "desc": "Refactor the original Pebble SDK to support color e-paper with fast refresh rates."},
+        {"step": "Phase 3: Offline Health AI", "desc": "Integrate tinyML models on an ARM Cortex processor to analyze ECG and heart rate anomalies locally."},
+        {"step": "Phase 4: Crowd-Fund Launch", "desc": "Launch a Kickstarter campaign for the 'Pebble Revival' highlighting offline privacy and 15-day battery."}
+      ],
+      "financials": {
+        "estimatedCost": "$450,000",
+        "requiredSkills": ["Embedded Systems", "E-Paper Display Systems", "TinyML on Microcontrollers", "Hardware manufacturing"],
+        "targetIndustries": ["Wearable Electronics", "Digital Wellbeing", "Biometric Health Tracking"],
+        "potentialInvestors": ["Y Combinator", "Fitbit Founders", "Kickstarter community", "Kholsa Ventures"]
+      }
+    },
+    {
+      "id": "google-glass",
+      "name": "Google Glass (Explorer Edition)",
+      "inventor": "Babak Parviz (Project Glass)",
+      "patentId": "US8902511B1",
+      "yearFiled": 2012,
+      "status": "Discontinued",
+      "sector": "Augmented Reality",
+      "commercialPotential": 94,
+      "marketGrowth": "CAGR 38.2%",
+      "revivalViability": 91,
+      "readinessLevel": 6,
+      "recommendationScore": 95,
+      "failureBottlenecks": [
+        "Social Backlash (Privacy): The visible front camera raised major privacy concerns (users dubbed 'Glassholes').",
+        "Poor Display Optics: Small prism projection was difficult to see in bright light and caused eye strain.",
+        "Inefficient Battery/Overheating: Heavy compute on-board caused the frame to heat up and drained battery in 45 minutes.",
+        "Undefined Consumer Value: No clear killer app or utility that justified the $1,500 developer pricing."
+      ],
+      "aiEnhancementVector": [
+        "Replace Prism with MicroLED Waveguides: Use transparent diffractive waveguide lenses for high-brightness overlay.",
+        "Conversational AI Interface: Use Whisper for voice input and GPT-4o style vision models to turn the glasses into an intelligent visual assistant.",
+        "Privacy-First Shutter: Install a mechanical or electrochromic shutter that visually blocks the camera when not explicitly active.",
+        "Enterprise-Focused Edge Processing: Deploy specific models for industrial maintenance, surgeon overlay, or warehouse picking."
+      ],
+      "marketTrend": [
+        {"year": 2020, "value": 50},
+        {"year": 2022, "value": 58},
+        {"year": 2024, "value": 82},
+        {"year": 2026, "value": 95}
+      ],
+      "swot": {
+        "strengths": ["Lightweight form factor", "Heads-up notification style", "Strong developer framework"],
+        "weaknesses": ["Heat dissipation issues", "Distorted prism displays", "Awkward social appearance"],
+        "opportunities": ["Generative AI Visual Assistant market", "Enterprise hands-free checklists", "Real-time subtitle translators"],
+        "threats": ["Apple Vision Pro/Meta Orion", "Smart audio-only glasses (Ray-Ban Meta)"]
+      },
+      "roadmap": [
+        {"step": "Phase 1: Optical Upgrade", "desc": "Source high-brightness microLED modules and thin diffractive waveguides."},
+        {"step": "Phase 2: Conversational NPU Integration", "desc": "Embed a lightweight Snapdragon AR processor with built-in NPU for offline speech recognition."},
+        {"step": "Phase 3: Visual Search AI Engine", "desc": "Implement on-device vector database queries to identify objects and translate languages instantly."},
+        {"step": "Phase 4: B2B Maintenance Pilot", "desc": "Partner with logistics hubs to roll out hands-free barcode scanning and route finding."}
+      ],
+      "financials": {
+        "estimatedCost": "$1,200,000",
+        "requiredSkills": ["Waveguide Optics", "On-device AI / NPU optimization", "Embedded OS", "Industrial UX design"],
+        "targetIndustries": ["Logistics & Warehousing", "Healthcare / Surgical Overlays", "Consumer Smart Glasses"],
+        "potentialInvestors": ["Intel Capital", "Qualcomm Ventures", "Google Ventures", "Honeywell Labs"]
+      }
+    },
+    {
+      "id": "segway-pt",
+      "name": "Segway Personal Transporter",
+      "inventor": "Dean Kamen",
+      "patentId": "US6302230B1",
+      "yearFiled": 2001,
+      "status": "Discontinued",
+      "sector": "Micro-mobility",
+      "commercialPotential": 75,
+      "marketGrowth": "CAGR 18.6%",
+      "revivalViability": 82,
+      "readinessLevel": 9,
+      "recommendationScore": 79,
+      "failureBottlenecks": [
+        "Prohibitive Price Point: Launched at $5,000 in 2001, which was too expensive for casual commuters.",
+        "Over-engineering: Complex self-balancing gyroscopic sensors made the unit heavy (100 lbs) and hard to transport.",
+        "Regulatory Hurdles: Sidewalk bans and lack of bike-lane classifications restricted where it could be legally driven.",
+        "Social Stigma: Seen as bulky and uncool, losing the younger demographic to skateboards and bikes."
+      ],
+      "aiEnhancementVector": [
+        "Lightweight Carbon Fiber Frame: Reduce weight to under 30 lbs using composite materials and smaller brushless motors.",
+        "AI Geofencing & ADAS: Integrate computer vision to dynamically adjust speed on sidewalks vs bike lanes.",
+        "App-Less Shared Mobility Model: Incorporate cellular IoT nodes for dockless sharing networks (like Lime or Bird).",
+        "Self-Parking / Summoning: Use autonomous pathfinding to let the unit park itself or drive to a user's location."
+      ],
+      "marketTrend": [
+        {"year": 2020, "value": 65},
+        {"year": 2022, "value": 72},
+        {"year": 2024, "value": 80},
+        {"year": 2026, "value": 85}
+      ],
+      "swot": {
+        "strengths": ["Flawless self-balancing technology", "Zero emissions", "High torque electric motors"],
+        "weaknesses": ["Extremely heavy and bulky", "Expensive replacement batteries", "Difficult to store inside apartments"],
+        "opportunities": ["Last-mile delivery integration", "Shared micro-mobility platforms", "Airport/Warehouse security patrols"],
+        "threats": ["Foldable electric scooters", "Low-cost e-bikes"]
+      },
+      "roadmap": [
+        {"step": "Phase 1: Weight Reduction", "desc": "Redesign the motor casing and chassis using aluminum/carbon fiber composite."},
+        {"step": "Phase 2: IoT Integration", "desc": "Add global cellular LTE chipsets and smart-locking remote systems."},
+        {"step": "Phase 3: ADAS Safety System", "desc": "Mount front ultrasonic and camera modules to prevent pedestrian collisions."},
+        {"step": "Phase 4: Shared Fleet Pilot", "desc": "Roll out 100 units in a dense tourist destination for self-balancing rental tours."}
+      ],
+      "financials": {
+        "estimatedCost": "$600,000",
+        "requiredSkills": ["Control Systems Engineering", "Brushless DC Motor Design", "IoT Firmware Development", "ADAS / Computer Vision"],
+        "targetIndustries": ["Urban Commuting", "Campus & Tourism Transport", "Automated Security Devices"],
+        "potentialInvestors": ["SoftBank Vision Fund", "Lime Ventures", "Bird Global", "Segway-Ninebot Group"]
+      }
+    },
+    {
+      "id": "theranos-microfluidic",
+      "name": "Decentralized Open-Source Microfluidic Lab",
+      "inventor": "Elizabeth Holmes (Conceptual / Clean Revival)",
+      "patentId": "US8283155B2",
+      "yearFiled": 2005,
+      "status": "Fraud / Cancelled",
+      "sector": "Biomedical Diagnostics",
+      "commercialPotential": 90,
+      "marketGrowth": "CAGR 28.1%",
+      "revivalViability": 68,
+      "readinessLevel": 4,
+      "recommendationScore": 72,
+      "failureBottlenecks": [
+        "Scientific Fabrications: Theranos tried to run hundreds of tests on single tiny droplets using machines that didn't work.",
+        "Overheating & Dilution: Small volume samples suffered from high evaporation and capillary contamination.",
+        "Lack of Transparency: Closed-source, secret algorithms prevented external scientific review and verification.",
+        "Regulatory Violations: Falsified clinical trial results led to a total federal shutdown and criminal convictions."
+      ],
+      "aiEnhancementVector": [
+        "Open-Source Microfluidic Design: Share plans on GitHub for global peer-review and optical validation.",
+        "AI Spectral Analysis: Use high-speed optical cameras and neural nets to analyze droplet blood colorimetry/fluorescence instead of mechanical reagents.",
+        "Blockchain Provenance: Log test calibrations and raw sensor telemetry on a public blockchain ledger to ensure data integrity and prevent manipulation.",
+        "Targeted Niche Assays: Focus on ONLY 3-5 high-accuracy microfluidic tests (like glucose, cholesterol, lactate) rather than 200+ tests."
+      ],
+      "marketTrend": [
+        {"year": 2020, "value": 20},
+        {"year": 2022, "value": 30},
+        {"year": 2024, "value": 45},
+        {"year": 2026, "value": 65}
+      ],
+      "swot": {
+        "strengths": ["Low volume testing concept", "Rapid results in 15 minutes", "Low-cost testing potential"],
+        "weaknesses": ["Immense public skepticism", "Capillary blood sample dilution errors", "Severe regulatory scrutiny"],
+        "opportunities": ["Remote healthcare diagnostics", "Developing country triage labs", "Athletic training metabolic analysis"],
+        "threats": ["FDA bans on innovative blood panels", "Established centralized lab giants (LabCorp, Quest)"]
+      },
+      "roadmap": [
+        {"step": "Phase 1: Academic Peer Review", "desc": "Collaborate with university bio-labs to publish open-source microfluidic designs for validation."},
+        {"step": "Phase 2: Laser Photo-Spectroscopy R&D", "desc": "Build a optical scanning chamber utilizing low-cost lasers to read reagent reactions in micro-channels."},
+        {"step": "Phase 3: Blockchain Audit Trails", "desc": "Write backend ledger connectors logging machine hardware calibration states for every test run."},
+        {"step": "Phase 4: Limited Clinical Trial", "desc": "Conduct a 500-person validation study comparing the microfluidic results against standard venous draws."}
+      ],
+      "financials": {
+        "estimatedCost": "$2,500,000",
+        "requiredSkills": ["Microfluidics Engineering", "Bio-medical Assays", "Laser Photo-Spectroscopy", "Blockchain Audit Engineering"],
+        "targetIndustries": ["Point-of-Care Diagnostics", "Preventative Biotech", "Remote Health Tech"],
+        "potentialInvestors": ["Bill & Melinda Gates Foundation", "Khosla Ventures", "NIH Grants", "Y Combinator Bio"]
+      }
+    },
+    {
+      "id": "microsoft-zune",
+      "name": "Microsoft Zune (Digital Detox Edition)",
+      "inventor": "Microsoft Corp",
+      "patentId": "US20080004077A1",
+      "yearFiled": 2006,
+      "status": "Discontinued",
+      "sector": "Consumer Electronics",
+      "commercialPotential": 70,
+      "marketGrowth": "CAGR 6.5%",
+      "revivalViability": 74,
+      "readinessLevel": 9,
+      "recommendationScore": 72,
+      "failureBottlenecks": [
+        "Late Market Entry: Launched five years after the iPod, failing to break Apple's market dominance.",
+        "Poor Ecosystem Integration: Software marketplace was sluggish and sync processes were unreliable compared to iTunes.",
+        "Unpopular Design Choices: Early models had bulky plastic shells and unpopular brown/retro colors.",
+        "Rise of Smartphones: The iPhone combined phone, internet, and music player, eliminating the need for a separate MP3 device."
+      ],
+      "aiEnhancementVector": [
+        "Focus on Digital Detox: Position as an offline-focused music device that blocks social media notifications and tracks screen-time health.",
+        "Hi-Fi DAC & Lossless Streaming: Integrate high-performance DAC (Digital-to-Analog Converter) and local FLAC playback.",
+        "AI Playlist Synthesis: Dynamic offline generation of mood-matching soundtracks based on a pre-loaded local library.",
+        "Wireless Peer-to-Peer Sharing: Revive the Zune 'Squirt' (P2P music sharing) using modern Wi-Fi 6 for fast, off-grid mesh network sharing."
+      ],
+      "marketTrend": [
+        {"year": 2020, "value": 25},
+        {"year": 2022, "value": 38},
+        {"year": 2024, "value": 55},
+        {"year": 2026, "value": 70}
+      ],
+      "swot": {
+        "strengths": ["Nostalgic retro branding", "Physical button tactile interface", "Outstanding original software design UI"],
+        "weaknesses": ["No phone capability", "Requires manual file syncing", "Limited streaming catalog support"],
+        "opportunities": ["Digital detox trend in Gen Z", "Audiophile demand for lossless offline hardware", "Distraction-free studying tools"],
+        "threats": ["Smartphone screen time controls getting smarter", "High-end specialized audio players (FiiO)"]
+      },
+      "roadmap": [
+        {"step": "Phase 1: DAC Selection", "desc": "Source high-performance audio decoders capable of 24-bit/192kHz output."},
+        {"step": "Phase 2: Custom OS Skin", "desc": "Write a lightweight Android-based shell capturing the original metro typography UI without Google Play services."},
+        {"step": "Phase 3: Mesh Network Sharing", "desc": "Implement Wi-Fi Direct protocols allowing local file exchange between nearby devices without internet."},
+        {"step": "Phase 4: Launch Retro Campaign", "desc": "Target college campuses with a marketing hook focusing on distraction-free listening."}
+      ],
+      "financials": {
+        "estimatedCost": "$300,000",
+        "requiredSkills": ["Acoustic Engineering", "Android OS Customization", "Wi-Fi Direct P2P Protocols", "Retro Product Marketing"],
+        "targetIndustries": ["Audiophile Equipment", "Digital Wellness Devices", "Retro Consumer Hardware"],
+        "potentialInvestors": ["Teenage Engineering partners", "Kickstarter backers", "Hardware Synergy Funds"]
+      }
+    },
+    {
+      "id": "quibi-streaming",
+      "name": "Quibi Interactive Micro-Narratives",
+      "inventor": "Jeffrey Katzenberg",
+      "patentId": "US10659850B2",
+      "yearFiled": 2019,
+      "status": "Failed",
+      "sector": "Digital Entertainment",
+      "commercialPotential": 68,
+      "marketGrowth": "CAGR 12.1%",
+      "revivalViability": 71,
+      "readinessLevel": 7,
+      "recommendationScore": 69,
+      "failureBottlenecks": [
+        "Inflexible Pricing: Paid subscription tier was unappealing compared to free platforms (TikTok, YouTube).",
+        "Pandemic Launch: Designed for 10-minute commutes, but launched when everyone was quarantined at home.",
+        "Social Sharing Ban: Banned screenshots and sharing clips, killing viral community marketing.",
+        "Traditional Content Layout: High production costs but lack of user interaction or algorithmic variety."
+      ],
+      "aiEnhancementVector": [
+        "Generative Script Adaptation: Use LLMs to dynamically generate alternate story branches based on user feedback.",
+        "Social Co-Watching Rooms: Allow mobile screen-sharing, meme-making, and clip sharing natively in-app.",
+        "Adaptive Dynamic Aspect Ratio: Upgrade 'Turnstyle' tech to dynamically scale camera frames in real-time using AI bounding box detection.",
+        "User-Generated AI Content: Open the platform to indie creators using AI tools to build 10-minute cinematic episodes."
+      ],
+      "marketTrend": [
+        {"year": 2020, "value": 15},
+        {"year": 2022, "value": 25},
+        {"year": 2024, "value": 52},
+        {"year": 2026, "value": 72}
+      ],
+      "swot": {
+        "strengths": ["Premium high-production short content", "Turnstyle vertical/horizontal format patents", "Highly experienced founding group"],
+        "weaknesses": ["Extreme production overheads", "Poor branding messaging", "No community creator loop"],
+        "opportunities": ["TikTok-style interactive video feeds", "AI cinematic generator startups", "Casual mobile gaming crossovers"],
+        "threats": ["YouTube Shorts", "Instagram Reels", "Netflix Mobile"]
+      },
+      "roadmap": [
+        {"step": "Phase 1: Dynamic Cropping Model", "desc": "Train a YOLOv8 real-time object tracking model to frame content dynamically into 9:16 aspect ratios."},
+        {"step": "Phase 2: Creator Studio Launch", "desc": "Build an open portal where video editors can submit branching narrative maps."},
+        {"step": "Phase 3: Interactive App Client", "desc": "Write mobile React Native player utilizing quick-swipe narrative paths."},
+        {"step": "Phase 4: Community Launch", "desc": "Launch an ad-supported free tier allowing users to generate memes and share micro-clips on Reddit."}
+      ],
+      "financials": {
+        "estimatedCost": "$500,000",
+        "requiredSkills": ["Computer Vision / Object Tracking", "React Native", "Dynamic Video Transcoding", "Content Distribution Networks"],
+        "targetIndustries": ["Media & Streaming Services", "Generative Entertainment Tools", "Mobile Gaming Industry"],
+        "potentialInvestors": ["Andreessen Horowitz (a16z)", "Epic Games Publishing", "ByteDance Ventures", "YouTube Creator Fund"]
+      }
+    },
+    {
+      "id": "project-ara",
+      "name": "Project Ara Modular Smartphone",
+      "inventor": "Google (Advanced Technology and Projects)",
+      "patentId": "US9369989B2",
+      "yearFiled": 2013,
+      "status": "Cancelled",
+      "sector": "Consumer Electronics",
+      "commercialPotential": 85,
+      "marketGrowth": "CAGR 19.3%",
+      "revivalViability": 86,
+      "readinessLevel": 5,
+      "recommendationScore": 88,
+      "failureBottlenecks": [
+        "Uni-bus Latency: Speed limits of the modular bus (UniPro) caused bottlenecks in sensor and display frame rates.",
+        "Module Attachment Durability: Magnetic locks were fragile, leading to modules disconnecting when dropped.",
+        "Bulk & Weight: The exoskeleton frame and separate module shells made the phone 2-3 times thicker than standard phones.",
+        "Lack of OEM Support: Hardware manufacturers preferred selling complete upgrades rather than single components."
+      ],
+      "aiEnhancementVector": [
+        "UniPro Upgrade with PCIe Gen 4: Use high-speed optical connections or wireless ultra-wideband for module communication.",
+        "Modern Electromagnetic Clamps: Deploy smart electro-permanent magnets managed by firmware to secure modules on impacts.",
+        "AI Hardware Resource Negotiator: Create an on-device AI system configuration manager to hot-swap modules without device reboots.",
+        "Circular Economy Positioning: Partner with carbon-neutral repair campaigns to pitch modular tech for zero-waste electronics."
+      ],
+      "marketTrend": [
+        {"year": 2020, "value": 30},
+        {"year": 2022, "value": 45},
+        {"year": 2024, "value": 68},
+        {"year": 2026, "value": 85}
+      ],
+      "swot": {
+        "strengths": ["Infinitely upgradable device lifespan", "Dramatically reduces electronic waste", "Custom hardware modular layouts"],
+        "weaknesses": ["Increased structural fragility", "Higher base weight and width", "Loss of water-resistance certifications"],
+        "opportunities": ["Right to Repair legislative push", "Specialized hardware modules (flir cameras, bio-sensors)", "Industrial customizable devices"],
+        "threats": ["Monolithic device manufacturing giants", "Standardized trade-in cycles"]
+      },
+      "roadmap": [
+        {"step": "Phase 1: High-Speed Optical Bus", "desc": "Engineer a fiber-optic communication path linking individual module nodes to the CPU base."},
+        {"step": "Phase 2: Electro-Magnetic Locking System", "desc": "Write shock-sensor interrupts that boost voltage to magnets instantly upon dropping detection."},
+        {"step": "Phase 3: Open-Source CAD Registry", "desc": "Release precise 3D specifications for modules on GitHub for third-party hardware developers."},
+        {"step": "Phase 4: Kickstarter Module Launch", "desc": "Launch an initial phone kit featuring an e-ink screen module and high-capacity battery module."}
+      ],
+      "financials": {
+        "estimatedCost": "$1,800,000",
+        "requiredSkills": ["Optoelectronic Engineering", "CAD/Hardware Housing", "Low-level Linux Kernel Development", "Electromagnetics"],
+        "targetIndustries": ["Eco-friendly Consumer Tech", "Specialized Field Hardware", "Mobile Hardware Prototyping"],
+        "potentialInvestors": ["Fairphone Ventures", "iFixit Investment Group", "European Circular Economy Fund", "Google ATAP Partners"]
+      }
+    },
+    {
+      "id": "nokia-ngage",
+      "name": "Nokia N-Gage Mobile Game Deck",
+      "inventor": "Nokia Corp",
+      "patentId": "US6724623B2",
+      "yearFiled": 2003,
+      "status": "Discontinued",
+      "sector": "Mobile Gaming Hardware",
+      "commercialPotential": 75,
+      "marketGrowth": "CAGR 18.2%",
+      "revivalViability": 80,
+      "readinessLevel": 9,
+      "recommendationScore": 78,
+      "failureBottlenecks": [
+        "Design Flaw ('Sidetalking'): The speaker and microphone were placed on the side edge of the phone, requiring users to hold it sideways to make calls.",
+        "Complicated Game Swapping: Users had to remove the battery cover and battery to swap game MMC cards, causing device resets.",
+        "High Pricing & Competition: Launched at $299 with a vertical screen layout, losing against Nintendo's Game Boy Advance.",
+        "Poor Screen Aspect Ratio: Vertical 176x208 screen layout made gaming feel cramped compared to landscape portable consoles."
+      ],
+      "aiEnhancementVector": [
+        "Landscape Dual-Screen Layout: Integrate a slide-out landscape screen with dual analog sticks for modern touch/button gaming.",
+        "Integrated Cloud Gaming: Reposition as a dedicated offline/online client for Xbox Game Pass and GeForce Now.",
+        "Hot-Swappable Module Slots: Design modern micro-SD ports that let users swap memory cards without opening the device body.",
+        "Retro Gaming Emulator Hub: Ship with legal open-source emulators optimized for mobile processors with physical keymaps."
+      ],
+      "marketTrend": [
+        {"year": 2020, "value": 20},
+        {"year": 2022, "value": 35},
+        {"year": 2024, "value": 60},
+        {"year": 2026, "value": 80}
+      ],
+      "swot": {
+        "strengths": ["Physical gaming keys combined with cellular phone", "Pioneered mobile gaming networks (N-Gage Arena)", "Tactile D-pad feedback"],
+        "weaknesses": ["Cramped screen dimensions", "Difficult to use for calls", "No support for capacitive multi-touch"],
+        "opportunities": ["Growth in retro emulation portable consoles", "Increasing demand for pocket-sized cloud gaming clients", "Mobile esports development"],
+        "threats": ["Dominance of standard touchscreen iOS/Android devices", "High-performance handheld consoles (Steam Deck, Nintendo Switch)"]
+      },
+      "roadmap": [
+        {"step": "Phase 1: Shell Design", "desc": "Design a sleek landscape layout with central widescreen and side-mounted buttons."},
+        {"step": "Phase 2: Hot-Swap SDK", "desc": "Write low-level firmware supporting live MMC/microSD hot-swapping without reboots."},
+        {"step": "Phase 3: Emulator Mapping", "desc": "Build automated mapping overlays translating retro system buttons to physical keys."},
+        {"step": "Phase 4: Launch Campaign", "desc": "Roll out a marketing strategy highlighting distraction-free mobile gaming with phone calling capability."}
+      ],
+      "financials": {
+        "estimatedCost": "$400,000",
+        "requiredSkills": ["Handheld Hardware Engineering", "Embedded Linux Development", "Input Keymapping Optimization", "Industrial Ergonomic Design"],
+        "targetIndustries": ["Handheld Console Gaming", "Mobile Infrastructure", "Retro Emulation Systems"],
+        "potentialInvestors": ["Nokia Ventures", "Razer Capital", "Retro Hardware Backers", "Mobile Syndicate Funds"]
+      }
+    }
+  ]
+}

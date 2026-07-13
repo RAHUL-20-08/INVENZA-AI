@@ -1,0 +1,61 @@
+[
+  {
+    "email": "analyst@gmail.com",
+    "password": "10fd94fcb6307ebca146a0c5c13c452d77e32452d8ff6d4b916e64da7019d215",
+    "role": "student"
+  },
+  {
+    "email": "analyst@outlook.com",
+    "password": "c0a8a6921e4af14933adbd5631272bec855ff207cb9714a0bb07a5413627a476",
+    "role": "business"
+  },
+  {
+    "email": "test_student@studentportal.org",
+    "password": "d9d8e7ee4e92681edbb144557bbf512c15e51582ed8f4a03dac98e88d1065674",
+    "role": "student"
+  },
+  {
+    "email": "ceo_startup@businessgrowth.com",
+    "password": "d9d8e7ee4e92681edbb144557bbf512c15e51582ed8f4a03dac98e88d1065674",
+    "role": "business"
+  },
+  {
+    "email": "bubaganesh1133@gmail.com",
+    "password": "8c8bdd8a17d1b915e3e710c64bdb310c40ab1ad78c1091256440abfdbad6553d",
+    "role": "student"
+  },
+  {
+    "email": "innovator_founder@mit.edu",
+    "password": "8f3d7cb9f734b4c98a7fe97a243cbf14b659876430befeaef765d6df813ced4b",
+    "role": "student",
+    "roles": [
+      "student",
+      "business"
+    ],
+    "studentProfile": {
+      "fullName": "Marcus Vance",
+      "college": "MIT",
+      "department": "EECS",
+      "yearOfStudy": "4",
+      "registerNumber": "",
+      "skills": [
+        "React",
+        "PyTorch"
+      ],
+      "interests": [
+        "Patent Analysis"
+      ],
+      "preferredDomains": []
+    },
+    "businessProfile": {
+      "fullName": "Marcus Vance",
+      "companyName": "Vance Tech Labs",
+      "industry": "DeepTech",
+      "companySize": "1-10",
+      "businessStage": "MVP",
+      "country": "US",
+      "website": "",
+      "linkedin": ""
+    }
+  }
+]
