@@ -22,7 +22,6 @@
   {
     "email": "bubaganesh1133@gmail.com",
     "password": "8c8bdd8a17d1b915e3e710c64bdb310c40ab1ad78c1091256440abfdbad6553d",
-<<<<<<< HEAD
     "role": "student",
     "loginFailures": 0,
     "lockoutUntil": null,
@@ -635,13 +634,10 @@
       "linkedin": "",
       "businessRole": "Founder"
     }
-=======
-    "role": "student"
   },
   {
     "email": "harishwarankrish20@gmail.com",
     "password": "88da0b3e3627feac76703d5c194f3be2305805349bdb104d8d64fb32fd0c6a88",
     "role": "student"
->>>>>>> 1ab78b1 ( change in login page and cursor)
   }
 ]

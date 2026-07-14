@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
-=======
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap');
->>>>>>> 1ab78b1 ( change in login page and cursor)
 
 :root {
   /* Premium Business Console Colors - Obsidian Black */
@@ -33,7 +29,6 @@
   --font-display: 'Space Grotesk', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   --font-mono: 'JetBrains Mono', Consolas, monospace;
   
-<<<<<<< HEAD
   /* Responsive Typography Scale System (8px Grid Aligned) */
   --fs-hero: clamp(2.5rem, 5vw, 3.5rem);        /* 40px - 56px (Hero Title) */
   --fs-page: clamp(1.75rem, 4vw, 2.25rem);      /* 28px - 36px (Page Titles) */
@@ -44,13 +39,8 @@
   --fs-caption: 0.75rem;                         /* 12px (Captions) */
 
   --radius-sm: 6px;
-  --radius-md: 8px;
-  --radius-lg: 12px;
-=======
-  --radius-sm: 6px;
   --radius-md: 12px;
   --radius-lg: 20px;
->>>>>>> 1ab78b1 ( change in login page and cursor)
 }
 
 * {
@@ -127,11 +117,7 @@ a, button, [role="button"], input, select, textarea, .list-item, .tech-button, .
 
 main.main-content {
   flex: 1;
-<<<<<<< HEAD
-  padding: 2rem 3rem 3rem 3rem;
-=======
   padding: 2.25rem 3rem 3rem 3rem;
->>>>>>> 1ab78b1 ( change in login page and cursor)
   margin-left: 260px;
   min-width: 0;
   display: flex;
@@ -172,8 +158,6 @@ main.main-content {
   position: relative;
 }
 
-<<<<<<< HEAD
-=======
 /* Corner Brackets */
 .glass-panel::before,
 .glass-panel::after {
@@ -199,8 +183,6 @@ main.main-content {
   border-bottom: 2px solid var(--color-secondary);
   border-right: 2px solid var(--color-secondary);
 }
-
->>>>>>> 1ab78b1 ( change in login page and cursor)
 .glass-panel:hover {
   transform: translateY(-1px);
   border-color: var(--color-primary);
@@ -504,15 +486,9 @@ label, .form-label {
 
 .list-item {
   background: var(--bg-list-item);
-<<<<<<< HEAD
   border: 1px solid var(--border-color);
   border-radius: var(--radius-md);
   padding: 1.25rem 1.5rem;
-=======
-  border: 1px dashed var(--border-list-item);
-  border-radius: var(--radius-sm);
-  padding: 1.2rem 1.5rem;
->>>>>>> 1ab78b1 ( change in login page and cursor)
   display: flex;
   justify-content: space-between;
   align-items: center;

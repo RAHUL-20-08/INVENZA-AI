@@ -95,56 +95,10 @@ const loadUsers = () => {
     fs.writeFileSync(USERS_FILE, JSON.stringify(defaults, null, 2));
     return defaults;
   }
-<<<<<<< HEAD
   try {
     return JSON.parse(fs.readFileSync(USERS_FILE, 'utf8'));
   } catch (err) {
     return [];
-=======
-
-  const users = loadUsers();
-  if (users.some(u => u.email.toLowerCase() === email.toLowerCase())) {
-    return res.status(422).json({ success: false, message: "Email is already registered." });
-  }
-
-  const role = getRoleFromEmail(email);
-  users.push({ email: email.toLowerCase(), password: hashPassword(password), role });
-  saveUsers(users);
-
-  res.json({ success: true, message: "User registered successfully." });
-};
-
-export const loginUser = async (req, res) => {
-  const { email, password } = req.body;
-  if (!email || !password) {
-    return res.status(400).json({ success: false, message: "Email and password are required." });
-  }
-
-  const users = loadUsers();
-  const found = users.find(u => {
-    const inputLower = email.toLowerCase();
-    const dbEmailLower = u.email.toLowerCase();
-    const dbUsernameLower = u.email.split('@')[0].toLowerCase();
-    return (dbEmailLower === inputLower || dbUsernameLower === inputLower) && u.password === hashPassword(password);
-  });
-  if (found) {
-    const role = found.role || getRoleFromEmail(found.email);
-    const tokenPayload = { email: found.email, role, exp: Math.floor(Date.now() / 1000) + (60 * 60 * 24) };
-    const token = Buffer.from(JSON.stringify(tokenPayload)).toString('base64');
-
-    res.json({
-      success: true,
-      token,
-      user: {
-        id: found.email,
-        name: found.email.split('@')[0],
-        email: found.email,
-        role
-      }
-    });
-  } else {
-    res.status(401).json({ success: false, message: "Wrong username/email or password." });
->>>>>>> 1ab78b1 ( change in login page and cursor)
   }
 };
 
@@ -229,19 +183,11 @@ export const sendRegisterOTP = async (req, res) => {
     };
 
     const info = await transporter.sendMail(mailOptions);
-<<<<<<< HEAD
     console.log(`[MAIL] Registration verification OTP sent to ${email}: ${otp}`);
-    res.json({ success: true, message: "A verification code has been sent to your email." });
-=======
-
-    // Log code to server console (mock terminal log) for secure retrieval during local audits
-    console.log(`[MAIL] Password Reset OTP sent to ${email}: ${otp}`);
     if (info.message) {
       console.log(`[MAIL STREAM OUTPUT]:\n${info.message.toString()}`);
     }
-
-    res.json({ success: true, message: "A password reset link/code has been sent to your registered email." });
->>>>>>> 1ab78b1 ( change in login page and cursor)
+    res.json({ success: true, message: "A verification code has been sent to your email." });
   } catch (err) {
     console.error(err);
     res.status(500).json({ success: false, message: "We couldn't send the verification email." });

@@ -5,13 +5,8 @@
   "main": "app.js",
   "type": "module",
   "scripts": {
-<<<<<<< HEAD
-    "start": "node app.js",
-    "dev": "nodemon --ignore users.json --ignore audit_logs.json --ignore hackathons.json app.js"
-=======
     "start": "node --env-file=.env app.js",
-    "dev": "nodemon --env-file=.env app.js"
->>>>>>> 1ab78b1 ( change in login page and cursor)
+    "dev": "nodemon --env-file=.env --ignore users.json --ignore audit_logs.json --ignore hackathons.json app.js"
   },
   "dependencies": {
     "cors": "^2.8.5",
