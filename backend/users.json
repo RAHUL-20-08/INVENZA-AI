@@ -1,7 +1,7 @@
 [
   {
     "email": "analyst@gmail.com",
-    "password": "10fd94fcb6307ebca146a0c5c13c452d77e32452d8ff6d4b916e64da7019d215",
+    "password": "f11884ec04f85de9f5c9c3ea73c6e1c4d85df5552262a9be6ad74916806e0b3a",
     "role": "student"
   },
   {
@@ -22,6 +22,7 @@
   {
     "email": "bubaganesh1133@gmail.com",
     "password": "8c8bdd8a17d1b915e3e710c64bdb310c40ab1ad78c1091256440abfdbad6553d",
+<<<<<<< HEAD
     "role": "student",
     "loginFailures": 0,
     "lockoutUntil": null,
@@ -634,5 +635,13 @@
       "linkedin": "",
       "businessRole": "Founder"
     }
+=======
+    "role": "student"
+  },
+  {
+    "email": "harishwarankrish20@gmail.com",
+    "password": "88da0b3e3627feac76703d5c194f3be2305805349bdb104d8d64fb32fd0c6a88",
+    "role": "student"
+>>>>>>> 1ab78b1 ( change in login page and cursor)
   }
 ]

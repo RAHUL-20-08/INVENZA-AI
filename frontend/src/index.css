@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+=======
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap');
+>>>>>>> 1ab78b1 ( change in login page and cursor)
 
 :root {
   /* Premium Business Console Colors - Obsidian Black */
@@ -25,10 +29,11 @@
   --text-dim: #64748b;
   
   /* Fonts */
-  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  --font-display: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  --font-mono: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-display: 'Space Grotesk', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-mono: 'JetBrains Mono', Consolas, monospace;
   
+<<<<<<< HEAD
   /* Responsive Typography Scale System (8px Grid Aligned) */
   --fs-hero: clamp(2.5rem, 5vw, 3.5rem);        /* 40px - 56px (Hero Title) */
   --fs-page: clamp(1.75rem, 4vw, 2.25rem);      /* 28px - 36px (Page Titles) */
@@ -41,6 +46,11 @@
   --radius-sm: 6px;
   --radius-md: 8px;
   --radius-lg: 12px;
+=======
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+>>>>>>> 1ab78b1 ( change in login page and cursor)
 }
 
 * {
@@ -55,6 +65,16 @@ body {
   font-family: var(--font-sans);
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
+}
+
+/* Custom Cursor System */
+html, body {
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24'%3E%3Cpath d='M4.5,2.5 L19.5,12.5 L12.5,14.5 L8.5,20.5 Z' fill='%233b82f6' stroke='%23ffffff' stroke-width='1.5'/%3E%3C/svg%3E") 4 2, auto;
+}
+
+/* Hover/Clickable Cursor System */
+a, button, [role="button"], input, select, textarea, .list-item, .tech-button, .sidebar-link, .nav-item, input[type="submit"] {
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24'%3E%3Cpath d='M4.5,2.5 L19.5,12.5 L12.5,14.5 L8.5,20.5 Z' fill='%230d9488' stroke='%23ffffff' stroke-width='1.5'/%3E%3C/svg%3E") 4 2, pointer !important;
 }
 
 /* Floating HUD ambient grid lights */
@@ -105,9 +125,13 @@ body {
   position: relative;
 }
 
-.main-content {
+main.main-content {
   flex: 1;
+<<<<<<< HEAD
   padding: 2rem 3rem 3rem 3rem;
+=======
+  padding: 2.25rem 3rem 3rem 3rem;
+>>>>>>> 1ab78b1 ( change in login page and cursor)
   margin-left: 260px;
   min-width: 0;
   display: flex;
@@ -148,6 +172,35 @@ body {
   position: relative;
 }
 
+<<<<<<< HEAD
+=======
+/* Corner Brackets */
+.glass-panel::before,
+.glass-panel::after {
+  content: '';
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  pointer-events: none;
+}
+
+.glass-panel::before {
+  top: -1px;
+  left: -1px;
+  border-top-left-radius: var(--radius-md);
+  border-top: 2px solid var(--color-primary);
+  border-left: 2px solid var(--color-primary);
+}
+
+.glass-panel::after {
+  bottom: -1px;
+  right: -1px;
+  border-bottom-right-radius: var(--radius-md);
+  border-bottom: 2px solid var(--color-secondary);
+  border-right: 2px solid var(--color-secondary);
+}
+
+>>>>>>> 1ab78b1 ( change in login page and cursor)
 .glass-panel:hover {
   transform: translateY(-1px);
   border-color: var(--color-primary);
@@ -451,9 +504,15 @@ label, .form-label {
 
 .list-item {
   background: var(--bg-list-item);
+<<<<<<< HEAD
   border: 1px solid var(--border-color);
   border-radius: var(--radius-md);
   padding: 1.25rem 1.5rem;
+=======
+  border: 1px dashed var(--border-list-item);
+  border-radius: var(--radius-sm);
+  padding: 1.2rem 1.5rem;
+>>>>>>> 1ab78b1 ( change in login page and cursor)
   display: flex;
   justify-content: space-between;
   align-items: center;
