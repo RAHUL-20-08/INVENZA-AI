@@ -22,7 +22,81 @@
   {
     "email": "bubaganesh1133@gmail.com",
     "password": "8c8bdd8a17d1b915e3e710c64bdb310c40ab1ad78c1091256440abfdbad6553d",
-    "role": "student"
+    "role": "student",
+    "loginFailures": 0,
+    "lockoutUntil": null,
+    "activeSessions": [
+      {
+        "sessionId": "session_59b7306125f0d03f010420b4a105d3c9",
+        "token": "eyJlbWFpbCI6ImJ1YmFnYW5lc2gxMTMzQGdtYWlsLmNvbSIsInJvbGUiOiJzdHVkZW50IiwiZXhwIjoxNzgzOTM5OTAyfQ==",
+        "ip": "::1",
+        "os": "Windows",
+        "browser": "Chrome",
+        "deviceType": "Desktop",
+        "lastActive": "2026-07-13T09:51:42.347Z"
+      },
+      {
+        "sessionId": "session_e7dbf961ae5f8b4515bcb3ac997bf672",
+        "token": "eyJlbWFpbCI6ImJ1YmFnYW5lc2gxMTMzQGdtYWlsLmNvbSIsInJvbGUiOiJzdHVkZW50IiwiZXhwIjoxNzgzOTQ5MjIzfQ==",
+        "ip": "::1",
+        "os": "Windows",
+        "browser": "Chrome",
+        "deviceType": "Desktop",
+        "lastActive": "2026-07-13T12:27:03.341Z"
+      },
+      {
+        "sessionId": "session_a572db998a1c280d5b970e1a63b41b40",
+        "token": "eyJlbWFpbCI6ImJ1YmFnYW5lc2gxMTMzQGdtYWlsLmNvbSIsInJvbGUiOiJzdHVkZW50IiwiZXhwIjoxNzgzOTUwNzgzfQ==",
+        "ip": "::1",
+        "os": "Windows",
+        "browser": "Chrome",
+        "deviceType": "Desktop",
+        "lastActive": "2026-07-13T12:53:03.616Z"
+      },
+      {
+        "sessionId": "session_d017cb3bc756e82a745a5fc2fb387d9d",
+        "token": "eyJlbWFpbCI6ImJ1YmFnYW5lc2gxMTMzQGdtYWlsLmNvbSIsInJvbGUiOiJzdHVkZW50IiwiZXhwIjoxNzgzOTU3MTk1fQ==",
+        "ip": "::1",
+        "os": "Windows",
+        "browser": "Chrome",
+        "deviceType": "Desktop",
+        "lastActive": "2026-07-13T14:39:55.215Z"
+      }
+    ],
+    "loginHistory": [
+      {
+        "dateTime": "2026-07-13T09:51:42.347Z",
+        "ip": "::***",
+        "location": "Boston, US",
+        "os": "Windows",
+        "browser": "Chrome",
+        "deviceType": "Desktop"
+      },
+      {
+        "dateTime": "2026-07-13T12:27:03.341Z",
+        "ip": "::***",
+        "location": "Boston, US",
+        "os": "Windows",
+        "browser": "Chrome",
+        "deviceType": "Desktop"
+      },
+      {
+        "dateTime": "2026-07-13T12:53:03.616Z",
+        "ip": "::***",
+        "location": "Boston, US",
+        "os": "Windows",
+        "browser": "Chrome",
+        "deviceType": "Desktop"
+      },
+      {
+        "dateTime": "2026-07-13T14:39:55.215Z",
+        "ip": "::***",
+        "location": "Boston, US",
+        "os": "Windows",
+        "browser": "Chrome",
+        "deviceType": "Desktop"
+      }
+    ]
   },
   {
     "email": "innovator_founder@mit.edu",
@@ -56,6 +130,509 @@
       "country": "US",
       "website": "",
       "linkedin": ""
+    }
+  },
+  {
+    "email": "founder_1783925481035@invenza.io",
+    "password": "c2d1896e9811fc6c4ba39198d982a4f301d59397423590ab4ff406633eb97081",
+    "role": "business",
+    "roles": [
+      "business"
+    ],
+    "mfaEnabled": false,
+    "mfaType": "none",
+    "totpSecret": null,
+    "backupCodes": [],
+    "loginFailures": 1,
+    "lockoutUntil": null,
+    "activeSessions": [],
+    "loginHistory": [],
+    "studentProfile": null,
+    "businessProfile": {
+      "fullName": "Marcus Vance",
+      "companyName": "",
+      "industry": "",
+      "companySize": "",
+      "businessStage": "Idea",
+      "country": "",
+      "website": "",
+      "linkedin": "",
+      "businessRole": "Founder"
+    }
+  },
+  {
+    "email": "student_1783925481035@invenza.edu",
+    "password": "c800363e3b7ef45ed321bde58989b91a18b9a0c0f75cd1a471b3bbc2a918f462",
+    "role": "student",
+    "roles": [
+      "student"
+    ],
+    "mfaEnabled": false,
+    "mfaType": "none",
+    "totpSecret": null,
+    "backupCodes": [],
+    "loginFailures": 0,
+    "lockoutUntil": null,
+    "activeSessions": [],
+    "loginHistory": [],
+    "studentProfile": {
+      "fullName": "Evelyn Vance",
+      "college": "",
+      "department": "",
+      "yearOfStudy": "",
+      "registerNumber": "",
+      "skills": [],
+      "interests": [],
+      "preferredDomains": []
+    },
+    "businessProfile": null
+  },
+  {
+    "email": "founder_1783925486782@invenza.io",
+    "password": "c2d1896e9811fc6c4ba39198d982a4f301d59397423590ab4ff406633eb97081",
+    "role": "business",
+    "roles": [
+      "business"
+    ],
+    "mfaEnabled": false,
+    "mfaType": "none",
+    "totpSecret": null,
+    "backupCodes": [],
+    "loginFailures": 1,
+    "lockoutUntil": null,
+    "activeSessions": [],
+    "loginHistory": [],
+    "studentProfile": null,
+    "businessProfile": {
+      "fullName": "Marcus Vance",
+      "companyName": "",
+      "industry": "",
+      "companySize": "",
+      "businessStage": "Idea",
+      "country": "",
+      "website": "",
+      "linkedin": "",
+      "businessRole": "Founder"
+    }
+  },
+  {
+    "email": "student_1783925486782@invenza.edu",
+    "password": "c800363e3b7ef45ed321bde58989b91a18b9a0c0f75cd1a471b3bbc2a918f462",
+    "role": "student",
+    "roles": [
+      "student"
+    ],
+    "mfaEnabled": false,
+    "mfaType": "none",
+    "totpSecret": null,
+    "backupCodes": [],
+    "loginFailures": 0,
+    "lockoutUntil": null,
+    "activeSessions": [],
+    "loginHistory": [],
+    "studentProfile": {
+      "fullName": "Evelyn Vance",
+      "college": "",
+      "department": "",
+      "yearOfStudy": "",
+      "registerNumber": "",
+      "skills": [],
+      "interests": [],
+      "preferredDomains": []
+    },
+    "businessProfile": null
+  },
+  {
+    "email": "founder_1783925603220@invenza.io",
+    "password": "c2d1896e9811fc6c4ba39198d982a4f301d59397423590ab4ff406633eb97081",
+    "role": "business",
+    "roles": [
+      "business"
+    ],
+    "mfaEnabled": false,
+    "mfaType": "none",
+    "totpSecret": null,
+    "backupCodes": [],
+    "loginFailures": 0,
+    "lockoutUntil": 1783926515502,
+    "activeSessions": [],
+    "loginHistory": [],
+    "studentProfile": null,
+    "businessProfile": {
+      "fullName": "Marcus Vance",
+      "companyName": "",
+      "industry": "",
+      "companySize": "",
+      "businessStage": "Idea",
+      "country": "",
+      "website": "",
+      "linkedin": "",
+      "businessRole": "Founder"
+    }
+  },
+  {
+    "email": "student_1783925603220@invenza.edu",
+    "password": "c800363e3b7ef45ed321bde58989b91a18b9a0c0f75cd1a471b3bbc2a918f462",
+    "role": "student",
+    "roles": [
+      "student"
+    ],
+    "mfaEnabled": false,
+    "mfaType": "none",
+    "totpSecret": null,
+    "backupCodes": [],
+    "loginFailures": 0,
+    "lockoutUntil": null,
+    "activeSessions": [],
+    "loginHistory": [],
+    "studentProfile": {
+      "fullName": "Evelyn Vance",
+      "college": "",
+      "department": "",
+      "yearOfStudy": "",
+      "registerNumber": "",
+      "skills": [],
+      "interests": [],
+      "preferredDomains": []
+    },
+    "businessProfile": null
+  },
+  {
+    "email": "social_user_google_student@invenza.io",
+    "password": "f9536788280297b134fa811dcc81e8da09e6f41b592e72c78b2698d9a0a45a46",
+    "role": "student",
+    "roles": [
+      "student"
+    ],
+    "mfaEnabled": false,
+    "mfaType": "none",
+    "totpSecret": null,
+    "backupCodes": [],
+    "loginFailures": 0,
+    "lockoutUntil": null,
+    "activeSessions": [],
+    "loginHistory": [
+      {
+        "dateTime": "2026-07-13T08:50:47.599Z",
+        "ip": "::***",
+        "location": "Localnode, US",
+        "os": "Unknown OS",
+        "browser": "Unknown Browser",
+        "deviceType": "Desktop"
+      },
+      {
+        "dateTime": "2026-07-13T08:51:39.506Z",
+        "ip": "::***",
+        "location": "Localnode, US",
+        "os": "Unknown OS",
+        "browser": "Unknown Browser",
+        "deviceType": "Desktop"
+      },
+      {
+        "dateTime": "2026-07-13T08:56:25.274Z",
+        "ip": "::***",
+        "location": "Localnode, US",
+        "os": "Unknown OS",
+        "browser": "Unknown Browser",
+        "deviceType": "Desktop"
+      },
+      {
+        "dateTime": "2026-07-13T09:01:00.929Z",
+        "ip": "::***",
+        "location": "Localnode, US",
+        "os": "Unknown OS",
+        "browser": "Unknown Browser",
+        "deviceType": "Desktop"
+      },
+      {
+        "dateTime": "2026-07-13T09:09:08.867Z",
+        "ip": "::***",
+        "location": "Localnode, US",
+        "os": "Unknown OS",
+        "browser": "Unknown Browser",
+        "deviceType": "Desktop"
+      },
+      {
+        "dateTime": "2026-07-13T12:01:53.481Z",
+        "ip": "::***",
+        "location": "Localnode, US",
+        "os": "Unknown OS",
+        "browser": "Unknown Browser",
+        "deviceType": "Desktop"
+      },
+      {
+        "dateTime": "2026-07-13T12:01:59.998Z",
+        "ip": "::***",
+        "location": "Localnode, US",
+        "os": "Unknown OS",
+        "browser": "Unknown Browser",
+        "deviceType": "Desktop"
+      },
+      {
+        "dateTime": "2026-07-13T12:18:51.654Z",
+        "ip": "::***",
+        "location": "Localnode, US",
+        "os": "Unknown OS",
+        "browser": "Unknown Browser",
+        "deviceType": "Desktop"
+      },
+      {
+        "dateTime": "2026-07-13T12:32:24.879Z",
+        "ip": "::***",
+        "location": "Localnode, US",
+        "os": "Unknown OS",
+        "browser": "Unknown Browser",
+        "deviceType": "Desktop"
+      }
+    ],
+    "onboardingRequired": false,
+    "studentProfile": {
+      "fullName": "social_user_google_student",
+      "college": "Massachusetts Institute of Technology",
+      "department": "EECS",
+      "yearOfStudy": "3",
+      "registerNumber": "",
+      "skills": [
+        "React",
+        "Python",
+        "Docker"
+      ],
+      "interests": [
+        "DevOps",
+        "Distributed Systems"
+      ],
+      "preferredDomains": []
+    },
+    "businessProfile": null
+  },
+  {
+    "email": "founder_1783932681099@invenza.io",
+    "password": "c2d1896e9811fc6c4ba39198d982a4f301d59397423590ab4ff406633eb97081",
+    "role": "business",
+    "roles": [
+      "business"
+    ],
+    "mfaEnabled": false,
+    "mfaType": "none",
+    "totpSecret": null,
+    "backupCodes": [],
+    "loginFailures": 0,
+    "lockoutUntil": 1783933593342,
+    "activeSessions": [],
+    "loginHistory": [],
+    "studentProfile": null,
+    "businessProfile": {
+      "fullName": "Marcus Vance",
+      "companyName": "",
+      "industry": "",
+      "companySize": "",
+      "businessStage": "Idea",
+      "country": "",
+      "website": "",
+      "linkedin": "",
+      "businessRole": "Founder"
+    }
+  },
+  {
+    "email": "student_1783932681099@invenza.edu",
+    "password": "c800363e3b7ef45ed321bde58989b91a18b9a0c0f75cd1a471b3bbc2a918f462",
+    "role": "student",
+    "roles": [
+      "student"
+    ],
+    "mfaEnabled": false,
+    "mfaType": "none",
+    "totpSecret": null,
+    "backupCodes": [],
+    "loginFailures": 0,
+    "lockoutUntil": null,
+    "activeSessions": [],
+    "loginHistory": [],
+    "studentProfile": {
+      "fullName": "Evelyn Vance",
+      "college": "",
+      "department": "",
+      "yearOfStudy": "",
+      "registerNumber": "",
+      "skills": [],
+      "interests": [],
+      "preferredDomains": []
+    },
+    "businessProfile": null
+  },
+  {
+    "email": "founder_1783933756398@invenza.io",
+    "password": "c2d1896e9811fc6c4ba39198d982a4f301d59397423590ab4ff406633eb97081",
+    "role": "business",
+    "roles": [
+      "business"
+    ],
+    "mfaEnabled": false,
+    "mfaType": "none",
+    "totpSecret": null,
+    "backupCodes": [],
+    "loginFailures": 0,
+    "lockoutUntil": 1783934668663,
+    "activeSessions": [],
+    "loginHistory": [],
+    "studentProfile": null,
+    "businessProfile": {
+      "fullName": "Marcus Vance",
+      "companyName": "",
+      "industry": "",
+      "companySize": "",
+      "businessStage": "Idea",
+      "country": "",
+      "website": "",
+      "linkedin": "",
+      "businessRole": "Founder"
+    }
+  },
+  {
+    "email": "student_1783933756398@invenza.edu",
+    "password": "c800363e3b7ef45ed321bde58989b91a18b9a0c0f75cd1a471b3bbc2a918f462",
+    "role": "student",
+    "roles": [
+      "student"
+    ],
+    "mfaEnabled": false,
+    "mfaType": "none",
+    "totpSecret": null,
+    "backupCodes": [],
+    "loginFailures": 0,
+    "lockoutUntil": null,
+    "activeSessions": [],
+    "loginHistory": [],
+    "studentProfile": {
+      "fullName": "Evelyn Vance",
+      "college": "",
+      "department": "",
+      "yearOfStudy": "",
+      "registerNumber": "",
+      "skills": [],
+      "interests": [],
+      "preferredDomains": []
+    },
+    "businessProfile": null
+  },
+  {
+    "email": "admin@invenza.io",
+    "password": "8c8bdd8a17d1b915e3e710c64bdb310c40ab1ad78c1091256440abfdbad6553d",
+    "role": "student",
+    "roles": [
+      "student",
+      "business",
+      "admin"
+    ],
+    "mfaEnabled": false,
+    "mfaType": "none",
+    "totpSecret": null,
+    "backupCodes": [],
+    "loginFailures": 0,
+    "lockoutUntil": null,
+    "activeSessions": [],
+    "loginHistory": []
+  },
+  {
+    "email": "founder_1783944142381@invenza.io",
+    "password": "c2d1896e9811fc6c4ba39198d982a4f301d59397423590ab4ff406633eb97081",
+    "role": "business",
+    "roles": [
+      "business"
+    ],
+    "mfaEnabled": false,
+    "mfaType": "none",
+    "totpSecret": null,
+    "backupCodes": [],
+    "loginFailures": 0,
+    "lockoutUntil": 1783945054623,
+    "activeSessions": [],
+    "loginHistory": [],
+    "studentProfile": null,
+    "businessProfile": {
+      "fullName": "Marcus Vance",
+      "companyName": "",
+      "industry": "",
+      "companySize": "",
+      "businessStage": "Idea",
+      "country": "",
+      "website": "",
+      "linkedin": "",
+      "businessRole": "Founder"
+    }
+  },
+  {
+    "email": "student_1783944142381@invenza.edu",
+    "password": "c800363e3b7ef45ed321bde58989b91a18b9a0c0f75cd1a471b3bbc2a918f462",
+    "role": "student",
+    "roles": [
+      "student"
+    ],
+    "mfaEnabled": false,
+    "mfaType": "none",
+    "totpSecret": null,
+    "backupCodes": [],
+    "loginFailures": 0,
+    "lockoutUntil": null,
+    "activeSessions": [],
+    "loginHistory": [],
+    "studentProfile": {
+      "fullName": "Evelyn Vance",
+      "college": "",
+      "department": "",
+      "yearOfStudy": "",
+      "registerNumber": "",
+      "skills": [],
+      "interests": [],
+      "preferredDomains": []
+    },
+    "businessProfile": null
+  },
+  {
+    "email": "sundarpichai@gmail.com",
+    "password": "84fb11f9a588baff65c621f8d6c75852c6cafd789cd564afb6aa650eb39334b6",
+    "role": "business",
+    "roles": [
+      "business"
+    ],
+    "mfaEnabled": false,
+    "mfaType": "none",
+    "totpSecret": null,
+    "backupCodes": [],
+    "loginFailures": 0,
+    "lockoutUntil": null,
+    "activeSessions": [
+      {
+        "sessionId": "session_f546106d52b3cbdb2b08c46048a46822",
+        "token": "eyJlbWFpbCI6InN1bmRhcnBpY2hhaUBnbWFpbC5jb20iLCJyb2xlIjoiYnVzaW5lc3MiLCJleHAiOjE3ODM5NTExNjR9",
+        "ip": "::1",
+        "os": "Windows",
+        "browser": "Chrome",
+        "deviceType": "Desktop",
+        "lastActive": "2026-07-13T12:59:24.465Z"
+      }
+    ],
+    "loginHistory": [
+      {
+        "dateTime": "2026-07-13T12:59:24.465Z",
+        "ip": "::***",
+        "location": "Boston, US",
+        "os": "Windows",
+        "browser": "Chrome",
+        "deviceType": "Desktop"
+      }
+    ],
+    "studentProfile": null,
+    "businessProfile": {
+      "fullName": "SUNDAR PICHAI",
+      "companyName": "GOOGLE",
+      "industry": "MNC",
+      "companySize": "201+",
+      "businessStage": "Growth",
+      "country": "INDIA",
+      "website": "",
+      "linkedin": "",
+      "businessRole": "Founder"
     }
   }
 ]

@@ -1,0 +1,312 @@
+[
+  {
+    "timestamp": "2026-07-13T06:51:21.207Z",
+    "email": "founder_1783925481035@invenza.io",
+    "action": "REGISTER_USER",
+    "metadata": {
+      "portalType": "business"
+    }
+  },
+  {
+    "timestamp": "2026-07-13T06:51:21.236Z",
+    "email": "student_1783925481035@invenza.edu",
+    "action": "REGISTER_USER",
+    "metadata": {
+      "portalType": "student"
+    }
+  },
+  {
+    "timestamp": "2026-07-13T06:51:26.936Z",
+    "email": "founder_1783925486782@invenza.io",
+    "action": "REGISTER_USER",
+    "metadata": {
+      "portalType": "business"
+    }
+  },
+  {
+    "timestamp": "2026-07-13T06:51:26.966Z",
+    "email": "student_1783925486782@invenza.edu",
+    "action": "REGISTER_USER",
+    "metadata": {
+      "portalType": "student"
+    }
+  },
+  {
+    "timestamp": "2026-07-13T06:53:23.379Z",
+    "email": "founder_1783925603220@invenza.io",
+    "action": "REGISTER_USER",
+    "metadata": {
+      "portalType": "business"
+    }
+  },
+  {
+    "timestamp": "2026-07-13T06:53:23.409Z",
+    "email": "student_1783925603220@invenza.edu",
+    "action": "REGISTER_USER",
+    "metadata": {
+      "portalType": "student"
+    }
+  },
+  {
+    "timestamp": "2026-07-13T06:53:36.011Z",
+    "email": "founder_1783925603220@invenza.io",
+    "action": "ACCOUNT_TEMPORARILY_LOCKED",
+    "metadata": {
+      "reason": "Consectutive login failures limit exceeded"
+    }
+  },
+  {
+    "timestamp": "2026-07-13T08:50:47.598Z",
+    "email": "social_user_google_student@invenza.io",
+    "action": "OAUTH_REGISTER_INIT",
+    "metadata": {
+      "provider": "google",
+      "portalType": "student"
+    }
+  },
+  {
+    "timestamp": "2026-07-13T08:50:47.621Z",
+    "email": "social_user_google_student@invenza.io",
+    "action": "ONBOARDING_COMPLETED",
+    "metadata": {
+      "portalType": "student"
+    }
+  },
+  {
+    "timestamp": "2026-07-13T08:51:21.218Z",
+    "email": "founder_1783932681099@invenza.io",
+    "action": "REGISTER_USER",
+    "metadata": {
+      "portalType": "business"
+    }
+  },
+  {
+    "timestamp": "2026-07-13T08:51:21.248Z",
+    "email": "student_1783932681099@invenza.edu",
+    "action": "REGISTER_USER",
+    "metadata": {
+      "portalType": "student"
+    }
+  },
+  {
+    "timestamp": "2026-07-13T08:51:33.850Z",
+    "email": "founder_1783932681099@invenza.io",
+    "action": "ACCOUNT_TEMPORARILY_LOCKED",
+    "metadata": {
+      "reason": "Consectutive login failures limit exceeded"
+    }
+  },
+  {
+    "timestamp": "2026-07-13T08:51:39.505Z",
+    "email": "social_user_google_student@invenza.io",
+    "action": "OAUTH_LOGIN_SUCCESS",
+    "metadata": {
+      "provider": "google",
+      "portalType": "student"
+    }
+  },
+  {
+    "timestamp": "2026-07-13T08:51:39.515Z",
+    "email": "social_user_google_student@invenza.io",
+    "action": "ONBOARDING_COMPLETED",
+    "metadata": {
+      "portalType": "student"
+    }
+  },
+  {
+    "timestamp": "2026-07-13T08:56:25.273Z",
+    "email": "social_user_google_student@invenza.io",
+    "action": "OAUTH_LOGIN_SUCCESS",
+    "metadata": {
+      "provider": "google",
+      "portalType": "student"
+    }
+  },
+  {
+    "timestamp": "2026-07-13T08:56:25.292Z",
+    "email": "social_user_google_student@invenza.io",
+    "action": "ONBOARDING_COMPLETED",
+    "metadata": {
+      "portalType": "student"
+    }
+  },
+  {
+    "timestamp": "2026-07-13T09:01:00.929Z",
+    "email": "social_user_google_student@invenza.io",
+    "action": "OAUTH_LOGIN_SUCCESS",
+    "metadata": {
+      "provider": "google",
+      "portalType": "student"
+    }
+  },
+  {
+    "timestamp": "2026-07-13T09:01:00.949Z",
+    "email": "social_user_google_student@invenza.io",
+    "action": "ONBOARDING_COMPLETED",
+    "metadata": {
+      "portalType": "student"
+    }
+  },
+  {
+    "timestamp": "2026-07-13T09:09:08.866Z",
+    "email": "social_user_google_student@invenza.io",
+    "action": "OAUTH_LOGIN_SUCCESS",
+    "metadata": {
+      "provider": "google",
+      "portalType": "student"
+    }
+  },
+  {
+    "timestamp": "2026-07-13T09:09:08.892Z",
+    "email": "social_user_google_student@invenza.io",
+    "action": "ONBOARDING_COMPLETED",
+    "metadata": {
+      "portalType": "student"
+    }
+  },
+  {
+    "timestamp": "2026-07-13T09:09:16.534Z",
+    "email": "founder_1783933756398@invenza.io",
+    "action": "REGISTER_USER",
+    "metadata": {
+      "portalType": "business"
+    }
+  },
+  {
+    "timestamp": "2026-07-13T09:09:16.565Z",
+    "email": "student_1783933756398@invenza.edu",
+    "action": "REGISTER_USER",
+    "metadata": {
+      "portalType": "student"
+    }
+  },
+  {
+    "timestamp": "2026-07-13T09:09:29.174Z",
+    "email": "founder_1783933756398@invenza.io",
+    "action": "ACCOUNT_TEMPORARILY_LOCKED",
+    "metadata": {
+      "reason": "Consectutive login failures limit exceeded"
+    }
+  },
+  {
+    "timestamp": "2026-07-13T09:51:42.349Z",
+    "email": "bubaganesh1133@gmail.com",
+    "action": "LOGIN_SUCCESS",
+    "metadata": {
+      "portalType": "student",
+      "sessionId": "session_59b7306125f0d03f010420b4a105d3c9"
+    }
+  },
+  {
+    "timestamp": "2026-07-13T12:01:53.480Z",
+    "email": "social_user_google_student@invenza.io",
+    "action": "OAUTH_LOGIN_SUCCESS",
+    "metadata": {
+      "provider": "google",
+      "portalType": "student"
+    }
+  },
+  {
+    "timestamp": "2026-07-13T12:01:59.998Z",
+    "email": "social_user_google_student@invenza.io",
+    "action": "OAUTH_LOGIN_SUCCESS",
+    "metadata": {
+      "provider": "google",
+      "portalType": "student"
+    }
+  },
+  {
+    "timestamp": "2026-07-13T12:02:00.017Z",
+    "email": "social_user_google_student@invenza.io",
+    "action": "ONBOARDING_COMPLETED",
+    "metadata": {
+      "portalType": "student"
+    }
+  },
+  {
+    "timestamp": "2026-07-13T12:02:22.513Z",
+    "email": "founder_1783944142381@invenza.io",
+    "action": "REGISTER_USER",
+    "metadata": {
+      "portalType": "business"
+    }
+  },
+  {
+    "timestamp": "2026-07-13T12:02:22.543Z",
+    "email": "student_1783944142381@invenza.edu",
+    "action": "REGISTER_USER",
+    "metadata": {
+      "portalType": "student"
+    }
+  },
+  {
+    "timestamp": "2026-07-13T12:02:35.132Z",
+    "email": "founder_1783944142381@invenza.io",
+    "action": "ACCOUNT_TEMPORARILY_LOCKED",
+    "metadata": {
+      "reason": "Consectutive login failures limit exceeded"
+    }
+  },
+  {
+    "timestamp": "2026-07-13T12:09:56.250Z",
+    "email": "sundarpichai@gmail.com",
+    "action": "REGISTER_USER",
+    "metadata": {
+      "portalType": "business"
+    }
+  },
+  {
+    "timestamp": "2026-07-13T12:18:51.652Z",
+    "email": "social_user_google_student@invenza.io",
+    "action": "OAUTH_LOGIN_SUCCESS",
+    "metadata": {
+      "provider": "google",
+      "portalType": "student"
+    }
+  },
+  {
+    "timestamp": "2026-07-13T12:27:03.343Z",
+    "email": "bubaganesh1133@gmail.com",
+    "action": "LOGIN_SUCCESS",
+    "metadata": {
+      "portalType": "student",
+      "sessionId": "session_e7dbf961ae5f8b4515bcb3ac997bf672"
+    }
+  },
+  {
+    "timestamp": "2026-07-13T12:32:24.878Z",
+    "email": "social_user_google_student@invenza.io",
+    "action": "OAUTH_LOGIN_SUCCESS",
+    "metadata": {
+      "provider": "google",
+      "portalType": "student"
+    }
+  },
+  {
+    "timestamp": "2026-07-13T12:53:03.620Z",
+    "email": "bubaganesh1133@gmail.com",
+    "action": "LOGIN_SUCCESS",
+    "metadata": {
+      "portalType": "student",
+      "sessionId": "session_a572db998a1c280d5b970e1a63b41b40"
+    }
+  },
+  {
+    "timestamp": "2026-07-13T12:59:24.466Z",
+    "email": "sundarpichai@gmail.com",
+    "action": "LOGIN_SUCCESS",
+    "metadata": {
+      "portalType": "business",
+      "sessionId": "session_f546106d52b3cbdb2b08c46048a46822"
+    }
+  },
+  {
+    "timestamp": "2026-07-13T14:39:55.220Z",
+    "email": "bubaganesh1133@gmail.com",
+    "action": "LOGIN_SUCCESS",
+    "metadata": {
+      "portalType": "student",
+      "sessionId": "session_d017cb3bc756e82a745a5fc2fb387d9d"
+    }
+  }
+]

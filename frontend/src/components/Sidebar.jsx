@@ -45,8 +45,13 @@ const Sidebar = ({ currentPage, setCurrentPage, sidebarOpen, setSidebarOpen, use
   };
 
   const getMenuItems = () => {
+    const authUser = JSON.parse(localStorage.getItem('auth_user') || '{}');
+    const roles = authUser.roles || [authUser.role || 'student'];
+    const isAdmin = roles.includes('admin') || (userEmail && userEmail.toLowerCase().includes('admin'));
+
+    let items = [];
     if (portalMode === 'student') {
-      return [
+      items = [
         { id: 'dashboard', label: 'Student Dashboard', icon: LayoutDashboard },
         { id: 'profile', label: 'My Profile Hub', icon: User },
         { id: 'hackathons', label: 'AI Mentor Hub', icon: Trophy },
@@ -59,7 +64,7 @@ const Sidebar = ({ currentPage, setCurrentPage, sidebarOpen, setSidebarOpen, use
         { id: 'pitch-coach', label: 'AI Pitch Coach', icon: Presentation }
       ];
     } else {
-      return [
+      items = [
         { id: 'dashboard', label: 'Business Dashboard', icon: LayoutDashboard },
         { id: 'profile', label: 'My Profile Hub', icon: User },
         { id: 'startup', label: 'Startup Builder', icon: Rocket },
@@ -70,6 +75,11 @@ const Sidebar = ({ currentPage, setCurrentPage, sidebarOpen, setSidebarOpen, use
         { id: 'pitch-coach', label: 'Pitch Deck Builder', icon: Presentation }
       ];
     }
+
+    if (isAdmin) {
+      items.push({ id: 'admin-config', label: 'Admin Configuration', icon: Shield });
+    }
+    return items;
   };
 
   const username = userEmail ? userEmail.split('@')[0] : 'Invenza Analyst';
@@ -471,20 +481,19 @@ const Sidebar = ({ currentPage, setCurrentPage, sidebarOpen, setSidebarOpen, use
                 gap: '0.75rem',
                 padding: '0.75rem 1rem',
                 border: 'none',
-                background: isActive ? 'linear-gradient(90deg, rgba(59, 130, 246, 0.1), transparent)' : 'transparent',
-                borderRadius: '8px',
-                color: isActive ? 'var(--color-secondary)' : 'var(--text-muted)',
+                background: isActive ? 'rgba(59, 130, 246, 0.04)' : 'transparent',
+                borderRadius: 'var(--radius-md)',
+                color: isActive ? 'var(--color-primary)' : 'var(--text-muted)',
                 cursor: 'pointer',
                 textAlign: 'left',
                 width: '100%',
-                fontWeight: isActive ? 700 : 500,
-                fontSize: '0.9rem',
-                borderLeft: isActive ? '3.5px solid var(--color-secondary)' : '3.5px solid transparent',
-                textShadow: isActive ? '0 0 8px rgba(59, 130, 246, 0.2)' : 'none',
+                fontWeight: isActive ? 600 : 500,
+                fontSize: '0.95rem',
+                borderLeft: isActive ? '3px solid var(--color-primary)' : '3px solid transparent',
                 transition: 'all 0.2s ease'
               }}
             >
-              <Icon size={18} style={{ color: isActive ? 'var(--color-secondary)' : 'inherit' }} />
+              <Icon size={18} style={{ color: isActive ? 'var(--color-primary)' : 'inherit' }} />
               {item.label}
             </button>
           );

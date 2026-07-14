@@ -34,7 +34,7 @@ const LinkedinIcon = () => (
 );
 
 const Login = ({ onLoginSuccess }) => {
-  const [view, setView] = useState('selection'); // 'selection', 'student-login', 'student-register', 'student-forgot', 'student-verify', 'business-login', 'business-register', 'business-forgot', 'business-verify'
+  const [view, setView] = useState('selection'); // 'selection', 'student-login', 'student-register', 'student-forgot', 'student-verify', 'business-login', 'business-register', 'business-forgot', 'business-verify', 'business-mfa', 'student-mfa'
   
   // Credentials & Forms State
   const [email, setEmail] = useState('');
@@ -76,6 +76,16 @@ const Login = ({ onLoginSuccess }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [logs, setLogs] = useState([]);
 
+  // Enterprise Security CAPTCHA & MFA states
+  const [captchaRequired, setCaptchaRequired] = useState(false);
+  const [captchaAnswer, setCaptchaAnswer] = useState('');
+  const [captchaUserVal, setCaptchaUserVal] = useState('');
+  const [captchaProblem, setCaptchaProblem] = useState('');
+  const [mfaType, setMfaType] = useState('none');
+  const [mfaCodeInput, setMfaCodeInput] = useState('');
+  const [showRetryButton, setShowRetryButton] = useState(false);
+  const [retryProvider, setRetryProvider] = useState('');
+
   useEffect(() => {
     const prefillEmail = localStorage.getItem('prefill_register_email');
     const prefillPortal = localStorage.getItem('prefill_register_portal');
@@ -86,6 +96,36 @@ const Login = ({ onLoginSuccess }) => {
       localStorage.removeItem('prefill_register_portal');
     }
   }, []);
+
+  const getPasswordStrength = (pass) => {
+    if (!pass) return { score: 0, label: 'Empty', color: 'gray', criteria: {} };
+    const criteria = {
+      length: pass.length >= 12,
+      upper: /[A-Z]/.test(pass),
+      lower: /[a-z]/.test(pass),
+      number: /[0-9]/.test(pass),
+      special: /[!@#$%^&*(),.?":{}|<>]/.test(pass)
+    };
+    const score = Object.values(criteria).filter(Boolean).length;
+    let label = 'Very Weak';
+    let color = '#ef4444'; // Red
+    if (score === 3 || score === 4) {
+      label = 'Medium';
+      color = '#f59e0b'; // Orange/Yellow
+    } else if (score === 5) {
+      label = 'Strong';
+      color = '#10b981'; // Green
+    }
+    return { score, label, color, criteria };
+  };
+
+  const generateCaptcha = () => {
+    const num1 = Math.floor(Math.random() * 8) + 5;
+    const num2 = Math.floor(Math.random() * 8) + 2;
+    setCaptchaProblem(`${num1} + ${num2} = ?`);
+    setCaptchaAnswer((num1 + num2).toString());
+    setCaptchaUserVal('');
+  };
 
   // Terminal logging simulator helper
   const addLog = (msg) => {
@@ -101,12 +141,65 @@ const Login = ({ onLoginSuccess }) => {
     setConfirmPassword('');
     setFullName('');
     setLogs([]);
+    setCaptchaRequired(false);
+  };
+
+  // Verify MFA token
+  const handleVerifyMFASubmit = async (e) => {
+    e.preventDefault();
+    if (!mfaCodeInput) return;
+
+    setIsLoading(true);
+    setErrorMsg('');
+    const portalType = view.startsWith('student') ? 'student' : 'business';
+
+    try {
+      const res = await fetch('http://localhost:5000/api/auth/verify-mfa', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, code: mfaCodeInput, portalType })
+      });
+      const data = await res.json();
+      setIsLoading(false);
+
+      if (data.success) {
+        addLog("MFA Security Clearance: GRANTED");
+        localStorage.setItem('is_logged_in', 'true');
+        localStorage.setItem('auth_token', data.token);
+        localStorage.setItem('portal_type', portalType);
+        localStorage.setItem('auth_user', JSON.stringify(data.user));
+        onLoginSuccess(data.user);
+      } else {
+        setErrorMsg(data.message || "MFA validation failed.");
+        addLog("MFA Security Clearance: REJECTED");
+      }
+    } catch (err) {
+      console.warn("Backend offline, validating mockup MFA code...");
+      setIsLoading(false);
+      if (mfaCodeInput === '123456') {
+        addLog("MFA Security Clearance: GRANTED (Offline Simulator)");
+        localStorage.setItem('is_logged_in', 'true');
+        localStorage.setItem('auth_token', 'mock_token_' + email);
+        localStorage.setItem('portal_type', portalType);
+        const mockUser = { id: email, email, role: portalType, roles: [portalType] };
+        localStorage.setItem('auth_user', JSON.stringify(mockUser));
+        onLoginSuccess(mockUser);
+      } else {
+        setErrorMsg("Invalid MFA verification code. (Simulator code: 123456)");
+      }
+    }
   };
 
   // Perform standard credentials login
   const handleLogin = async (e) => {
     e.preventDefault();
     if (!email || !password) return;
+
+    if (captchaRequired && captchaUserVal.trim() !== captchaAnswer) {
+      setErrorMsg("Incorrect CAPTCHA answer. Please solve it to login.");
+      generateCaptcha();
+      return;
+    }
 
     setIsLoading(true);
     setErrorMsg('');
@@ -126,12 +219,19 @@ const Login = ({ onLoginSuccess }) => {
       const data = await res.json();
       
       if (data.success) {
+        if (data.mfaRequired) {
+          setIsLoading(false);
+          setMfaType(data.mfaType);
+          setView(`${portalType}-mfa`);
+          addLog("MFA Security check active. Dispaching OTP challenge...");
+          return;
+        }
+
         addLog("Clearance verification: GRANTED");
         addLog("Initializing secure session payload...");
         
         setTimeout(() => {
           setIsLoading(false);
-          // Store session preferences
           localStorage.setItem('is_logged_in', 'true');
           localStorage.setItem('auth_token', data.token);
           localStorage.setItem('portal_type', portalType);
@@ -142,11 +242,15 @@ const Login = ({ onLoginSuccess }) => {
         setIsLoading(false);
         setErrorMsg(data.message || "Failed to log in.");
         addLog("Clearance verification: FAILED");
+        
+        if (data.captchaRequired) {
+          setCaptchaRequired(true);
+          generateCaptcha();
+        }
       }
     } catch (err) {
       console.warn("Backend offline, launching local mockup authentication...");
       setTimeout(() => {
-        // Fallback mockup login database check
         const lowerEmail = email.toLowerCase();
         let matchedUser = null;
 
@@ -190,38 +294,60 @@ const Login = ({ onLoginSuccess }) => {
     }
   };
 
-  // Simulated SSO Logins
-  const handleSSOLogin = (provider) => {
+  // Official OAuth 2.0 Redirections
+  const handleSSOLogin = async (provider) => {
     setIsLoading(true);
     setErrorMsg('');
+    setShowRetryButton(false);
     const portalType = view.startsWith('student') ? 'student' : 'business';
     
-    addLog(`Redirecting to secure ${provider} SSO tunnel...`);
-    addLog(`Validating federated token keys...`);
-
-    setTimeout(() => {
+    addLog(`Contacting secure ${provider} SSO parameters...`);
+    
+    try {
+      const res = await fetch('http://localhost:5000/api/auth/oauth/config');
+      const config = await res.json();
       setIsLoading(false);
-      const mockEmail = portalType === 'student' ? 'analyst@gmail.com' : 'analyst@outlook.com';
-      const mockName = portalType === 'student' ? 'Innovator Pro' : 'Founder Pro';
 
-      localStorage.setItem('is_logged_in', 'true');
-      localStorage.setItem('auth_token', `mock_token_sso_${mockEmail}`);
-      localStorage.setItem('portal_type', portalType);
-      localStorage.setItem('auth_user', JSON.stringify({
-        id: mockEmail,
-        email: mockEmail,
-        role: portalType,
-        roles: [portalType],
-        name: mockName
-      }));
-      onLoginSuccess({
-        id: mockEmail,
-        email: mockEmail,
-        role: portalType,
-        roles: [portalType],
-        name: mockName
-      });
-    }, 1200);
+      if (!config.success) {
+        setErrorMsg(`${provider} Sign-In is temporarily unavailable. Please try again later.`);
+        setRetryProvider(provider);
+        setShowRetryButton(true);
+        return;
+      }
+
+      const redirectUri = config.redirectUri;
+      const provLower = provider.toLowerCase();
+      const state = `${provLower}_${portalType}`;
+
+      const isPlaceholder = provLower === 'google'
+        ? (config.googleClientId === 'mock_google_client_id' || !config.googleClientId)
+        : (config.linkedinClientId === 'mock_linkedin_client_id' || !config.linkedinClientId);
+
+      if (isPlaceholder) {
+        console.warn(`${provider} OAuth credentials are missing. Configure ${provLower === 'google' ? 'GOOGLE_CLIENT_ID and GOOGLE_CLIENT_SECRET' : 'LINKEDIN_CLIENT_ID and LINKEDIN_CLIENT_SECRET'} before enabling ${provider} Sign-In.`);
+        setErrorMsg(`${provider} Sign-In is not yet configured for this deployment.`);
+        addLog(`[ERROR] ${provider} Sign-In is currently unconfigured.`);
+        return;
+      }
+
+      if (provLower === 'google') {
+        const googleUrl = `https://accounts.google.com/o/oauth2/v2/auth?client_id=${config.googleClientId}&redirect_uri=${encodeURIComponent(redirectUri)}&response_type=code&scope=${encodeURIComponent('openid email profile')}&state=${state}`;
+        addLog(`Redirecting to Google Official Accounts login portal...`);
+        window.location.href = googleUrl;
+      } else if (provLower === 'linkedin') {
+        const linkedinUrl = `https://www.linkedin.com/oauth/v2/authorization?client_id=${config.linkedinClientId}&redirect_uri=${encodeURIComponent(redirectUri)}&response_type=code&scope=${encodeURIComponent('openid email profile')}&state=${state}`;
+        addLog(`Redirecting to LinkedIn Official authorization portal...`);
+        window.location.href = linkedinUrl;
+      } else {
+        setErrorMsg("Unsupported OAuth provider selected.");
+      }
+    } catch (err) {
+      setIsLoading(false);
+      setErrorMsg(`${provider} Sign-In is temporarily unavailable. Please try again later.`);
+      setRetryProvider(provider);
+      setShowRetryButton(true);
+      addLog("SSO handshake failed.");
+    }
   };
 
   // Submit registration form -> sends OTP
@@ -680,9 +806,21 @@ const Login = ({ onLoginSuccess }) => {
 
             {/* Error & Success Message Banners */}
             {errorMsg && (
-              <div style={{ background: 'rgba(239, 68, 68, 0.1)', border: '1px solid var(--color-danger)', color: 'var(--color-danger)', fontSize: '0.75rem', padding: '0.75rem', borderRadius: '6px', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                <AlertTriangle size={14} />
-                <span>{errorMsg}</span>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+                <div style={{ background: 'rgba(239, 68, 68, 0.1)', border: '1px solid var(--color-danger)', color: 'var(--color-danger)', fontSize: '0.75rem', padding: '0.75rem', borderRadius: '6px', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                  <AlertTriangle size={14} style={{ flexShrink: 0 }} />
+                  <span>{errorMsg}</span>
+                </div>
+                {showRetryButton && (
+                  <button
+                    type="button"
+                    onClick={() => handleSSOLogin(retryProvider)}
+                    className="tech-button"
+                    style={{ fontSize: '0.75rem', background: 'rgba(239, 68, 68, 0.15)', borderColor: 'var(--color-danger)', color: 'var(--color-danger)', width: '100%', padding: '0.45rem' }}
+                  >
+                    🔄 Retry {retryProvider} Sign-In
+                  </button>
+                )}
               </div>
             )}
             {successMsg && (
@@ -736,6 +874,24 @@ const Login = ({ onLoginSuccess }) => {
                     />
                   </div>
                 </div>
+
+                {captchaRequired && (
+                  <div style={{ background: 'rgba(255,255,255,0.01)', border: '1px solid var(--border-color)', padding: '1rem', borderRadius: '8px', display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+                    <label style={{ fontSize: '0.7rem', color: 'var(--text-muted)', fontFamily: 'var(--font-mono)' }}>SECURITY CAPTCHA: SOLVE MATH PROBLEM</label>
+                    <div style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
+                      <span style={{ fontSize: '1rem', fontFamily: 'var(--font-mono)', fontWeight: 'bold', color: 'var(--text-main)' }}>{captchaProblem}</span>
+                      <input 
+                        type="text" 
+                        className="tech-input" 
+                        placeholder="Answer" 
+                        value={captchaUserVal} 
+                        onChange={e => setCaptchaUserVal(e.target.value)} 
+                        style={{ flex: 1, textAlign: 'center', fontFamily: 'var(--font-mono)' }} 
+                        required 
+                      />
+                    </div>
+                  </div>
+                )}
 
                 {/* Remember Me Option */}
                 <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginTop: '0.2rem' }}>
@@ -792,12 +948,12 @@ const Login = ({ onLoginSuccess }) => {
                   </button>
                   <button 
                     type="button" 
-                    onClick={() => handleSSOLogin(isStudentTheme ? 'GitHub' : 'LinkedIn')}
+                    onClick={() => handleSSOLogin('LinkedIn')}
                     className="tech-button tech-button-outline"
                     style={{ flex: 1, fontSize: '0.7rem', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.35rem', padding: '0.55rem' }}
                   >
-                    {isStudentTheme ? <GithubIcon /> : <LinkedinIcon />} 
-                    <span>{isStudentTheme ? 'GitHub' : 'LinkedIn'}</span>
+                    <LinkedinIcon /> 
+                    <span>LinkedIn</span>
                   </button>
                 </div>
               </form>
@@ -867,6 +1023,35 @@ const Login = ({ onLoginSuccess }) => {
                     <input type="password" className="tech-input" placeholder="••••••••" value={confirmPassword} onChange={e => setConfirmPassword(e.target.value)} required />
                   </div>
                 </div>
+
+                {password && (
+                  <div style={{ background: 'rgba(255,255,255,0.01)', border: '1px solid var(--border-color)', padding: '0.85rem', borderRadius: '8px', display: 'flex', flexDirection: 'column', gap: '0.45rem' }}>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                      <span style={{ fontSize: '0.7rem', color: 'var(--text-muted)', fontFamily: 'var(--font-mono)' }}>PASSWORD STRENGTH:</span>
+                      <span style={{ fontSize: '0.7rem', fontWeight: 'bold', color: getPasswordStrength(password).color }}>{getPasswordStrength(password).label}</span>
+                    </div>
+                    <div style={{ height: '4px', width: '100%', background: 'rgba(255,255,255,0.05)', borderRadius: '2px', overflow: 'hidden' }}>
+                      <div style={{ height: '100%', width: `${(getPasswordStrength(password).score / 5) * 100}%`, background: getPasswordStrength(password).color, transition: 'all 0.2s ease' }}></div>
+                    </div>
+                    <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.3rem', fontSize: '0.65rem', marginTop: '0.2rem' }}>
+                      <span style={{ color: getPasswordStrength(password).criteria.length ? 'var(--color-success)' : 'var(--text-dim)', display: 'flex', alignItems: 'center', gap: '0.2rem' }}>
+                        {getPasswordStrength(password).criteria.length ? '✓' : '✗'} Min 12 chars
+                      </span>
+                      <span style={{ color: getPasswordStrength(password).criteria.upper ? 'var(--color-success)' : 'var(--text-dim)', display: 'flex', alignItems: 'center', gap: '0.2rem' }}>
+                        {getPasswordStrength(password).criteria.upper ? '✓' : '✗'} 1 Uppercase
+                      </span>
+                      <span style={{ color: getPasswordStrength(password).criteria.lower ? 'var(--color-success)' : 'var(--text-dim)', display: 'flex', alignItems: 'center', gap: '0.2rem' }}>
+                        {getPasswordStrength(password).criteria.lower ? '✓' : '✗'} 1 Lowercase
+                      </span>
+                      <span style={{ color: getPasswordStrength(password).criteria.number ? 'var(--color-success)' : 'var(--text-dim)', display: 'flex', alignItems: 'center', gap: '0.2rem' }}>
+                        {getPasswordStrength(password).criteria.number ? '✓' : '✗'} 1 Number
+                      </span>
+                      <span style={{ color: getPasswordStrength(password).criteria.special ? 'var(--color-success)' : 'var(--text-dim)', display: 'flex', alignItems: 'center', gap: '0.2rem' }}>
+                        {getPasswordStrength(password).criteria.special ? '✓' : '✗'} 1 Special Char
+                      </span>
+                    </div>
+                  </div>
+                )}
 
                 <button type="submit" className="tech-button" disabled={isLoading} style={{ width: '100%', marginTop: '0.5rem', background: portalAccent, color: '#fff', borderColor: portalAccent }}>
                   {isLoading ? "Generating credentials..." : "Verify & Continue"}
@@ -958,6 +1143,35 @@ const Login = ({ onLoginSuccess }) => {
                     <input type="password" className="tech-input" placeholder="••••••••" value={confirmPassword} onChange={e => setConfirmPassword(e.target.value)} required />
                   </div>
                 </div>
+
+                {password && (
+                  <div style={{ background: 'rgba(255,255,255,0.01)', border: '1px solid var(--border-color)', padding: '0.85rem', borderRadius: '8px', display: 'flex', flexDirection: 'column', gap: '0.45rem' }}>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                      <span style={{ fontSize: '0.7rem', color: 'var(--text-muted)', fontFamily: 'var(--font-mono)' }}>PASSWORD STRENGTH:</span>
+                      <span style={{ fontSize: '0.7rem', fontWeight: 'bold', color: getPasswordStrength(password).color }}>{getPasswordStrength(password).label}</span>
+                    </div>
+                    <div style={{ height: '4px', width: '100%', background: 'rgba(255,255,255,0.05)', borderRadius: '2px', overflow: 'hidden' }}>
+                      <div style={{ height: '100%', width: `${(getPasswordStrength(password).score / 5) * 100}%`, background: getPasswordStrength(password).color, transition: 'all 0.2s ease' }}></div>
+                    </div>
+                    <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.3rem', fontSize: '0.65rem', marginTop: '0.2rem' }}>
+                      <span style={{ color: getPasswordStrength(password).criteria.length ? 'var(--color-success)' : 'var(--text-dim)', display: 'flex', alignItems: 'center', gap: '0.2rem' }}>
+                        {getPasswordStrength(password).criteria.length ? '✓' : '✗'} Min 12 chars
+                      </span>
+                      <span style={{ color: getPasswordStrength(password).criteria.upper ? 'var(--color-success)' : 'var(--text-dim)', display: 'flex', alignItems: 'center', gap: '0.2rem' }}>
+                        {getPasswordStrength(password).criteria.upper ? '✓' : '✗'} 1 Uppercase
+                      </span>
+                      <span style={{ color: getPasswordStrength(password).criteria.lower ? 'var(--color-success)' : 'var(--text-dim)', display: 'flex', alignItems: 'center', gap: '0.2rem' }}>
+                        {getPasswordStrength(password).criteria.lower ? '✓' : '✗'} 1 Lowercase
+                      </span>
+                      <span style={{ color: getPasswordStrength(password).criteria.number ? 'var(--color-success)' : 'var(--text-dim)', display: 'flex', alignItems: 'center', gap: '0.2rem' }}>
+                        {getPasswordStrength(password).criteria.number ? '✓' : '✗'} 1 Number
+                      </span>
+                      <span style={{ color: getPasswordStrength(password).criteria.special ? 'var(--color-success)' : 'var(--text-dim)', display: 'flex', alignItems: 'center', gap: '0.2rem' }}>
+                        {getPasswordStrength(password).criteria.special ? '✓' : '✗'} 1 Special Char
+                      </span>
+                    </div>
+                  </div>
+                )}
 
                 <button type="submit" className="tech-button tech-button-glow" disabled={isLoading} style={{ width: '100%', marginTop: '0.5rem' }}>
                   {isLoading ? "Creating founder node..." : "Verify & Continue"}
@@ -1134,6 +1348,50 @@ const Login = ({ onLoginSuccess }) => {
                 </div>
 
               </div>
+            )}
+
+            {/* MFA Verification Form View */}
+            {view.endsWith('-mfa') && (
+              <form onSubmit={handleVerifyMFASubmit} style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
+                <p style={{ fontSize: '0.8rem', color: 'var(--text-muted)', textAlign: 'center', lineHeight: '1.5', margin: 0 }}>
+                  Enter your Multi-Factor Authentication (MFA) {mfaType === 'totp' ? 'Authenticator App' : 'Email'} verification code or backup recovery code:
+                </p>
+
+                <div>
+                  <label style={{ fontSize: '0.75rem', color: 'var(--text-muted)', display: 'block', marginBottom: '0.35rem', fontFamily: 'var(--font-mono)', textAlign: 'center' }}>
+                    VERIFICATION CODE / BACKUP CODE
+                  </label>
+                  <input 
+                    type="text" 
+                    className="tech-input" 
+                    placeholder={mfaType === 'totp' ? "e.g. 123456" : "e.g. XXXX-XXXX"} 
+                    style={{ fontSize: '1.2rem', textAlign: 'center', fontFamily: 'var(--font-mono)' }}
+                    value={mfaCodeInput}
+                    onChange={e => setMfaCodeInput(e.target.value)}
+                    required
+                  />
+                </div>
+
+                <button 
+                  type="submit" 
+                  className="tech-button" 
+                  disabled={isLoading}
+                  style={{ width: '100%', background: portalAccent, color: '#fff', borderColor: portalAccent }}
+                >
+                  {isLoading ? "Verifying secure codes..." : "Confirm Credentials"}
+                </button>
+
+                <div 
+                  onClick={() => {
+                    setView(isStudentTheme ? 'student-login' : 'business-login');
+                    setMfaCodeInput('');
+                    setErrorMsg('');
+                  }}
+                  style={{ fontSize: '0.8rem', textAlign: 'center', marginTop: '0.5rem', color: portalAccent, cursor: 'pointer', fontWeight: 'bold' }}
+                >
+                  Cancel & Return to Login
+                </div>
+              </form>
             )}
 
           </div>

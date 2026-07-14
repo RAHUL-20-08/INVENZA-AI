@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "start": "node app.js",
-    "dev": "nodemon app.js"
+    "dev": "nodemon --ignore users.json --ignore audit_logs.json --ignore hackathons.json app.js"
   },
   "dependencies": {
     "cors": "^2.8.5",
