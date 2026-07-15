@@ -308,5 +308,21 @@
       "portalType": "student",
       "sessionId": "session_d017cb3bc756e82a745a5fc2fb387d9d"
     }
+  },
+  {
+    "timestamp": "2026-07-15T05:21:53.009Z",
+    "email": "analyst@gmail.com",
+    "action": "ACCOUNT_TEMPORARILY_LOCKED",
+    "metadata": {
+      "reason": "Consectutive login failures limit exceeded"
+    }
+  },
+  {
+    "timestamp": "2026-07-15T05:24:52.388Z",
+    "email": "teststudent@gmail.com",
+    "action": "REGISTER_USER",
+    "metadata": {
+      "portalType": "student"
+    }
   }
 ]

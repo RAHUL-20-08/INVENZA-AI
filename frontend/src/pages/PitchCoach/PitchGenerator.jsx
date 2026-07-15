@@ -1,5 +1,5 @@
 import React from 'react';
-import { Sparkles, Save, ArrowLeft, RefreshCw } from 'lucide-react';
+import { Sparkles, Save, ArrowLeft, RefreshCw, Volume2, Smile } from 'lucide-react';
 
 const PitchGenerator = ({ 
   pitchMode, 
@@ -94,21 +94,25 @@ const PitchGenerator = ({
 
         {/* Tempo HUD indicator */}
         <div style={{ display: 'flex', gap: '1.5rem', background: 'rgba(59, 130, 246, 0.05)', border: '1px solid rgba(59, 130, 246, 0.2)', padding: '0.85rem', borderRadius: '6px', fontSize: '0.75rem', marginBottom: '1.25rem' }}>
-          <div>🗣️ Speaking Tempo: <strong>{tempo}</strong></div>
-          <div>🎭 Delivery Tone: <strong>{tone}</strong></div>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.35rem' }}><Volume2 size={12} style={{ color: 'var(--color-primary)' }} /> <span>Speaking Tempo: <strong>{tempo}</strong></span></div>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.35rem' }}><Smile size={12} style={{ color: 'var(--color-success)' }} /> <span>Delivery Tone: <strong>{tone}</strong></span></div>
         </div>
 
         {/* Generated Script */}
         <div style={{
-          background: '#05070a',
-          border: '1px solid var(--border-color)',
+          background: '#eae1cc',
+          border: '1px solid #dfd5bf',
           padding: '1.5rem',
           borderRadius: '8px',
-          fontSize: '0.9rem',
+          fontSize: '0.95rem',
           lineHeight: '1.65',
-          color: 'var(--color-secondary)',
+          color: '#2b251e',
           fontStyle: 'italic',
-          textAlign: 'left'
+          maxHeight: '220px',
+          overflowY: 'auto',
+          whiteSpace: 'pre-wrap',
+          textAlign: 'left',
+          boxShadow: 'inset 0 2px 4px rgba(0,0,0,0.06)'
         }}>
           "{activeScript}"
         </div>

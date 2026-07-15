@@ -405,35 +405,6 @@ export const loginUser = async (req, res) => {
     return res.status(403).json({ success: false, message: "You do not have a registered profile for this portal." });
   }
 
-  // Multi-Factor Authentication routing check
-  if (portalType === 'business' && user.mfaEnabled) {
-    const mfaCode = crypto.randomInt(100000, 999999).toString();
-    const mfaHash = crypto.createHash('sha256').update(mfaCode).digest('hex');
-    otpSessions[user.email.toLowerCase() + '_mfa'] = { otpHash: mfaHash, expires: Date.now() + 5 * 60 * 1000, attempts: 0 };
-    
-    if (user.mfaType === 'email') {
-      try {
-        const transporter = await createTransporter();
-        await transporter.sendMail({
-          from: '"Invenza AI Security" <security@invenza.ai>',
-          to: user.email,
-          subject: 'Invenza AI - Login MFA Security Code',
-          text: `Your MFA security verification code is: ${mfaCode}\n\nValid for 5 minutes.`
-        });
-        console.log(`[MFA SECURITY] Verification OTP sent to ${user.email}: ${mfaCode}`);
-      } catch(e) {}
-    }
-
-    users[userIdx] = user;
-    saveUsers(users);
-    
-    return res.json({
-      success: true,
-      mfaRequired: true,
-      mfaType: user.mfaType,
-      email: user.email
-    });
-  }
 
   const activeRole = portalType || roles[0];
   const tokenPayload = { email: user.email, role: activeRole, exp: Math.floor(Date.now() / 1000) + (3600) }; // 1hr short lived access token

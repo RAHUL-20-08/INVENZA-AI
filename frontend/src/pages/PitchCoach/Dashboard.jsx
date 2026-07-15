@@ -9,7 +9,12 @@ import {
   ChevronRight, 
   Briefcase, 
   Activity,
-  Plus
+  Plus,
+  Timer,
+  Volume2,
+  Smile,
+  Settings,
+  Users
 } from 'lucide-react';
 
 const Dashboard = ({ 
@@ -176,11 +181,11 @@ const Dashboard = ({
           <div className="glass-panel" style={{ padding: '1.25rem' }}>
             <span style={{ fontSize: '0.65rem', color: 'var(--text-muted)', fontFamily: 'var(--font-mono)', display: 'block', marginBottom: '0.75rem' }}>// PITCH_CONFIGURATION_HUD</span>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem', fontSize: '0.75rem', textAlign: 'left' }}>
-              <div>⏱️ Autoplay Mode: <strong>Voice Trigger Enabled</strong></div>
-              <div>🗣️ Speaking Tempo: <strong>{tempo}</strong></div>
-              <div>🎭 Delivery Tone: <strong>{tone}</strong></div>
-              <div>⚙️ Active Mode: <span style={{ textTransform: 'capitalize' }}>{pitchMode} Pitch</span></div>
-              <div>👥 Target Audience: <span style={{ textTransform: 'capitalize' }}>{audienceType}</span></div>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.45rem' }}><Timer size={12} style={{ color: 'var(--color-primary)' }} /> <span>Autoplay Mode: <strong>Voice Trigger Enabled</strong></span></div>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.45rem' }}><Volume2 size={12} style={{ color: 'var(--color-secondary)' }} /> <span>Speaking Tempo: <strong>{tempo}</strong></span></div>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.45rem' }}><Smile size={12} style={{ color: 'var(--color-success)' }} /> <span>Delivery Tone: <strong>{tone}</strong></span></div>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.45rem' }}><Settings size={12} style={{ color: 'var(--text-muted)' }} /> <span>Active Mode: <span style={{ textTransform: 'capitalize' }}>{pitchMode} Pitch</span></span></div>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.45rem' }}><Users size={12} style={{ color: 'var(--color-accent)' }} /> <span>Target Audience: <span style={{ textTransform: 'capitalize' }}>{audienceType}</span></span></div>
             </div>
           </div>
 

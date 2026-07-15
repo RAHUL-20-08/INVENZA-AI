@@ -10,7 +10,18 @@ import {
   Eye, 
   EyeOff, 
   Maximize2, 
-  Minimize2 
+  Minimize2,
+  Key,
+  XCircle,
+  CheckCircle,
+  Timer,
+  Shield,
+  Zap,
+  Lightbulb,
+  Mail,
+  Globe,
+  Terminal,
+  Bot
 } from 'lucide-react';
 
 const SlideRenderer = ({ slide, isMobile, audienceType }) => {
@@ -47,7 +58,7 @@ const SlideRenderer = ({ slide, isMobile, audienceType }) => {
                 {detail}
               </p>
               <div style={{ display: 'inline-block', background: 'rgba(59,130,246,0.1)', border: '1px solid var(--color-primary)', padding: '0.5rem 1rem', borderRadius: '4px', fontSize: '0.75rem' }}>
-                🔑 Ready for Revival Assessment
+                <span style={{ display: 'inline-flex', alignItems: 'center', gap: '0.35rem' }}><Key size={12} style={{ color: 'var(--color-primary)' }} /> Ready for Revival Assessment</span>
               </div>
             </div>
             {!isMobile && (
@@ -111,13 +122,13 @@ const SlideRenderer = ({ slide, isMobile, audienceType }) => {
             <h3 style={{ fontSize: '1.15rem', color: '#fff', margin: 0, textAlign: 'left', fontWeight: 'bold' }}>{desc}</h3>
             <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr', gap: '1.5rem' }}>
               <div style={{ background: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.05)', padding: '1.25rem', borderRadius: '8px', textAlign: 'left' }}>
-                <strong style={{ fontSize: '0.85rem', color: 'var(--color-danger)', display: 'block', marginBottom: '0.5rem' }}>❌ Competitor Alternatives</strong>
+                <strong style={{ fontSize: '0.85rem', color: 'var(--color-danger)', display: 'flex', alignItems: 'center', gap: '0.35rem', marginBottom: '0.5rem' }}><XCircle size={14} style={{ color: 'var(--color-danger)' }} /> Competitor Alternatives</strong>
                 <p style={{ fontSize: '0.75rem', color: 'var(--text-muted)', margin: 0, lineHeight: 1.45 }}>
                   Over-reliance on heavy cloud telemetry APIs. Requires constant active connectivity, introducing &gt;120ms transmission delays.
                 </p>
               </div>
               <div style={{ background: 'rgba(16,185,129,0.03)', border: '1px solid rgba(16,185,129,0.15)', padding: '1.25rem', borderRadius: '8px', textAlign: 'left' }}>
-                <strong style={{ fontSize: '0.85rem', color: 'var(--color-success)', display: 'block', marginBottom: '0.5rem' }}>✔️ The Invenza Solution</strong>
+                <strong style={{ fontSize: '0.85rem', color: 'var(--color-success)', display: 'flex', alignItems: 'center', gap: '0.35rem', marginBottom: '0.5rem' }}><CheckCircle size={14} style={{ color: 'var(--color-success)' }} /> The Invenza Solution</strong>
                 <p style={{ fontSize: '0.75rem', color: 'var(--text-muted)', margin: 0, lineHeight: 1.45 }}>
                   Quantized offline edge compilation nodes. Telemetry buffer parses locally on ESP32 in under 12ms with absolute compliance security.
                 </p>
@@ -140,8 +151,8 @@ const SlideRenderer = ({ slide, isMobile, audienceType }) => {
                 {detail}
               </p>
               <div style={{ display: 'flex', gap: '1rem', marginTop: '0.5rem' }}>
-                <div>⏱️ <strong>Latency:</strong> &lt; 12ms</div>
-                <div>🛡️ <strong>Safety:</strong> Edge Isolated</div>
+                <div><Timer size={12} style={{ color: 'var(--color-primary)', marginRight: '0.35rem', verticalAlign: 'middle' }} /> <strong>Latency:</strong> &lt; 12ms</div>
+                <div><Shield size={12} style={{ color: 'var(--color-success)', marginRight: '0.35rem', verticalAlign: 'middle' }} /> <strong>Safety:</strong> Edge Isolated</div>
               </div>
             </div>
             {!isMobile && (
@@ -171,21 +182,21 @@ const SlideRenderer = ({ slide, isMobile, audienceType }) => {
             <h3 style={{ fontSize: '1.25rem', color: '#fff', margin: 0, textAlign: 'left', fontWeight: 'bold' }}>{desc}</h3>
             <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr 1fr', gap: '1.25rem' }}>
               <div className="glass-panel" style={{ padding: '1rem', textAlign: 'left', borderTop: '2.5px solid var(--color-primary)' }}>
-                <span style={{ fontSize: '1.5rem', display: 'block', marginBottom: '0.25rem' }}>⚡</span>
+                <Zap size={24} style={{ color: 'var(--color-primary)', display: 'block', marginBottom: '0.55rem' }} />
                 <strong style={{ fontSize: '0.8rem', color: '#fff', display: 'block', marginBottom: '0.25rem' }}>Fast Processing</strong>
                 <p style={{ fontSize: '0.7rem', color: 'var(--text-dim)', margin: 0, lineHeight: 1.4 }}>
                   NPU compressor latency is kept below 12 milliseconds locally.
                 </p>
               </div>
               <div className="glass-panel" style={{ padding: '1rem', textAlign: 'left', borderTop: '2.5px solid var(--color-secondary)' }}>
-                <span style={{ fontSize: '1.5rem', display: 'block', marginBottom: '0.25rem' }}>👁️</span>
+                <Eye size={24} style={{ color: 'var(--color-secondary)', display: 'block', marginBottom: '0.55rem' }} />
                 <strong style={{ fontSize: '0.8rem', color: '#fff', display: 'block', marginBottom: '0.25rem' }}>Glare Reduction</strong>
                 <p style={{ fontSize: '0.7rem', color: 'var(--text-dim)', margin: 0, lineHeight: 1.4 }}>
                   94.2% ghosting reflection reduction across relief waveguide panels.
                 </p>
               </div>
               <div className="glass-panel" style={{ padding: '1rem', textAlign: 'left', borderTop: '2.5px solid var(--color-success)' }}>
-                <span style={{ fontSize: '1.5rem', display: 'block', marginBottom: '0.25rem' }}>🛡️</span>
+                <Shield size={24} style={{ color: 'var(--color-success)', display: 'block', marginBottom: '0.55rem' }} />
                 <strong style={{ fontSize: '0.8rem', color: '#fff', display: 'block', marginBottom: '0.25rem' }}>Moat Check</strong>
                 <p style={{ fontSize: '0.7rem', color: 'var(--text-dim)', margin: 0, lineHeight: 1.4 }}>
                   Full WIPO clearance with 14/14 expired claims. No clashing hazards.
@@ -273,8 +284,8 @@ const SlideRenderer = ({ slide, isMobile, audienceType }) => {
               <p style={{ fontSize: '0.85rem', color: 'var(--text-main)', lineHeight: 1.5, margin: 0 }}>
                 {detail}
               </p>
-              <div style={{ background: 'rgba(255,255,255,0.02)', padding: '0.75rem', borderRadius: '6px', fontSize: '0.75rem' }}>
-                💡 Quantizing weights into 4-bit formats prevents wearable processor battery draining.
+              <div style={{ background: 'rgba(255,255,255,0.02)', padding: '0.75rem', borderRadius: '6px', fontSize: '0.75rem', display: 'flex', gap: '0.5rem' }}>
+                <Lightbulb size={14} style={{ color: 'var(--color-warning)', flexShrink: 0 }} /> <span>Quantizing weights into 4-bit formats prevents wearable processor battery draining.</span>
               </div>
             </div>
             {!isMobile && (
@@ -468,8 +479,8 @@ const SlideRenderer = ({ slide, isMobile, audienceType }) => {
                 We are open to take panel feedback and simulator questions.
               </p>
               <div style={{ display: 'flex', gap: '1rem', fontSize: '0.75rem', color: 'var(--text-dim)' }}>
-                <div>📧 team@invenza.edu</div>
-                <div>🌐 invenza.edu</div>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.35rem' }}><Mail size={12} style={{ color: 'var(--color-secondary)' }} /> <span>team@invenza.edu</span></div>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.35rem' }}><Globe size={12} style={{ color: 'var(--color-secondary)' }} /> <span>invenza.edu</span></div>
               </div>
             </div>
             {!isMobile && (
@@ -642,8 +653,8 @@ const PresentationViewer = ({
               boxShadow: '0 20px 60px rgba(0,0,0,0.8)',
               textAlign: 'left'
             }}>
-              <div style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '1px solid rgba(255,255,255,0.05)', paddingBottom: '0.5rem', color: 'var(--color-success)' }}>
-                <span>💻 PROTOTYPE INTERACTIVE SHELL: {slidesList[presentSlideIndex].title.toUpperCase()}</span>
+              <div style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '1px solid rgba(255,255,255,0.05)', paddingBottom: '0.5rem', color: 'var(--color-success)', alignItems: 'center' }}>
+                <span style={{ display: 'flex', alignItems: 'center', gap: '0.35rem' }}><Terminal size={14} style={{ color: 'var(--color-success)' }} /> <span>PROTOTYPE INTERACTIVE SHELL: {slidesList[presentSlideIndex].title.toUpperCase()}</span></span>
                 <span>STATUS: ACTIVE</span>
               </div>
 
@@ -684,8 +695,9 @@ const PresentationViewer = ({
                 <span style={{ color: 'rgba(255,255,255,0.1)' }}>|</span>
                 <span>Suggested Pace: <strong>{tempo}</strong></span>
               </div>
-              <div style={{ background: 'rgba(139,92,246,0.15)', border: '1px solid rgba(139,92,246,0.3)', padding: '0.5rem 0.85rem', borderRadius: '6px', fontSize: '0.7rem', color: 'var(--color-accent)', textAlign: 'left', maxWidth: '300px' }}>
-                <strong>🤖 Presenter Coach:</strong> Spend approx {slidesList[presentSlideIndex].duration}. {slidesList[presentSlideIndex].talkingPoints[0]}.
+              <div style={{ background: 'rgba(139,92,246,0.15)', border: '1px solid rgba(139,92,246,0.3)', padding: '0.5rem 0.85rem', borderRadius: '6px', fontSize: '0.7rem', color: 'var(--color-accent)', textAlign: 'left', maxWidth: '300px', display: 'flex', flexDirection: 'column', gap: '0.25rem' }}>
+                <span style={{ display: 'flex', alignItems: 'center', gap: '0.35rem' }}><Bot size={14} style={{ color: 'var(--color-accent)' }} /> <strong>Presenter Coach:</strong></span>
+                <span>Spend approx {slidesList[presentSlideIndex].duration}. {slidesList[presentSlideIndex].talkingPoints[0]}.</span>
               </div>
             </div>
           )}
@@ -726,15 +738,16 @@ const PresentationViewer = ({
 
             <div style={{
               flex: 1,
-              background: '#040609',
-              border: '1px solid var(--border-color)',
+              background: '#eae1cc',
+              border: '1px solid #dfd5bf',
               padding: '1rem',
               borderRadius: '6px',
-              fontSize: '0.85rem',
-              lineHeight: '1.5',
-              color: 'var(--color-secondary)',
+              fontSize: '0.9rem',
+              lineHeight: '1.55',
+              color: '#2b251e',
               overflowY: 'auto',
-              textAlign: 'left'
+              textAlign: 'left',
+              boxShadow: 'inset 0 2px 4px rgba(0,0,0,0.06)'
             }}>
               <p style={{ margin: 0, fontStyle: 'italic' }}>
                 "{slidesList[presentSlideIndex].notes}"

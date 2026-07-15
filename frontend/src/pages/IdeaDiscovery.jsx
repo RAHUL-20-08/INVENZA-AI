@@ -30,7 +30,9 @@ import {
   Info,
   ChevronRight,
   ChevronLeft,
-  Edit2
+  Edit2,
+  Lightbulb,
+  Volume2
 } from 'lucide-react';
 
 // Custom Searchable Dropdown Component
@@ -904,8 +906,8 @@ const IdeaDiscovery = () => {
 
                   {/* Context-aware suggestions showcase */}
                   <div style={{ padding: '1rem', borderRadius: '8px', border: `1px solid ${portalAccent}30`, background: `${portalAccent}05` }}>
-                    <h4 style={{ fontSize: '0.8rem', color: portalAccent, margin: '0 0 0.5rem 0', fontWeight: 'bold' }}>
-                      💡 Recommended Tools & Mappings
+                    <h4 style={{ fontSize: '0.8rem', color: portalAccent, margin: '0 0 0.5rem 0', fontWeight: 'bold', display: 'flex', alignItems: 'center', gap: '0.35rem' }}>
+                      <Lightbulb size={14} style={{ color: portalAccent }} /> Recommended Tools & Mappings
                     </h4>
                     <div style={{ display: 'flex', flexDirection: 'column', gap: '0.35rem', fontSize: '0.75rem', color: 'var(--text-muted)' }}>
                       <div><strong>APIs:</strong> {getRecommendedTools().apis.join(', ')}</div>
@@ -927,7 +929,11 @@ const IdeaDiscovery = () => {
                       fontWeight: 'bold'
                     }}
                   >
-                    {loading ? "Running AI Venture Mapping Analysis..." : "✨ Generate Venture Architecture"}
+                    {loading ? "Running AI Venture Mapping Analysis..." : (
+                      <span style={{ display: 'inline-flex', alignItems: 'center', gap: '0.35rem', justifyContent: 'center', width: '100%' }}>
+                        <Sparkles size={14} /> Generate Venture Architecture
+                      </span>
+                    )}
                   </button>
                 </div>
               )}
@@ -1235,9 +1241,9 @@ const IdeaDiscovery = () => {
                   <button 
                     onClick={() => handleRegenerateSection('swot')} 
                     className="tech-button" 
-                    style={{ fontSize: '0.65rem', padding: '0.2rem 0.5rem' }}
+                    style={{ fontSize: '0.65rem', padding: '0.2rem 0.5rem', display: 'flex', alignItems: 'center', gap: '0.35rem' }}
                   >
-                    🔄 Refresh SWOT
+                    <RefreshCw size={10} /> Refresh SWOT
                   </button>
                 </div>
                 
@@ -1429,9 +1435,9 @@ const IdeaDiscovery = () => {
                   <button 
                     onClick={() => handleRegenerateSection('revenueForecast')} 
                     className="tech-button" 
-                    style={{ fontSize: '0.65rem', padding: '0.2rem 0.5rem' }}
+                    style={{ fontSize: '0.65rem', padding: '0.2rem 0.5rem', display: 'flex', alignItems: 'center', gap: '0.35rem' }}
                   >
-                    🔄 Recalculate Projections
+                    <RefreshCw size={10} /> Recalculate Projections
                   </button>
                 </div>
 
@@ -1464,8 +1470,21 @@ const IdeaDiscovery = () => {
                       </strong>
                       <p style={{ fontSize: '0.85rem', color: 'var(--text-main)', margin: '0 0 0.5rem 0' }}>{slide.content}</p>
                       
-                      <div style={{ fontSize: '0.75rem', color: 'var(--text-dim)', borderTop: '1px dashed rgba(255,255,255,0.05)', paddingTop: '0.45rem', marginTop: '0.45rem' }}>
-                        📢 <strong>Speaker Script:</strong> "{activeIdea.pitchDeck.speakerNotes[idx] || ""}"
+                      <div style={{ 
+                        fontSize: '0.75rem', 
+                        color: '#2b251e', 
+                        background: '#eae1cc', 
+                        border: '1px solid #dfd5bf',
+                        padding: '0.65rem 0.85rem', 
+                        borderRadius: '6px',
+                        marginTop: '0.65rem', 
+                        display: 'flex', 
+                        alignItems: 'center', 
+                        gap: '0.45rem',
+                        textAlign: 'left'
+                      }}>
+                        <Volume2 size={12} style={{ color: '#6d5f50', flexShrink: 0 }} />
+                        <span><strong>Speaker Script:</strong> "{activeIdea.pitchDeck.speakerNotes[idx] || ""}"</span>
                       </div>
                     </div>
                   ))}
@@ -1486,9 +1505,9 @@ const IdeaDiscovery = () => {
                   <button 
                     onClick={() => handleRegenerateSection('roadmap')} 
                     className="tech-button" 
-                    style={{ fontSize: '0.65rem', padding: '0.2rem 0.5rem' }}
+                    style={{ fontSize: '0.65rem', padding: '0.2rem 0.5rem', display: 'flex', alignItems: 'center', gap: '0.35rem' }}
                   >
-                    🔄 Reschedule Timeline
+                    <RefreshCw size={10} /> Reschedule Timeline
                   </button>
                 </div>
 

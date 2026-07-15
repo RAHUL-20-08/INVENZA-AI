@@ -16,7 +16,9 @@ import {
   Shield,
   Globe,
   FileText,
-  BookOpen
+  BookOpen,
+  Sparkles,
+  Lightbulb
 } from 'lucide-react';
 import { fallbackInnovations, calculateClientSimilarity } from '../dataFallback';
 
@@ -696,7 +698,7 @@ const Dashboard = ({ activeInnovation, setActiveInnovation, globalQuery, setGlob
         audits.push(selectedItem);
         localStorage.setItem('saved_audits', JSON.stringify(audits));
         window.dispatchEvent(new Event('storage'));
-        alert("✨ Innovation successfully saved to your basket!");
+        alert("Innovation successfully saved to your basket!");
       } else {
         alert("This concept has already been saved.");
       }
@@ -1834,8 +1836,9 @@ const Dashboard = ({ activeInnovation, setActiveInnovation, globalQuery, setGlob
             <div style={{ padding: '0.75rem', background: 'rgba(0,0,0,0.4)', border: '1px solid var(--border-color)', borderRadius: '4px', fontStyle: 'italic', fontSize: '0.75rem', color: 'var(--text-main)', lineHeight: '1.5' }}>
               "Hello, we are launching a modernized revival of {selectedItem.name}. While original configurations failed due to early mechanical bottlenecks, we solve this by coupling the architecture with edge RAG processors and low-latency local NPUs. This lets us capture the market at a projected CAGR of {selectedItem.marketGrowth || '14.5%'} with a lean development budget..."
             </div>
-            <p style={{ fontSize: '0.65rem', color: 'var(--text-muted)', marginTop: '0.5rem' }}>
-              💡 Practice this slide-deck script with voice synthesis under the <strong>AI Pitch Coach</strong> tab!
+            <p style={{ fontSize: '0.65rem', color: 'var(--text-muted)', marginTop: '0.5rem', display: 'flex', alignItems: 'center', gap: '0.35rem' }}>
+              <Lightbulb size={12} style={{ color: 'var(--color-warning)', flexShrink: 0 }} />
+              <span>Practice this slide-deck script with voice synthesis under the <strong>AI Pitch Coach</strong> tab!</span>
             </p>
           </div>
 

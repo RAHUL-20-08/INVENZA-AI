@@ -2,7 +2,9 @@
   {
     "email": "analyst@gmail.com",
     "password": "f11884ec04f85de9f5c9c3ea73c6e1c4d85df5552262a9be6ad74916806e0b3a",
-    "role": "student"
+    "role": "student",
+    "loginFailures": 0,
+    "lockoutUntil": 1784093812501
   },
   {
     "email": "analyst@outlook.com",
@@ -638,6 +640,34 @@
   {
     "email": "harishwarankrish20@gmail.com",
     "password": "88da0b3e3627feac76703d5c194f3be2305805349bdb104d8d64fb32fd0c6a88",
-    "role": "student"
+    "role": "student",
+    "loginFailures": 2
+  },
+  {
+    "email": "teststudent@gmail.com",
+    "password": "6dd861c563941b8f6fad626a74861a2f607544f47d5f784262c28852ed005f06",
+    "role": "student",
+    "roles": [
+      "student"
+    ],
+    "mfaEnabled": false,
+    "mfaType": "none",
+    "totpSecret": null,
+    "backupCodes": [],
+    "loginFailures": 0,
+    "lockoutUntil": null,
+    "activeSessions": [],
+    "loginHistory": [],
+    "studentProfile": {
+      "fullName": "Test Student",
+      "college": "",
+      "department": "CS",
+      "yearOfStudy": "1",
+      "registerNumber": "",
+      "skills": [],
+      "interests": [],
+      "preferredDomains": []
+    },
+    "businessProfile": null
   }
 ]
