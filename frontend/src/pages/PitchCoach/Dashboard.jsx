@@ -1,21 +1,5 @@
 import React from 'react';
-import { 
-  Sparkles, 
-  Presentation, 
-  BrainCircuit, 
-  ThumbsUp, 
-  Download, 
-  Play, 
-  ChevronRight, 
-  Briefcase, 
-  Activity,
-  Plus,
-  Timer,
-  Volume2,
-  Smile,
-  Settings,
-  Users
-} from 'lucide-react';
+
 
 const Dashboard = ({ 
   activeItem, 
@@ -38,7 +22,7 @@ const Dashboard = ({
         <div className="glass-panel" style={{ padding: '1.5rem', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', gap: '1rem' }}>
           <div>
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.5rem' }}>
-              <Sparkles size={20} color="var(--color-primary)" />
+              <span className="material-symbols-outlined" style={{ fontSize: '20px', color: 'var(--color-primary)' }}>auto_awesome</span>
               <strong style={{ fontSize: '1rem', fontFamily: 'var(--font-display)' }}>Pitch Generator</strong>
             </div>
             <p style={{ fontSize: '0.8rem', color: 'var(--text-muted)', margin: 0, lineHeight: '1.4', textAlign: 'left' }}>
@@ -50,7 +34,7 @@ const Dashboard = ({
             className="tech-button" 
             style={{ fontSize: '0.75rem', width: '100%', padding: '0.55rem' }}
           >
-            Create New Pitch <Plus size={14} />
+            Create New Pitch <span className="material-symbols-outlined" style={{ fontSize: '14px' }}>add</span>
           </button>
         </div>
 
@@ -58,7 +42,7 @@ const Dashboard = ({
         <div className="glass-panel" style={{ padding: '1.5rem', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', gap: '1rem' }}>
           <div>
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.5rem' }}>
-              <Presentation size={20} color="var(--color-secondary)" />
+              <span className="material-symbols-outlined" style={{ fontSize: '20px', color: 'var(--color-secondary)' }}>co_present</span>
               <strong style={{ fontSize: '1rem', fontFamily: 'var(--font-display)' }}>Practice Presentation</strong>
             </div>
             <p style={{ fontSize: '0.8rem', color: 'var(--text-muted)', margin: 0, lineHeight: '1.4', textAlign: 'left' }}>
@@ -70,7 +54,7 @@ const Dashboard = ({
             className="tech-button" 
             style={{ fontSize: '0.75rem', width: '100%', padding: '0.55rem' }}
           >
-            Launch Projector <Play size={12} />
+            Launch Projector <span className="material-symbols-outlined" style={{ fontSize: '12px' }}>play_arrow</span>
           </button>
         </div>
 
@@ -78,7 +62,7 @@ const Dashboard = ({
         <div className="glass-panel" style={{ padding: '1.5rem', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', gap: '1rem' }}>
           <div>
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.5rem' }}>
-              <BrainCircuit size={20} color="var(--color-accent)" />
+              <span className="material-symbols-outlined" style={{ fontSize: '20px', color: 'var(--color-accent)' }}>memory</span>
               <strong style={{ fontSize: '1rem', fontFamily: 'var(--font-display)' }}>Judge Simulator</strong>
             </div>
             <p style={{ fontSize: '0.8rem', color: 'var(--text-muted)', margin: 0, lineHeight: '1.4', textAlign: 'left' }}>
@@ -90,7 +74,7 @@ const Dashboard = ({
             className="tech-button" 
             style={{ fontSize: '0.75rem', width: '100%', padding: '0.55rem' }}
           >
-            Practice Q&A <ChevronRight size={14} />
+            Practice Q&A <span className="material-symbols-outlined" style={{ fontSize: '14px' }}>chevron_right</span>
           </button>
         </div>
 
@@ -104,7 +88,7 @@ const Dashboard = ({
           
           {/* Active project card details */}
           <div className="glass-panel" style={{ padding: '1.5rem' }}>
-            <span style={{ fontSize: '0.65rem', color: 'var(--color-secondary)', fontFamily: 'var(--font-mono)', textAlign: 'left', display: 'block' }}>// ACTIVE_TARGET_CONTEXT</span>
+            <span style={{ fontSize: '0.65rem', color: 'var(--color-secondary)', fontFamily: 'var(--font-sans)', textAlign: 'left', display: 'block' }}>// ACTIVE_TARGET_CONTEXT</span>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderBottom: '1px solid var(--border-color)', paddingBottom: '0.75rem', marginBottom: '1rem' }}>
               <h3 style={{ fontSize: '1.25rem', fontFamily: 'var(--font-display)', margin: 0, fontWeight: 800 }}>{activeItem.name}</h3>
               <span className="mono-tag" style={{ color: 'var(--color-primary)' }}>{activeItem.sector}</span>
@@ -163,12 +147,12 @@ const Dashboard = ({
           {/* Conviction Indicator */}
           <div className="glass-panel" style={{ display: 'flex', flexDirection: 'column', gap: '0.85rem', border: '1.5px solid rgba(6,182,212,0.25)' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-              <ThumbsUp size={16} color="var(--color-secondary)" />
+              <span className="material-symbols-outlined" style={{ fontSize: '16px', color: 'var(--color-secondary)' }}>thumb_up</span>
               <span style={{ fontSize: '0.85rem', fontWeight: 700, fontFamily: 'var(--font-display)' }}>Conviction Index</span>
             </div>
             
             <div style={{ display: 'flex', alignItems: 'baseline', gap: '0.25rem' }}>
-              <span style={{ fontSize: '2rem', fontWeight: 800, color: 'var(--color-success)', fontFamily: 'var(--font-mono)' }}>{convictionScore}%</span>
+              <span style={{ fontSize: '2rem', fontWeight: 800, color: 'var(--color-success)', fontFamily: 'var(--font-sans)' }}>{convictionScore}%</span>
               <span style={{ fontSize: '0.65rem', color: 'var(--text-dim)' }}>GRADED_STABILITY</span>
             </div>
 
@@ -179,13 +163,13 @@ const Dashboard = ({
 
           {/* Quick HUD Metrics */}
           <div className="glass-panel" style={{ padding: '1.25rem' }}>
-            <span style={{ fontSize: '0.65rem', color: 'var(--text-muted)', fontFamily: 'var(--font-mono)', display: 'block', marginBottom: '0.75rem' }}>// PITCH_CONFIGURATION_HUD</span>
+            <span style={{ fontSize: '0.65rem', color: 'var(--text-muted)', fontFamily: 'var(--font-sans)', display: 'block', marginBottom: '0.75rem' }}>// PITCH_CONFIGURATION_HUD</span>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem', fontSize: '0.75rem', textAlign: 'left' }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.45rem' }}><Timer size={12} style={{ color: 'var(--color-primary)' }} /> <span>Autoplay Mode: <strong>Voice Trigger Enabled</strong></span></div>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.45rem' }}><Volume2 size={12} style={{ color: 'var(--color-secondary)' }} /> <span>Speaking Tempo: <strong>{tempo}</strong></span></div>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.45rem' }}><Smile size={12} style={{ color: 'var(--color-success)' }} /> <span>Delivery Tone: <strong>{tone}</strong></span></div>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.45rem' }}><Settings size={12} style={{ color: 'var(--text-muted)' }} /> <span>Active Mode: <span style={{ textTransform: 'capitalize' }}>{pitchMode} Pitch</span></span></div>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.45rem' }}><Users size={12} style={{ color: 'var(--color-accent)' }} /> <span>Target Audience: <span style={{ textTransform: 'capitalize' }}>{audienceType}</span></span></div>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.45rem' }}><span className="material-symbols-outlined" style={{ fontSize: '12px',  color: 'var(--color-primary)'  }}>timer</span> <span>Autoplay Mode: <strong>Voice Trigger Enabled</strong></span></div>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.45rem' }}><span className="material-symbols-outlined" style={{ fontSize: '12px',  color: 'var(--color-secondary)'  }}>volume_up</span> <span>Speaking Tempo: <strong>{tempo}</strong></span></div>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.45rem' }}><span className="material-symbols-outlined" style={{ fontSize: '12px',  color: 'var(--color-success)'  }}>sentiment_satisfied</span> <span>Delivery Tone: <strong>{tone}</strong></span></div>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.45rem' }}><span className="material-symbols-outlined" style={{ fontSize: '12px',  color: 'var(--text-muted)'  }}>settings</span> <span>Active Mode: <span style={{ textTransform: 'capitalize' }}>{pitchMode} Pitch</span></span></div>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.45rem' }}><span className="material-symbols-outlined" style={{ fontSize: '12px',  color: 'var(--color-accent)'  }}>group</span> <span>Target Audience: <span style={{ textTransform: 'capitalize' }}>{audienceType}</span></span></div>
             </div>
           </div>
 

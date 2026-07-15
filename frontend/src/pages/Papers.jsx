@@ -1,24 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { 
-  Search, 
-  FileText, 
-  ArrowRight, 
-  Quote, 
-  BookOpen, 
-  Download, 
-  FolderGit2, 
-  Check, 
-  Eye, 
-  X, 
-  Globe, 
-  Bookmark, 
-  AlertCircle,
-  FileCode,
-  Layers,
-  Sparkles,
-  TrendingUp,
-  Cpu
-} from 'lucide-react';
+
 
 const Papers = ({ globalQuery, setGlobalQuery, setCurrentPage }) => {
   const [selectedPaper, setSelectedPaper] = useState(null);
@@ -563,11 +544,7 @@ Contributions: ${analysis.highlights.contributions}`;
           
           {/* Search bar */}
           <div style={{ position: 'relative' }}>
-            <Search 
-              size={16} 
-              color="var(--text-dim)" 
-              style={{ position: 'absolute', left: '12px', top: '50%', transform: 'translateY(-50%)' }} 
-            />
+            <span className="material-symbols-outlined" style={{ fontSize: '16px', color: 'var(--text-dim)',  position: 'absolute', left: '12px', top: '50%', transform: 'translateY(-50%)'  }}>search</span>
             <input 
               type="text" 
               className="tech-input" 
@@ -586,7 +563,7 @@ Contributions: ${analysis.highlights.contributions}`;
             <div style={{ display: 'flex', flexDirection: 'column', gap: '0.4rem', marginTop: '0.25rem' }}>
               {predictedPapers.length > 0 ? (
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '0.3rem' }}>
-                  <span style={{ fontSize: '0.65rem', fontFamily: 'var(--font-mono)', color: 'var(--text-muted)' }}>
+                  <span style={{ fontSize: '0.65rem', fontFamily: 'var(--font-sans)', color: 'var(--text-muted)' }}>
                     PREDICTED PAPERS & CONCEPTS:
                   </span>
                   <div style={{ display: 'flex', flexDirection: 'column', gap: '0.25rem' }}>
@@ -606,7 +583,7 @@ Contributions: ${analysis.highlights.contributions}`;
                         style={{
                           textAlign: 'left',
                           fontSize: '0.7rem',
-                          fontFamily: 'var(--font-mono)',
+                          fontFamily: 'var(--font-sans)',
                           background: 'rgba(236,72,153,0.05)',
                           border: '1px solid rgba(236,72,153,0.2)',
                           color: '#fff',
@@ -631,7 +608,7 @@ Contributions: ${analysis.highlights.contributions}`;
                 </div>
               ) : (
                 <div style={{ display: 'flex', gap: '0.4rem', alignItems: 'center' }}>
-                  <span style={{ fontSize: '0.65rem', fontFamily: 'var(--font-mono)', color: 'var(--color-danger)' }}>
+                  <span style={{ fontSize: '0.65rem', fontFamily: 'var(--font-sans)', color: 'var(--color-danger)' }}>
                     [NO MATCHING RESEARCH PAPERS FOUND]
                   </span>
                 </div>
@@ -650,7 +627,7 @@ Contributions: ${analysis.highlights.contributions}`;
               justifyContent: 'space-between', 
               alignItems: 'center'
             }}>
-              <span style={{ fontSize: '0.75rem', color: '#ff4d6d', fontWeight: 700, fontFamily: 'var(--font-mono)' }}>
+              <span style={{ fontSize: '0.75rem', color: '#ff4d6d', fontWeight: 700, fontFamily: 'var(--font-sans)' }}>
                 [CRITICAL_ERROR: INVALID_QUERY] {customError}
               </span>
               <button 
@@ -699,7 +676,7 @@ Contributions: ${analysis.highlights.contributions}`;
                         </span>
                       ))}
                     </div>
-                    <span style={{ fontSize: '0.7rem', color: 'var(--text-muted)', fontFamily: 'var(--font-mono)' }}>
+                    <span style={{ fontSize: '0.7rem', color: 'var(--text-muted)', fontFamily: 'var(--font-sans)' }}>
                       Citations: {paper.citations}
                     </span>
                   </div>
@@ -723,7 +700,7 @@ Contributions: ${analysis.highlights.contributions}`;
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', borderBottom: '1px solid var(--border-color)', paddingBottom: '0.75rem' }}>
               <div>
                 <h3 style={{ fontSize: '1.15rem', fontWeight: 700, fontFamily: 'var(--font-display)', color: 'var(--text-main)' }}>Publication Metadata</h3>
-                <span style={{ fontSize: '0.7rem', fontFamily: 'var(--font-mono)', color: 'var(--text-muted)' }}>DOI: {selectedPaper.doi}</span>
+                <span style={{ fontSize: '0.7rem', fontFamily: 'var(--font-sans)', color: 'var(--text-muted)' }}>DOI: {selectedPaper.doi}</span>
               </div>
               <div style={{ display: 'flex', gap: '0.55rem', alignItems: 'center' }}>
                 <button
@@ -736,7 +713,7 @@ Contributions: ${analysis.highlights.contributions}`;
                   }}
                   title={isBookmarked ? "Remove Bookmark" : "Save Paper Bookmark"}
                 >
-                  <Bookmark size={16} fill={isBookmarked ? "var(--color-primary)" : "none"} />
+                  <span className="material-symbols-outlined" style={{ fontSize: '16px' }}>bookmark</span>
                 </button>
                 <button 
                   onClick={() => { setSelectedPaper(null); setActiveCode(''); }}
@@ -759,7 +736,7 @@ Contributions: ${analysis.highlights.contributions}`;
 
             {/* Abstract text */}
             <div>
-              <span style={{ fontSize: '0.65rem', color: 'var(--text-muted)', fontFamily: 'var(--font-mono)', display: 'block', marginBottom: '0.25rem' }}>// DOCUMENT_ABSTRACT</span>
+              <span style={{ fontSize: '0.65rem', color: 'var(--text-muted)', fontFamily: 'var(--font-sans)', display: 'block', marginBottom: '0.25rem' }}>// DOCUMENT_ABSTRACT</span>
               <p style={{ fontSize: '0.85rem', color: 'var(--text-main)', lineHeight: '1.4', margin: 0 }}>
                 "{selectedPaper.abstract}"
               </p>
@@ -768,7 +745,7 @@ Contributions: ${analysis.highlights.contributions}`;
             {/* PDF link alert errors (Feature 7) */}
             {pdfScanError && (
               <div className="glass-panel" style={{ background: 'rgba(239, 68, 68, 0.08)', border: '1px solid rgba(239, 68, 68, 0.25)', padding: '0.75rem 1rem', display: 'flex', gap: '0.5rem', alignItems: 'center' }}>
-                <AlertCircle size={14} color="var(--color-danger)" />
+                <span className="material-symbols-outlined" style={{ fontSize: '14px', color: 'var(--color-danger)' }}>error</span>
                 <span style={{ fontSize: '0.75rem', color: 'var(--color-danger)', fontWeight: 'bold' }}>{pdfScanError}</span>
               </div>
             )}
@@ -777,12 +754,12 @@ Contributions: ${analysis.highlights.contributions}`;
             {selectedPaper.gitRepo && (
               <div style={{ borderTop: '1px solid var(--border-color)', paddingTop: '1rem', display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
                 <h4 style={{ fontSize: '0.8rem', fontWeight: 700, color: 'var(--color-primary)', display: 'flex', alignItems: 'center', gap: '0.35rem', margin: 0 }}>
-                  <FolderGit2 size={13} /> Open-Source Git Reference:
+                  <span className="material-symbols-outlined" style={{ fontSize: '13px' }}>folder</span> Open-Source Git Reference:
                 </h4>
                 <div style={{ background: 'rgba(255,255,255,0.01)', border: '1px solid var(--border-color)', padding: '0.85rem', borderRadius: '6px', display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', width: '100%' }}>
                     <div>
-                      <strong style={{ fontSize: '0.75rem', color: '#fff', fontFamily: 'var(--font-mono)', display: 'block' }}>{selectedPaper.gitRepo}</strong>
+                      <strong style={{ fontSize: '0.75rem', color: '#fff', fontFamily: 'var(--font-sans)', display: 'block' }}>{selectedPaper.gitRepo}</strong>
                       <span style={{ fontSize: '0.65rem', color: 'var(--text-muted)', display: 'block', marginTop: '0.15rem' }}>Core Language: <strong style={{ color: 'var(--color-secondary)' }}>{selectedPaper.gitLang}</strong></span>
                     </div>
                     <div style={{ display: 'flex', gap: '0.35rem' }}>
@@ -810,13 +787,13 @@ Contributions: ${analysis.highlights.contributions}`;
                 disabled={analyzingGap}
                 style={{ width: '100%', fontSize: '0.8rem', padding: '0.5rem 1rem' }}
               >
-                <BookOpen size={14} /> {analyzingGap ? 'Analyzing Literature Gaps...' : 'Identify Research Gaps'}
+                <span className="material-symbols-outlined" style={{ fontSize: '14px' }}>menu_book</span> {analyzingGap ? 'Analyzing Literature Gaps...' : 'Identify Research Gaps'}
               </button>
 
               {researchGap && (
                 <div className="animate-fade-in" style={{ background: 'rgba(99, 102, 241, 0.08)', border: '1px solid var(--color-primary)', padding: '0.75rem', borderRadius: '6px' }}>
                   <h4 style={{ fontSize: '0.8rem', fontWeight: 700, color: 'var(--color-secondary)', display: 'flex', alignItems: 'center', gap: '0.35rem', margin: 0 }}>
-                    <Quote size={12} /> AI Gap Assessment:
+                    <span className="material-symbols-outlined" style={{ fontSize: '12px' }}>format_quote</span> AI Gap Assessment:
                   </h4>
                   <p style={{ fontSize: '0.75rem', color: 'var(--text-main)', marginTop: '0.35rem', lineHeight: '1.4', margin: '0.35rem 0 0 0' }}>
                     {researchGap}
@@ -831,7 +808,7 @@ Contributions: ${analysis.highlights.contributions}`;
               {/* Citation layout */}
               <div className="glass-panel" style={{ padding: '0.85rem', background: '#07090e', border: '1px solid var(--border-color)' }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.55rem' }}>
-                  <span style={{ fontSize: '0.65rem', color: 'var(--text-muted)', fontFamily: 'var(--font-mono)' }}>// BIBTEX_CITATION</span>
+                  <span style={{ fontSize: '0.65rem', color: 'var(--text-muted)', fontFamily: 'var(--font-sans)' }}>// BIBTEX_CITATION</span>
                   <div style={{ display: 'flex', gap: '0.35rem' }}>
                     <button 
                       onClick={handleCopyBib}
@@ -851,7 +828,7 @@ Contributions: ${analysis.highlights.contributions}`;
                 <pre style={{
                   margin: 0,
                   fontSize: '0.65rem',
-                  fontFamily: 'var(--font-mono)',
+                  fontFamily: 'var(--font-sans)',
                   color: 'var(--color-secondary)',
                   overflowX: 'auto',
                   lineHeight: '1.4',
@@ -869,13 +846,13 @@ Contributions: ${analysis.highlights.contributions}`;
                   className="tech-button"
                   style={{ flex: 1, fontSize: '0.75rem', padding: '0.5rem', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.35rem' }}
                 >
-                  <FileText size={13} /> {scanningPdf ? 'Processing PDF OCR Scanner...' : 'Scan & Analyze PDF'}
+                  <span className="material-symbols-outlined" style={{ fontSize: '13px' }}>description</span> {scanningPdf ? 'Processing PDF OCR Scanner...' : 'Scan & Analyze PDF'}
                 </button>
               </div>
 
               {/* Scanned Console Panel (Feature 2) */}
               {scanSteps.length > 0 && (
-                <div className="animate-fade-in" style={{ background: '#000', border: '1px solid var(--border-color)', padding: '0.85rem', borderRadius: '6px', fontFamily: 'var(--font-mono)', fontSize: '0.7rem' }}>
+                <div className="animate-fade-in" style={{ background: '#000', border: '1px solid var(--border-color)', padding: '0.85rem', borderRadius: '6px', fontFamily: 'var(--font-sans)', fontSize: '0.7rem' }}>
                   <div style={{ display: 'flex', flexDirection: 'column', gap: '0.25rem', marginBottom: '0.5rem' }}>
                     {scanSteps.map((step, i) => (
                       <span key={i} style={{ color: '#10b981' }}>&gt; {step}</span>
@@ -942,14 +919,14 @@ Contributions: ${analysis.highlights.contributions}`;
                       className="tech-button tech-button-outline"
                       style={{ flex: 1, fontSize: '0.7rem', padding: '0.45rem', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.25rem' }}
                     >
-                      <Download size={11} /> Download Notes (.txt)
+                      <span className="material-symbols-outlined" style={{ fontSize: '11px' }}>download</span> Download Notes (.txt)
                     </button>
                     <button 
                       onClick={() => handleExportText('md')}
                       className="tech-button tech-button-outline"
                       style={{ flex: 1, fontSize: '0.7rem', padding: '0.45rem', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.25rem' }}
                     >
-                      <FileCode size={11} /> Export Summary (.md)
+                      <span className="material-symbols-outlined" style={{ fontSize: '11px' }}>data_object</span> Export Summary (.md)
                     </button>
                   </div>
 

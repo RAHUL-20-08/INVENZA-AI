@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Search } from 'lucide-react';
+
 import { useSearch } from '../context/SearchContext';
 
 const UnifiedSearchBar = ({ placeholder = "Search verified innovations (e.g. Zune, Nokia N-Gage, Pebble)...", style = {} }) => {
@@ -72,24 +72,20 @@ const UnifiedSearchBar = ({ placeholder = "Search verified innovations (e.g. Zun
   return (
     <div ref={dropdownRef} style={{ position: 'relative', display: 'flex', flex: 1, ...style }}>
       <form onSubmit={handleSubmit} style={{ display: 'flex', gap: '0.5rem', flex: 1 }}>
-        <div style={{ position: 'relative', flex: 1 }}>
-          <Search 
-            size={16} 
-            color="var(--text-dim)" 
-            style={{ position: 'absolute', left: '12px', top: '50%', transform: 'translateY(-50%)', zIndex: 5 }} 
-          />
+        <div className="search-box-google" style={{ flex: 1, minHeight: '44px' }}>
+          <span className="material-symbols-outlined search-icon">search</span>
           <input 
             type="text" 
-            className="tech-input"
             placeholder={placeholder}
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             onKeyDown={handleKeyDown}
-            style={{ paddingLeft: '2.5rem', width: '100%', height: '42px', fontSize: '0.85rem' }}
           />
           {loading && (
-            <div style={{ position: 'absolute', right: '12px', top: '50%', transform: 'translateY(-50%)', zIndex: 5 }}>
-              <span className="glow-text-pink" style={{ fontSize: '0.65rem', fontFamily: 'var(--font-mono)' }}>AUDITING...</span>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '3px', flexShrink: 0, paddingRight: '0.25rem' }}>
+              {['#1A73E8','#0f63bd','#7facf4'].map((c, i) => (
+                <div key={i} style={{ width: '5px', height: '5px', borderRadius: '50%', background: c, animation: `google-dot-bounce 1.4s ease-in-out ${i*0.16}s infinite` }}></div>
+              ))}
             </div>
           )}
         </div>
@@ -97,7 +93,7 @@ const UnifiedSearchBar = ({ placeholder = "Search verified innovations (e.g. Zun
           type="submit" 
           className="tech-button" 
           disabled={loading || query.trim().length < 2}
-          style={{ height: '42px', padding: '0 1.25rem', fontSize: '0.8rem', whiteSpace: 'nowrap' }}
+          style={{ height: '44px', padding: '0 1.5rem', fontSize: '0.875rem', whiteSpace: 'nowrap', borderRadius: '24px' }}
         >
           AI AUDIT
         </button>
@@ -106,20 +102,20 @@ const UnifiedSearchBar = ({ placeholder = "Search verified innovations (e.g. Zun
       {/* Autocomplete suggestions popup overlay */}
       {showSuggestions && suggestions.length > 0 && (
         <div 
-          className="glass-panel" 
           style={{ 
             position: 'absolute', 
-            top: '48px', 
+            top: '52px', 
             left: 0, 
-            right: 0, 
+            right: '100px',
             zIndex: 100, 
-            maxHeight: '260px', 
+            maxHeight: '280px', 
             overflowY: 'auto', 
-            padding: '0.5rem 0',
+            padding: '0.35rem 0',
             border: '1px solid var(--border-color)',
-            boxShadow: 'var(--panel-shadow)',
-            borderRadius: '6px',
-            background: 'var(--bg-panel-solid)'
+            boxShadow: 'var(--search-shadow-focus)',
+            borderRadius: '0 0 24px 24px',
+            background: 'var(--bg-panel-solid)',
+            borderTop: 'none'
           }}
         >
           {suggestions.map((item, index) => (
@@ -128,21 +124,25 @@ const UnifiedSearchBar = ({ placeholder = "Search verified innovations (e.g. Zun
               onClick={() => handleSuggestionClick(item.name)}
               onMouseEnter={() => setActiveSuggestionIndex(index)}
               style={{ 
-                padding: '0.6rem 1rem', 
-                fontSize: '0.8rem', 
+                padding: '0.65rem 1.25rem', 
+                fontSize: '0.875rem', 
                 cursor: 'pointer', 
                 color: 'var(--text-main)',
-                backgroundColor: index === activeSuggestionIndex ? 'rgba(59, 130, 246, 0.08)' : 'transparent',
+                backgroundColor: index === activeSuggestionIndex ? 'var(--bg-hover)' : 'transparent',
                 borderLeft: index === activeSuggestionIndex ? '3px solid var(--color-primary)' : '3px solid transparent',
-                transition: 'all 0.15s ease',
+                transition: 'all 0.12s ease',
                 display: 'flex',
                 justifyContent: 'space-between',
-                alignItems: 'center'
+                alignItems: 'center',
+                gap: '0.5rem'
               }}
             >
-              <span>{item.name}</span>
-              <span style={{ fontSize: '0.65rem', color: 'var(--text-dim)', background: 'rgba(255,255,255,0.03)', padding: '0.1rem 0.4rem', borderRadius: '4px' }}>
-                {item.source === 'local' ? 'DATABASE' : 'VERIFIED CONCEPTS'}
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                <span className="material-symbols-outlined" style={{ fontSize: '14px', color: 'var(--text-dim)' }}>history</span>
+                <span>{item.name}</span>
+              </div>
+              <span style={{ fontSize: '0.65rem', color: 'var(--text-dim)', background: 'var(--bg-hover)', padding: '0.15rem 0.4rem', borderRadius: '4px', flexShrink: 0 }}>
+                {item.source === 'local' ? 'DATABASE' : 'VERIFIED'}
               </span>
             </div>
           ))}

@@ -1,39 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { usePortal } from '../context/PortalContext';
-import { 
-  Sparkles, 
-  HelpCircle, 
-  Layers, 
-  TrendingUp, 
-  AlertTriangle, 
-  CheckCircle, 
-  Cpu, 
-  BookOpen, 
-  RefreshCw,
-  Search,
-  ArrowRight,
-  LineChart,
-  ShieldAlert,
-  Zap,
-  Briefcase,
-  Trophy,
-  DollarSign,
-  Clock,
-  Compass,
-  FileText,
-  Users,
-  Target,
-  FileCode,
-  Download,
-  Send,
-  Plus,
-  Info,
-  ChevronRight,
-  ChevronLeft,
-  Edit2,
-  Lightbulb,
-  Volume2
-} from 'lucide-react';
+
 
 // Custom Searchable Dropdown Component
 const SearchableDropdown = ({ label, value, onChange, options, tooltip, portalAccent }) => {
@@ -56,7 +23,7 @@ const SearchableDropdown = ({ label, value, onChange, options, tooltip, portalAc
         onClick={() => setIsOpen(!isOpen)} 
         style={{ 
           padding: '0.65rem 0.85rem', 
-          background: 'rgba(0,0,0,0.25)', 
+          background: 'var(--bg-panel)', 
           border: '1px solid var(--border-color)', 
           borderRadius: '6px', 
           cursor: 'pointer', 
@@ -93,9 +60,9 @@ const SearchableDropdown = ({ label, value, onChange, options, tooltip, portalAc
               width: '100%', 
               padding: '0.45rem', 
               borderRadius: '4px', 
-              background: 'rgba(0,0,0,0.3)', 
+              background: 'var(--bg-panel)', 
               border: '1px solid var(--border-color)', 
-              color: '#fff', 
+              color: 'var(--text-main)', 
               fontSize: '0.75rem', 
               marginBottom: '0.5rem' 
             }} 
@@ -160,19 +127,19 @@ const EditableBlock = ({ label, value, onChange, type = "text", onRegenerate, po
       position: 'relative' 
     }}>
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.25rem' }}>
-        <span style={{ fontSize: '0.65rem', color: 'var(--text-dim)', fontWeight: 'bold', fontFamily: 'var(--font-mono)' }}>{label.toUpperCase()}</span>
+        <span style={{ fontSize: '0.65rem', color: 'var(--text-dim)', fontWeight: 'bold', fontFamily: 'var(--font-sans)' }}>{label.toUpperCase()}</span>
         <div style={{ display: 'flex', gap: '0.5rem', alignItems: 'center' }}>
           {onRegenerate && (
             <button 
               onClick={onRegenerate} 
               className="tech-button" 
-              style={{ fontSize: '0.6rem', padding: '0.2rem 0.5rem', background: 'transparent', border: '1px solid rgba(255,255,255,0.08)' }}
+              style={{ fontSize: '0.6rem', padding: '0.2rem 0.5rem', background: 'transparent', border: '1px solid var(--border-color)' }}
             >
               🔄 Refresh Section
             </button>
           )}
           <span style={{ fontSize: '0.65rem', color: portalAccent, display: 'flex', alignItems: 'center', gap: '0.15rem' }}>
-            <Edit2 size={10} /> In-place Editable
+            <span className="material-symbols-outlined" style={{ fontSize: '10px' }}>edit</span> In-place Editable
           </span>
         </div>
       </div>
@@ -549,7 +516,7 @@ const IdeaDiscovery = () => {
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '1rem', borderBottom: '1px solid var(--border-color)', paddingBottom: '1.25rem' }}>
         <div>
           <h1 style={{ fontSize: '1.8rem', fontWeight: 'bold', fontFamily: 'var(--font-display)', margin: 0, display: 'flex', alignItems: 'center', gap: '0.65rem' }}>
-            <Cpu style={{ color: portalAccent }} /> AI Business Innovation Workspace
+            <span className="material-symbols-outlined" style={{ fontSize: '24px',  color: portalAccent  }}>developer_board</span> AI Business Innovation Workspace
           </h1>
           <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)', marginTop: '0.3rem' }}>
             Synthesize, validate, and launch dynamic startup concepts backed by expired patent searches and failed startup analysis.
@@ -563,7 +530,7 @@ const IdeaDiscovery = () => {
             className="tech-button" 
             style={{ fontSize: '0.75rem', background: activeTab === 'generator' ? portalAccent : 'transparent', border: 'none', color: activeTab === 'generator' ? '#fff' : 'var(--text-muted)' }}
           >
-            <Sparkles size={13} style={{ marginRight: '0.35rem' }} /> Concept Creator
+            <span className="material-symbols-outlined" style={{ fontSize: '13px',  marginRight: '0.35rem'  }}>auto_awesome</span> Concept Creator
           </button>
           
           <button 
@@ -571,7 +538,7 @@ const IdeaDiscovery = () => {
             className="tech-button" 
             style={{ fontSize: '0.75rem', background: activeTab === 'dashboard' ? portalAccent : 'transparent', border: 'none', color: activeTab === 'dashboard' ? '#fff' : 'var(--text-muted)' }}
           >
-            <Layers size={13} style={{ marginRight: '0.35rem' }} /> Saved Workspace ({savedStartups.length})
+            <span className="material-symbols-outlined" style={{ fontSize: '13px',  marginRight: '0.35rem'  }}>layers</span> Saved Workspace ({savedStartups.length})
           </button>
         </div>
       </div>
@@ -582,22 +549,22 @@ const IdeaDiscovery = () => {
         {/* Sidebar Controls (Visible only when an idea is loaded) */}
         {activeIdea && (
           <div className="glass-panel" style={{ padding: '1rem', borderRadius: '12px', border: '1px solid var(--border-color)', display: 'flex', flexDirection: 'column', gap: '0.45rem' }}>
-            <span style={{ fontSize: '0.65rem', color: 'var(--text-dim)', fontWeight: 'bold', fontFamily: 'var(--font-mono)', padding: '0.5rem 0.5rem 0.25rem 0.5rem', display: 'block' }}>ACTIVE CONCEPT</span>
-            <div style={{ padding: '0.5rem', borderRadius: '6px', background: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.05)', marginBottom: '0.75rem' }}>
+            <span style={{ fontSize: '0.65rem', color: 'var(--text-dim)', fontWeight: 'bold', fontFamily: 'var(--font-sans)', padding: '0.5rem 0.5rem 0.25rem 0.5rem', display: 'block' }}>ACTIVE CONCEPT</span>
+            <div style={{ padding: '0.5rem', borderRadius: '6px', background: 'rgba(255,255,255,0.02)', border: '1px solid var(--border-color)', marginBottom: '0.75rem' }}>
               <div style={{ fontSize: '0.85rem', fontWeight: 'bold', color: portalAccent, wordBreak: 'break-all' }}>{activeIdea.title}</div>
               <div style={{ fontSize: '0.65rem', color: 'var(--text-muted)', marginTop: '0.15rem' }}>Sector: {inputs.industry}</div>
             </div>
 
-            <span style={{ fontSize: '0.65rem', color: 'var(--text-dim)', fontWeight: 'bold', fontFamily: 'var(--font-mono)', padding: '0.25rem 0.5rem 0.25rem 0.5rem', display: 'block' }}>ANALYTICS SECTIONS</span>
+            <span style={{ fontSize: '0.65rem', color: 'var(--text-dim)', fontWeight: 'bold', fontFamily: 'var(--font-sans)', padding: '0.25rem 0.5rem 0.25rem 0.5rem', display: 'block' }}>ANALYTICS SECTIONS</span>
             {[
-              { id: 'plan', label: 'Venture Plan', icon: Briefcase },
-              { id: 'validator', label: 'Startup Validator', icon: ShieldAlert },
-              { id: 'canvas', label: 'Business Canvases', icon: Layers },
-              { id: 'competitors', label: 'Competitor Intel', icon: Compass },
-              { id: 'market', label: 'Market Research', icon: LineChart },
-              { id: 'patent', label: 'Patent & Failures Opportunity', icon: BookOpen },
-              { id: 'pitch', label: 'Investor Pitch Hub', icon: Target },
-              { id: 'mentor', label: 'Launch Roadmap', icon: Trophy }
+              { id: 'plan', label: 'Venture Plan', icon: 'work' },
+              { id: 'validator', label: 'Startup Validator', icon: 'security' },
+              { id: 'canvas', label: 'Business Canvases', icon: 'layers' },
+              { id: 'competitors', label: 'Competitor Intel', icon: 'explore' },
+              { id: 'market', label: 'Market Research', icon: 'query_stats' },
+              { id: 'patent', label: 'Patent & Failures Opportunity', icon: 'menu_book' },
+              { id: 'pitch', label: 'Investor Pitch Hub', icon: 'track_changes' },
+              { id: 'mentor', label: 'Launch Roadmap', icon: 'emoji_events' }
             ].map(tab => (
               <button
                 key={tab.id}
@@ -617,7 +584,7 @@ const IdeaDiscovery = () => {
                   justifyContent: 'flex-start'
                 }}
               >
-                <tab.icon size={13} style={{ color: activeTab === tab.id ? portalAccent : 'var(--text-dim)' }} />
+                <span className="material-symbols-outlined" style={{ fontSize: '14px', color: activeTab === tab.id ? portalAccent : 'var(--text-dim)' }}>{tab.icon}</span>
                 {tab.label}
               </button>
             ))}
@@ -641,7 +608,7 @@ const IdeaDiscovery = () => {
             <div className="glass-panel" style={{ padding: '2rem', borderRadius: '16px', border: `1px solid ${portalAccent}`, boxShadow: `0 8px 30px ${portalGlow}` }}>
               
               <div style={{ textAlign: 'center', marginBottom: '1.5rem' }}>
-                <Sparkles size={32} style={{ color: portalAccent, marginBottom: '0.5rem' }} />
+                <span className="material-symbols-outlined" style={{ fontSize: '32px',  color: portalAccent, marginBottom: '0.5rem'  }}>auto_awesome</span>
                 <h2 style={{ fontSize: '1.30rem', margin: 0, fontWeight: 'bold', fontFamily: 'var(--font-display)' }}>Guided AI Venture Builder</h2>
                 <p style={{ fontSize: '0.8rem', color: 'var(--text-muted)', marginTop: '0.3rem' }}>
                   Construct your startup architecture step-by-step with smart dropdowns and instant recommendations.
@@ -653,7 +620,7 @@ const IdeaDiscovery = () => {
 
               {error && (
                 <div style={{ background: 'rgba(239, 68, 68, 0.1)', border: '1px solid var(--color-danger)', color: 'var(--color-danger)', fontSize: '0.8rem', padding: '0.75rem', borderRadius: '6px', display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '1.5rem' }}>
-                  <AlertTriangle size={14} />
+                  <span className="material-symbols-outlined" style={{ fontSize: '14px' }}>warning</span>
                   <span>{error}</span>
                 </div>
               )}
@@ -907,7 +874,7 @@ const IdeaDiscovery = () => {
                   {/* Context-aware suggestions showcase */}
                   <div style={{ padding: '1rem', borderRadius: '8px', border: `1px solid ${portalAccent}30`, background: `${portalAccent}05` }}>
                     <h4 style={{ fontSize: '0.8rem', color: portalAccent, margin: '0 0 0.5rem 0', fontWeight: 'bold', display: 'flex', alignItems: 'center', gap: '0.35rem' }}>
-                      <Lightbulb size={14} style={{ color: portalAccent }} /> Recommended Tools & Mappings
+                      <span className="material-symbols-outlined" style={{ fontSize: '14px',  color: portalAccent  }}>lightbulb</span> Recommended Tools & Mappings
                     </h4>
                     <div style={{ display: 'flex', flexDirection: 'column', gap: '0.35rem', fontSize: '0.75rem', color: 'var(--text-muted)' }}>
                       <div><strong>APIs:</strong> {getRecommendedTools().apis.join(', ')}</div>
@@ -931,7 +898,7 @@ const IdeaDiscovery = () => {
                   >
                     {loading ? "Running AI Venture Mapping Analysis..." : (
                       <span style={{ display: 'inline-flex', alignItems: 'center', gap: '0.35rem', justifyContent: 'center', width: '100%' }}>
-                        <Sparkles size={14} /> Generate Venture Architecture
+                        <span className="material-symbols-outlined" style={{ fontSize: '14px' }}>auto_awesome</span> Generate Venture Architecture
                       </span>
                     )}
                   </button>
@@ -947,7 +914,7 @@ const IdeaDiscovery = () => {
                   className="tech-button tech-button-outline"
                   style={{ display: 'flex', alignItems: 'center', gap: '0.35rem', fontSize: '0.75rem' }}
                 >
-                  <ChevronLeft size={14} /> Back
+                  <span className="material-symbols-outlined" style={{ fontSize: '14px' }}>chevron_left</span> Back
                 </button>
 
                 {step < 5 ? (
@@ -957,10 +924,10 @@ const IdeaDiscovery = () => {
                     className="tech-button"
                     style={{ display: 'flex', alignItems: 'center', gap: '0.35rem', fontSize: '0.75rem', background: portalAccent, color: '#fff', borderColor: portalAccent }}
                   >
-                    Continue <ChevronRight size={14} />
+                    Continue <span className="material-symbols-outlined" style={{ fontSize: '14px' }}>chevron_right</span>
                   </button>
                 ) : (
-                  <span style={{ fontSize: '0.7rem', color: 'var(--text-dim)', fontFamily: 'var(--font-mono)' }}>READY FOR AI COMPILING</span>
+                  <span style={{ fontSize: '0.7rem', color: 'var(--text-dim)', fontFamily: 'var(--font-sans)' }}>READY FOR AI COMPILING</span>
                 )}
               </div>
 
@@ -981,23 +948,23 @@ const IdeaDiscovery = () => {
                       className="tech-button tech-button-outline" 
                       style={{ fontSize: '0.7rem', display: 'flex', alignItems: 'center', gap: '0.35rem' }}
                     >
-                      <Download size={12} /> Export Plan (.md)
+                      <span className="material-symbols-outlined" style={{ fontSize: '12px' }}>download</span> Export Plan (.md)
                     </button>
                   </div>
                 </div>
 
                 {/* Grid layout of Core Parameters */}
                 <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1.25rem', marginBottom: '1.5rem' }}>
-                  <div style={{ background: 'rgba(255,255,255,0.02)', padding: '1rem', borderRadius: '8px', border: '1px solid rgba(255,255,255,0.04)' }}>
-                    <span style={{ fontSize: '0.65rem', color: 'var(--text-dim)', display: 'block', fontFamily: 'var(--font-mono)' }}>ESTIMATED BUDGET</span>
+                  <div style={{ background: 'rgba(255,255,255,0.02)', padding: '1rem', borderRadius: '8px', border: '1px solid var(--border-color)' }}>
+                    <span style={{ fontSize: '0.65rem', color: 'var(--text-dim)', display: 'block', fontFamily: 'var(--font-sans)' }}>ESTIMATED BUDGET</span>
                     <strong style={{ fontSize: '1.2rem', color: 'var(--text-main)', marginTop: '0.2rem', display: 'block' }}>{activeIdea.budget}</strong>
                   </div>
-                  <div style={{ background: 'rgba(255,255,255,0.02)', padding: '1rem', borderRadius: '8px', border: '1px solid rgba(255,255,255,0.04)' }}>
-                    <span style={{ fontSize: '0.65rem', color: 'var(--text-dim)', display: 'block', fontFamily: 'var(--font-mono)' }}>LAUNCH TIMELINE</span>
+                  <div style={{ background: 'rgba(255,255,255,0.02)', padding: '1rem', borderRadius: '8px', border: '1px solid var(--border-color)' }}>
+                    <span style={{ fontSize: '0.65rem', color: 'var(--text-dim)', display: 'block', fontFamily: 'var(--font-sans)' }}>LAUNCH TIMELINE</span>
                     <strong style={{ fontSize: '1.2rem', color: 'var(--text-main)', marginTop: '0.2rem', display: 'block' }}>{activeIdea.timeline}</strong>
                   </div>
-                  <div style={{ background: 'rgba(255,255,255,0.02)', padding: '1rem', borderRadius: '8px', border: '1px solid rgba(255,255,255,0.04)' }}>
-                    <span style={{ fontSize: '0.65rem', color: 'var(--text-dim)', display: 'block', fontFamily: 'var(--font-mono)' }}>INNOVATION INDEX</span>
+                  <div style={{ background: 'rgba(255,255,255,0.02)', padding: '1rem', borderRadius: '8px', border: '1px solid var(--border-color)' }}>
+                    <span style={{ fontSize: '0.65rem', color: 'var(--text-dim)', display: 'block', fontFamily: 'var(--font-sans)' }}>INNOVATION INDEX</span>
                     <strong style={{ fontSize: '1.2rem', color: 'var(--text-main)', marginTop: '0.2rem', display: 'block' }}>{activeIdea.innovationScore}/100</strong>
                   </div>
                 </div>
@@ -1067,7 +1034,7 @@ const IdeaDiscovery = () => {
                     </svg>
                     <div style={{ position: 'absolute', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
                       <span style={{ fontSize: '1.6rem', fontWeight: 'bold' }}>{activeIdea.overallSuccessProb}%</span>
-                      <span style={{ fontSize: '0.55rem', color: 'var(--text-muted)', fontFamily: 'var(--font-mono)' }}>SUCCESS INDEX</span>
+                      <span style={{ fontSize: '0.55rem', color: 'var(--text-muted)', fontFamily: 'var(--font-sans)' }}>SUCCESS INDEX</span>
                     </div>
                   </div>
                   <span style={{ fontSize: '0.8rem', fontWeight: 'bold', color: 'var(--text-main)', textAlign: 'center', marginTop: '0.5rem' }}>Dynamic Validation Index</span>
@@ -1122,7 +1089,7 @@ const IdeaDiscovery = () => {
                   className="tech-button tech-button-outline" 
                   style={{ fontSize: '0.7rem', display: 'flex', alignItems: 'center', gap: '0.35rem' }}
                 >
-                  <Download size={12} /> Export PDF Report
+                  <span className="material-symbols-outlined" style={{ fontSize: '12px' }}>download</span> Export PDF Report
                 </button>
               </div>
 
@@ -1130,7 +1097,7 @@ const IdeaDiscovery = () => {
               <div id="canvas-print-area" className="glass-panel" style={{ padding: '2rem', borderRadius: '12px', border: '1px solid var(--border-color)', background: 'var(--bg-panel-solid)' }}>
                 <div style={{ textAlign: 'center', borderBottom: '1px solid rgba(255,255,255,0.05)', paddingBottom: '1rem', marginBottom: '1.5rem' }}>
                   <h2 style={{ fontSize: '1.25rem', fontWeight: 'bold', margin: 0 }}>{activeIdea.title}</h2>
-                  <span style={{ fontSize: '0.7rem', color: portalAccent, fontFamily: 'var(--font-mono)', fontWeight: 'bold' }}>
+                  <span style={{ fontSize: '0.7rem', color: portalAccent, fontFamily: 'var(--font-sans)', fontWeight: 'bold' }}>
                     {canvasMode === 'lean' ? "LEAN ARCHITECTURE CANVAS" : "BUSINESS MODEL CANVAS"}
                   </span>
                 </div>
@@ -1236,14 +1203,14 @@ const IdeaDiscovery = () => {
               <div className="glass-panel" style={{ padding: '2rem', borderRadius: '12px', border: '1px solid var(--border-color)' }}>
                 <div style={{ display: 'flex', justifyBetween: 'space-between', alignItems: 'center', marginBottom: '1.25rem' }}>
                   <h3 style={{ fontSize: '1.1rem', fontWeight: 'bold', margin: 0, color: portalAccent, display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                    <Compass size={16} /> SWOT Strategic Matrix
+                    <span className="material-symbols-outlined" style={{ fontSize: '16px' }}>explore</span> SWOT Strategic Matrix
                   </h3>
                   <button 
                     onClick={() => handleRegenerateSection('swot')} 
                     className="tech-button" 
                     style={{ fontSize: '0.65rem', padding: '0.2rem 0.5rem', display: 'flex', alignItems: 'center', gap: '0.35rem' }}
                   >
-                    <RefreshCw size={10} /> Refresh SWOT
+                    <span className="material-symbols-outlined" style={{ fontSize: '10px' }}>refresh</span> Refresh SWOT
                   </button>
                 </div>
                 
@@ -1285,7 +1252,7 @@ const IdeaDiscovery = () => {
                         <strong style={{ fontSize: '0.95rem', color: portalAccent }}>{comp.name}</strong>
                         <span style={{ fontSize: '0.7rem', color: 'var(--text-muted)', marginLeft: '1rem' }}>{comp.website}</span>
                       </div>
-                      <span style={{ fontSize: '0.7rem', background: 'rgba(255,255,255,0.03)', border: '1px solid var(--border-color)', padding: '0.2rem 0.5rem', borderRadius: '4px', fontFamily: 'var(--font-mono)' }}>
+                      <span style={{ fontSize: '0.7rem', background: 'rgba(255,255,255,0.03)', border: '1px solid var(--border-color)', padding: '0.2rem 0.5rem', borderRadius: '4px', fontFamily: 'var(--font-sans)' }}>
                         Funding: {comp.funding}
                       </span>
                     </div>
@@ -1327,12 +1294,12 @@ const IdeaDiscovery = () => {
                 </h3>
 
                 <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.25rem', marginBottom: '1.5rem' }}>
-                  <div style={{ background: 'rgba(0,0,0,0.2)', padding: '1.25rem', borderRadius: '8px', border: '1px solid rgba(255,255,255,0.04)' }}>
-                    <span style={{ fontSize: '0.65rem', color: 'var(--text-muted)', display: 'block', fontFamily: 'var(--font-mono)' }}>TARGET SECTOR SIZE</span>
+                  <div style={{ background: 'var(--bg-panel)', padding: '1.25rem', borderRadius: '8px', border: '1px solid var(--border-color)' }}>
+                    <span style={{ fontSize: '0.65rem', color: 'var(--text-muted)', display: 'block', fontFamily: 'var(--font-sans)' }}>TARGET SECTOR SIZE</span>
                     <strong style={{ fontSize: '1.4rem', color: portalAccent, display: 'block', marginTop: '0.25rem' }}>{activeIdea.marketResearch.marketSize}</strong>
                   </div>
-                  <div style={{ background: 'rgba(0,0,0,0.2)', padding: '1.25rem', borderRadius: '8px', border: '1px solid rgba(255,255,255,0.04)' }}>
-                    <span style={{ fontSize: '0.65rem', color: 'var(--text-muted)', display: 'block', fontFamily: 'var(--font-mono)' }}>GROWTH VELOCITY</span>
+                  <div style={{ background: 'var(--bg-panel)', padding: '1.25rem', borderRadius: '8px', border: '1px solid var(--border-color)' }}>
+                    <span style={{ fontSize: '0.65rem', color: 'var(--text-muted)', display: 'block', fontFamily: 'var(--font-sans)' }}>GROWTH VELOCITY</span>
                     <strong style={{ fontSize: '1.4rem', color: '#10b981', display: 'block', marginTop: '0.25rem' }}>{activeIdea.marketResearch.growthRate}</strong>
                   </div>
                 </div>
@@ -1360,7 +1327,7 @@ const IdeaDiscovery = () => {
                     <div key={idx} style={{ padding: '1rem', borderRadius: '8px', border: '1px solid var(--border-color)', background: 'rgba(255,255,255,0.01)', display: 'flex', flexDirection: 'column', justifyBetween: 'space-between', gap: '0.5rem' }}>
                       <div>
                         <strong style={{ fontSize: '0.85rem', color: portalAccent, display: 'block' }}>{scheme.name}</strong>
-                        <span style={{ fontSize: '0.65rem', color: 'var(--text-muted)', fontFamily: 'var(--font-mono)' }}>Type: {scheme.type} // Amount: {scheme.amount}</span>
+                        <span style={{ fontSize: '0.65rem', color: 'var(--text-muted)', fontFamily: 'var(--font-sans)' }}>Type: {scheme.type} // Amount: {scheme.amount}</span>
                         <p style={{ fontSize: '0.75rem', color: 'var(--text-dim)', margin: '0.45rem 0 0 0', lineHeight: '1.4' }}>{scheme.eligibility}</p>
                       </div>
                       <a href={scheme.link} target="_blank" rel="noreferrer" style={{ fontSize: '0.7rem', color: portalAccent, textDecoration: 'none', fontWeight: 'bold', alignSelf: 'flex-start', marginTop: '0.5rem' }}>
@@ -1378,15 +1345,15 @@ const IdeaDiscovery = () => {
             <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
               <div className="glass-panel" style={{ padding: '2rem', borderRadius: '12px', border: '1px solid var(--border-color)' }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', borderBottom: '1px solid rgba(255,255,255,0.05)', paddingBottom: '0.75rem', marginBottom: '1.25rem' }}>
-                  <BookOpen size={18} style={{ color: portalAccent }} />
+                  <span className="material-symbols-outlined" style={{ fontSize: '18px',  color: portalAccent  }}>menu_book</span>
                   <h3 style={{ fontSize: '1.1rem', fontWeight: 'bold', margin: 0 }}>Expired Patent Opportunity Analyzer</h3>
                 </div>
 
                 {activeIdea.patents.map((pat, idx) => (
                   <div key={idx} style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
                     <div style={{ display: 'flex', justifyBetween: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '0.5rem' }}>
-                      <span style={{ fontSize: '0.75rem', color: portalAccent, fontWeight: 'bold', fontFamily: 'var(--font-mono)' }}>PATENT ID: {pat.id}</span>
-                      <span style={{ fontSize: '0.65rem', background: 'rgba(16, 185, 129, 0.1)', border: '1px solid var(--color-success)', color: 'var(--color-success)', padding: '0.15rem 0.5rem', borderRadius: '4px', fontFamily: 'var(--font-mono)' }}>STATUS: EXPIRED</span>
+                      <span style={{ fontSize: '0.75rem', color: portalAccent, fontWeight: 'bold', fontFamily: 'var(--font-sans)' }}>PATENT ID: {pat.id}</span>
+                      <span style={{ fontSize: '0.65rem', background: 'rgba(16, 185, 129, 0.1)', border: '1px solid var(--color-success)', color: 'var(--color-success)', padding: '0.15rem 0.5rem', borderRadius: '4px', fontFamily: 'var(--font-sans)' }}>STATUS: EXPIRED</span>
                     </div>
                     <strong style={{ fontSize: '0.9rem', color: 'var(--text-main)' }}>{pat.title}</strong>
                     <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>
@@ -1400,7 +1367,7 @@ const IdeaDiscovery = () => {
               {/* Failed Startup Case Study */}
               <div className="glass-panel" style={{ padding: '2rem', borderRadius: '12px', border: '1px solid var(--border-color)' }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', borderBottom: '1px solid rgba(255,255,255,0.05)', paddingBottom: '0.75rem', marginBottom: '1.25rem' }}>
-                  <AlertTriangle size={18} style={{ color: 'var(--color-danger)' }} />
+                  <span className="material-symbols-outlined" style={{ fontSize: '18px',  color: 'var(--color-danger)'  }}>warning</span>
                   <h3 style={{ fontSize: '1.1rem', fontWeight: 'bold', margin: 0 }}>Failed Startup Revitalization Case Study</h3>
                 </div>
 
@@ -1425,34 +1392,71 @@ const IdeaDiscovery = () => {
           {/* TAB 7: INVESTOR PITCH DECK */}
           {activeTab === 'pitch' && activeIdea && (
             <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
-              
-              {/* Financial Prediction Engine */}
-              <div className="glass-panel" style={{ padding: '2rem', borderRadius: '12px', border: '1px solid var(--border-color)' }}>
-                <div style={{ display: 'flex', justifyBetween: 'space-between', alignItems: 'center', marginBottom: '1.25rem' }}>
-                  <h3 style={{ fontSize: '1.1rem', fontWeight: 'bold', margin: 0, color: portalAccent }}>
-                    Venture Financial Forecasts & Pricing
+              {/* MD3 Prediction Engine */}
+              <div className="glass-panel" style={{ padding: '2rem', borderRadius: '16px', border: '1px solid var(--border-color)', background: 'var(--bg-panel)' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.5rem' }}>
+                  <h3 style={{ fontSize: '1.25rem', fontWeight: '600', margin: 0, color: 'var(--text-main)', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                    <span className="material-symbols-outlined" style={{ color: 'var(--color-primary)' }}>analytics</span>
+                    AI Success Prediction & Financials
                   </h3>
                   <button 
                     onClick={() => handleRegenerateSection('revenueForecast')} 
                     className="tech-button" 
-                    style={{ fontSize: '0.65rem', padding: '0.2rem 0.5rem', display: 'flex', alignItems: 'center', gap: '0.35rem' }}
+                    style={{ fontSize: '0.8rem', padding: '0.4rem 1rem' }}
                   >
-                    <RefreshCw size={10} /> Recalculate Projections
+                    <span className="material-symbols-outlined" style={{ fontSize: '14px' }}>refresh</span> Recalculate
                   </button>
                 </div>
 
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: '1rem', marginBottom: '1.25rem' }}>
-                  {[
-                    { label: "Target Monthly Revenue", val: activeIdea.revenueForecast.monthly, color: portalAccent },
-                    { label: "Projected Annual Revenue", val: activeIdea.revenueForecast.annual, color: '#10b981' },
-                    { label: "Estimated Break-Even", val: activeIdea.revenueForecast.breakeven, color: '#f59e0b' },
-                    { label: "ROI Forecast (24 Mo)", val: activeIdea.revenueForecast.roi, color: '#6366f1' }
-                  ].map((rev, idx) => (
-                    <div key={idx} style={{ background: 'rgba(255,255,255,0.01)', padding: '0.85rem', borderRadius: '6px', border: '1px solid var(--border-color)' }}>
-                      <span style={{ fontSize: '0.6rem', color: 'var(--text-dim)', display: 'block' }}>{rev.label}</span>
-                      <strong style={{ fontSize: '1.1rem', color: rev.color, marginTop: '0.2rem', display: 'block' }}>{rev.val}</strong>
+                <div style={{ display: 'grid', gridTemplateColumns: '1fr 2fr', gap: '2rem', marginBottom: '1.5rem' }}>
+                  {/* Circular Confidence Score */}
+                  <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', background: 'var(--bg-surface)', border: '1px solid var(--border-color)', borderRadius: '16px', padding: '1.5rem' }}>
+                    <div style={{ position: 'relative', width: '120px', height: '120px', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '1rem' }}>
+                      <svg style={{ transform: 'rotate(-90deg)', width: '100%', height: '100%' }} viewBox="0 0 36 36">
+                        <path style={{ fill: 'none', stroke: 'var(--border-color)', strokeWidth: '3' }} d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                        <path style={{ fill: 'none', stroke: 'var(--color-success)', strokeWidth: '3', strokeDasharray: '85, 100' }} d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                      </svg>
+                      <div style={{ position: 'absolute', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                        <span style={{ fontSize: '1.5rem', fontWeight: '700', color: 'var(--text-main)' }}>85%</span>
+                      </div>
                     </div>
-                  ))}
+                    <span style={{ fontSize: '0.9rem', fontWeight: '600', color: 'var(--text-main)' }}>Success Probability</span>
+                    <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>High Confidence Score</span>
+                  </div>
+
+                  {/* Financial Metrics Cards */}
+                  <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
+                    {[
+                      { label: "Target Monthly Revenue", val: activeIdea.revenueForecast.monthly, color: 'var(--color-primary)', icon: 'payments' },
+                      { label: "Projected Annual Revenue", val: activeIdea.revenueForecast.annual, color: 'var(--color-success)', icon: 'trending_up' },
+                      { label: "Estimated Break-Even", val: activeIdea.revenueForecast.breakeven, color: 'var(--color-warning)', icon: 'balance' },
+                      { label: "ROI Forecast (24 Mo)", val: activeIdea.revenueForecast.roi, color: 'var(--color-accent)', icon: 'insights' }
+                    ].map((rev, idx) => (
+                      <div key={idx} style={{ background: 'var(--bg-surface)', padding: '1.25rem', borderRadius: '12px', border: '1px solid var(--border-color)', display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+                        <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                          <span className="material-symbols-outlined" style={{ color: rev.color, fontSize: '18px' }}>{rev.icon}</span>
+                          <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)', fontWeight: '500' }}>{rev.label}</span>
+                        </div>
+                        <strong style={{ fontSize: '1.25rem', color: 'var(--text-main)', fontWeight: '700' }}>{rev.val}</strong>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+                
+                {/* Risk Meter & Recommendations */}
+                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
+                  <div style={{ background: 'var(--bg-surface)', padding: '1.25rem', borderRadius: '12px', border: '1px solid var(--border-color)' }}>
+                    <h4 style={{ fontSize: '0.9rem', fontWeight: '600', color: 'var(--text-main)', marginBottom: '0.75rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}><span className="material-symbols-outlined" style={{ fontSize: '18px', color: 'var(--color-warning)' }}>warning</span> Risk Meter</h4>
+                    <div style={{ width: '100%', height: '8px', background: 'var(--border-color)', borderRadius: '4px', overflow: 'hidden', marginBottom: '0.5rem' }}>
+                      <div style={{ width: '35%', height: '100%', background: 'var(--color-warning)' }}></div>
+                    </div>
+                    <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>Low-Medium Risk (35%)</span>
+                  </div>
+                  
+                  <div style={{ background: 'var(--bg-surface)', padding: '1.25rem', borderRadius: '12px', border: '1px solid var(--border-color)' }}>
+                    <h4 style={{ fontSize: '0.9rem', fontWeight: '600', color: 'var(--text-main)', marginBottom: '0.5rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}><span className="material-symbols-outlined" style={{ fontSize: '18px', color: 'var(--color-primary)' }}>lightbulb</span> AI Recommendation</h4>
+                    <p style={{ fontSize: '0.8rem', color: 'var(--text-muted)', margin: 0 }}>Focus on rapid MVP validation in niche B2B segments to lower initial customer acquisition costs.</p>
+                  </div>
                 </div>
               </div>
 
@@ -1483,7 +1487,7 @@ const IdeaDiscovery = () => {
                         gap: '0.45rem',
                         textAlign: 'left'
                       }}>
-                        <Volume2 size={12} style={{ color: '#6d5f50', flexShrink: 0 }} />
+                        <span className="material-symbols-outlined" style={{ fontSize: '12px',  color: '#6d5f50', flexShrink: 0  }}>volume_up</span>
                         <span><strong>Speaker Script:</strong> "{activeIdea.pitchDeck.speakerNotes[idx] || ""}"</span>
                       </div>
                     </div>
@@ -1507,7 +1511,7 @@ const IdeaDiscovery = () => {
                     className="tech-button" 
                     style={{ fontSize: '0.65rem', padding: '0.2rem 0.5rem', display: 'flex', alignItems: 'center', gap: '0.35rem' }}
                   >
-                    <RefreshCw size={10} /> Reschedule Timeline
+                    <span className="material-symbols-outlined" style={{ fontSize: '10px' }}>refresh</span> Reschedule Timeline
                   </button>
                 </div>
 
@@ -1527,7 +1531,7 @@ const IdeaDiscovery = () => {
                       
                       <div style={{ display: 'flex', justifyBetween: 'space-between', alignItems: 'center', gap: '1rem' }}>
                         <strong style={{ fontSize: '0.85rem', color: 'var(--text-main)' }}>{step.milestone}</strong>
-                        <span style={{ fontSize: '0.7rem', color: 'var(--text-muted)', fontFamily: 'var(--font-mono)' }}>{step.duration}</span>
+                        <span style={{ fontSize: '0.7rem', color: 'var(--text-muted)', fontFamily: 'var(--font-sans)' }}>{step.duration}</span>
                       </div>
                       <span style={{ fontSize: '0.7rem', color: step.status === 'Completed' ? '#10b981' : (step.status === 'In Progress' ? portalAccent : 'var(--text-dim)') }}>
                         {step.status.toUpperCase()}
@@ -1540,11 +1544,11 @@ const IdeaDiscovery = () => {
               {/* AI Workspace Mentor Chat Assistant */}
               <div className="glass-panel" style={{ padding: '2rem', borderRadius: '12px', border: '1px solid var(--border-color)' }}>
                 <h3 style={{ fontSize: '1.1rem', fontWeight: 'bold', margin: '0 0 1rem 0', color: portalAccent, display: 'flex', alignItems: 'center', gap: '0.5rem', borderBottom: '1px solid rgba(255,255,255,0.05)', paddingBottom: '0.5rem' }}>
-                  <Users size={16} /> AI Chat Workspace Mentor
+                  <span className="material-symbols-outlined" style={{ fontSize: '16px' }}>group</span> AI Chat Workspace Mentor
                 </h3>
 
                 <div style={{
-                  background: 'rgba(0,0,0,0.15)',
+                  background: 'var(--bg-panel)',
                   borderRadius: '8px',
                   padding: '1rem',
                   height: '240px',
@@ -1575,7 +1579,7 @@ const IdeaDiscovery = () => {
                     </div>
                   ))}
                   {chatLoading && (
-                    <div style={{ alignSelf: 'flex-start', background: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.05)', padding: '0.65rem 0.85rem', borderRadius: '12px', fontSize: '0.8rem', display: 'flex', alignItems: 'center', gap: '0.45rem', color: 'var(--text-dim)' }}>
+                    <div style={{ alignSelf: 'flex-start', background: 'rgba(255,255,255,0.02)', border: '1px solid var(--border-color)', padding: '0.65rem 0.85rem', borderRadius: '12px', fontSize: '0.8rem', display: 'flex', alignItems: 'center', gap: '0.45rem', color: 'var(--text-dim)' }}>
                       <div style={{ width: '8px', height: '8px', borderRadius: '50%', background: portalAccent, animation: 'pulse 1s infinite alternate' }} />
                       Mentor is thinking...
                     </div>
@@ -1592,7 +1596,7 @@ const IdeaDiscovery = () => {
                     style={{ flex: 1 }}
                   />
                   <button type="submit" className="tech-button" style={{ background: portalAccent, borderColor: portalAccent, color: '#fff' }}>
-                    <Send size={14} />
+                    <span className="material-symbols-outlined" style={{ fontSize: '14px' }}>send</span>
                   </button>
                 </form>
               </div>

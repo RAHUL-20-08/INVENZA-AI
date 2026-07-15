@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Rocket, ShieldAlert, Award, FileSpreadsheet, DollarSign, BrainCircuit, Users, Compass } from 'lucide-react';
+
 import { fallbackInnovations } from '../dataFallback';
 
 const StartupBuilder = ({ activeInnovation }) => {
@@ -100,7 +100,7 @@ const StartupBuilder = ({ activeInnovation }) => {
           {/* Timeline Roadmap */}
           <div className="glass-panel">
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '1.5rem' }}>
-              <Rocket size={20} color="var(--color-primary)" />
+              <span className="material-symbols-outlined" style={{ fontSize: '20px', color: 'var(--color-primary)' }}>rocket_launch</span>
               <h2 style={{ fontSize: '1.2rem', fontFamily: 'var(--font-display)' }}>Commercialization Timeline</h2>
             </div>
 
@@ -140,7 +140,7 @@ const StartupBuilder = ({ activeInnovation }) => {
             <div className="glass-panel" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem', padding: '1rem' }}>
               {/* Strengths */}
               <div style={{ background: 'rgba(16, 185, 129, 0.04)', padding: '0.75rem', borderRadius: '6px', border: '1px solid rgba(16, 185, 129, 0.15)' }}>
-                <span style={{ fontSize: '0.75rem', fontWeight: 'bold', color: 'var(--color-success)', fontFamily: 'var(--font-mono)' }}>STRENGTHS (S)</span>
+                <span style={{ fontSize: '0.75rem', fontWeight: 'bold', color: 'var(--color-success)', fontFamily: 'var(--font-sans)' }}>STRENGTHS (S)</span>
                 <ul style={{ paddingLeft: '1rem', fontSize: '0.75rem', marginTop: '0.35rem', display: 'flex', flexDirection: 'column', gap: '0.25rem' }}>
                   {(activeItem.swot?.strengths || []).map((s, idx) => <li key={idx}>{s}</li>)}
                 </ul>
@@ -148,7 +148,7 @@ const StartupBuilder = ({ activeInnovation }) => {
 
               {/* Weaknesses */}
               <div style={{ background: 'rgba(244, 63, 94, 0.04)', padding: '0.75rem', borderRadius: '6px', border: '1px solid rgba(244, 63, 94, 0.15)' }}>
-                <span style={{ fontSize: '0.75rem', fontWeight: 'bold', color: 'var(--color-danger)', fontFamily: 'var(--font-mono)' }}>WEAKNESSES (W)</span>
+                <span style={{ fontSize: '0.75rem', fontWeight: 'bold', color: 'var(--color-danger)', fontFamily: 'var(--font-sans)' }}>WEAKNESSES (W)</span>
                 <ul style={{ paddingLeft: '1rem', fontSize: '0.75rem', marginTop: '0.35rem', display: 'flex', flexDirection: 'column', gap: '0.25rem' }}>
                   {(activeItem.swot?.weaknesses || []).map((s, idx) => <li key={idx}>{s}</li>)}
                 </ul>
@@ -156,7 +156,7 @@ const StartupBuilder = ({ activeInnovation }) => {
 
               {/* Opportunities */}
               <div style={{ background: 'rgba(6, 182, 212, 0.04)', padding: '0.75rem', borderRadius: '6px', border: '1px solid rgba(6, 182, 212, 0.15)' }}>
-                <span style={{ fontSize: '0.75rem', fontWeight: 'bold', color: 'var(--color-secondary)', fontFamily: 'var(--font-mono)' }}>OPPORTUNITIES (O)</span>
+                <span style={{ fontSize: '0.75rem', fontWeight: 'bold', color: 'var(--color-secondary)', fontFamily: 'var(--font-sans)' }}>OPPORTUNITIES (O)</span>
                 <ul style={{ paddingLeft: '1rem', fontSize: '0.75rem', marginTop: '0.35rem', display: 'flex', flexDirection: 'column', gap: '0.25rem' }}>
                   {(activeItem.swot?.opportunities || []).map((s, idx) => <li key={idx}>{s}</li>)}
                 </ul>
@@ -164,7 +164,7 @@ const StartupBuilder = ({ activeInnovation }) => {
 
               {/* Threats */}
               <div style={{ background: 'rgba(245, 158, 11, 0.04)', padding: '0.75rem', borderRadius: '6px', border: '1px solid rgba(245, 158, 11, 0.15)' }}>
-                <span style={{ fontSize: '0.75rem', fontWeight: 'bold', color: 'var(--color-warning)', fontFamily: 'var(--font-mono)' }}>THREATS (T)</span>
+                <span style={{ fontSize: '0.75rem', fontWeight: 'bold', color: 'var(--color-warning)', fontFamily: 'var(--font-sans)' }}>THREATS (T)</span>
                 <ul style={{ paddingLeft: '1rem', fontSize: '0.75rem', marginTop: '0.35rem', display: 'flex', flexDirection: 'column', gap: '0.25rem' }}>
                   {(activeItem.swot?.threats || []).map((s, idx) => <li key={idx}>{s}</li>)}
                 </ul>
@@ -174,17 +174,17 @@ const StartupBuilder = ({ activeInnovation }) => {
             {/* Financial Requirements */}
             <div className="glass-panel" style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                <DollarSign size={18} color="var(--color-success)" />
+                <span className="material-symbols-outlined" style={{ fontSize: '18px', color: 'var(--color-success)' }}>attach_money</span>
                 <h3 style={{ fontSize: '1rem', fontFamily: 'var(--font-display)' }}>Financial Forecasts</h3>
               </div>
 
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', background: 'rgba(0,0,0,0.2)', padding: '0.75rem', borderRadius: '6px', border: '1px solid var(--border-color)' }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', background: 'var(--bg-panel)', padding: '0.75rem', borderRadius: '6px', border: '1px solid var(--border-color)' }}>
                 <span style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>Estimated R&D Budget</span>
-                <strong style={{ fontSize: '1.2rem', color: 'var(--color-success)', fontFamily: 'var(--font-mono)' }}>{activeItem.financials?.estimatedCost}</strong>
+                <strong style={{ fontSize: '1.2rem', color: 'var(--color-success)', fontFamily: 'var(--font-sans)' }}>{activeItem.financials?.estimatedCost}</strong>
               </div>
 
               <div>
-                <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)', fontFamily: 'var(--font-mono)', display: 'block', marginBottom: '0.35rem' }}>REQUIRED SKILLS</span>
+                <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)', fontFamily: 'var(--font-sans)', display: 'block', marginBottom: '0.35rem' }}>REQUIRED SKILLS</span>
                 <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.35rem' }}>
                   {(activeItem.financials?.requiredSkills || []).map((skill, idx) => (
                     <span key={idx} style={{ fontSize: '0.7rem', background: 'rgba(255,255,255,0.04)', border: '1px solid var(--border-color)', padding: '0.25rem 0.5rem', borderRadius: '4px' }}>
@@ -195,7 +195,7 @@ const StartupBuilder = ({ activeInnovation }) => {
               </div>
 
               <div>
-                <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)', fontFamily: 'var(--font-mono)', display: 'block', marginBottom: '0.35rem' }}>POTENTIAL INVESTORS</span>
+                <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)', fontFamily: 'var(--font-sans)', display: 'block', marginBottom: '0.35rem' }}>POTENTIAL INVESTORS</span>
                 <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.35rem' }}>
                   {(activeItem.financials?.potentialInvestors || []).map((inv, idx) => (
                     <span key={idx} style={{ fontSize: '0.7rem', background: 'rgba(99, 102, 241, 0.1)', border: '1px solid rgba(99, 102, 241, 0.2)', color: 'var(--color-primary)', padding: '0.25rem 0.5rem', borderRadius: '4px' }}>
@@ -210,7 +210,7 @@ const StartupBuilder = ({ activeInnovation }) => {
         </div>
       ) : (
         /* Tab 2: Business Model Canvas */
-        <div className="glass-panel animate-fade-in" style={{ display: 'flex', flexDirection: 'column', gap: '1rem', padding: '1rem', background: 'rgba(5, 7, 10, 0.95)' }}>
+        <div className="glass-panel animate-fade-in" style={{ display: 'flex', flexDirection: 'column', gap: '1rem', padding: '1.5rem', background: 'var(--bg-panel-solid)' }}>
           <div style={{
             display: 'grid',
             gridTemplateColumns: 'repeat(5, 1fr)',
@@ -223,7 +223,7 @@ const StartupBuilder = ({ activeInnovation }) => {
             {/* Key Partners */}
             <div style={{ gridRow: 'span 2', background: 'rgba(255,255,255,0.01)', border: '1px solid var(--border-color)', padding: '0.75rem', borderRadius: '8px' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.35rem', marginBottom: '0.5rem', borderBottom: '1px solid var(--border-color)', paddingBottom: '0.25rem' }}>
-                <Users size={14} color="var(--color-primary)" />
+                <span className="material-symbols-outlined" style={{ fontSize: '14px', color: 'var(--color-primary)' }}>group</span>
                 <span style={{ fontSize: '0.75rem', fontWeight: 'bold', fontFamily: 'var(--font-display)' }}>Key Partners</span>
               </div>
               <ul style={{ fontSize: '0.7rem', paddingLeft: '0.75rem', display: 'flex', flexDirection: 'column', gap: '0.35rem', color: 'var(--text-muted)' }}>
@@ -234,7 +234,7 @@ const StartupBuilder = ({ activeInnovation }) => {
             {/* Key Activities */}
             <div style={{ background: 'rgba(255,255,255,0.01)', border: '1px solid var(--border-color)', padding: '0.75rem', borderRadius: '8px' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.35rem', marginBottom: '0.5rem', borderBottom: '1px solid var(--border-color)', paddingBottom: '0.25rem' }}>
-                <BrainCircuit size={14} color="var(--color-secondary)" />
+                <span className="material-symbols-outlined" style={{ fontSize: '14px', color: 'var(--color-secondary)' }}>memory</span>
                 <span style={{ fontSize: '0.75rem', fontWeight: 'bold', fontFamily: 'var(--font-display)' }}>Key Activities</span>
               </div>
               <ul style={{ fontSize: '0.7rem', paddingLeft: '0.75rem', display: 'flex', flexDirection: 'column', gap: '0.35rem', color: 'var(--text-muted)' }}>
@@ -245,7 +245,7 @@ const StartupBuilder = ({ activeInnovation }) => {
             {/* Value Propositions */}
             <div style={{ gridRow: 'span 2', background: 'rgba(99, 102, 241, 0.03)', border: '1px solid rgba(99, 102, 241, 0.25)', padding: '0.75rem', borderRadius: '8px' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.35rem', marginBottom: '0.5rem', borderBottom: '1px solid rgba(99,102,241,0.2)', paddingBottom: '0.25rem' }}>
-                <Award size={14} color="var(--color-primary)" />
+                <span className="material-symbols-outlined" style={{ fontSize: '14px', color: 'var(--color-primary)' }}>workspace_premium</span>
                 <span style={{ fontSize: '0.75rem', fontWeight: 'bold', fontFamily: 'var(--font-display)', color: 'var(--color-primary)' }}>Value Prop</span>
               </div>
               <ul style={{ fontSize: '0.7rem', paddingLeft: '0.75rem', display: 'flex', flexDirection: 'column', gap: '0.35rem', color: 'var(--text-main)' }}>
@@ -256,7 +256,7 @@ const StartupBuilder = ({ activeInnovation }) => {
             {/* Customer Relationships */}
             <div style={{ background: 'rgba(255,255,255,0.01)', border: '1px solid var(--border-color)', padding: '0.75rem', borderRadius: '8px' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.35rem', marginBottom: '0.5rem', borderBottom: '1px solid var(--border-color)', paddingBottom: '0.25rem' }}>
-                <Rocket size={14} color="var(--color-accent)" />
+                <span className="material-symbols-outlined" style={{ fontSize: '14px', color: 'var(--color-accent)' }}>rocket_launch</span>
                 <span style={{ fontSize: '0.75rem', fontWeight: 'bold', fontFamily: 'var(--font-display)' }}>Relationships</span>
               </div>
               <ul style={{ fontSize: '0.7rem', paddingLeft: '0.75rem', display: 'flex', flexDirection: 'column', gap: '0.35rem', color: 'var(--text-muted)' }}>
@@ -267,7 +267,7 @@ const StartupBuilder = ({ activeInnovation }) => {
             {/* Customer Segments */}
             <div style={{ gridRow: 'span 2', background: 'rgba(255,255,255,0.01)', border: '1px solid var(--border-color)', padding: '0.75rem', borderRadius: '8px' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.35rem', marginBottom: '0.5rem', borderBottom: '1px solid var(--border-color)', paddingBottom: '0.25rem' }}>
-                <Users size={14} color="var(--color-success)" />
+                <span className="material-symbols-outlined" style={{ fontSize: '14px', color: 'var(--color-success)' }}>group</span>
                 <span style={{ fontSize: '0.75rem', fontWeight: 'bold', fontFamily: 'var(--font-display)' }}>Segments</span>
               </div>
               <ul style={{ fontSize: '0.7rem', paddingLeft: '0.75rem', display: 'flex', flexDirection: 'column', gap: '0.35rem', color: 'var(--text-muted)' }}>
@@ -278,7 +278,7 @@ const StartupBuilder = ({ activeInnovation }) => {
             {/* Key Resources */}
             <div style={{ background: 'rgba(255,255,255,0.01)', border: '1px solid var(--border-color)', padding: '0.75rem', borderRadius: '8px' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.35rem', marginBottom: '0.5rem', borderBottom: '1px solid var(--border-color)', paddingBottom: '0.25rem' }}>
-                <FileSpreadsheet size={14} color="var(--color-warning)" />
+                <span className="material-symbols-outlined" style={{ fontSize: '14px', color: 'var(--color-warning)' }}>table_chart</span>
                 <span style={{ fontSize: '0.75rem', fontWeight: 'bold', fontFamily: 'var(--font-display)' }}>Key Resources</span>
               </div>
               <ul style={{ fontSize: '0.7rem', paddingLeft: '0.75rem', display: 'flex', flexDirection: 'column', gap: '0.35rem', color: 'var(--text-muted)' }}>
@@ -289,7 +289,7 @@ const StartupBuilder = ({ activeInnovation }) => {
             {/* Channels */}
             <div style={{ background: 'rgba(255,255,255,0.01)', border: '1px solid var(--border-color)', padding: '0.75rem', borderRadius: '8px' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.35rem', marginBottom: '0.5rem', borderBottom: '1px solid var(--border-color)', paddingBottom: '0.25rem' }}>
-                <Compass size={14} color="var(--color-secondary)" />
+                <span className="material-symbols-outlined" style={{ fontSize: '14px', color: 'var(--color-secondary)' }}>explore</span>
                 <span style={{ fontSize: '0.75rem', fontWeight: 'bold', fontFamily: 'var(--font-display)' }}>Channels</span>
               </div>
               <ul style={{ fontSize: '0.7rem', paddingLeft: '0.75rem', display: 'flex', flexDirection: 'column', gap: '0.35rem', color: 'var(--text-muted)' }}>
@@ -310,7 +310,7 @@ const StartupBuilder = ({ activeInnovation }) => {
             {/* Cost Structure */}
             <div style={{ background: 'rgba(255,255,255,0.01)', border: '1px solid var(--border-color)', padding: '0.75rem', borderRadius: '8px' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.35rem', marginBottom: '0.5rem', borderBottom: '1px solid var(--border-color)', paddingBottom: '0.25rem' }}>
-                <DollarSign size={14} color="var(--color-danger)" />
+                <span className="material-symbols-outlined" style={{ fontSize: '14px', color: 'var(--color-danger)' }}>attach_money</span>
                 <span style={{ fontSize: '0.75rem', fontWeight: 'bold', fontFamily: 'var(--font-display)' }}>Cost Structure</span>
               </div>
               <ul style={{ fontSize: '0.7rem', paddingLeft: '0.75rem', display: 'flex', flexDirection: 'column', gap: '0.35rem', color: 'var(--text-muted)' }}>
@@ -321,7 +321,7 @@ const StartupBuilder = ({ activeInnovation }) => {
             {/* Revenue Streams */}
             <div style={{ background: 'rgba(255,255,255,0.01)', border: '1px solid var(--border-color)', padding: '0.75rem', borderRadius: '8px' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.35rem', marginBottom: '0.5rem', borderBottom: '1px solid var(--border-color)', paddingBottom: '0.25rem' }}>
-                <DollarSign size={14} color="var(--color-success)" />
+                <span className="material-symbols-outlined" style={{ fontSize: '14px', color: 'var(--color-success)' }}>attach_money</span>
                 <span style={{ fontSize: '0.75rem', fontWeight: 'bold', fontFamily: 'var(--font-display)' }}>Revenue Streams</span>
               </div>
               <ul style={{ fontSize: '0.7rem', paddingLeft: '0.75rem', display: 'flex', flexDirection: 'column', gap: '0.35rem', color: 'var(--text-muted)' }}>

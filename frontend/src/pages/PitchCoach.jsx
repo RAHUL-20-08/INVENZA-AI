@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { AlertTriangle } from 'lucide-react';
+
 
 // Import newly refactored standalone submodules (Feature 3)
 import Dashboard from './PitchCoach/Dashboard';
@@ -1132,13 +1132,13 @@ class PitchCoachErrorBoundary extends React.Component {
           alignItems: 'center',
           justifyContent: 'center',
           minHeight: '450px',
-          background: '#040508',
-          border: '1.5px solid var(--color-danger)',
-          borderRadius: '8px',
+          background: 'var(--bg-panel-solid)',
+          border: '1px solid var(--border-color)',
+          borderRadius: '12px',
           padding: '2.5rem',
           margin: '2rem auto',
           maxWidth: '650px',
-          color: '#fff',
+          color: 'var(--text-main)',
           fontFamily: 'var(--font-sans)',
           textAlign: 'center',
           boxShadow: '0 12px 40px rgba(239, 68, 68, 0.15)'

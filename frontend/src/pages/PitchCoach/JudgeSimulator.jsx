@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrainCircuit, ArrowLeft, Mic, AlertTriangle } from 'lucide-react';
+
 
 const JudgeSimulator = ({ 
   practiceQuestions, 
@@ -24,14 +24,14 @@ const JudgeSimulator = ({
           className="tech-button tech-button-outline"
           style={{ fontSize: '0.75rem', padding: '0.45rem 1rem', display: 'flex', alignItems: 'center', gap: '0.35rem' }}
         >
-          <ArrowLeft size={14} /> Back to Dashboard
+          <span className="material-symbols-outlined" style={{ fontSize: '14px' }}>arrow_back</span> Back to Dashboard
         </button>
         <strong style={{ fontSize: '1.1rem', fontFamily: 'var(--font-display)' }}>Interactive Q&A Session</strong>
       </div>
 
       <div className="glass-panel" style={{ padding: '1.5rem' }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', borderBottom: '1px solid var(--border-color)', paddingBottom: '0.75rem', marginBottom: '1.25rem' }}>
-          <BrainCircuit size={20} color="var(--color-accent)" />
+          <span className="material-symbols-outlined" style={{ fontSize: '20px', color: 'var(--color-accent)' }}>memory</span>
           <span style={{ fontSize: '0.95rem', fontWeight: 700, fontFamily: 'var(--font-display)' }}>Judge Panel Q&A Simulation</span>
         </div>
 
@@ -52,7 +52,7 @@ const JudgeSimulator = ({
 
           {/* Active Question display */}
           <div style={{ background: 'rgba(255,255,255,0.01)', border: '1px solid var(--border-color)', padding: '1.25rem', borderRadius: '6px', display: 'flex', flexDirection: 'column', gap: '0.55rem', textAlign: 'left' }}>
-            <span style={{ fontSize: '0.65rem', fontFamily: 'var(--font-mono)', color: 'var(--color-accent)' }}>// PRACTICE_QUESTION_PANEL</span>
+            <span style={{ fontSize: '0.65rem', fontFamily: 'var(--font-sans)', color: 'var(--color-accent)' }}>// PRACTICE_QUESTION_PANEL</span>
             <p style={{ fontSize: '0.85rem', color: '#fff', margin: 0, lineHeight: '1.4' }}>
               {practiceQuestions[activeQuestionIndex].question}
             </p>
@@ -67,7 +67,7 @@ const JudgeSimulator = ({
               {[...Array(6)].map((_, i) => (
                 <div key={i} style={{ width: '3px', height: '16px', background: 'var(--color-accent)', borderRadius: '2px', animation: 'waveformAnim 0.7s ease-in-out infinite alternate', animationDelay: `${i * 0.08}s` }}></div>
               ))}
-              <span style={{ fontSize: '0.65rem', color: 'var(--color-accent)', fontFamily: 'var(--font-mono)' }}>[LISTENING...]</span>
+              <span style={{ fontSize: '0.65rem', color: 'var(--color-accent)', fontFamily: 'var(--font-sans)' }}>[LISTENING...]</span>
             </div>
           )}
 
@@ -87,7 +87,7 @@ const JudgeSimulator = ({
               className={`tech-button ${isRecording ? '' : 'tech-button-outline'}`}
               style={{ width: '42px', height: '42px', padding: 0, borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', alignSelf: 'center', flexShrink: 0 }}
             >
-              <Mic size={16} />
+              <span className="material-symbols-outlined" style={{ fontSize: '16px' }}>mic</span>
             </button>
           </div>
 

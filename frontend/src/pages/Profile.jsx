@@ -1,28 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { 
-  User, 
-  Settings, 
-  Shield, 
-  Bell, 
-  Award, 
-  Briefcase, 
-  Bookmark, 
-  Cpu, 
-  CheckCircle, 
-  MapPin, 
-  Globe, 
-  Edit, 
-  Camera, 
-  Trash2, 
-  Lock, 
-  Clock, 
-  Share2, 
-  Heart, 
-  MessageSquare,
-  Plus, 
-  Download,
-  AlertCircle
-} from 'lucide-react';
+
 import { usePortal } from '../context/PortalContext';
 
 const GithubIcon = ({ size = 12 }) => (
@@ -688,18 +665,18 @@ const Profile = ({ userEmail, theme }) => {
                   <h2 style={{ fontSize: '1.65rem', fontWeight: 800, margin: 0, fontFamily: 'var(--font-display)', color: 'var(--text-main)' }}>
                     {profileData.fullName || "Unspecified User"}
                   </h2>
-                  <span style={{ fontSize: '0.75rem', fontFamily: 'var(--font-mono)', background: 'rgba(255,255,255,0.05)', padding: '0.2rem 0.5rem', borderRadius: '4px', border: '1px solid var(--border-color)', color: 'var(--color-secondary)' }}>
+                  <span style={{ fontSize: '0.75rem', fontFamily: 'var(--font-sans)', background: 'rgba(255,255,255,0.05)', padding: '0.2rem 0.5rem', borderRadius: '4px', border: '1px solid var(--border-color)', color: 'var(--color-secondary)' }}>
                     Level {currentLevel} {getLevelTitle(currentLevel)}
                   </span>
                 </div>
                 
-                <span style={{ fontSize: '0.85rem', color: 'var(--text-muted)', fontFamily: 'var(--font-mono)' }}>
+                <span style={{ fontSize: '0.85rem', color: 'var(--text-muted)', fontFamily: 'var(--font-sans)' }}>
                   @{profileData.username || "username"}
                 </span>
 
                 <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', fontSize: '0.8rem', color: 'var(--text-dim)', marginTop: '0.5rem' }}>
-                  {profileData.location && <span style={{ display: 'flex', alignItems: 'center', gap: '0.25rem' }}><MapPin size={12} /> {profileData.location}</span>}
-                  <span style={{ display: 'flex', alignItems: 'center', gap: '0.25rem' }}><Clock size={12} /> Joined {profileData.joinDate}</span>
+                  {profileData.location && <span style={{ display: 'flex', alignItems: 'center', gap: '0.25rem' }}><span className="material-symbols-outlined" style={{ fontSize: '12px' }}>location_on</span> {profileData.location}</span>}
+                  <span style={{ display: 'flex', alignItems: 'center', gap: '0.25rem' }}><span className="material-symbols-outlined" style={{ fontSize: '12px' }}>schedule</span> Joined {profileData.joinDate}</span>
                 </div>
               </div>
             </div>
@@ -711,7 +688,7 @@ const Profile = ({ userEmail, theme }) => {
                 className="tech-button"
                 style={{ display: 'flex', alignItems: 'center', gap: '0.35rem', fontSize: '0.75rem', padding: '0.5rem 1.25rem' }}
               >
-                <Edit size={12} /> {isEditing ? "Cancel" : "Edit Profile"}
+                <span className="material-symbols-outlined" style={{ fontSize: '12px' }}>edit</span> {isEditing ? "Cancel" : "Edit Profile"}
               </button>
             </div>
 
@@ -732,7 +709,7 @@ const Profile = ({ userEmail, theme }) => {
 
           {/* EDIT FORM CONTAINER */}
           {isEditing && (
-            <form onSubmit={handleSaveProfile} className="glass-panel animate-fade-in" style={{ marginTop: '1.5rem', border: '1.5px solid var(--color-primary)', background: 'rgba(10,12,18,0.98)', padding: '1.5rem' }}>
+            <form onSubmit={handleSaveProfile} className="glass-panel animate-fade-in" style={{ marginTop: '1.5rem', border: '1px solid var(--border-color)', background: 'var(--bg-panel-solid)', padding: '1.5rem' }}>
               <h4 style={{ fontSize: '0.95rem', fontWeight: 'bold', margin: '0 0 1rem 0' }}>Edit Profile Information</h4>
               <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
                 <div>
@@ -779,7 +756,7 @@ const Profile = ({ userEmail, theme }) => {
           {!isEditing && (
             <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', marginTop: '1.5rem', background: 'rgba(255,255,255,0.01)', border: '1px solid var(--border-color)', padding: '1.25rem', borderRadius: '8px' }}>
               <div>
-                <span style={{ fontSize: '0.65rem', color: 'var(--text-muted)', fontFamily: 'var(--font-mono)', display: 'block', marginBottom: '0.25rem' }}>// BIOGRAPHY_METADATA</span>
+                <span style={{ fontSize: '0.65rem', color: 'var(--text-muted)', fontFamily: 'var(--font-sans)', display: 'block', marginBottom: '0.25rem' }}>// BIOGRAPHY_METADATA</span>
                 {profileData.bio ? (
                   <p style={{ fontSize: '0.85rem', margin: 0, lineHeight: '1.5' }}>{profileData.bio}</p>
                 ) : (
@@ -791,7 +768,7 @@ const Profile = ({ userEmail, theme }) => {
                 <div style={{ display: 'flex', gap: '1.25rem', flexWrap: 'wrap', fontSize: '0.8rem', borderTop: '1px solid rgba(255,255,255,0.03)', paddingTop: '0.85rem' }}>
                   {profileData.company && (
                     <div style={{ display: 'flex', alignItems: 'center', gap: '0.35rem' }}>
-                      <Briefcase size={12} color="var(--color-primary)" /> 
+                      <span className="material-symbols-outlined" style={{ fontSize: '12px', color: 'var(--color-primary)' }}>work</span> 
                       <span>{profileData.role} at {profileData.company} {profileData.department && `(${profileData.department})`}</span>
                     </div>
                   )}
@@ -809,7 +786,7 @@ const Profile = ({ userEmail, theme }) => {
               )}
 
               <div>
-                <span style={{ fontSize: '0.65rem', color: 'var(--text-muted)', fontFamily: 'var(--font-mono)', display: 'block', marginBottom: '0.35rem' }}>// TECHNICAL_SKILLS</span>
+                <span style={{ fontSize: '0.65rem', color: 'var(--text-muted)', fontFamily: 'var(--font-sans)', display: 'block', marginBottom: '0.35rem' }}>// TECHNICAL_SKILLS</span>
                 {profileData.skills.length > 0 ? (
                   <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
                     {profileData.skills.map((skill, index) => (
@@ -833,10 +810,10 @@ const Profile = ({ userEmail, theme }) => {
       <div className="glass-panel" style={{ padding: '1.25rem', border: '1px solid var(--border-color)', borderRadius: '12px', background: 'var(--bg-panel-solid)' }}>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.75rem' }}>
           <div>
-            <span style={{ fontSize: '0.65rem', color: 'var(--text-muted)', fontFamily: 'var(--font-mono)', display: 'block' }}>// GAMIFIED_EXPERIENCE_LOG</span>
+            <span style={{ fontSize: '0.65rem', color: 'var(--text-muted)', fontFamily: 'var(--font-sans)', display: 'block' }}>// GAMIFIED_EXPERIENCE_LOG</span>
             <strong style={{ fontSize: '0.9rem', color: 'var(--color-primary)' }}>Level {currentLevel} — {getLevelTitle(currentLevel)}</strong>
           </div>
-          <span style={{ fontSize: '0.75rem', fontFamily: 'var(--font-mono)', color: 'var(--text-muted)' }}>{currentXp} / 1000 XP</span>
+          <span style={{ fontSize: '0.75rem', fontFamily: 'var(--font-sans)', color: 'var(--text-muted)' }}>{currentXp} / 1000 XP</span>
         </div>
         <div style={{ width: '100%', height: '10px', background: 'rgba(255,255,255,0.05)', borderRadius: '5px', overflow: 'hidden' }}>
           <div style={{ width: `${(currentXp / 1000) * 100}%`, height: '100%', background: 'linear-gradient(90deg, var(--color-primary), var(--color-accent))', transition: 'width 0.4s' }}></div>
@@ -846,11 +823,11 @@ const Profile = ({ userEmail, theme }) => {
       {/* Tabs navigation list */}
       <div style={{ display: 'flex', gap: '1rem', borderBottom: '1px solid var(--border-color)', paddingBottom: '0.5rem' }}>
         {[
-          { id: 'overview', label: 'Dashboard & Badges', icon: User },
-          { id: 'portfolio', label: 'Creations Portfolio', icon: Briefcase },
-          { id: 'saved', label: 'Saved Basket', icon: Bookmark },
-          { id: 'notifications', label: `Notifications (${notifications.filter(n => !n.read).length})`, icon: Bell },
-          { id: 'security', label: 'Security & Settings', icon: Settings }
+          { id: 'overview', label: 'Dashboard & Badges', icon: 'person' },
+          { id: 'portfolio', label: 'Creations Portfolio', icon: 'work' },
+          { id: 'saved', label: 'Saved Basket', icon: 'bookmark' },
+          { id: 'notifications', label: `Notifications (${notifications.filter(n => !n.read).length})`, icon: 'notifications' },
+          { id: 'security', label: 'Security & Settings', icon: 'settings' }
         ].map(t => (
           <button
             key={t.id}
@@ -869,7 +846,7 @@ const Profile = ({ userEmail, theme }) => {
               fontWeight: activeTab === t.id ? 'bold' : 'normal'
             }}
           >
-            <t.icon size={14} /> {t.label}
+            <span className="material-symbols-outlined" style={{ fontSize: '14px' }}>{t.icon}</span> {t.label}
           </button>
         ))}
       </div>
@@ -900,7 +877,7 @@ const Profile = ({ userEmail, theme }) => {
 
             {/* Computed Badges Shelves */}
             <div className="glass-panel" style={{ padding: '1.5rem' }}>
-              <span style={{ fontSize: '0.65rem', color: 'var(--text-muted)', fontFamily: 'var(--font-mono)', display: 'block', marginBottom: '0.75rem' }}>// DYNAMIC_ACHIEVEMENTS_SHELF</span>
+              <span style={{ fontSize: '0.65rem', color: 'var(--text-muted)', fontFamily: 'var(--font-sans)', display: 'block', marginBottom: '0.75rem' }}>// DYNAMIC_ACHIEVEMENTS_SHELF</span>
               
               <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '1rem' }}>
                 {badges.map(badge => (
@@ -925,16 +902,14 @@ const Profile = ({ userEmail, theme }) => {
                       color: '#fff',
                       boxShadow: badge.unlocked ? '0 0 10px rgba(52, 211, 153, 0.3)' : 'none'
                     }}>
-                      <Award size={20} />
+                      <span className="material-symbols-outlined" style={{ fontSize: '20px' }}>workspace_premium</span>
                     </div>
                     <div>
                       <strong style={{ fontSize: '0.8rem', display: 'block', color: 'var(--text-main)' }}>{badge.name}</strong>
                       <span style={{ fontSize: '0.7rem', color: 'var(--text-muted)' }}>{badge.desc}</span>
-                      {badge.unlocked ? (
-                        <span style={{ fontSize: '0.65rem', color: 'var(--color-success)', display: 'block', marginTop: '0.15rem', fontFamily: 'var(--font-mono)' }}>[UNLOCKED]</span>
-                      ) : (
-                        <span style={{ fontSize: '0.65rem', color: 'var(--text-dim)', display: 'block', marginTop: '0.15rem', fontFamily: 'var(--font-mono)' }}>[LOCKED]</span>
-                      )}
+                      <span style={{ fontSize: '0.65rem', display: 'block', marginTop: '0.15rem', fontWeight: 600, color: badge.unlocked ? 'var(--color-success)' : 'var(--text-dim)' }}>
+                        {badge.unlocked ? 'Unlocked' : 'Locked'}
+                      </span>
                     </div>
                   </div>
                 ))}
@@ -943,7 +918,6 @@ const Profile = ({ userEmail, theme }) => {
 
             {/* AI Advisor Actions Panel */}
             <div className="glass-panel" style={{ borderLeft: '4px solid var(--color-primary)', background: 'rgba(59, 130, 246, 0.05)', padding: '1.25rem' }}>
-              <span style={{ fontSize: '0.65rem', color: 'var(--color-primary)', fontFamily: 'var(--font-mono)', display: 'block', marginBottom: '0.45rem' }}>[AI_ADVISOR_ACTIONABLE_RECOMMENDATIONS]</span>
               <h4 style={{ fontSize: '0.9rem', margin: '0 0 0.5rem 0' }}>Proactive Profile Alignment Actions</h4>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '0.45rem', fontSize: '0.8rem' }}>
                 {profileCompletion < 60 && (
@@ -971,7 +945,7 @@ const Profile = ({ userEmail, theme }) => {
 
             {/* Activity log */}
             <div className="glass-panel" style={{ padding: '1.5rem' }}>
-              <span style={{ fontSize: '0.65rem', color: 'var(--text-muted)', fontFamily: 'var(--font-mono)', display: 'block', marginBottom: '0.85rem' }}>// VERIFIED_ACTIVITY_LOG</span>
+              <span style={{ fontSize: '0.65rem', color: 'var(--text-muted)', fontFamily: 'var(--font-sans)', display: 'block', marginBottom: '0.85rem' }}>// VERIFIED_ACTIVITY_LOG</span>
               
               {activities.length === 0 ? (
                 <p style={{ fontSize: '0.8rem', color: 'var(--text-dim)', fontStyle: 'italic', margin: 0 }}>No recent activity.</p>
@@ -980,7 +954,7 @@ const Profile = ({ userEmail, theme }) => {
                   {activities.map((act, i) => (
                     <div key={i} style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.75rem', borderBottom: '1px solid rgba(255,255,255,0.03)', paddingBottom: '0.5rem' }}>
                       <span style={{ color: 'var(--text-main)' }}>{act.text}</span>
-                      <span style={{ color: 'var(--text-dim)', fontFamily: 'var(--font-mono)' }}>{act.time}</span>
+                      <span style={{ color: 'var(--text-dim)', fontFamily: 'var(--font-sans)' }}>{act.time}</span>
                     </div>
                   ))}
                 </div>
@@ -1001,13 +975,13 @@ const Profile = ({ userEmail, theme }) => {
                 className="tech-button"
                 style={{ display: 'flex', alignItems: 'center', gap: '0.35rem', fontSize: '0.75rem', padding: '0.45rem 1rem' }}
               >
-                <Plus size={12} /> Add Portfolio Project
+                <span className="material-symbols-outlined" style={{ fontSize: '12px' }}>add</span> Add Portfolio Project
               </button>
             </div>
 
             {/* ADD PORTFOLIO CREATION FORM */}
             {showAddProject && (
-              <form onSubmit={handleAddProject} className="glass-panel animate-fade-in" style={{ border: '1.5px solid var(--color-primary)', background: 'rgba(10,12,18,0.98)', padding: '1.25rem' }}>
+              <form onSubmit={handleAddProject} className="glass-panel animate-fade-in" style={{ border: '1px solid var(--border-color)', background: 'var(--bg-panel-solid)', padding: '1.25rem' }}>
                 <h5 style={{ fontSize: '0.85rem', margin: '0 0 0.85rem 0' }}>Register New Creation</h5>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
                   <div>
@@ -1052,7 +1026,7 @@ const Profile = ({ userEmail, theme }) => {
                     position: 'relative'
                   }}>
                     <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
-                      <span style={{ fontSize: '0.65rem', color: 'var(--color-secondary)', fontFamily: 'var(--font-mono)' }}>
+                      <span style={{ fontSize: '0.65rem', color: 'var(--color-secondary)', fontFamily: 'var(--font-sans)' }}>
                         {p.category.toUpperCase()}
                       </span>
                       <div style={{ display: 'flex', gap: '0.5rem' }}>
@@ -1081,8 +1055,8 @@ const Profile = ({ userEmail, theme }) => {
                     </p>
 
                     <div style={{ display: 'flex', gap: '1rem', fontSize: '0.7rem', color: 'var(--text-dim)', borderTop: '1px solid rgba(255,255,255,0.03)', paddingTop: '0.55rem' }}>
-                      <span style={{ display: 'flex', alignItems: 'center', gap: '0.2rem' }}><Heart size={11} /> {p.likes} likes</span>
-                      <span style={{ display: 'flex', alignItems: 'center', gap: '0.2rem' }}><MessageSquare size={11} /> {p.comments} comments</span>
+                      <span style={{ display: 'flex', alignItems: 'center', gap: '0.2rem' }}><span className="material-symbols-outlined" style={{ fontSize: '11px' }}>favorite</span> {p.likes} likes</span>
+                      <span style={{ display: 'flex', alignItems: 'center', gap: '0.2rem' }}><span className="material-symbols-outlined" style={{ fontSize: '11px' }}>chat</span> {p.comments} comments</span>
                     </div>
                   </div>
                 ))}
@@ -1111,7 +1085,7 @@ const Profile = ({ userEmail, theme }) => {
                     alignItems: 'center'
                   }}>
                     <div style={{ display: 'flex', flexDirection: 'column', gap: '0.25rem', maxWidth: '75%' }}>
-                      <span style={{ fontSize: '0.65rem', color: 'var(--color-secondary)', fontFamily: 'var(--font-mono)' }}>{item.sector}</span>
+                      <span style={{ fontSize: '0.65rem', color: 'var(--color-secondary)', fontFamily: 'var(--font-sans)' }}>{item.sector}</span>
                       <strong style={{ fontSize: '0.85rem', color: 'var(--text-main)' }}>{item.name}</strong>
                       <p style={{ fontSize: '0.75rem', color: 'var(--text-muted)', margin: 0, textOverflow: 'ellipsis', overflow: 'hidden', whiteSpace: 'nowrap' }}>{item.description}</p>
                     </div>
@@ -1120,7 +1094,7 @@ const Profile = ({ userEmail, theme }) => {
                       className="tech-button tech-button-outline"
                       style={{ fontSize: '0.7rem', color: 'var(--color-danger)', border: '1px solid rgba(239, 68, 68, 0.3)', padding: '0.35rem 0.65rem' }}
                     >
-                      <Trash2 size={12} /> Remove
+                      <span className="material-symbols-outlined" style={{ fontSize: '12px' }}>delete</span> Remove
                     </button>
                   </div>
                 ))}
@@ -1173,18 +1147,17 @@ const Profile = ({ userEmail, theme }) => {
             {/* Status alerts */}
             {securitySuccess && (
               <div style={{ background: 'rgba(16, 185, 129, 0.1)', border: '1px solid var(--color-success)', color: 'var(--color-success)', fontSize: '0.8rem', padding: '0.85rem', borderRadius: '8px', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                <CheckCircle size={15} /> <span>{securitySuccess}</span>
+                <span className="material-symbols-outlined" style={{ fontSize: '15px' }}>check_circle</span> <span>{securitySuccess}</span>
               </div>
             )}
             {securityError && (
               <div style={{ background: 'rgba(239, 68, 68, 0.1)', border: '1px solid var(--color-danger)', color: 'var(--color-danger)', fontSize: '0.8rem', padding: '0.85rem', borderRadius: '8px', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                <AlertCircle size={15} /> <span>{securityError}</span>
+                <span className="material-symbols-outlined" style={{ fontSize: '15px' }}>error</span> <span>{securityError}</span>
               </div>
             )}
 
             {/* A. MFA Security controls */}
             <div className="glass-panel" style={{ padding: '1.5rem', borderLeft: '4px solid var(--color-primary)' }}>
-              <span style={{ fontSize: '0.65rem', color: 'var(--color-primary)', fontFamily: 'var(--font-mono)', display: 'block', marginBottom: '0.5rem' }}>[MFA_AUTHENTICATOR_INTEGRITY]</span>
               <h4 style={{ fontSize: '1rem', margin: '0 0 0.50rem 0', fontWeight: 'bold' }}>Multi-Factor Authentication (MFA)</h4>
               
               <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)', lineHeight: '1.5', marginBottom: '1.25rem' }}>
@@ -1211,7 +1184,7 @@ const Profile = ({ userEmail, theme }) => {
               ) : (
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--color-success)', fontWeight: '600', fontSize: '0.85rem' }}>
-                    <CheckCircle size={14} /> Active Security Clearance Enabled ({securityConfig.mfaType === 'totp' ? 'Authenticator App / TOTP' : 'Email OTP'})
+                    <span className="material-symbols-outlined" style={{ fontSize: '14px' }}>check_circle</span> Active Security Clearance Enabled ({securityConfig.mfaType === 'totp' ? 'Authenticator App / TOTP' : 'Email OTP'})
                   </div>
                   <button 
                     onClick={() => setShowDisableMFAPrompt(true)}
@@ -1225,7 +1198,7 @@ const Profile = ({ userEmail, theme }) => {
 
               {/* MFA Setup drawer details */}
               {showMFASetup && mfaSetupData && (
-                <div className="glass-panel animate-fade-in" style={{ marginTop: '1.5rem', background: 'rgba(0,0,0,0.25)', border: '1px solid var(--border-color)', padding: '1.25rem' }}>
+                <div className="glass-panel animate-fade-in" style={{ marginTop: '1.5rem', background: 'var(--bg-panel)', border: '1px solid var(--border-color)', padding: '1.25rem' }}>
                   <h5 style={{ fontSize: '0.85rem', margin: '0 0 0.75rem 0', fontWeight: 'bold' }}>MFA Registration Setup</h5>
                   
                   <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
@@ -1237,7 +1210,7 @@ const Profile = ({ userEmail, theme }) => {
                       </div>
                       <div style={{ display: 'flex', flexDirection: 'column', gap: '0.25rem', flex: 1, minWidth: '200px' }}>
                         <span style={{ fontSize: '0.7rem', color: 'var(--text-muted)' }}>SECRET KEY (TOTP SEED):</span>
-                        <code style={{ fontSize: '0.9rem', color: 'var(--color-secondary)', fontFamily: 'var(--font-mono)', fontWeight: 'bold', wordBreak: 'break-all' }}>
+                        <code style={{ fontSize: '0.9rem', color: 'var(--color-secondary)', fontFamily: 'var(--font-sans)', fontWeight: 'bold', wordBreak: 'break-all' }}>
                           {mfaSetupData.secret}
                         </code>
                         <span style={{ fontSize: '0.65rem', color: 'var(--text-dim)' }}>
@@ -1248,12 +1221,12 @@ const Profile = ({ userEmail, theme }) => {
 
                     {/* Backup Recovery codes list */}
                     <div style={{ background: 'rgba(255,255,255,0.01)', border: '1px solid var(--border-color)', padding: '0.85rem', borderRadius: '8px' }}>
-                      <span style={{ fontSize: '0.7rem', color: 'var(--text-muted)', fontFamily: 'var(--font-mono)', display: 'block', marginBottom: '0.45rem' }}>
+                      <span style={{ fontSize: '0.7rem', color: 'var(--text-muted)', fontFamily: 'var(--font-sans)', display: 'block', marginBottom: '0.45rem' }}>
                         EMERGENCY BACKUP RECOVERY CODES (SAVE SECURELY!)
                       </span>
-                      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '0.5rem', fontFamily: 'var(--font-mono)', fontSize: '0.7rem', color: 'var(--text-main)' }}>
+                      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '0.5rem', fontFamily: 'var(--font-sans)', fontSize: '0.7rem', color: 'var(--text-main)' }}>
                         {mfaSetupData.backupCodes.map((code, idx) => (
-                          <div key={idx} style={{ background: 'rgba(0,0,0,0.2)', padding: '0.25rem', borderRadius: '4px', textAlign: 'center' }}>
+                          <div key={idx} style={{ background: 'var(--bg-panel)', padding: '0.25rem', borderRadius: '4px', textAlign: 'center' }}>
                             {code}
                           </div>
                         ))}
@@ -1315,7 +1288,7 @@ const Profile = ({ userEmail, theme }) => {
 
             {/* B. Update Password Credentials */}
             <div className="glass-panel" style={{ padding: '1.5rem' }}>
-              <span style={{ fontSize: '0.65rem', color: 'var(--text-muted)', fontFamily: 'var(--font-mono)', display: 'block', marginBottom: '0.75rem' }}>// CREDENTIALS_CIPHER_ROTATE</span>
+              <span style={{ fontSize: '0.65rem', color: 'var(--text-muted)', fontFamily: 'var(--font-sans)', display: 'block', marginBottom: '0.75rem' }}>// CREDENTIALS_CIPHER_ROTATE</span>
               <h4 style={{ fontSize: '0.95rem', margin: '0 0 1rem 0', fontWeight: 'bold' }}>Change Security Password</h4>
 
               <form onSubmit={handleChangePasswordSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
@@ -1362,7 +1335,7 @@ const Profile = ({ userEmail, theme }) => {
                 {newPassword && (
                   <div style={{ background: 'rgba(255,255,255,0.01)', border: '1px solid var(--border-color)', padding: '0.85rem', borderRadius: '8px', display: 'flex', flexDirection: 'column', gap: '0.45rem' }}>
                     <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                      <span style={{ fontSize: '0.7rem', color: 'var(--text-muted)', fontFamily: 'var(--font-mono)' }}>PASSWORD STRENGTH:</span>
+                      <span style={{ fontSize: '0.7rem', color: 'var(--text-muted)', fontFamily: 'var(--font-sans)' }}>PASSWORD STRENGTH:</span>
                       <span style={{ fontSize: '0.7rem', fontWeight: 'bold', color: getPasswordStrength(newPassword).color }}>{getPasswordStrength(newPassword).label}</span>
                     </div>
                     <div style={{ height: '4px', width: '100%', background: 'rgba(255,255,255,0.05)', borderRadius: '2px', overflow: 'hidden' }}>
@@ -1398,7 +1371,7 @@ const Profile = ({ userEmail, theme }) => {
             <div className="glass-panel" style={{ padding: '1.5rem' }}>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.85rem' }}>
                 <div>
-                  <span style={{ fontSize: '0.65rem', color: 'var(--text-muted)', fontFamily: 'var(--font-mono)', display: 'block' }}>// SESSION_DEVICE_REGISTRY</span>
+                  <span style={{ fontSize: '0.65rem', color: 'var(--text-muted)', fontFamily: 'var(--font-sans)', display: 'block' }}>// SESSION_DEVICE_REGISTRY</span>
                   <h4 style={{ fontSize: '0.95rem', margin: 0, fontWeight: 'bold' }}>Active Authorized Sessions</h4>
                 </div>
                 <button 
@@ -1413,7 +1386,7 @@ const Profile = ({ userEmail, theme }) => {
               <div style={{ overflowX: 'auto' }}>
                 <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.75rem', textAlign: 'left' }}>
                   <thead>
-                    <tr style={{ borderBottom: '1px solid var(--border-color)', color: 'var(--text-muted)', fontFamily: 'var(--font-mono)' }}>
+                    <tr style={{ borderBottom: '1px solid var(--border-color)', color: 'var(--text-muted)', fontFamily: 'var(--font-sans)' }}>
                       <th style={{ padding: '0.5rem' }}>DEVICE</th>
                       <th style={{ padding: '0.5rem' }}>BROWSER / OS</th>
                       <th style={{ padding: '0.5rem' }}>IP ADDRESS</th>
@@ -1426,7 +1399,7 @@ const Profile = ({ userEmail, theme }) => {
                       <tr key={sess.sessionId} style={{ borderBottom: '1px solid rgba(255,255,255,0.02)' }}>
                         <td style={{ padding: '0.75rem 0.5rem', fontWeight: 'bold' }}>{sess.deviceType}</td>
                         <td style={{ padding: '0.75rem 0.5rem' }}>{sess.browser} on {sess.os}</td>
-                        <td style={{ padding: '0.75rem 0.5rem', fontFamily: 'var(--font-mono)' }}>{sess.ip}</td>
+                        <td style={{ padding: '0.75rem 0.5rem', fontFamily: 'var(--font-sans)' }}>{sess.ip}</td>
                         <td style={{ padding: '0.75rem 0.5rem' }}>
                           {sess.sessionId === 'current' ? (
                             <span style={{ color: 'var(--color-success)', fontWeight: 'bold' }}>Current Active</span>
@@ -1453,13 +1426,13 @@ const Profile = ({ userEmail, theme }) => {
 
             {/* D. Login history telemetry logs */}
             <div className="glass-panel" style={{ padding: '1.5rem' }}>
-              <span style={{ fontSize: '0.65rem', color: 'var(--text-muted)', fontFamily: 'var(--font-mono)', display: 'block', marginBottom: '0.85rem' }}>// SECURITY_IP_TELEMETRY_LOGS</span>
+              <span style={{ fontSize: '0.65rem', color: 'var(--text-muted)', fontFamily: 'var(--font-sans)', display: 'block', marginBottom: '0.85rem' }}>// SECURITY_IP_TELEMETRY_LOGS</span>
               <h4 style={{ fontSize: '0.95rem', margin: '0 0 1rem 0', fontWeight: 'bold' }}>Recent Login History</h4>
 
               <div style={{ overflowX: 'auto' }}>
                 <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.75rem', textAlign: 'left' }}>
                   <thead>
-                    <tr style={{ borderBottom: '1px solid var(--border-color)', color: 'var(--text-muted)', fontFamily: 'var(--font-mono)' }}>
+                    <tr style={{ borderBottom: '1px solid var(--border-color)', color: 'var(--text-muted)', fontFamily: 'var(--font-sans)' }}>
                       <th style={{ padding: '0.5rem' }}>DATE / TIME</th>
                       <th style={{ padding: '0.5rem' }}>LOCATION</th>
                       <th style={{ padding: '0.5rem' }}>IP ADDRESS</th>
@@ -1471,7 +1444,7 @@ const Profile = ({ userEmail, theme }) => {
                       <tr key={idx} style={{ borderBottom: '1px solid rgba(255,255,255,0.02)', color: 'var(--text-muted)' }}>
                         <td style={{ padding: '0.65rem 0.5rem' }}>{new Date(hist.dateTime).toLocaleString()}</td>
                         <td style={{ padding: '0.65rem 0.5rem' }}>{hist.location}</td>
-                        <td style={{ padding: '0.65rem 0.5rem', fontFamily: 'var(--font-mono)' }}>{hist.ip}</td>
+                        <td style={{ padding: '0.65rem 0.5rem', fontFamily: 'var(--font-sans)' }}>{hist.ip}</td>
                         <td style={{ padding: '0.65rem 0.5rem' }}>{hist.browser} / {hist.os} ({hist.deviceType})</td>
                       </tr>
                     ))}
@@ -1482,13 +1455,13 @@ const Profile = ({ userEmail, theme }) => {
 
             {/* E. Server side audit events list */}
             <div className="glass-panel" style={{ padding: '1.5rem' }}>
-              <span style={{ fontSize: '0.65rem', color: 'var(--text-muted)', fontFamily: 'var(--font-mono)', display: 'block', marginBottom: '0.85rem' }}>// AUDIT_EVENTS_TIMELINE</span>
+              <span style={{ fontSize: '0.65rem', color: 'var(--text-muted)', fontFamily: 'var(--font-sans)', display: 'block', marginBottom: '0.85rem' }}>// AUDIT_EVENTS_TIMELINE</span>
               <h4 style={{ fontSize: '0.95rem', margin: '0 0 1rem 0', fontWeight: 'bold' }}>Server Audit Event Registry</h4>
               
               <div style={{ display: 'flex', flexDirection: 'column', gap: '0.65rem' }}>
                 {(securityConfig?.auditLogs || []).slice().reverse().map((audit, idx) => (
                   <div key={idx} style={{ display: 'flex', justifyStyle: 'space-between', borderBottom: '1px solid rgba(255,255,255,0.02)', paddingBottom: '0.45rem', fontSize: '0.75rem', gap: '1rem' }}>
-                    <span style={{ color: 'var(--color-primary)', fontFamily: 'var(--font-mono)', fontWeight: 'bold' }}>[{audit.action}]</span>
+                    <span style={{ color: 'var(--color-primary)', fontFamily: 'var(--font-sans)', fontWeight: 'bold' }}>[{audit.action}]</span>
                     <span style={{ flex: 1, color: 'var(--text-muted)' }}>
                       Identity verification operation performed. 
                       {audit.metadata?.portalType && ` (Portal: ${audit.metadata.portalType})`}
@@ -1506,7 +1479,7 @@ const Profile = ({ userEmail, theme }) => {
                 className="tech-button tech-button-outline"
                 style={{ display: 'flex', alignItems: 'center', gap: '0.35rem', fontSize: '0.75rem', padding: '0.5rem 1rem' }}
               >
-                <Download size={12} /> Download My Identity Profile Archive
+                <span className="material-symbols-outlined" style={{ fontSize: '12px' }}>download</span> Download My Identity Profile Archive
               </button>
               
               <button 
@@ -1522,9 +1495,9 @@ const Profile = ({ userEmail, theme }) => {
             {showSensitiveModal && (
               <div style={{
                 position: 'fixed', top: 0, left: 0, right: 0, bottom: 0,
-                background: 'rgba(2, 3, 5, 0.9)', backdropFilter: 'blur(12px)',
-                zIndex: 20000, display: 'flex', alignItems: 'center', justifyCenter: 'center',
-                padding: '1rem', display: 'flex', justifyContent: 'center', alignItems: 'center'
+                background: 'rgba(32, 33, 36, 0.45)', backdropFilter: 'blur(6px)',
+                zIndex: 20000, display: 'flex', alignItems: 'center', justifyContent: 'center',
+                padding: '1rem'
               }}>
                 <form onSubmit={handleSensitiveActionVerify} style={{
                   width: '100%', maxWidth: '400px', background: 'var(--bg-panel-solid)',
@@ -1533,7 +1506,7 @@ const Profile = ({ userEmail, theme }) => {
                   boxShadow: '0 0 35px rgba(59,130,246,0.15)'
                 }}>
                   <div style={{ textAlign: 'center' }}>
-                    <Shield size={24} style={{ color: 'var(--color-primary)', marginBottom: '0.5rem' }} />
+                    <span className="material-symbols-outlined" style={{ fontSize: '24px',  color: 'var(--color-primary)', marginBottom: '0.5rem'  }}>shield</span>
                     <h4 style={{ fontSize: '1.1rem', margin: 0, fontWeight: 'bold' }}>MFA Security Verification</h4>
                     <p style={{ fontSize: '0.75rem', color: 'var(--text-muted)', marginTop: '0.25rem' }}>
                       Clearance verification token required to perform sensitive operational requests.
@@ -1548,7 +1521,7 @@ const Profile = ({ userEmail, theme }) => {
                       type="text" 
                       placeholder="e.g. 123456" 
                       className="tech-input" 
-                      style={{ textAlign: 'center', fontSize: '1.25rem', fontFamily: 'var(--font-mono)' }}
+                      style={{ textAlign: 'center', fontSize: '1.25rem', fontFamily: 'var(--font-sans)' }}
                       value={sensitiveCode}
                       onChange={e => setSensitiveCode(e.target.value)}
                       required 

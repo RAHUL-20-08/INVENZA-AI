@@ -1,14 +1,6 @@
 import React from 'react';
 import { usePortal } from '../context/PortalContext';
-import { 
-  CheckCircle2, 
-  HelpCircle, 
-  Clock, 
-  BookOpen, 
-  ArrowRight,
-  Sparkles,
-  Award
-} from 'lucide-react';
+
 
 const StudentDashboard = () => {
   const {
@@ -33,18 +25,18 @@ const StudentDashboard = () => {
         <div className="glass-panel" style={{ padding: '2rem', borderLeft: '4px solid var(--color-primary)', background: 'rgba(59, 130, 246, 0.02)' }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderBottom: '1px solid var(--border-color)', paddingBottom: '0.75rem', marginBottom: '1.25rem' }}>
             <div>
-              <span style={{ fontSize: '0.65rem', color: 'var(--text-dim)', fontFamily: 'var(--font-mono)' }}>CURRENT ACTIVE LIFE-CYCLE STEP</span>
+              <span style={{ fontSize: '0.65rem', color: 'var(--text-dim)', fontFamily: 'var(--font-sans)' }}>CURRENT ACTIVE LIFE-CYCLE STEP</span>
               <h3 style={{ fontSize: '1.2rem', fontWeight: 800, color: 'var(--text-main)', marginTop: '0.15rem' }}>
                 Step {studentStep}: {currentStageMeta.name}
               </h3>
             </div>
-            <span style={{ fontSize: '0.75rem', fontFamily: 'var(--font-mono)', background: 'rgba(59, 130, 246, 0.15)', color: 'var(--color-primary)', padding: '0.25rem 0.5rem', borderRadius: '4px', border: '1px solid rgba(59, 130, 246, 0.3)', fontWeight: 'bold' }}>
+            <span style={{ fontSize: '0.75rem', fontFamily: 'var(--font-sans)', background: 'rgba(59, 130, 246, 0.15)', color: 'var(--color-primary)', padding: '0.25rem 0.5rem', borderRadius: '4px', border: '1px solid rgba(59, 130, 246, 0.3)', fontWeight: 'bold' }}>
               STEP {studentStep} OF 14
             </span>
           </div>
 
-          <div style={{ background: 'rgba(0,0,0,0.15)', padding: '1rem', borderRadius: '6px', border: '1px solid var(--border-color)', marginBottom: '1.25rem' }}>
-            <span style={{ fontSize: '0.65rem', color: 'var(--color-secondary)', display: 'block', fontWeight: 'bold', fontFamily: 'var(--font-mono)' }}>AI INNOVATION PM ADVICE</span>
+          <div style={{ background: 'var(--bg-panel)', padding: '1rem', borderRadius: '6px', border: '1px solid var(--border-color)', marginBottom: '1.25rem' }}>
+            <span style={{ fontSize: '0.65rem', color: 'var(--color-secondary)', display: 'block', fontWeight: 'bold', fontFamily: 'var(--font-sans)' }}>AI INNOVATION PM ADVICE</span>
             <p style={{ fontSize: '0.85rem', color: 'var(--text-main)', marginTop: '0.35rem', lineHeight: '1.45' }}>
               {advice.message}
             </p>
@@ -56,7 +48,7 @@ const StudentDashboard = () => {
               className="tech-button"
               style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem', width: '100%', height: '42px', fontSize: '0.85rem' }}
             >
-              <CheckCircle2 size={16} /> Mark Step "{currentStageMeta.name}" Completed
+              <span className="material-symbols-outlined" style={{ fontSize: '16px' }}>check_circle</span> Mark Step "{currentStageMeta.name}" Completed
             </button>
           ) : (
             <div style={{ padding: '0.75rem', background: 'rgba(16, 185, 129, 0.15)', border: '1px solid rgba(16, 185, 129, 0.3)', borderRadius: '6px', color: 'var(--color-success)', fontSize: '0.8rem', textAlign: 'center', fontWeight: 'bold' }}>
@@ -77,22 +69,22 @@ const StudentDashboard = () => {
             <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
               <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.25rem' }}>
                 <div>
-                  <span style={{ fontSize: '0.65rem', color: 'var(--text-muted)', fontFamily: 'var(--font-mono)', display: 'block', textTransform: 'uppercase' }}>Recommended Task</span>
+                  <span style={{ fontSize: '0.65rem', color: 'var(--text-muted)', fontFamily: 'var(--font-sans)', display: 'block', textTransform: 'uppercase' }}>Recommended Task</span>
                   <strong style={{ fontSize: '0.85rem', color: 'var(--text-main)', display: 'block', marginTop: '0.2rem' }}>
                     {advice.nextTask}
                   </strong>
                 </div>
                 <div>
-                  <span style={{ fontSize: '0.65rem', color: 'var(--text-muted)', fontFamily: 'var(--font-mono)', display: 'block', textTransform: 'uppercase' }}>Expected Time</span>
+                  <span style={{ fontSize: '0.65rem', color: 'var(--text-muted)', fontFamily: 'var(--font-sans)', display: 'block', textTransform: 'uppercase' }}>Expected Time</span>
                   <span style={{ fontSize: '0.85rem', color: 'var(--color-secondary)', display: 'block', marginTop: '0.2rem', fontWeight: 'bold' }}>
-                    <Clock size={12} style={{ display: 'inline', marginRight: '0.2rem', verticalAlign: 'middle' }} />
+                    <span className="material-symbols-outlined" style={{ fontSize: '12px',  display: 'inline', marginRight: '0.2rem', verticalAlign: 'middle'  }}>schedule</span>
                     {advice.time}
                   </span>
                 </div>
               </div>
 
               <div>
-                <span style={{ fontSize: '0.65rem', color: 'var(--text-muted)', fontFamily: 'var(--font-mono)', display: 'block', textTransform: 'uppercase' }}>Mentorship Rationale</span>
+                <span style={{ fontSize: '0.65rem', color: 'var(--text-muted)', fontFamily: 'var(--font-sans)', display: 'block', textTransform: 'uppercase' }}>Mentorship Rationale</span>
                 <p style={{ fontSize: '0.8rem', color: 'var(--text-muted)', marginTop: '0.25rem', lineHeight: '1.4' }}>
                   {advice.reason}
                 </p>
@@ -100,16 +92,16 @@ const StudentDashboard = () => {
 
               <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.25rem' }}>
                 <div>
-                  <span style={{ fontSize: '0.65rem', color: 'var(--text-muted)', fontFamily: 'var(--font-mono)', display: 'block', textTransform: 'uppercase' }}>Complexity Rating</span>
+                  <span style={{ fontSize: '0.65rem', color: 'var(--text-muted)', fontFamily: 'var(--font-sans)', display: 'block', textTransform: 'uppercase' }}>Complexity Rating</span>
                   <span style={{ fontSize: '0.8rem', color: 'var(--color-primary)', display: 'block', marginTop: '0.2rem', fontWeight: 'bold' }}>
                     {advice.difficulty}
                   </span>
                 </div>
                 <div>
-                  <span style={{ fontSize: '0.65rem', color: 'var(--text-muted)', fontFamily: 'var(--font-mono)', display: 'block', textTransform: 'uppercase' }}>Recommended Resources</span>
+                  <span style={{ fontSize: '0.65rem', color: 'var(--text-muted)', fontFamily: 'var(--font-sans)', display: 'block', textTransform: 'uppercase' }}>Recommended Resources</span>
                   <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.35rem', marginTop: '0.3rem' }}>
                     {(advice.resources || []).map((res, i) => (
-                      <span key={i} style={{ fontSize: '0.65rem', background: 'rgba(255,255,255,0.04)', border: '1px solid var(--border-color)', color: 'var(--text-main)', padding: '0.15rem 0.35rem', borderRadius: '4px', fontFamily: 'var(--font-mono)' }}>
+                      <span key={i} style={{ fontSize: '0.65rem', background: 'rgba(255,255,255,0.04)', border: '1px solid var(--border-color)', color: 'var(--text-main)', padding: '0.15rem 0.35rem', borderRadius: '4px', fontFamily: 'var(--font-sans)' }}>
                         {res}
                       </span>
                     ))}
@@ -128,7 +120,7 @@ const StudentDashboard = () => {
         {/* Daily Mentor Morning Check-in */}
         <div className="glass-panel" style={{ padding: '1.5rem', borderLeft: '3px solid var(--color-secondary)', background: 'rgba(13, 148, 136, 0.02)' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', borderBottom: '1px solid var(--border-color)', paddingBottom: '0.5rem', marginBottom: '0.75rem' }}>
-            <Award size={14} color="var(--color-secondary)" />
+            <span className="material-symbols-outlined" style={{ fontSize: '14px', color: 'var(--color-secondary)' }}>workspace_premium</span>
             <h4 style={{ fontSize: '0.85rem', fontWeight: 700, color: 'var(--text-main)' }}>Daily Mentor Check-in</h4>
           </div>
           <span style={{ fontSize: '0.75rem', color: 'var(--text-main)', display: 'block', fontWeight: 'bold' }}>Good morning!</span>

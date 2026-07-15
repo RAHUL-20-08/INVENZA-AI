@@ -1,5 +1,5 @@
 import React from 'react';
-import { Presentation, ArrowLeft } from 'lucide-react';
+
 
 const PracticeMode = ({ 
   slidesList, 
@@ -17,14 +17,14 @@ const PracticeMode = ({
           className="tech-button tech-button-outline"
           style={{ fontSize: '0.75rem', padding: '0.45rem 1rem', display: 'flex', alignItems: 'center', gap: '0.35rem' }}
         >
-          <ArrowLeft size={14} /> Back to Dashboard
+          <span className="material-symbols-outlined" style={{ fontSize: '14px' }}>arrow_back</span> Back to Dashboard
         </button>
         <button
           onClick={onLaunchProjector}
           className="tech-button tech-button-glow"
           style={{ fontSize: '0.75rem', padding: '0.45rem 1.25rem', display: 'flex', alignItems: 'center', gap: '0.35rem' }}
         >
-          <Presentation size={14} /> Launch Slide Projector
+          <span className="material-symbols-outlined" style={{ fontSize: '14px' }}>co_present</span> Launch Slide Projector
         </button>
       </div>
 
@@ -52,7 +52,7 @@ const PracticeMode = ({
               }}
             >
               <div style={{ textAlign: 'left' }}>
-                <span style={{ fontSize: '0.65rem', color: 'var(--color-secondary)', fontFamily: 'var(--font-mono)' }}>SLIDE {slide.id < 10 ? `0${slide.id}` : slide.id}</span>
+                <span style={{ fontSize: '0.65rem', color: 'var(--color-secondary)', fontFamily: 'var(--font-sans)' }}>SLIDE {slide.id < 10 ? `0${slide.id}` : slide.id}</span>
                 <strong style={{ fontSize: '0.85rem', display: 'block', color: 'var(--text-main)', marginTop: '0.15rem' }}>{slide.title}</strong>
                 <div style={{ fontSize: '0.7rem', color: 'var(--color-primary)', marginTop: '0.5rem', fontWeight: 'bold' }}>⏱️ Time: {slide.duration}</div>
                 <div style={{ fontSize: '0.65rem', color: 'var(--text-dim)', marginTop: '0.25rem' }}>✨ Anim: {slide.animation}</div>

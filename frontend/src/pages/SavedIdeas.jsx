@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Bookmark, Rocket, Trash2, HelpCircle } from 'lucide-react';
+
 
 const SavedIdeas = ({ onInspect }) => {
   const [savedItems, setSavedItems] = useState([]);
@@ -50,7 +50,7 @@ const SavedIdeas = ({ onInspect }) => {
 
       {savedItems.length === 0 ? (
         <div className="glass-panel" style={{ padding: '3rem', textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '1rem' }}>
-          <Bookmark size={40} color="var(--text-dim)" />
+          <span className="material-symbols-outlined" style={{ fontSize: '40px', color: 'var(--text-dim)' }}>bookmark</span>
           <div>
             <h3 style={{ fontSize: '1.1rem', fontWeight: 600 }}>Your saved basket is empty</h3>
             <p style={{ color: 'var(--text-muted)', fontSize: '0.85rem', marginTop: '0.25rem', maxWidth: '400px' }}>
@@ -67,7 +67,7 @@ const SavedIdeas = ({ onInspect }) => {
                   <span className="status-badge badge-ideation" style={{ fontSize: '0.65rem' }}>
                     {item.patentId || 'AUDITED CONCEPT'}
                   </span>
-                  <span style={{ fontSize: '0.7rem', color: 'var(--text-muted)', fontFamily: 'var(--font-mono)' }}>
+                  <span style={{ fontSize: '0.7rem', color: 'var(--text-muted)', fontFamily: 'var(--font-sans)' }}>
                     {item.sector}
                   </span>
                 </div>
@@ -89,7 +89,7 @@ const SavedIdeas = ({ onInspect }) => {
                     className="tech-button"
                     style={{ fontSize: '0.75rem', padding: '0.4rem 0.8rem' }}
                   >
-                    <Rocket size={12} /> Plan Startup
+                    <span className="material-symbols-outlined" style={{ fontSize: '12px' }}>rocket_launch</span> Plan Startup
                   </button>
                   <button 
                     onClick={() => handleDelete(item.id)}
@@ -97,7 +97,7 @@ const SavedIdeas = ({ onInspect }) => {
                     style={{ fontSize: '0.75rem', padding: '0.4rem', border: '1px solid rgba(244, 63, 94, 0.25)', color: 'var(--color-danger)' }}
                     title="Delete Idea"
                   >
-                    <Trash2 size={12} />
+                    <span className="material-symbols-outlined" style={{ fontSize: '12px' }}>delete</span>
                   </button>
                 </div>
               </div>

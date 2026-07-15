@@ -1,32 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { 
-  Trophy, 
-  HelpCircle, 
-  CheckSquare, 
-  Clock, 
-  Code, 
-  Award, 
-  BookOpen, 
-  ShieldAlert, 
-  FileText, 
-  Download, 
-  ArrowRight,
-  RefreshCw,
-  Calendar,
-  MapPin,
-  Users,
-  Bookmark,
-  Sparkles,
-  Search,
-  SlidersHorizontal,
-  Bell,
-  ExternalLink,
-  Plus,
-  Trash2,
-  AlertTriangle,
-  Zap,
-  Target
-} from 'lucide-react';
+
 import { useMentor } from '../context/MentorContext';
 import { usePortal } from '../context/PortalContext';
 
@@ -177,7 +150,7 @@ const Hackathons = () => {
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '1rem', borderBottom: '1px solid var(--border-color)', paddingBottom: '1.25rem' }}>
         <div>
           <h1 style={{ fontSize: '1.8rem', fontWeight: 'bold', fontFamily: 'var(--font-display)', margin: 0, display: 'flex', alignItems: 'center', gap: '0.65rem' }}>
-            <Trophy style={{ color: portalAccent }} /> Student Portal & Innovation Hub
+            <span className="material-symbols-outlined" style={{ fontSize: '24px',  color: portalAccent  }}>emoji_events</span> Student Portal & Innovation Hub
           </h1>
           <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)', marginTop: '0.3rem' }}>
             Verify live hackathons and convert failed or expired innovations into winning products.
@@ -214,7 +187,7 @@ const Hackathons = () => {
               
               {/* Search Bar */}
               <div style={{ flex: 1, minWidth: '220px', position: 'relative' }}>
-                <Search size={14} style={{ position: 'absolute', left: '10px', top: '50%', transform: 'translateY(-50%)', color: 'var(--text-dim)' }} />
+                <span className="material-symbols-outlined" style={{ fontSize: '14px',  position: 'absolute', left: '10px', top: '50%', transform: 'translateY(-50%)', color: 'var(--text-dim)'  }}>search</span>
                 <input 
                   type="text" 
                   className="tech-input" 
@@ -287,17 +260,17 @@ const Hackathons = () => {
           {/* Hackathon Cards Grid */}
           {listLoading ? (
             <div style={{ textAlign: 'center', padding: '3rem' }}>
-              <RefreshCw size={24} style={{ animation: 'spin 1.5s linear infinite', color: portalAccent }} />
+              <span className="material-symbols-outlined" style={{ fontSize: '24px',  animation: 'spin 1.5s linear infinite', color: portalAccent  }}>refresh</span>
               <p style={{ fontSize: '0.85rem', color: 'var(--text-dim)', marginTop: '0.5rem' }}>Loading hackathons...</p>
             </div>
           ) : error ? (
             <div style={{ padding: '2rem', textAlign: 'center', color: 'var(--color-danger)' }}>
-              <AlertTriangle size={24} style={{ marginBottom: '0.5rem' }} />
+              <span className="material-symbols-outlined" style={{ fontSize: '24px',  marginBottom: '0.5rem'  }}>warning</span>
               <p style={{ fontSize: '0.85rem' }}>{error}</p>
             </div>
           ) : filteredHackathons.length === 0 ? (
             <div style={{ textAlign: 'center', padding: '4rem 1rem', border: '1.5px dashed var(--border-color)', borderRadius: '12px', color: 'var(--text-dim)' }}>
-              <Trophy size={42} style={{ marginBottom: '0.5rem' }} />
+              <span className="material-symbols-outlined" style={{ fontSize: '42px',  marginBottom: '0.5rem'  }}>emoji_events</span>
               <p style={{ fontSize: '0.9rem' }}>No open hackathons match the selected filters.</p>
             </div>
           ) : (
@@ -329,7 +302,7 @@ const Hackathons = () => {
                         padding: '0.2rem 0.5rem', 
                         borderRadius: '4px',
                         fontWeight: 'bold',
-                        fontFamily: 'var(--font-mono)' 
+                        fontFamily: 'var(--font-sans)' 
                       }}>
                         {h.platform.toUpperCase()}
                       </span>
@@ -342,7 +315,7 @@ const Hackathons = () => {
                           color: h.status === 'Closing Soon' ? 'var(--color-danger)' : 'var(--text-muted)',
                           padding: '0.2rem 0.5rem',
                           borderRadius: '4px',
-                          fontFamily: 'var(--font-mono)'
+                          fontFamily: 'var(--font-sans)'
                         }}>
                           {h.daysRemaining} DAYS LEFT
                         </span>
@@ -352,7 +325,7 @@ const Hackathons = () => {
                           onClick={() => handleToggleBookmark(h.id)} 
                           style={{ background: 'none', border: 'none', cursor: 'pointer', color: isBookmarked ? '#f59e0b' : 'var(--text-dim)', padding: 0 }}
                         >
-                          <Bookmark size={15} fill={isBookmarked ? '#f59e0b' : 'none'} />
+                          <span className="material-symbols-outlined" style={{ fontSize: '15px' }}>bookmark</span>
                         </button>
                       </div>
                     </div>
@@ -367,16 +340,16 @@ const Hackathons = () => {
                     {/* Metadata details list */}
                     <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.75rem', fontSize: '0.75rem', color: 'var(--text-muted)', borderTop: '1px solid rgba(255,255,255,0.04)', paddingTop: '0.75rem' }}>
                       <div style={{ display: 'flex', alignItems: 'center', gap: '0.3rem' }}>
-                        <MapPin size={12} style={{ color: portalAccent }} /> {h.mode} ({h.venue.split('/')[0].trim()})
+                        <span className="material-symbols-outlined" style={{ fontSize: '12px',  color: portalAccent  }}>location_on</span> {h.mode} ({h.venue.split('/')[0].trim()})
                       </div>
                       <div style={{ display: 'flex', alignItems: 'center', gap: '0.3rem' }}>
-                        <Award size={12} style={{ color: '#f59e0b' }} /> {h.prizePool}
+                        <span className="material-symbols-outlined" style={{ fontSize: '12px',  color: '#f59e0b'  }}>workspace_premium</span> {h.prizePool}
                       </div>
                       <div style={{ display: 'flex', alignItems: 'center', gap: '0.3rem' }}>
-                        <Calendar size={12} style={{ color: 'var(--text-dim)' }} /> Reg. Ends: {new Date(h.deadline).toLocaleDateString()}
+                        <span className="material-symbols-outlined" style={{ fontSize: '12px',  color: 'var(--text-dim)'  }}>calendar_today</span> Reg. Ends: {new Date(h.deadline).toLocaleDateString()}
                       </div>
                       <div style={{ display: 'flex', alignItems: 'center', gap: '0.3rem' }}>
-                        <Users size={12} style={{ color: 'var(--text-dim)' }} /> Size: {h.teamSize}
+                        <span className="material-symbols-outlined" style={{ fontSize: '12px',  color: 'var(--text-dim)'  }}>group</span> Size: {h.teamSize}
                       </div>
                     </div>
 
@@ -389,7 +362,7 @@ const Hackathons = () => {
                         className="tech-button" 
                         style={{ flex: 1, textAlign: 'center', background: portalAccent, color: '#fff', borderColor: portalAccent, textDecoration: 'none', fontSize: '0.75rem', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.25rem' }}
                       >
-                        Register Official Link <ExternalLink size={11} />
+                        Register Official Link <span className="material-symbols-outlined" style={{ fontSize: '11px' }}>open_in_new</span>
                       </a>
                     </div>
 
@@ -408,12 +381,12 @@ const Hackathons = () => {
           {/* Left panel Wizard Form */}
           <div className="glass-panel" style={{ padding: '1.75rem', borderRadius: '12px', border: '1px solid var(--border-color)' }}>
             <h3 style={{ fontSize: '1.1rem', fontWeight: 'bold', margin: '0 0 1.25rem 0', color: portalAccent, display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-              <Sparkles size={16} /> Opportunity Synthesizer
+              <span className="material-symbols-outlined" style={{ fontSize: '16px' }}>auto_awesome</span> Opportunity Synthesizer
             </h3>
 
             <form onSubmit={handleGenerateInnovation} style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
               <div>
-                <label style={{ fontSize: '0.7rem', color: 'var(--text-muted)', fontFamily: 'var(--font-mono)', display: 'block', marginBottom: '0.3rem' }}>TARGET INDUSTRY</label>
+                <label style={{ fontSize: '0.7rem', color: 'var(--text-muted)', fontFamily: 'var(--font-sans)', display: 'block', marginBottom: '0.3rem' }}>TARGET INDUSTRY</label>
                 <select 
                   value={innovInputs.industry} 
                   onChange={e => setInnovInputs({ ...innovInputs, industry: e.target.value })} 
@@ -429,7 +402,7 @@ const Hackathons = () => {
               </div>
 
               <div>
-                <label style={{ fontSize: '0.7rem', color: 'var(--text-muted)', fontFamily: 'var(--font-mono)', display: 'block', marginBottom: '0.3rem' }}>ENABLER TECH</label>
+                <label style={{ fontSize: '0.7rem', color: 'var(--text-muted)', fontFamily: 'var(--font-sans)', display: 'block', marginBottom: '0.3rem' }}>ENABLER TECH</label>
                 <input 
                   type="text" 
                   value={innovInputs.technology} 
@@ -442,7 +415,7 @@ const Hackathons = () => {
               </div>
 
               <div>
-                <label style={{ fontSize: '0.7rem', color: 'var(--text-muted)', fontFamily: 'var(--font-mono)', display: 'block', marginBottom: '0.3rem' }}>TARGET DOMAIN</label>
+                <label style={{ fontSize: '0.7rem', color: 'var(--text-muted)', fontFamily: 'var(--font-sans)', display: 'block', marginBottom: '0.3rem' }}>TARGET DOMAIN</label>
                 <input 
                   type="text" 
                   value={innovInputs.domain} 
@@ -455,7 +428,7 @@ const Hackathons = () => {
               </div>
 
               <div>
-                <label style={{ fontSize: '0.7rem', color: 'var(--text-muted)', fontFamily: 'var(--font-mono)', display: 'block', marginBottom: '0.3rem' }}>PROBLEM CORE PAIN POINT</label>
+                <label style={{ fontSize: '0.7rem', color: 'var(--text-muted)', fontFamily: 'var(--font-sans)', display: 'block', marginBottom: '0.3rem' }}>PROBLEM CORE PAIN POINT</label>
                 <textarea 
                   value={innovInputs.problemStatement} 
                   onChange={e => setInnovInputs({ ...innovInputs, problemStatement: e.target.value })} 
@@ -506,7 +479,7 @@ const Hackathons = () => {
               {/* Strategic Failure Auditing Case Study */}
               <div className="glass-panel" style={{ padding: '1.75rem', borderRadius: '12px', border: '1px solid var(--border-color)' }}>
                 <h3 style={{ fontSize: '1rem', fontWeight: 'bold', color: 'var(--color-danger)', margin: '0 0 1rem 0', display: 'flex', alignItems: 'center', gap: '0.45rem' }}>
-                  <ShieldAlert size={16} /> Failure Audit: Reviving {generatedInnovation.originalInnovation}
+                  <span className="material-symbols-outlined" style={{ fontSize: '16px' }}>security</span> Failure Audit: Reviving {generatedInnovation.originalInnovation}
                 </h3>
                 
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '0.85rem', fontSize: '0.85rem' }}>
@@ -632,7 +605,7 @@ const Hackathons = () => {
             </div>
           ) : (
             <div style={{ padding: '4rem 1rem', border: '1.5px dashed var(--border-color)', borderRadius: '12px', color: 'var(--text-dim)', textAlign: 'center' }}>
-              <Zap size={36} style={{ marginBottom: '0.5rem', color: portalAccent }} />
+              <span className="material-symbols-outlined" style={{ fontSize: '36px',  marginBottom: '0.5rem', color: portalAccent  }}>bolt</span>
               <p style={{ fontSize: '0.85rem' }}>Enter target parameters and click generate to synthesize a revival opportunity plan.</p>
             </div>
           )}

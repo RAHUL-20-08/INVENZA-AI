@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { FolderGit2, CheckCircle2, Circle, AlertCircle, Sparkles, Plus } from 'lucide-react';
+
 
 const MyProjects = ({ activeInnovation, setActiveInnovation }) => {
   // Predefined checklists per sector to dynamically assign checklist milestones
@@ -187,12 +187,12 @@ const MyProjects = ({ activeInnovation, setActiveInnovation }) => {
           {/* Workspace Creation Form */}
           <form onSubmit={handleCreateWorkspace} className="glass-panel" style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', borderBottom: '1px solid var(--border-color)', paddingBottom: '0.75rem' }}>
-              <Sparkles size={16} color="var(--color-secondary)" />
-              <h3 style={{ fontSize: '1rem', fontFamily: 'var(--font-display)', color: '#fff' }}>New Workspace Creator</h3>
+              <span className="material-symbols-outlined" style={{ fontSize: '16px', color: 'var(--color-secondary)' }}>auto_awesome</span>
+              <h3 style={{ fontSize: '1rem', fontFamily: 'var(--font-display)', color: 'var(--text-main)' }}>New Workspace Creator</h3>
             </div>
             
             <div style={{ display: 'flex', flexDirection: 'column', gap: '0.35rem' }}>
-              <label style={{ fontSize: '0.65rem', color: 'var(--text-muted)', fontFamily: 'var(--font-mono)' }}>PROJECT WORKSPACE NAME</label>
+              <label style={{ fontSize: '0.65rem', color: 'var(--text-muted)', fontFamily: 'var(--font-sans)' }}>PROJECT WORKSPACE NAME</label>
               <input 
                 type="text" 
                 className="tech-input" 
@@ -204,7 +204,7 @@ const MyProjects = ({ activeInnovation, setActiveInnovation }) => {
             </div>
 
             <div style={{ display: 'flex', flexDirection: 'column', gap: '0.35rem' }}>
-              <label style={{ fontSize: '0.65rem', color: 'var(--text-muted)', fontFamily: 'var(--font-mono)' }}>TARGET SECTOR</label>
+              <label style={{ fontSize: '0.65rem', color: 'var(--text-muted)', fontFamily: 'var(--font-sans)' }}>TARGET SECTOR</label>
               <select 
                 className="tech-select"
                 value={customSector}
@@ -221,7 +221,7 @@ const MyProjects = ({ activeInnovation, setActiveInnovation }) => {
             </div>
 
             <div style={{ display: 'flex', flexDirection: 'column', gap: '0.35rem' }}>
-              <label style={{ fontSize: '0.65rem', color: 'var(--text-muted)', fontFamily: 'var(--font-mono)' }}>TARGET HACKATHON</label>
+              <label style={{ fontSize: '0.65rem', color: 'var(--text-muted)', fontFamily: 'var(--font-sans)' }}>TARGET HACKATHON</label>
               <input 
                 type="text" 
                 className="tech-input" 
@@ -232,7 +232,7 @@ const MyProjects = ({ activeInnovation, setActiveInnovation }) => {
             </div>
 
             <div style={{ display: 'flex', flexDirection: 'column', gap: '0.35rem' }}>
-              <label style={{ fontSize: '0.65rem', color: 'var(--text-muted)', fontFamily: 'var(--font-mono)' }}>BUDGET CAP</label>
+              <label style={{ fontSize: '0.65rem', color: 'var(--text-muted)', fontFamily: 'var(--font-sans)' }}>BUDGET CAP</label>
               <input 
                 type="text" 
                 className="tech-input" 
@@ -243,19 +243,19 @@ const MyProjects = ({ activeInnovation, setActiveInnovation }) => {
             </div>
 
             <button type="submit" className="tech-button" style={{ marginTop: '0.5rem', width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.35rem' }}>
-              <Plus size={14} /> Initialize Workspace
+              <span className="material-symbols-outlined" style={{ fontSize: '14px' }}>add</span> Initialize Workspace
             </button>
           </form>
 
           {/* Active Project Info Card */}
           <div className="glass-panel" style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', borderBottom: '1px solid var(--border-color)', paddingBottom: '0.75rem' }}>
-              <FolderGit2 size={20} color="var(--color-success)" />
+              <span className="material-symbols-outlined" style={{ fontSize: '20px', color: 'var(--color-success)' }}>folder</span>
               <h3 style={{ fontSize: '1.1rem', fontFamily: 'var(--font-display)' }}>Active Project Profile</h3>
             </div>
 
             <div>
-              <span style={{ fontSize: '0.65rem', color: 'var(--text-muted)', display: 'block', fontFamily: 'var(--font-mono)' }}>PROJECT NAME</span>
+              <span style={{ fontSize: '0.65rem', color: 'var(--text-muted)', display: 'block', fontFamily: 'var(--font-sans)' }}>PROJECT NAME</span>
               <strong style={{ fontSize: '1.2rem', color: 'var(--text-main)', display: 'block', marginTop: '0.15rem' }}>{selectedProject.name || selectedProject.title}</strong>
             </div>
 
@@ -266,7 +266,7 @@ const MyProjects = ({ activeInnovation, setActiveInnovation }) => {
               </div>
               <div>
                 <span style={{ fontSize: '0.65rem', color: 'var(--text-muted)', display: 'block' }}>BUDGET LIMIT</span>
-                <span style={{ fontSize: '0.85rem', fontWeight: 600, color: 'var(--color-success)', fontFamily: 'var(--font-mono)' }}>{selectedProject.financials?.estimatedCost || "$150,000"}</span>
+                <span style={{ fontSize: '0.85rem', fontWeight: 600, color: 'var(--color-success)', fontFamily: 'var(--font-sans)' }}>{selectedProject.financials?.estimatedCost || "$150,000"}</span>
               </div>
             </div>
 
@@ -292,7 +292,7 @@ const MyProjects = ({ activeInnovation, setActiveInnovation }) => {
         <div className="glass-panel" style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderBottom: '1px solid var(--border-color)', paddingBottom: '0.75rem' }}>
             <h3 style={{ fontSize: '1.1rem', fontFamily: 'var(--font-display)' }}>Engineering Checklist</h3>
-            <span style={{ fontSize: '0.75rem', fontFamily: 'var(--font-mono)', color: 'var(--text-muted)' }}>
+            <span style={{ fontSize: '0.75rem', fontFamily: 'var(--font-sans)', color: 'var(--text-muted)' }}>
               {completedCount} of {tasks.length} Done
             </span>
           </div>
@@ -316,9 +316,9 @@ const MyProjects = ({ activeInnovation, setActiveInnovation }) => {
                 }}
               >
                 {t.done ? (
-                  <CheckCircle2 size={18} color="var(--color-success)" style={{ flexShrink: 0 }} />
+                  <span className="material-symbols-outlined" style={{ fontSize: '18px', color: 'var(--color-success)',  flexShrink: 0  }}>check_circle</span>
                 ) : (
-                  <Circle size={18} color="var(--text-dim)" style={{ flexShrink: 0 }} />
+                  <span className="material-symbols-outlined" style={{ fontSize: '18px', color: 'var(--text-dim)',  flexShrink: 0  }}>radio_button_unchecked</span>
                 )}
                 <span style={{ textDecoration: t.done ? 'line-through' : 'none', color: t.done ? 'var(--text-muted)' : 'var(--text-main)' }}>
                   {t.text}
@@ -328,7 +328,7 @@ const MyProjects = ({ activeInnovation, setActiveInnovation }) => {
           </div>
 
           <div style={{ display: 'flex', gap: '0.5rem', background: 'rgba(255,255,255,0.02)', padding: '0.75rem', borderRadius: '6px', border: '1px solid var(--border-color)', marginTop: '0.5rem' }}>
-            <AlertCircle size={16} color="var(--color-secondary)" style={{ flexShrink: 0, marginTop: '2px' }} />
+            <span className="material-symbols-outlined" style={{ fontSize: '16px', color: 'var(--color-secondary)',  flexShrink: 0, marginTop: '2px'  }}>error</span>
             <p style={{ fontSize: '0.75rem', color: 'var(--text-muted)', lineHeight: '1.4' }}>
               <strong>Jury Tip</strong>: Complete the engineering checklist to secure higher scores in the "Execution Readiness" grading column.
             </p>

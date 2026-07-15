@@ -1,28 +1,5 @@
 import React from 'react';
-import { 
-  X, 
-  Play, 
-  Pause, 
-  SkipForward, 
-  SkipBack, 
-  Volume2, 
-  VolumeX, 
-  Eye, 
-  EyeOff, 
-  Maximize2, 
-  Minimize2,
-  Key,
-  XCircle,
-  CheckCircle,
-  Timer,
-  Shield,
-  Zap,
-  Lightbulb,
-  Mail,
-  Globe,
-  Terminal,
-  Bot
-} from 'lucide-react';
+
 
 const SlideRenderer = ({ slide, isMobile, audienceType }) => {
   const { layout, title, desc, detail, id, stats } = slide;
@@ -30,7 +7,7 @@ const SlideRenderer = ({ slide, isMobile, audienceType }) => {
   // Base header and footer metadata to keep consistency
   const headerMeta = (
     <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', width: '100%', marginBottom: '1rem', borderBottom: '1px solid rgba(255,255,255,0.05)', paddingBottom: '0.5rem' }}>
-      <span style={{ fontSize: '0.65rem', fontFamily: 'var(--font-mono)', color: 'var(--color-secondary)' }}>SLIDE {id} / 15 • {layout?.toUpperCase()}</span>
+      <span style={{ fontSize: '0.65rem', fontFamily: 'var(--font-sans)', color: 'var(--color-secondary)' }}>SLIDE {id} / 15 • {layout?.toUpperCase()}</span>
       <span style={{ fontSize: '0.65rem', color: 'var(--text-muted)' }}>{audienceType.toUpperCase()} MODE</span>
     </div>
   );
@@ -58,7 +35,7 @@ const SlideRenderer = ({ slide, isMobile, audienceType }) => {
                 {detail}
               </p>
               <div style={{ display: 'inline-block', background: 'rgba(59,130,246,0.1)', border: '1px solid var(--color-primary)', padding: '0.5rem 1rem', borderRadius: '4px', fontSize: '0.75rem' }}>
-                <span style={{ display: 'inline-flex', alignItems: 'center', gap: '0.35rem' }}><Key size={12} style={{ color: 'var(--color-primary)' }} /> Ready for Revival Assessment</span>
+                <span style={{ display: 'inline-flex', alignItems: 'center', gap: '0.35rem' }}><span className="material-symbols-outlined" style={{ fontSize: '12px',  color: 'var(--color-primary)'  }}>key</span> Ready for Revival Assessment</span>
               </div>
             </div>
             {!isMobile && (
@@ -121,14 +98,14 @@ const SlideRenderer = ({ slide, isMobile, audienceType }) => {
           <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', flex: 1, justifyContent: 'center' }}>
             <h3 style={{ fontSize: '1.15rem', color: '#fff', margin: 0, textAlign: 'left', fontWeight: 'bold' }}>{desc}</h3>
             <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr', gap: '1.5rem' }}>
-              <div style={{ background: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.05)', padding: '1.25rem', borderRadius: '8px', textAlign: 'left' }}>
-                <strong style={{ fontSize: '0.85rem', color: 'var(--color-danger)', display: 'flex', alignItems: 'center', gap: '0.35rem', marginBottom: '0.5rem' }}><XCircle size={14} style={{ color: 'var(--color-danger)' }} /> Competitor Alternatives</strong>
+              <div style={{ background: 'rgba(255,255,255,0.02)', border: '1px solid var(--border-color)', padding: '1.25rem', borderRadius: '8px', textAlign: 'left' }}>
+                <strong style={{ fontSize: '0.85rem', color: 'var(--color-danger)', display: 'flex', alignItems: 'center', gap: '0.35rem', marginBottom: '0.5rem' }}><span className="material-symbols-outlined" style={{ fontSize: '14px',  color: 'var(--color-danger)'  }}>cancel</span> Competitor Alternatives</strong>
                 <p style={{ fontSize: '0.75rem', color: 'var(--text-muted)', margin: 0, lineHeight: 1.45 }}>
                   Over-reliance on heavy cloud telemetry APIs. Requires constant active connectivity, introducing &gt;120ms transmission delays.
                 </p>
               </div>
               <div style={{ background: 'rgba(16,185,129,0.03)', border: '1px solid rgba(16,185,129,0.15)', padding: '1.25rem', borderRadius: '8px', textAlign: 'left' }}>
-                <strong style={{ fontSize: '0.85rem', color: 'var(--color-success)', display: 'flex', alignItems: 'center', gap: '0.35rem', marginBottom: '0.5rem' }}><CheckCircle size={14} style={{ color: 'var(--color-success)' }} /> The Invenza Solution</strong>
+                <strong style={{ fontSize: '0.85rem', color: 'var(--color-success)', display: 'flex', alignItems: 'center', gap: '0.35rem', marginBottom: '0.5rem' }}><span className="material-symbols-outlined" style={{ fontSize: '14px',  color: 'var(--color-success)'  }}>check_circle</span> The Invenza Solution</strong>
                 <p style={{ fontSize: '0.75rem', color: 'var(--text-muted)', margin: 0, lineHeight: 1.45 }}>
                   Quantized offline edge compilation nodes. Telemetry buffer parses locally on ESP32 in under 12ms with absolute compliance security.
                 </p>
@@ -151,8 +128,8 @@ const SlideRenderer = ({ slide, isMobile, audienceType }) => {
                 {detail}
               </p>
               <div style={{ display: 'flex', gap: '1rem', marginTop: '0.5rem' }}>
-                <div><Timer size={12} style={{ color: 'var(--color-primary)', marginRight: '0.35rem', verticalAlign: 'middle' }} /> <strong>Latency:</strong> &lt; 12ms</div>
-                <div><Shield size={12} style={{ color: 'var(--color-success)', marginRight: '0.35rem', verticalAlign: 'middle' }} /> <strong>Safety:</strong> Edge Isolated</div>
+                <div><span className="material-symbols-outlined" style={{ fontSize: '12px',  color: 'var(--color-primary)', marginRight: '0.35rem', verticalAlign: 'middle'  }}>timer</span> <strong>Latency:</strong> &lt; 12ms</div>
+                <div><span className="material-symbols-outlined" style={{ fontSize: '12px',  color: 'var(--color-success)', marginRight: '0.35rem', verticalAlign: 'middle'  }}>shield</span> <strong>Safety:</strong> Edge Isolated</div>
               </div>
             </div>
             {!isMobile && (
@@ -182,21 +159,21 @@ const SlideRenderer = ({ slide, isMobile, audienceType }) => {
             <h3 style={{ fontSize: '1.25rem', color: '#fff', margin: 0, textAlign: 'left', fontWeight: 'bold' }}>{desc}</h3>
             <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr 1fr', gap: '1.25rem' }}>
               <div className="glass-panel" style={{ padding: '1rem', textAlign: 'left', borderTop: '2.5px solid var(--color-primary)' }}>
-                <Zap size={24} style={{ color: 'var(--color-primary)', display: 'block', marginBottom: '0.55rem' }} />
+                <span className="material-symbols-outlined" style={{ fontSize: '24px',  color: 'var(--color-primary)', display: 'block', marginBottom: '0.55rem'  }}>bolt</span>
                 <strong style={{ fontSize: '0.8rem', color: '#fff', display: 'block', marginBottom: '0.25rem' }}>Fast Processing</strong>
                 <p style={{ fontSize: '0.7rem', color: 'var(--text-dim)', margin: 0, lineHeight: 1.4 }}>
                   NPU compressor latency is kept below 12 milliseconds locally.
                 </p>
               </div>
               <div className="glass-panel" style={{ padding: '1rem', textAlign: 'left', borderTop: '2.5px solid var(--color-secondary)' }}>
-                <Eye size={24} style={{ color: 'var(--color-secondary)', display: 'block', marginBottom: '0.55rem' }} />
+                <span className="material-symbols-outlined" style={{ fontSize: '24px',  color: 'var(--color-secondary)', display: 'block', marginBottom: '0.55rem'  }}>visibility</span>
                 <strong style={{ fontSize: '0.8rem', color: '#fff', display: 'block', marginBottom: '0.25rem' }}>Glare Reduction</strong>
                 <p style={{ fontSize: '0.7rem', color: 'var(--text-dim)', margin: 0, lineHeight: 1.4 }}>
                   94.2% ghosting reflection reduction across relief waveguide panels.
                 </p>
               </div>
               <div className="glass-panel" style={{ padding: '1rem', textAlign: 'left', borderTop: '2.5px solid var(--color-success)' }}>
-                <Shield size={24} style={{ color: 'var(--color-success)', display: 'block', marginBottom: '0.55rem' }} />
+                <span className="material-symbols-outlined" style={{ fontSize: '24px',  color: 'var(--color-success)', display: 'block', marginBottom: '0.55rem'  }}>shield</span>
                 <strong style={{ fontSize: '0.8rem', color: '#fff', display: 'block', marginBottom: '0.25rem' }}>Moat Check</strong>
                 <p style={{ fontSize: '0.7rem', color: 'var(--text-dim)', margin: 0, lineHeight: 1.4 }}>
                   Full WIPO clearance with 14/14 expired claims. No clashing hazards.
@@ -214,13 +191,13 @@ const SlideRenderer = ({ slide, isMobile, audienceType }) => {
           {headerMeta}
           <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '0.9fr 1.1fr', gap: '2rem', flex: 1, alignItems: 'center' }}>
             <div style={{ textAlign: 'left', display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
-              <span style={{ fontSize: '0.65rem', color: 'var(--color-primary)', fontFamily: 'var(--font-mono)' }}>// DATA_FLOWCHART</span>
+              <span style={{ fontSize: '0.65rem', color: 'var(--color-primary)', fontFamily: 'var(--font-sans)' }}>// DATA_FLOWCHART</span>
               <strong style={{ fontSize: '1.25rem', color: '#fff' }}>Holographic Waveguide Pipeline</strong>
               <p style={{ fontSize: '0.8rem', color: 'var(--text-main)', lineHeight: 1.45, margin: 0 }}>
                 {detail}
               </p>
             </div>
-            <div style={{ display: 'flex', justifyContent: 'center', background: '#05070a', padding: '1rem', borderRadius: '8px', border: '1px solid rgba(255,255,255,0.05)' }}>
+            <div style={{ display: 'flex', justifyContent: 'center', background: 'var(--bg-main)', padding: '1rem', borderRadius: '8px', border: '1px solid var(--border-color)' }}>
               <svg width="280" height="120" viewBox="0 0 280 120">
                 <rect x="5" y="45" width="60" height="30" rx="3" fill="rgba(255,255,255,0.02)" stroke="var(--border-color)" />
                 <text x="35" y="63" textAnchor="middle" fill="var(--text-muted)" fontSize="8">Sensors</text>
@@ -285,7 +262,7 @@ const SlideRenderer = ({ slide, isMobile, audienceType }) => {
                 {detail}
               </p>
               <div style={{ background: 'rgba(255,255,255,0.02)', padding: '0.75rem', borderRadius: '6px', fontSize: '0.75rem', display: 'flex', gap: '0.5rem' }}>
-                <Lightbulb size={14} style={{ color: 'var(--color-warning)', flexShrink: 0 }} /> <span>Quantizing weights into 4-bit formats prevents wearable processor battery draining.</span>
+                <span className="material-symbols-outlined" style={{ fontSize: '14px',  color: 'var(--color-warning)', flexShrink: 0  }}>lightbulb</span> <span>Quantizing weights into 4-bit formats prevents wearable processor battery draining.</span>
               </div>
             </div>
             {!isMobile && (
@@ -346,8 +323,8 @@ const SlideRenderer = ({ slide, isMobile, audienceType }) => {
               </p>
             </div>
             {!isMobile && (
-              <div style={{ background: '#05070a', border: '1px solid rgba(255,255,255,0.05)', padding: '1.5rem', borderRadius: '8px', textAlign: 'left' }}>
-                <span style={{ fontSize: '0.6rem', color: 'var(--text-dim)', fontFamily: 'var(--font-mono)' }}>η = 1.0 - (sin(θ)/n)</span>
+              <div style={{ background: 'var(--bg-main)', border: '1px solid var(--border-color)', padding: '1.5rem', borderRadius: '8px', textAlign: 'left' }}>
+                <span style={{ fontSize: '0.6rem', color: 'var(--text-dim)', fontFamily: 'var(--font-sans)' }}>η = 1.0 - (sin(θ)/n)</span>
                 <div style={{ fontSize: '0.75rem', marginTop: '0.5rem', lineHeight: '1.45' }}>
                   <strong>Waveguide Index:</strong>η represents refraction loss metrics under foveated angle inputs (θ).
                 </div>
@@ -448,7 +425,7 @@ const SlideRenderer = ({ slide, isMobile, audienceType }) => {
                 {detail}
               </p>
             </div>
-            <div style={{ display: 'flex', justifyContent: 'center', background: '#05070a', padding: '1rem', borderRadius: '8px', border: '1px solid rgba(255,255,255,0.05)' }}>
+            <div style={{ display: 'flex', justifyContent: 'center', background: '#05070a', padding: '1rem', borderRadius: '8px', border: '1px solid var(--border-color)' }}>
               <svg width="280" height="100" viewBox="0 0 280 100">
                 <circle cx="40" cy="50" r="8" fill="var(--color-primary)" />
                 <line x1="48" y1="50" x2="132" y2="50" stroke="rgba(255,255,255,0.15)" strokeWidth="1.5" />
@@ -479,8 +456,8 @@ const SlideRenderer = ({ slide, isMobile, audienceType }) => {
                 We are open to take panel feedback and simulator questions.
               </p>
               <div style={{ display: 'flex', gap: '1rem', fontSize: '0.75rem', color: 'var(--text-dim)' }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.35rem' }}><Mail size={12} style={{ color: 'var(--color-secondary)' }} /> <span>team@invenza.edu</span></div>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.35rem' }}><Globe size={12} style={{ color: 'var(--color-secondary)' }} /> <span>invenza.edu</span></div>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.35rem' }}><span className="material-symbols-outlined" style={{ fontSize: '12px',  color: 'var(--color-secondary)'  }}>mail</span> <span>team@invenza.edu</span></div>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.35rem' }}><span className="material-symbols-outlined" style={{ fontSize: '12px',  color: 'var(--color-secondary)'  }}>language</span> <span>invenza.edu</span></div>
               </div>
             </div>
             {!isMobile && (
@@ -648,13 +625,13 @@ const PresentationViewer = ({
               flexDirection: 'column',
               gap: '1rem',
               boxSizing: 'border-box',
-              fontFamily: 'var(--font-mono)',
+              fontFamily: 'var(--font-sans)',
               fontSize: '0.75rem',
               boxShadow: '0 20px 60px rgba(0,0,0,0.8)',
               textAlign: 'left'
             }}>
               <div style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '1px solid rgba(255,255,255,0.05)', paddingBottom: '0.5rem', color: 'var(--color-success)', alignItems: 'center' }}>
-                <span style={{ display: 'flex', alignItems: 'center', gap: '0.35rem' }}><Terminal size={14} style={{ color: 'var(--color-success)' }} /> <span>PROTOTYPE INTERACTIVE SHELL: {slidesList[presentSlideIndex].title.toUpperCase()}</span></span>
+                <span style={{ display: 'flex', alignItems: 'center', gap: '0.35rem' }}><span className="material-symbols-outlined" style={{ fontSize: '14px',  color: 'var(--color-success)'  }}>terminal</span> <span>PROTOTYPE INTERACTIVE SHELL: {slidesList[presentSlideIndex].title.toUpperCase()}</span></span>
                 <span>STATUS: ACTIVE</span>
               </div>
 
@@ -672,7 +649,7 @@ const PresentationViewer = ({
                   placeholder="Type diagnostic command (help, analyze, compile, moat, clear)..."
                   value={demoCommand}
                   onChange={e => setDemoCommand(e.target.value)}
-                  style={{ flex: 1, fontFamily: 'var(--font-mono)', fontSize: '0.75rem', padding: '0.45rem', border: '1px solid var(--color-success)', background: '#000' }}
+                  style={{ flex: 1, fontFamily: 'var(--font-sans)', fontSize: '0.75rem', padding: '0.45rem', border: '1px solid var(--border-color)', background: 'var(--bg-input)' }}
                 />
                 <button type="submit" className="tech-button" style={{ fontSize: '0.7rem', padding: '0.45rem 1rem' }}>Execute</button>
               </form>
@@ -696,7 +673,7 @@ const PresentationViewer = ({
                 <span>Suggested Pace: <strong>{tempo}</strong></span>
               </div>
               <div style={{ background: 'rgba(139,92,246,0.15)', border: '1px solid rgba(139,92,246,0.3)', padding: '0.5rem 0.85rem', borderRadius: '6px', fontSize: '0.7rem', color: 'var(--color-accent)', textAlign: 'left', maxWidth: '300px', display: 'flex', flexDirection: 'column', gap: '0.25rem' }}>
-                <span style={{ display: 'flex', alignItems: 'center', gap: '0.35rem' }}><Bot size={14} style={{ color: 'var(--color-accent)' }} /> <strong>Presenter Coach:</strong></span>
+                <span style={{ display: 'flex', alignItems: 'center', gap: '0.35rem' }}><span className="material-symbols-outlined" style={{ fontSize: '14px',  color: 'var(--color-accent)'  }}>smart_toy</span> <strong>Presenter Coach:</strong></span>
                 <span>Spend approx {slidesList[presentSlideIndex].duration}. {slidesList[presentSlideIndex].talkingPoints[0]}.</span>
               </div>
             </div>
@@ -732,7 +709,7 @@ const PresentationViewer = ({
             overflowY: 'auto'
           }}>
             <div>
-              <span style={{ fontSize: '0.6rem', color: 'var(--color-accent)', fontFamily: 'var(--font-mono)' }}>SPEAKER_NOTES_GUIDE</span>
+              <span style={{ fontSize: '0.6rem', color: 'var(--color-accent)', fontFamily: 'var(--font-sans)' }}>SPEAKER_NOTES_GUIDE</span>
               <h3 style={{ fontSize: '1rem', marginTop: '0.15rem', fontFamily: 'var(--font-display)', textAlign: 'left' }}>Teleprompter</h3>
             </div>
 
@@ -756,7 +733,7 @@ const PresentationViewer = ({
 
             {/* Speech configuration */}
             <div style={{ background: 'rgba(255,255,255,0.01)', border: '1px solid var(--border-color)', padding: '0.75rem', borderRadius: '6px', display: 'flex', flexDirection: 'column', gap: '0.6rem' }}>
-              <span style={{ fontSize: '0.6rem', color: 'var(--text-muted)', fontFamily: 'var(--font-mono)', textAlign: 'left' }}>SPEECH AUDIO</span>
+              <span style={{ fontSize: '0.6rem', color: 'var(--text-muted)', fontFamily: 'var(--font-sans)', textAlign: 'left' }}>SPEECH AUDIO</span>
               
               <div>
                 <label style={{ fontSize: '0.6rem', color: 'var(--text-dim)', display: 'block', marginBottom: '0.15rem', textAlign: 'left' }}>TTS Voice</label>
@@ -818,7 +795,7 @@ const PresentationViewer = ({
               className="tech-button tech-button-glow"
               style={{ width: '100%', height: '35px', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.35rem', fontSize: '0.75rem' }}
             >
-              {speaking ? <VolumeX size={12} /> : <Volume2 size={12} />}
+              {speaking ? <span className="material-symbols-outlined" style={{ fontSize: '12px' }}>volume_off</span> : <span className="material-symbols-outlined" style={{ fontSize: '12px' }}>volume_up</span>}
               {speaking ? "Mute Presenter" : "Play Narration"}
             </button>
           </div>
@@ -882,7 +859,7 @@ const PresentationViewer = ({
           className="tech-button tech-button-outline"
           style={{ padding: '0.35rem 0.75rem', fontSize: '0.75rem', borderRadius: '20px', display: 'flex', alignItems: 'center', gap: '0.2rem' }}
         >
-          <SkipBack size={12} /> {!isMobile && "Prev"}
+          <span className="material-symbols-outlined" style={{ fontSize: '12px' }}>skip_previous</span> {!isMobile && "Prev"}
         </button>
 
         {/* Play/Pause speech */}
@@ -891,7 +868,7 @@ const PresentationViewer = ({
           className="tech-button tech-button-outline"
           style={{ padding: '0.35rem 0.75rem', fontSize: '0.75rem', borderRadius: '20px', display: 'flex', alignItems: 'center', gap: '0.2rem' }}
         >
-          {speaking ? <Pause size={12} /> : <Play size={12} />}
+          {speaking ? <span className="material-symbols-outlined" style={{ fontSize: '12px' }}>pause</span> : <span className="material-symbols-outlined" style={{ fontSize: '12px' }}>play_arrow</span>}
           {!isMobile && (speaking ? "Pause Voice" : "Play Voice")}
         </button>
 
@@ -921,7 +898,7 @@ const PresentationViewer = ({
           style={{
             background: '#000',
             color: '#fff',
-            border: '1px solid rgba(255,255,255,0.15)',
+            border: '1px solid var(--border-color)',
             borderRadius: '20px',
             padding: '0.25rem 0.5rem',
             fontSize: '0.7rem'
@@ -948,7 +925,7 @@ const PresentationViewer = ({
           className="tech-button tech-button-outline"
           style={{ padding: '0.35rem 0.75rem', fontSize: '0.75rem', borderRadius: '20px', display: 'flex', alignItems: 'center', gap: '0.2rem' }}
         >
-          {!isMobile && "Next"} <SkipForward size={12} />
+          {!isMobile && "Next"} <span className="material-symbols-outlined" style={{ fontSize: '12px' }}>skip_next</span>
         </button>
 
         <span style={{ color: 'rgba(255,255,255,0.15)' }}>|</span>
@@ -965,7 +942,7 @@ const PresentationViewer = ({
           className="tech-button tech-button-outline"
           style={{ padding: '0.35rem 0.75rem', fontSize: '0.75rem', borderRadius: '20px', display: 'flex', alignItems: 'center', gap: '0.2rem' }}
         >
-          {showNotes || mobileShowNotesDrawer ? <EyeOff size={12} /> : <Eye size={12} />}
+          {showNotes || mobileShowNotesDrawer ? <span className="material-symbols-outlined" style={{ fontSize: '12px' }}>visibility_off</span> : <span className="material-symbols-outlined" style={{ fontSize: '12px' }}>visibility</span>}
           {!isMobile && "Notes"}
         </button>
 
@@ -976,7 +953,7 @@ const PresentationViewer = ({
             className="tech-button tech-button-outline"
             style={{ padding: '0.35rem 0.75rem', fontSize: '0.75rem', borderRadius: '20px', display: 'flex', alignItems: 'center', gap: '0.2rem' }}
           >
-            {nativeFullscreen ? <Minimize2 size={12} /> : <Maximize2 size={12} />}
+            {nativeFullscreen ? <span className="material-symbols-outlined" style={{ fontSize: '12px' }}>close_fullscreen</span> : <span className="material-symbols-outlined" style={{ fontSize: '12px' }}>open_in_full</span>}
             {!isMobile && (nativeFullscreen ? "Exit Full" : "Fullscreen")}
           </button>
         )}
@@ -997,7 +974,7 @@ const PresentationViewer = ({
             gap: '0.2rem'
           }}
         >
-          <X size={12} /> {!isMobile && "Exit"}
+          <span className="material-symbols-outlined" style={{ fontSize: '12px' }}>close</span> {!isMobile && "Exit"}
         </button>
       </div>
 

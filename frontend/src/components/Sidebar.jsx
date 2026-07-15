@@ -1,25 +1,5 @@
 import React, { useState } from 'react';
-import { 
-  LayoutDashboard, 
-  Search, 
-  FileText, 
-  Bookmark, 
-  Rocket, 
-  Trophy, 
-  Presentation, 
-  Compass, 
-  Cpu,
-  Sparkles,
-  LogOut,
-  X,
-  Shield,
-  Sun,
-  Moon,
-  Settings,
-  FolderGit2,
-  User,
-  AlertTriangle
-} from 'lucide-react';
+
 import { usePortal } from '../context/PortalContext';
 
 const Sidebar = ({ currentPage, setCurrentPage, sidebarOpen, setSidebarOpen, userEmail, handleLogout, theme, toggleTheme }) => {
@@ -52,37 +32,38 @@ const Sidebar = ({ currentPage, setCurrentPage, sidebarOpen, setSidebarOpen, use
     let items = [];
     if (portalMode === 'student') {
       items = [
-        { id: 'dashboard', label: 'Student Dashboard', icon: LayoutDashboard },
-        { id: 'profile', label: 'My Profile Hub', icon: User },
-        { id: 'hackathons', label: 'AI Mentor Hub', icon: Trophy },
-        { id: 'explorer', label: 'Innovation Explorer', icon: Compass },
-        { id: 'patents', label: 'Patent Search', icon: Search },
-        { id: 'papers', label: 'Research Papers', icon: FileText },
-        { id: 'github', label: 'GitHub Projects', icon: FolderGit2 },
-        { id: 'synergy', label: 'Tech Synergy Lab', icon: Sparkles },
-        { id: 'saved-ideas', label: 'Saved Innovations', icon: Bookmark },
-        { id: 'pitch-coach', label: 'AI Pitch Coach', icon: Presentation }
+        { id: 'dashboard', label: 'Student Dashboard', icon: 'dashboard' },
+        { id: 'profile', label: 'My Profile Hub', icon: 'person' },
+        { id: 'hackathons', label: 'AI Mentor Hub', icon: 'emoji_events' },
+        { id: 'explorer', label: 'Innovation Explorer', icon: 'explore' },
+        { id: 'patents', label: 'Patent Search', icon: 'search' },
+        { id: 'papers', label: 'Research Papers', icon: 'description' },
+        { id: 'github', label: 'GitHub Projects', icon: 'folder' },
+        { id: 'synergy', label: 'Tech Synergy Lab', icon: 'auto_awesome' },
+        { id: 'saved-ideas', label: 'Saved Innovations', icon: 'bookmark' },
+        { id: 'pitch-coach', label: 'AI Pitch Coach', icon: 'co_present' }
       ];
     } else {
       items = [
-        { id: 'dashboard', label: 'Business Dashboard', icon: LayoutDashboard },
-        { id: 'profile', label: 'My Profile Hub', icon: User },
-        { id: 'startup', label: 'Startup Builder', icon: Rocket },
-        { id: 'discovery', label: 'Business Idea Lab', icon: Cpu },
-        { id: 'explorer', label: 'Competitor Analysis', icon: Compass },
-        { id: 'patents', label: 'Patent Intelligence', icon: Search },
-        { id: 'hackathons', label: 'Business Mentor', icon: Trophy },
-        { id: 'pitch-coach', label: 'Pitch Deck Builder', icon: Presentation }
+        { id: 'dashboard', label: 'Business Dashboard', icon: 'dashboard' },
+        { id: 'profile', label: 'My Profile Hub', icon: 'person' },
+        { id: 'startup', label: 'Startup Builder', icon: 'rocket_launch' },
+        { id: 'discovery', label: 'Business Idea Lab', icon: 'developer_board' },
+        { id: 'explorer', label: 'Competitor Analysis', icon: 'explore' },
+        { id: 'patents', label: 'Patent Intelligence', icon: 'search' },
+        { id: 'hackathons', label: 'Business Mentor', icon: 'emoji_events' },
+        { id: 'pitch-coach', label: 'Pitch Deck Builder', icon: 'co_present' }
       ];
     }
 
     if (isAdmin) {
-      items.push({ id: 'admin-config', label: 'Admin Configuration', icon: Shield });
+      items.push({ id: 'admin-config', label: 'Admin Configuration', icon: 'shield' });
     }
     return items;
   };
 
-  const username = userEmail ? userEmail.split('@')[0] : 'Invenza Analyst';
+  const authUserSession = JSON.parse(localStorage.getItem('auth_user') || '{}');
+  const username = authUserSession.name || (userEmail ? userEmail.split('@')[0] : 'Invenza Analyst');
   const initialLetter = username.charAt(0).toUpperCase();
 
   return (
@@ -91,7 +72,7 @@ const Sidebar = ({ currentPage, setCurrentPage, sidebarOpen, setSidebarOpen, use
         className="sidebar-close-btn"
         onClick={() => setSidebarOpen(false)}
       >
-        <X size={18} />
+        <span className="material-symbols-outlined" style={{ fontSize: '18px' }}>close</span>
       </button>
 
       {/* Missing Role Warning Portal Switcher Modal */}
@@ -102,8 +83,9 @@ const Sidebar = ({ currentPage, setCurrentPage, sidebarOpen, setSidebarOpen, use
           left: 0,
           right: 0,
           bottom: 0,
-          background: 'rgba(2, 3, 5, 0.85)',
-          backdropFilter: 'blur(12px)',
+          background: 'rgba(32, 33, 36, 0.45)',
+          backdropFilter: 'blur(8px)',
+          WebkitBackdropFilter: 'blur(8px)',
           zIndex: 10000,
           display: 'flex',
           alignItems: 'center',
@@ -114,11 +96,11 @@ const Sidebar = ({ currentPage, setCurrentPage, sidebarOpen, setSidebarOpen, use
             width: '100%',
             maxWidth: '450px',
             background: 'var(--bg-panel-solid)',
-            border: '1.5px solid var(--border-color)',
-            borderRadius: '12px',
+            border: '1px solid var(--border-color)',
+            borderRadius: '16px',
             padding: '2rem',
             position: 'relative',
-            boxShadow: '0 0 35px var(--color-primary)',
+            boxShadow: 'var(--shadow-5)',
             color: 'var(--text-main)',
             boxSizing: 'border-box',
             textAlign: 'center',
@@ -128,7 +110,7 @@ const Sidebar = ({ currentPage, setCurrentPage, sidebarOpen, setSidebarOpen, use
           }}>
             <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.5rem' }}>
               <div style={{ background: 'rgba(239, 68, 68, 0.1)', padding: '0.6rem', borderRadius: '50%', color: 'var(--color-danger)' }}>
-                <AlertTriangle size={24} />
+                <span className="material-symbols-outlined" style={{ fontSize: '24px' }}>warning</span>
               </div>
               <h3 style={{ fontSize: '1.2rem', fontFamily: 'var(--font-display)', margin: 0 }}>Portal Account Missing</h3>
             </div>
@@ -172,8 +154,9 @@ const Sidebar = ({ currentPage, setCurrentPage, sidebarOpen, setSidebarOpen, use
           left: 0,
           right: 0,
           bottom: 0,
-          background: 'rgba(2, 3, 5, 0.85)',
-          backdropFilter: 'blur(12px)',
+          background: 'rgba(32, 33, 36, 0.45)',
+          backdropFilter: 'blur(8px)',
+          WebkitBackdropFilter: 'blur(8px)',
           zIndex: 10000,
           display: 'flex',
           alignItems: 'center',
@@ -204,7 +187,7 @@ const Sidebar = ({ currentPage, setCurrentPage, sidebarOpen, setSidebarOpen, use
                 cursor: 'pointer'
               }}
             >
-              <X size={18} />
+              <span className="material-symbols-outlined" style={{ fontSize: '18px' }}>close</span>
             </button>
 
             {/* Header */}
@@ -214,10 +197,9 @@ const Sidebar = ({ currentPage, setCurrentPage, sidebarOpen, setSidebarOpen, use
                 padding: '0.45rem',
                 borderRadius: '6px'
               }}>
-                <Shield size={18} color="#fff" />
+                <span className="material-symbols-outlined" style={{ fontSize: '18px', color: '#fff' }}>shield</span>
               </div>
               <div>
-                <span style={{ fontSize: '0.6rem', color: 'var(--color-secondary)', fontFamily: 'var(--font-mono)', fontWeight: 'bold' }}>[SSO_CLEARANCE_CONTROL]</span>
                 <h3 style={{ fontSize: '1.15rem', fontFamily: 'var(--font-display)', margin: 0 }}>Account & Settings</h3>
               </div>
             </div>
@@ -227,7 +209,7 @@ const Sidebar = ({ currentPage, setCurrentPage, sidebarOpen, setSidebarOpen, use
               
               {/* Account Badge Card */}
               <div style={{
-                background: 'rgba(255,255,255,0.01)',
+                background: 'var(--bg-hover)',
                 border: '1px solid var(--border-color)',
                 padding: '1rem',
                 borderRadius: '8px',
@@ -252,7 +234,7 @@ const Sidebar = ({ currentPage, setCurrentPage, sidebarOpen, setSidebarOpen, use
                 </div>
                 <div style={{ display: 'flex', flexDirection: 'column', minWidth: 0 }}>
                   <strong style={{ fontSize: '1rem' }}>{username}</strong>
-                  <span style={{ fontSize: '0.75rem', color: 'var(--color-secondary)', fontFamily: 'var(--font-mono)' }}>
+                  <span style={{ fontSize: '0.75rem', color: 'var(--color-secondary)', fontFamily: 'var(--font-sans)' }}>
                     Revival Specialist & Analyst
                   </span>
                 </div>
@@ -260,48 +242,48 @@ const Sidebar = ({ currentPage, setCurrentPage, sidebarOpen, setSidebarOpen, use
 
               {/* 1. Account Information */}
               <div style={{ display: 'flex', flexDirection: 'column', gap: '0.65rem' }}>
-                <span style={{ fontSize: '0.65rem', color: 'var(--text-muted)', fontFamily: 'var(--font-mono)', display: 'block' }}>// PROFILE_INFORMATION</span>
+                <span style={{ fontSize: '0.65rem', color: 'var(--text-dim)', fontFamily: 'var(--font-sans)', display: 'block' }}>PROFILE INFORMATION</span>
                 <div style={{ 
                   display: 'flex', 
                   flexDirection: 'column', 
                   gap: '0.6rem', 
                   fontSize: '0.75rem', 
-                  background: 'rgba(255,255,255,0.01)', 
+                  background: 'var(--bg-hover)', 
                   border: '1px solid var(--border-color)', 
                   padding: '0.85rem', 
                   borderRadius: '8px' 
                 }}>
-                  <div style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '1px solid rgba(255,255,255,0.03)', paddingBottom: '0.4rem' }}>
-                    <span style={{ color: 'var(--text-muted)' }}>clearance_email</span>
-                    <span style={{ fontFamily: 'var(--font-mono)', color: 'var(--color-secondary)' }}>{userEmail}</span>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '1px solid var(--border-color)', paddingBottom: '0.4rem' }}>
+                    <span style={{ color: 'var(--text-muted)' }}>Email</span>
+                    <span style={{ fontFamily: 'var(--font-sans)', color: 'var(--color-secondary)', fontSize: '0.7rem' }}>{userEmail}</span>
                   </div>
-                  <div style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '1px solid rgba(255,255,255,0.03)', paddingBottom: '0.4rem' }}>
-                    <span style={{ color: 'var(--text-muted)' }}>assigned_role</span>
-                    <span style={{ color: 'var(--text-main)', fontWeight: 'bold' }}>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '1px solid var(--border-color)', paddingBottom: '0.4rem' }}>
+                    <span style={{ color: 'var(--text-muted)' }}>Role</span>
+                    <span style={{ color: 'var(--text-main)', fontWeight: '600' }}>
                       {portalMode === 'student' ? 'Student Specialist' : 'B2B Startup Consultant'}
                     </span>
                   </div>
-                  <div style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '1px solid rgba(255,255,255,0.03)', paddingBottom: '0.4rem' }}>
-                    <span style={{ color: 'var(--text-muted)' }}>sso_provider</span>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '1px solid var(--border-color)', paddingBottom: '0.4rem' }}>
+                    <span style={{ color: 'var(--text-muted)' }}>SSO Provider</span>
                     <span style={{ color: 'var(--text-main)' }}>
                       {userEmail?.includes('gmail') ? 'Google Federated SSO' : 'Microsoft Live AD'}
                     </span>
                   </div>
-                  <div style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '1px solid rgba(255,255,255,0.03)', paddingBottom: '0.4rem' }}>
-                    <span style={{ color: 'var(--text-muted)' }}>clearance_level</span>
-                    <span style={{ color: 'var(--color-success)', fontWeight: 'bold' }}>Level 4 Access</span>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '1px solid var(--border-color)', paddingBottom: '0.4rem' }}>
+                    <span style={{ color: 'var(--text-muted)' }}>Clearance Level</span>
+                    <span style={{ color: 'var(--color-success)', fontWeight: '600' }}>Level 4 Access</span>
                   </div>
-                  <div style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '1px solid rgba(255,255,255,0.03)', paddingBottom: '0.4rem' }}>
-                    <span style={{ color: 'var(--text-muted)' }}>telemetry_status</span>
-                    <span style={{ color: 'var(--color-secondary)', fontFamily: 'var(--font-mono)' }}>99.2% Alignment</span>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '1px solid var(--border-color)', paddingBottom: '0.4rem' }}>
+                    <span style={{ color: 'var(--text-muted)' }}>Status</span>
+                    <span style={{ color: 'var(--color-secondary)', fontFamily: 'var(--font-sans)' }}>99.2% Alignment</span>
                   </div>
-                  <div style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '1px solid rgba(255,255,255,0.03)', paddingBottom: '0.4rem' }}>
-                    <span style={{ color: 'var(--text-muted)' }}>node_server</span>
-                    <span style={{ fontFamily: 'var(--font-mono)', color: 'var(--text-muted)' }}>http://localhost:5000</span>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '1px solid var(--border-color)', paddingBottom: '0.4rem' }}>
+                    <span style={{ color: 'var(--text-muted)' }}>Node Server</span>
+                    <span style={{ fontFamily: 'var(--font-sans)', color: 'var(--text-dim)', fontSize: '0.7rem' }}>http://localhost:5000</span>
                   </div>
                   <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                    <span style={{ color: 'var(--text-muted)' }}>account_signature</span>
-                    <span style={{ color: 'var(--color-accent)', fontFamily: 'var(--font-mono)', fontSize: '0.65rem' }}>
+                    <span style={{ color: 'var(--text-muted)' }}>Signature</span>
+                    <span style={{ color: 'var(--color-accent)', fontFamily: 'var(--font-sans)', fontSize: '0.65rem' }}>
                       SIG_{Math.abs(userEmail.split('@')[0].split('').reduce((a,b)=>((a<<5)-a)+b.charCodeAt(0),0)).toString(16).toUpperCase()}
                     </span>
                   </div>
@@ -310,9 +292,9 @@ const Sidebar = ({ currentPage, setCurrentPage, sidebarOpen, setSidebarOpen, use
 
               {/* 2. System Configurations */}
               <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
-                <span style={{ fontSize: '0.65rem', color: 'var(--text-muted)', fontFamily: 'var(--font-mono)', display: 'block' }}>// SYSTEM_SETTINGS</span>
+                <span style={{ fontSize: '0.65rem', color: 'var(--text-dim)', fontFamily: 'var(--font-sans)', display: 'block' }}>SYSTEM SETTINGS</span>
                 
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem', background: 'rgba(255,255,255,0.01)', border: '1px solid var(--border-color)', padding: '0.85rem', borderRadius: '8px' }}>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem', background: 'var(--bg-hover)', border: '1px solid var(--border-color)', padding: '0.85rem', borderRadius: '8px' }}>
                   {/* Theme Mode Option */}
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                     <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>Visual Mode</span>
@@ -321,7 +303,7 @@ const Sidebar = ({ currentPage, setCurrentPage, sidebarOpen, setSidebarOpen, use
                       className="tech-button tech-button-outline"
                       style={{ fontSize: '0.7rem', padding: '0.35rem 0.75rem', display: 'flex', alignItems: 'center', gap: '0.3rem' }}
                     >
-                      {theme === 'light' ? <Moon size={11} /> : <Sun size={11} />}
+                      {theme === 'light' ? <span className="material-symbols-outlined" style={{ fontSize: '11px' }}>dark_mode</span> : <span className="material-symbols-outlined" style={{ fontSize: '11px' }}>light_mode</span>}
                       <span>{theme === 'light' ? "Dark Theme" : "Light Theme"}</span>
                     </button>
                   </div>
@@ -334,34 +316,19 @@ const Sidebar = ({ currentPage, setCurrentPage, sidebarOpen, setSidebarOpen, use
       )}
 
       {/* Platform Logo */}
-      <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '2rem', paddingLeft: '0.5rem' }}>
-        <div style={{
-          background: 'linear-gradient(135deg, var(--color-primary), var(--color-accent))',
-          padding: '0.55rem',
-          borderRadius: '8px',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          boxShadow: '0 0 12px var(--color-primary)'
-        }}>
-          <Cpu size={20} color="#fff" />
-        </div>
+      <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1.5rem', paddingLeft: '0.5rem' }}>
+
         <div>
-          <h2 style={{ fontSize: '1.25rem', fontWeight: 800, fontFamily: 'var(--font-display)', letterSpacing: '0.05em', color: 'var(--text-main)', textShadow: '0 0 8px rgba(255,255,255,0.1)' }}>
-            Invenza AI
+          <h2 style={{ fontSize: '1.2rem', fontWeight: 700, fontFamily: 'var(--font-display)', letterSpacing: '-0.01em', color: 'var(--text-main)' }}>
+            Invenza <span style={{ color: 'var(--color-primary)' }}>AI</span>
           </h2>
-          <span style={{ fontSize: '0.65rem', color: 'var(--color-secondary)', fontFamily: 'var(--font-mono)', letterSpacing: '0.1em', fontWeight: 'bold' }}>
-            TECH OS V2.0
+          <span style={{ fontSize: '0.62rem', color: 'var(--text-dim)', fontFamily: 'var(--font-sans)', letterSpacing: '0.08em' }}>
+            CORE V2.0
           </span>
         </div>
       </div>
 
-      {/* Sci-Fi Telemetry Barcode */}
-      <div style={{ display: 'flex', gap: '2px', height: '14px', opacity: 0.25, marginBottom: '1.5rem', paddingLeft: '0.5rem' }}>
-        {[4, 2, 8, 1, 6, 2, 4, 1, 8, 2, 4, 6, 1, 3, 5, 2, 4].map((w, i) => (
-          <div key={i} style={{ width: `${w}px`, background: 'var(--text-muted)', height: '100%' }}></div>
-        ))}
-      </div>
+
 
       <div 
         onClick={() => setCurrentPage('profile')}
@@ -370,35 +337,35 @@ const Sidebar = ({ currentPage, setCurrentPage, sidebarOpen, setSidebarOpen, use
           alignItems: 'center',
           gap: '0.75rem',
           padding: '0.75rem',
-          background: 'rgba(59, 130, 246, 0.04)',
-          border: '1.5px solid var(--border-color-glow)',
+          background: 'var(--color-primary-light)',
+          border: '1px solid rgba(26, 115, 232, 0.2)',
           borderRadius: '10px',
           marginBottom: '1.5rem',
-          boxShadow: '0 0 10px rgba(59, 130, 246, 0.1)',
           cursor: 'pointer',
           transition: 'all 0.2s ease'
         }}
         onMouseEnter={(e) => {
+          e.currentTarget.style.background = '#D2E3FC';
           e.currentTarget.style.borderColor = 'var(--color-primary)';
-          e.currentTarget.style.boxShadow = '0 0 15px rgba(59, 130, 246, 0.2)';
         }}
         onMouseLeave={(e) => {
-          e.currentTarget.style.borderColor = 'var(--border-color-glow)';
-          e.currentTarget.style.boxShadow = '0 0 10px rgba(59, 130, 246, 0.1)';
+          e.currentTarget.style.background = 'var(--color-primary-light)';
+          e.currentTarget.style.borderColor = 'rgba(26, 115, 232, 0.2)';
         }}
       >
         <div style={{
           width: '38px',
           height: '38px',
           borderRadius: '50%',
-          background: 'linear-gradient(135deg, var(--color-accent), var(--color-primary))',
+          background: 'linear-gradient(135deg, #1A73E8, #1557B0)',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          fontWeight: 'bold',
+          fontWeight: '700',
           fontSize: '0.9rem',
           color: '#fff',
-          boxShadow: '0 0 12px var(--color-accent)'
+          boxShadow: 'var(--shadow-2)',
+          flexShrink: 0
         }}>
           {initialLetter}
         </div>
@@ -413,9 +380,9 @@ const Sidebar = ({ currentPage, setCurrentPage, sidebarOpen, setSidebarOpen, use
           }} title={userEmail || 'Invenza Analyst'}>
             {username}
           </span>
-          <span style={{ fontSize: '0.7rem', color: 'var(--color-secondary)', fontFamily: 'var(--font-mono)', fontWeight: 'bold', display: 'flex', alignItems: 'center', gap: '0.25rem' }}>
+          <span style={{ fontSize: '0.7rem', color: 'var(--color-secondary)', fontFamily: 'var(--font-sans)', fontWeight: 'bold', display: 'flex', alignItems: 'center', gap: '0.25rem' }}>
             <span>Profile & Settings</span>
-            <Settings size={10} style={{ opacity: 0.8 }} />
+            <span className="material-symbols-outlined" style={{ fontSize: '10px',  opacity: 0.8  }}>settings</span>
           </span>
         </div>
       </div>
@@ -423,7 +390,7 @@ const Sidebar = ({ currentPage, setCurrentPage, sidebarOpen, setSidebarOpen, use
       {/* Portal Switcher Toggle */}
       <div style={{
         display: 'flex',
-        background: 'rgba(255, 255, 255, 0.02)',
+        background: 'var(--bg-hover)',
         border: '1px solid var(--border-color)',
         padding: '0.2rem',
         borderRadius: '8px',
@@ -481,7 +448,7 @@ const Sidebar = ({ currentPage, setCurrentPage, sidebarOpen, setSidebarOpen, use
                 gap: '0.75rem',
                 padding: '0.75rem 1rem',
                 border: 'none',
-                background: isActive ? 'rgba(59, 130, 246, 0.04)' : 'transparent',
+                background: isActive ? 'var(--color-primary-light)' : 'transparent',
                 borderRadius: 'var(--radius-md)',
                 color: isActive ? 'var(--color-primary)' : 'var(--text-muted)',
                 cursor: 'pointer',
@@ -493,7 +460,7 @@ const Sidebar = ({ currentPage, setCurrentPage, sidebarOpen, setSidebarOpen, use
                 transition: 'all 0.2s ease'
               }}
             >
-              <Icon size={18} style={{ color: isActive ? 'var(--color-primary)' : 'inherit' }} />
+              <span className="material-symbols-outlined" style={{ fontSize: '18px',  color: isActive ? 'var(--color-primary)' : 'inherit'  }}>{item.icon}</span>
               {item.label}
             </button>
           );
@@ -504,7 +471,7 @@ const Sidebar = ({ currentPage, setCurrentPage, sidebarOpen, setSidebarOpen, use
       <div style={{
         marginTop: 'auto',
         paddingTop: '1rem',
-        borderTop: '1px solid rgba(255,255,255,0.03)'
+        borderTop: '1px solid var(--border-color)'
       }}>
         {/* Log out */}
         <button 
@@ -529,7 +496,7 @@ const Sidebar = ({ currentPage, setCurrentPage, sidebarOpen, setSidebarOpen, use
             e.currentTarget.style.background = 'rgba(244, 63, 94, 0.03)';
           }}
         >
-          <LogOut size={13} />
+          <span className="material-symbols-outlined" style={{ fontSize: '13px' }}>logout</span>
           LOG OUT CLEAR CIPHER
         </button>
       </div>

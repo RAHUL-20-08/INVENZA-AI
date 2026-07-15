@@ -1,5 +1,5 @@
 import React from 'react';
-import { ThumbsUp, ArrowLeft } from 'lucide-react';
+
 
 const PitchEvaluator = ({ 
   evaluations, 
@@ -16,7 +16,7 @@ const PitchEvaluator = ({
           className="tech-button tech-button-outline"
           style={{ fontSize: '0.75rem', padding: '0.45rem 1rem', display: 'flex', alignItems: 'center', gap: '0.35rem' }}
         >
-          <ArrowLeft size={14} /> Back to Dashboard
+          <span className="material-symbols-outlined" style={{ fontSize: '14px' }}>arrow_back</span> Back to Dashboard
         </button>
         <strong style={{ fontSize: '1.1rem', fontFamily: 'var(--font-display)' }}>Pitch Scoring & Moats Evaluation</strong>
       </div>
@@ -28,12 +28,12 @@ const PitchEvaluator = ({
           
           <div className="glass-panel" style={{ display: 'flex', flexDirection: 'column', gap: '1rem', border: '1.5px solid rgba(6,182,212,0.25)' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-              <ThumbsUp size={18} color="var(--color-secondary)" />
+              <span className="material-symbols-outlined" style={{ fontSize: '18px', color: 'var(--color-secondary)' }}>thumb_up</span>
               <strong style={{ fontSize: '0.95rem', fontFamily: 'var(--font-display)' }}>Overall Conviction Index</strong>
             </div>
             
             <div style={{ display: 'flex', alignItems: 'baseline', gap: '0.25rem' }}>
-              <span style={{ fontSize: '2.5rem', fontWeight: 800, color: 'var(--color-success)', fontFamily: 'var(--font-mono)' }}>{convictionScore}%</span>
+              <span style={{ fontSize: '2.5rem', fontWeight: 800, color: 'var(--color-success)', fontFamily: 'var(--font-sans)' }}>{convictionScore}%</span>
               <span style={{ fontSize: '0.65rem', color: 'var(--text-dim)' }}>STABILITY_GRADIENTS</span>
             </div>
 
@@ -47,11 +47,10 @@ const PitchEvaluator = ({
 
           {/* Actionable Suggestions */}
           <div className="glass-panel" style={{ padding: '1.5rem', borderLeft: '3px solid var(--color-warning)', background: 'rgba(245,158,11,0.03)', textAlign: 'left' }}>
-            <span style={{ fontSize: '0.65rem', color: 'var(--color-warning)', fontFamily: 'var(--font-mono)', display: 'block', marginBottom: '0.55rem' }}>[PERSONALIZED_IMPROVEMENTS]</span>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '0.6rem', fontSize: '0.75rem', lineHeight: '1.45' }}>
-              <div>➔ **Moat Definition**: Highlight foveated NPU graphics processing to block big-tech copying.</div>
-              <div>➔ **Cost Strategy**: Detail B2B software SDK licensing parameters in slide 12.</div>
-              <div>➔ **Presentation**: Focus on pauses after hook statement in slide 1.</div>
+              <div>? **Moat Definition**: Highlight foveated NPU graphics processing to block big-tech copying.</div>
+              <div>? **Cost Strategy**: Detail B2B software SDK licensing parameters in slide 12.</div>
+              <div>? **Presentation**: Focus on pauses after hook statement in slide 1.</div>
             </div>
           </div>
 
@@ -59,7 +58,7 @@ const PitchEvaluator = ({
 
         {/* Right: Detailed metrics */}
         <div className="glass-panel" style={{ padding: '1.5rem' }}>
-          <span style={{ fontSize: '0.65rem', color: 'var(--text-muted)', fontFamily: 'var(--font-mono)', display: 'block', marginBottom: '1rem', textAlign: 'left' }}>// PITCH_EVALUATION_RADAR</span>
+          <span style={{ fontSize: '0.65rem', color: 'var(--text-muted)', fontFamily: 'var(--font-sans)', display: 'block', marginBottom: '1rem', textAlign: 'left' }}>// PITCH_EVALUATION_RADAR</span>
           
           <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
             {evaluations.map((evalItem, idx) => (

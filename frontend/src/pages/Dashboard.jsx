@@ -1,25 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useSearch } from '../context/SearchContext';
 import UnifiedSearchBar from '../components/UnifiedSearchBar';
-import { 
-  AlertTriangle, 
-  CheckCircle, 
-  TrendingUp, 
-  Activity, 
-  DollarSign, 
-  Search,
-  ArrowUpRight,
-  Cpu,
-  RefreshCw,
-  Save,
-  Terminal,
-  Shield,
-  Globe,
-  FileText,
-  BookOpen,
-  Sparkles,
-  Lightbulb
-} from 'lucide-react';
+
 import { fallbackInnovations, calculateClientSimilarity } from '../dataFallback';
 
 const Dashboard = ({ activeInnovation, setActiveInnovation, globalQuery, setGlobalQuery }) => {
@@ -380,8 +362,8 @@ const Dashboard = ({ activeInnovation, setActiveInnovation, globalQuery, setGlob
           top: isHeader ? '100%' : 'auto',
           left: 0
         }}>
-          <RefreshCw size={12} className="glow-text-cyan" style={{ animation: 'spin 2.5s linear infinite', marginRight: '0.5rem' }} />
-          <span style={{ fontSize: '0.65rem', fontFamily: 'var(--font-mono)', color: 'var(--text-muted)' }}>
+          <span className="material-symbols-outlined glow-text-cyan" style={{ fontSize: '12px',  animation: 'spin 2.5s linear infinite', marginRight: '0.5rem'  }}>refresh</span>
+          <span style={{ fontSize: '0.65rem', fontFamily: 'var(--font-sans)', color: 'var(--text-muted)' }}>
             [AUDITING GLOBAL REGISTRIES...]
           </span>
         </div>
@@ -405,7 +387,7 @@ const Dashboard = ({ activeInnovation, setActiveInnovation, globalQuery, setGlob
           top: isHeader ? '100%' : 'auto',
           left: 0
         }}>
-          <span style={{ fontSize: '0.7rem', fontFamily: 'var(--font-mono)', color: 'var(--color-error)', fontWeight: 'bold' }}>
+          <span style={{ fontSize: '0.7rem', fontFamily: 'var(--font-sans)', color: 'var(--color-error)', fontWeight: 'bold' }}>
             [HUD_ALERT: CRITICAL_INVALID_CONCEPT]
           </span>
           <p style={{ fontSize: '0.75rem', color: 'var(--text-main)', marginTop: '0.35rem', lineHeight: '1.4' }}>
@@ -433,7 +415,7 @@ const Dashboard = ({ activeInnovation, setActiveInnovation, globalQuery, setGlob
         left: 0
       }}>
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', borderBottom: '1px solid rgba(255,255,255,0.08)', paddingBottom: '0.35rem' }}>
-          <span style={{ fontSize: '0.65rem', fontFamily: 'var(--font-mono)', color: 'var(--color-secondary)', fontWeight: 'bold' }}>
+          <span style={{ fontSize: '0.65rem', fontFamily: 'var(--font-sans)', color: 'var(--color-secondary)', fontWeight: 'bold' }}>
             [LIVE AI DIAGNOSTICS HUD PREVIEW]
           </span>
         </div>
@@ -442,15 +424,15 @@ const Dashboard = ({ activeInnovation, setActiveInnovation, globalQuery, setGlob
         <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.8rem' }}>
           <span style={{ color: 'var(--text-muted)' }}>Status:</span>
           {preview.exists === "local" ? (
-            <span style={{ color: 'var(--color-warning)', fontWeight: 'bold', fontFamily: 'var(--font-mono)' }}>
+            <span style={{ color: 'var(--color-warning)', fontWeight: 'bold', fontFamily: 'var(--font-sans)' }}>
               ALREADY EXISTS IN SYSTEM INDEX ({preview.matchName})
             </span>
           ) : preview.exists === "wikipedia" ? (
-            <span style={{ color: 'var(--color-secondary)', fontWeight: 'bold', fontFamily: 'var(--font-mono)' }}>
+            <span style={{ color: 'var(--color-secondary)', fontWeight: 'bold', fontFamily: 'var(--font-sans)' }}>
               HISTORICAL REGISTRY MATCH ({preview.matchName})
             </span>
           ) : (
-            <span style={{ color: 'var(--color-success)', fontWeight: 'bold', fontFamily: 'var(--font-mono)' }}>
+            <span style={{ color: 'var(--color-success)', fontWeight: 'bold', fontFamily: 'var(--font-sans)' }}>
               NEW IDEATION CONCEPT
             </span>
           )}
@@ -469,14 +451,13 @@ const Dashboard = ({ activeInnovation, setActiveInnovation, globalQuery, setGlob
             </span>
           )}
         </div>
-        <div style={{ fontSize: '0.7rem', color: 'var(--text-dim)', marginTop: '-0.3rem', fontFamily: 'var(--font-mono)' }}>
+        <div style={{ fontSize: '0.7rem', color: 'var(--text-dim)', marginTop: '-0.3rem', fontFamily: 'var(--font-sans)' }}>
           Estimated filed year: {preview.filedYear} (Protection: {preview.filedYear + 20})
         </div>
 
         {/* Operating Status Details */}
         <div style={{ display: 'flex', flexDirection: 'column', gap: '0.15rem', fontSize: '0.75rem', borderTop: '1px solid rgba(255,255,255,0.05)', paddingTop: '0.4rem' }}>
-          <span style={{ color: 'var(--text-muted)', fontSize: '0.65rem', fontFamily: 'var(--font-mono)' }}>[OPERATING_STATUS]</span>
-          <span style={{ color: (preview.operatingStatus || "").includes("ACTIVE") ? 'var(--color-success)' : 'var(--color-error)', fontWeight: 'bold', fontSize: '0.7rem', fontFamily: 'var(--font-mono)' }}>
+          <span style={{ color: (preview.operatingStatus || "").includes("ACTIVE") ? 'var(--color-success)' : 'var(--color-error)', fontWeight: 'bold', fontSize: '0.7rem', fontFamily: 'var(--font-sans)' }}>
             {preview.operatingStatus}
           </span>
         </div>
@@ -484,7 +465,6 @@ const Dashboard = ({ activeInnovation, setActiveInnovation, globalQuery, setGlob
         {/* Registry Overview / Description */}
         {preview.description && (
           <div style={{ display: 'flex', flexDirection: 'column', gap: '0.15rem', fontSize: '0.75rem' }}>
-            <span style={{ color: 'var(--text-muted)', fontSize: '0.65rem', fontFamily: 'var(--font-mono)' }}>[REGISTRY_ABSTRACT]</span>
             <p style={{ color: 'var(--text-main)', margin: 0, fontStyle: 'italic', fontSize: '0.7rem', lineHeight: '1.3' }}>
               "{preview.description}"
             </p>
@@ -494,7 +474,6 @@ const Dashboard = ({ activeInnovation, setActiveInnovation, globalQuery, setGlob
         {/* Additional System Metadata */}
         {preview.additionalDetails && (
           <div style={{ display: 'flex', flexDirection: 'column', gap: '0.15rem', fontSize: '0.75rem', borderBottom: '1px solid rgba(255,255,255,0.05)', paddingBottom: '0.4rem' }}>
-            <span style={{ color: 'var(--text-muted)', fontSize: '0.65rem', fontFamily: 'var(--font-mono)' }}>[SYSTEM_METADATA]</span>
             <span style={{ color: 'var(--text-dim)', fontSize: '0.7rem' }}>
               {preview.additionalDetails}
             </span>
@@ -503,7 +482,7 @@ const Dashboard = ({ activeInnovation, setActiveInnovation, globalQuery, setGlob
 
         {/* Innovation Suggestions */}
         <div style={{ display: 'flex', flexDirection: 'column', gap: '0.35rem', marginTop: '0.25rem' }}>
-          <span style={{ fontSize: '0.7rem', color: 'var(--color-primary)', fontFamily: 'var(--font-mono)', fontWeight: 'bold' }}>
+          <span style={{ fontSize: '0.7rem', color: 'var(--color-primary)', fontFamily: 'var(--font-sans)', fontWeight: 'bold' }}>
             SUGGESTED REVIVAL ACCELERATORS:
           </span>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '0.4rem' }}>
@@ -710,7 +689,7 @@ const Dashboard = ({ activeInnovation, setActiveInnovation, globalQuery, setGlob
   if (loading) {
     return (
       <div style={{ display: 'flex', flex: 1, alignItems: 'center', justifyContent: 'center', height: '60vh' }}>
-        <h3 style={{ color: 'var(--text-muted)', fontFamily: 'var(--font-mono)' }}>[SYS_SYNC: SYNCHRONIZING REAL-TIME DATA MATRIX...]</h3>
+        <h3 style={{ color: 'var(--text-muted)', fontFamily: 'var(--font-sans)' }}>[SYS_SYNC: SYNCHRONIZING REAL-TIME DATA MATRIX...]</h3>
       </div>
     );
   }
@@ -738,22 +717,22 @@ const Dashboard = ({ activeInnovation, setActiveInnovation, globalQuery, setGlob
           }}>
             <div className="glass-panel" style={{ width: '480px', padding: '2rem', border: '1px solid var(--color-primary)', background: '#090a10' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1.25rem' }}>
-                <Cpu size={24} className="glow-text-pink" style={{ animation: 'spin 2s linear infinite' }} />
-                <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.9rem', color: 'var(--color-primary)', fontWeight: 'bold' }}>[INVENZA_AI: SYNTHESIZING...]</span>
+                <span className="material-symbols-outlined glow-text-pink" style={{ fontSize: '24px',  animation: 'spin 2s linear infinite'  }}>developer_board</span>
+                <span style={{ fontFamily: 'var(--font-sans)', fontSize: '0.9rem', color: 'var(--color-primary)', fontWeight: 'bold' }}>[INVENZA_AI: SYNTHESIZING...]</span>
               </div>
               <div style={{
                 display: 'flex',
                 flexDirection: 'column',
                 gap: '0.65rem',
-                fontFamily: 'var(--font-mono)',
+                fontFamily: 'var(--font-sans)',
                 fontSize: '0.8rem',
                 color: 'var(--color-secondary)',
                 height: '180px',
                 overflowY: 'auto',
-                background: 'rgba(0,0,0,0.4)',
+                background: 'var(--bg-panel)',
                 padding: '1rem',
                 borderRadius: '4px',
-                border: '1px solid rgba(255,255,255,0.05)'
+                border: '1px solid var(--border-color)'
               }}>
                 {generationLogs.map((log, idx) => (
                   <div key={idx} style={{ display: 'flex', gap: '0.5rem' }}>
@@ -771,7 +750,7 @@ const Dashboard = ({ activeInnovation, setActiveInnovation, globalQuery, setGlob
           <div className="glass-panel animate-fade-in" style={{ 
             borderLeft: '4px solid var(--color-danger)', 
             borderTop: 'none',
-            background: 'rgba(255, 0, 85, 0.08)', 
+            background: 'var(--color-danger-light)', 
             padding: '1rem 1.5rem', 
             display: 'flex', 
             justifyContent: 'space-between', 
@@ -779,8 +758,8 @@ const Dashboard = ({ activeInnovation, setActiveInnovation, globalQuery, setGlob
             marginBottom: '1.5rem'
           }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
-              <AlertTriangle size={18} color="var(--color-danger)" />
-              <span style={{ fontSize: '0.85rem', color: '#ff4d6d', fontWeight: 700, fontFamily: 'var(--font-mono)' }}>
+              <span className="material-symbols-outlined" style={{ fontSize: '18px', color: 'var(--color-danger)' }}>warning</span>
+              <span style={{ fontSize: '0.85rem', color: 'var(--color-danger)', fontWeight: 700, fontFamily: 'var(--font-sans)' }}>
                 [CRITICAL_ERROR: INVALID_QUERY] {queryError}
               </span>
             </div>
@@ -802,9 +781,9 @@ const Dashboard = ({ activeInnovation, setActiveInnovation, globalQuery, setGlob
         )}
         {/* Welcome Header */}
         <div>
-          <span className="mono-tag glow-text-pink">INVENZA CORE v2.0</span>
-          <h1 style={{ fontSize: '2.5rem', marginTop: '0.25rem', fontFamily: 'var(--font-display)', color: 'var(--text-main)' }}>
-            Welcome to <span style={{ background: 'linear-gradient(95deg, var(--color-primary), var(--color-accent), var(--color-secondary))', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Invenza AI</span>
+          <span style={{ display: 'inline-flex', alignItems: 'center', gap: '0.4rem', background: 'var(--color-primary-light)', color: 'var(--color-primary)', fontSize: '0.68rem', fontWeight: 700, letterSpacing: '1.5px', textTransform: 'uppercase', padding: '0.25rem 0.75rem', borderRadius: 'var(--radius-pill)', border: '1px solid #D2E3FC', marginBottom: '0.5rem' }}>INVENZA CORE v2.0</span>
+          <h1 style={{ fontSize: '2.2rem', marginTop: '0.25rem', fontFamily: 'var(--font-display)', color: 'var(--text-main)', fontWeight: 800 }}>
+            Welcome to Invenza <span style={{ color: 'var(--color-primary)' }}>AI</span>
           </h1>
           <p style={{ color: 'var(--text-muted)', fontSize: '1rem', marginTop: '0.25rem', maxWidth: '700px', lineHeight: '1.5' }}>
             A real-time artificial intelligence diagnostic workspace to revive cancelled innovations, audit obsolete patents, and design modern SaaS or hardware market-re-entry vectors.
@@ -814,27 +793,27 @@ const Dashboard = ({ activeInnovation, setActiveInnovation, globalQuery, setGlob
         {/* Dynamic System Metrics Row */}
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '1.25rem' }}>
           <div className="glass-panel">
-            <span style={{ fontSize: '0.7rem', fontWeight: 700, color: 'var(--text-muted)', fontFamily: 'var(--font-mono)' }}>
-              [TOTAL_PATENTS_AUDITED]
+            <span style={{ fontSize: '0.75rem', fontWeight: 600, color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
+              Total Patents Audited
             </span>
-            <h3 style={{ fontSize: '1.3rem', marginTop: '0.5rem', color: 'var(--color-primary)', fontFamily: 'var(--font-mono)', fontWeight: 'bold' }}>4,852 Assets</h3>
-            <span style={{ fontSize: '0.65rem', color: 'var(--text-muted)' }}>WIPO & USPTO archival database</span>
+            <h3 style={{ fontSize: '1.75rem', margin: '0.35rem 0', color: 'var(--color-primary)', fontFamily: 'var(--font-display)', fontWeight: 800 }}>4,852 <span style={{ fontSize: '1rem', fontWeight: 600 }}>Assets</span></h3>
+            <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>WIPO & USPTO archival database</span>
           </div>
 
           <div className="glass-panel">
-            <span style={{ fontSize: '0.7rem', fontWeight: 700, color: 'var(--text-muted)', fontFamily: 'var(--font-mono)' }}>
-              [IDENTIFIED_TECH_GAPS]
+            <span style={{ fontSize: '0.75rem', fontWeight: 600, color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
+              Identified Tech Gaps
             </span>
-            <h3 style={{ fontSize: '1.3rem', marginTop: '0.5rem', color: 'var(--color-secondary)', fontFamily: 'var(--font-mono)', fontWeight: 'bold' }}>142 Inactive Nodes</h3>
-            <span style={{ fontSize: '0.65rem', color: 'var(--text-muted)' }}>Unfulfilled market opportunities</span>
+            <h3 style={{ fontSize: '1.75rem', margin: '0.35rem 0', color: 'var(--color-secondary)', fontFamily: 'var(--font-display)', fontWeight: 800 }}>142 <span style={{ fontSize: '1rem', fontWeight: 600 }}>Inactive Nodes</span></h3>
+            <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>Unfulfilled market opportunities</span>
           </div>
 
           <div className="glass-panel">
-            <span style={{ fontSize: '0.7rem', fontWeight: 700, color: 'var(--text-muted)', fontFamily: 'var(--font-mono)' }}>
-              [AVG_REVIVAL_VIABILITY]
+            <span style={{ fontSize: '0.75rem', fontWeight: 600, color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
+              Avg Revival Viability
             </span>
-            <h3 style={{ fontSize: '1.3rem', marginTop: '0.5rem', color: 'var(--color-success)', fontFamily: 'var(--font-mono)', fontWeight: 'bold' }}>72.6% Viable</h3>
-            <span style={{ fontSize: '0.65rem', color: 'var(--text-muted)' }}>Calculated average feasibility</span>
+            <h3 style={{ fontSize: '1.75rem', margin: '0.35rem 0', color: 'var(--color-success)', fontFamily: 'var(--font-display)', fontWeight: 800 }}>72.6% <span style={{ fontSize: '1rem', fontWeight: 600 }}>Viable</span></h3>
+            <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>Calculated average feasibility</span>
           </div>
         </div>
 
@@ -852,7 +831,7 @@ const Dashboard = ({ activeInnovation, setActiveInnovation, globalQuery, setGlob
             <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem', position: 'relative' }}>
               <UnifiedSearchBar placeholder="Type any tech to audit (e.g. Zune, Water Treatment)..." />
               {error && (
-                <div style={{ color: 'var(--color-error)', fontSize: '0.75rem', fontFamily: 'var(--font-mono)', marginTop: '0.25rem' }}>
+                <div style={{ color: 'var(--color-error)', fontSize: '0.75rem', fontFamily: 'var(--font-sans)', marginTop: '0.25rem' }}>
                   ⚠️ {error}
                 </div>
               )}
@@ -953,7 +932,7 @@ const Dashboard = ({ activeInnovation, setActiveInnovation, globalQuery, setGlob
             if (items.length === 0) return null;
             return (
               <div className="glass-panel" style={{ padding: '1.5rem 2rem' }}>
-                <h4 style={{ fontSize: '0.9rem', fontFamily: 'var(--font-mono)', color: 'var(--color-secondary)' }}>RECENTLY SAVED IN BASKET</h4>
+                <h4 style={{ fontSize: '0.9rem', fontFamily: 'var(--font-sans)', color: 'var(--color-secondary)' }}>RECENTLY SAVED IN BASKET</h4>
                 <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem', marginTop: '0.75rem' }}>
                   {items.slice(0, 4).map(item => (
                     <button
@@ -1062,22 +1041,22 @@ const Dashboard = ({ activeInnovation, setActiveInnovation, globalQuery, setGlob
         }}>
           <div className="glass-panel" style={{ width: '480px', padding: '2rem', border: '1px solid var(--color-primary)', background: '#090a10' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1.25rem' }}>
-              <Cpu size={24} className="glow-text-pink" style={{ animation: 'spin 2s linear infinite' }} />
-              <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.9rem', color: 'var(--color-primary)', fontWeight: 'bold' }}>[INVENZA_AI: SYNTHESIZING...]</span>
+              <span className="material-symbols-outlined glow-text-pink" style={{ fontSize: '24px',  animation: 'spin 2s linear infinite'  }}>developer_board</span>
+              <span style={{ fontFamily: 'var(--font-sans)', fontSize: '0.9rem', color: 'var(--color-primary)', fontWeight: 'bold' }}>[INVENZA_AI: SYNTHESIZING...]</span>
             </div>
             <div style={{
               display: 'flex',
               flexDirection: 'column',
               gap: '0.65rem',
-              fontFamily: 'var(--font-mono)',
+              fontFamily: 'var(--font-sans)',
               fontSize: '0.8rem',
               color: 'var(--color-secondary)',
               height: '180px',
               overflowY: 'auto',
-              background: 'rgba(0,0,0,0.4)',
+              background: 'var(--bg-panel)',
               padding: '1rem',
               borderRadius: '4px',
-              border: '1px solid rgba(255,255,255,0.05)'
+              border: '1px solid var(--border-color)'
             }}>
               {generationLogs.map((log, idx) => (
                 <div key={idx} style={{ display: 'flex', gap: '0.5rem' }}>
@@ -1102,8 +1081,8 @@ const Dashboard = ({ activeInnovation, setActiveInnovation, globalQuery, setGlob
           alignItems: 'center' 
         }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
-            <AlertTriangle size={18} color="var(--color-danger)" />
-            <span style={{ fontSize: '0.85rem', color: '#ff4d6d', fontWeight: 700, fontFamily: 'var(--font-mono)' }}>
+            <span className="material-symbols-outlined" style={{ fontSize: '18px', color: 'var(--color-danger)' }}>warning</span>
+            <span style={{ fontSize: '0.85rem', color: '#ff4d6d', fontWeight: 700, fontFamily: 'var(--font-sans)' }}>
               [CRITICAL_ERROR: INVALID_QUERY] {queryError}
             </span>
           </div>
@@ -1140,7 +1119,7 @@ const Dashboard = ({ activeInnovation, setActiveInnovation, globalQuery, setGlob
         <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', position: 'relative', width: '380px' }}>
           <UnifiedSearchBar placeholder="Type any tech to audit (e.g. Zune, Stadia)..." />
           {error && (
-            <div style={{ color: 'var(--color-error)', fontSize: '0.75rem', fontFamily: 'var(--font-mono)', marginTop: '0.25rem' }}>
+            <div style={{ color: 'var(--color-error)', fontSize: '0.75rem', fontFamily: 'var(--font-sans)', marginTop: '0.25rem' }}>
               ⚠️ {error}
             </div>
           )}
@@ -1149,9 +1128,9 @@ const Dashboard = ({ activeInnovation, setActiveInnovation, globalQuery, setGlob
           {/* Quick Selector Dropdown for pre-indexed ones */}
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', alignSelf: 'flex-end' }}>
             {isLocalMode && (
-              <span className="hud-alert-label">[OFFLINE_MODE]</span>
+              <span style={{ fontSize: '0.65rem', fontFamily: 'var(--font-sans)', color: 'var(--color-warning)', fontWeight: 600 }}>Offline Mode</span>
             )}
-            <span style={{ fontSize: '0.65rem', fontFamily: 'var(--font-mono)', color: 'var(--text-muted)' }}>PRE-SEEDED DATASETS:</span>
+            <span style={{ fontSize: '0.65rem', fontFamily: 'var(--font-sans)', color: 'var(--text-muted)' }}>PRE-SEEDED DATASETS:</span>
             <select 
               className="tech-select"
               value={selectedItem.id}
@@ -1168,7 +1147,7 @@ const Dashboard = ({ activeInnovation, setActiveInnovation, globalQuery, setGlob
       {/* 4 Stats Grid */}
       <div className="stats-grid">
         <div className="glass-panel glass-panel-violet">
-          <span style={{ fontSize: '0.75rem', fontWeight: 700, color: 'var(--text-muted)', fontFamily: 'var(--font-mono)' }}>
+          <span style={{ fontSize: '0.75rem', fontWeight: 700, color: 'var(--text-muted)', fontFamily: 'var(--font-sans)' }}>
             [SYS_NODES_ACTIVE]
           </span>
           <div style={{ display: 'flex', alignItems: 'baseline', gap: '0.5rem', marginTop: '0.5rem' }}>
@@ -1178,7 +1157,7 @@ const Dashboard = ({ activeInnovation, setActiveInnovation, globalQuery, setGlob
         </div>
 
         <div className="glass-panel glass-panel-cyan">
-          <span style={{ fontSize: '0.75rem', fontWeight: 700, color: 'var(--text-muted)', fontFamily: 'var(--font-mono)' }}>
+          <span style={{ fontSize: '0.75rem', fontWeight: 700, color: 'var(--text-muted)', fontFamily: 'var(--font-sans)' }}>
             [AI_REVIVAL_VIABILITY]
           </span>
           <div style={{ display: 'flex', alignItems: 'baseline', gap: '0.5rem', marginTop: '0.5rem' }}>
@@ -1188,7 +1167,7 @@ const Dashboard = ({ activeInnovation, setActiveInnovation, globalQuery, setGlob
         </div>
 
         <div className="glass-panel glass-panel-pink">
-          <span style={{ fontSize: '0.75rem', fontWeight: 700, color: 'var(--text-muted)', fontFamily: 'var(--font-mono)' }}>
+          <span style={{ fontSize: '0.75rem', fontWeight: 700, color: 'var(--text-muted)', fontFamily: 'var(--font-sans)' }}>
             [COMMERCIALIZATION_INDEX]
           </span>
           <div style={{ display: 'flex', alignItems: 'baseline', gap: '0.5rem', marginTop: '0.5rem' }}>
@@ -1198,7 +1177,7 @@ const Dashboard = ({ activeInnovation, setActiveInnovation, globalQuery, setGlob
         </div>
 
         <div className="glass-panel">
-          <span style={{ fontSize: '0.75rem', fontWeight: 700, color: 'var(--text-muted)', fontFamily: 'var(--font-mono)' }}>
+          <span style={{ fontSize: '0.75rem', fontWeight: 700, color: 'var(--text-muted)', fontFamily: 'var(--font-sans)' }}>
             [GLOBAL_COLLABORATORS]
           </span>
           <div style={{ display: 'flex', alignItems: 'baseline', gap: '0.5rem', marginTop: '0.5rem' }}>
@@ -1219,7 +1198,7 @@ const Dashboard = ({ activeInnovation, setActiveInnovation, globalQuery, setGlob
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
               <div>
                 <span className="status-badge badge-expired">EXPIRED PATENT</span>
-                <span style={{ marginLeft: '0.75rem', fontSize: '0.75rem', color: 'var(--text-muted)', fontFamily: 'var(--font-mono)' }}>
+                <span style={{ marginLeft: '0.75rem', fontSize: '0.75rem', color: 'var(--text-muted)', fontFamily: 'var(--font-sans)' }}>
                   Filed: {selectedItem.yearFiled || "N/A"}
                 </span>
               </div>
@@ -1252,7 +1231,7 @@ const Dashboard = ({ activeInnovation, setActiveInnovation, globalQuery, setGlob
                   />
                 </svg>
                 <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', position: 'absolute' }}>
-                  <span style={{ fontSize: '1.5rem', fontWeight: 800, fontFamily: 'var(--font-mono)', color: 'var(--text-main)', textShadow: '0 0 8px var(--color-secondary)' }}>
+                  <span style={{ fontSize: '1.5rem', fontWeight: 800, fontFamily: 'var(--font-sans)', color: 'var(--text-main)', textShadow: '0 0 8px var(--color-secondary)' }}>
                     {selectedItem.revivalViability}%
                   </span>
                   <span style={{ fontSize: '0.55rem', textTransform: 'uppercase', color: 'var(--text-muted)', letterSpacing: '0.05em', fontWeight: 'bold' }}>
@@ -1267,7 +1246,7 @@ const Dashboard = ({ activeInnovation, setActiveInnovation, globalQuery, setGlob
                   {selectedItem.name}
                 </h2>
                 <p style={{ fontSize: '0.8rem', color: 'var(--text-muted)', marginTop: '0.25rem' }}>
-                  Source: <strong>{selectedItem.inventor || "AI Synthesis Engine"}</strong> | Patent ID: <strong style={{ color: 'var(--color-secondary)', fontFamily: 'var(--font-mono)' }}>{selectedItem.patentId || "PENDING"}</strong>
+                  Source: <strong>{selectedItem.inventor || "AI Synthesis Engine"}</strong> | Patent ID: <strong style={{ color: 'var(--color-secondary)', fontFamily: 'var(--font-sans)' }}>{selectedItem.patentId || "PENDING"}</strong>
                 </p>
                 <p style={{ fontSize: '0.9rem', color: 'var(--text-main)', marginTop: '0.75rem', lineHeight: '1.5' }}>
                   {selectedItem.description || selectedItem.abstract || "Real-time AI diagnostics have audited this concept's viability profile. By linking historic commercial bottlenecks with modern technology enablers, we formulate a sustainable market-re-entry vector."}
@@ -1278,7 +1257,7 @@ const Dashboard = ({ activeInnovation, setActiveInnovation, globalQuery, setGlob
                     className="tech-button tech-button-outline"
                     style={{ fontSize: '0.75rem', padding: '0.45rem 1.1rem', display: 'flex', alignItems: 'center', gap: '0.35rem' }}
                   >
-                    <Save size={12} color="var(--color-primary)" /> Save to Workspace
+                    <span className="material-symbols-outlined" style={{ fontSize: '12px', color: 'var(--color-primary)' }}>save</span> Save to Workspace
                   </button>
                 </div>
               </div>
@@ -1295,7 +1274,7 @@ const Dashboard = ({ activeInnovation, setActiveInnovation, globalQuery, setGlob
               marginTop: '0.5rem'
             }}>
               <div>
-                <span style={{ fontSize: '0.65rem', color: 'var(--text-muted)', textTransform: 'uppercase', fontFamily: 'var(--font-mono)' }}>
+                <span style={{ fontSize: '0.65rem', color: 'var(--text-muted)', textTransform: 'uppercase', fontFamily: 'var(--font-sans)' }}>
                   COMMERCIAL POT.
                 </span>
                 <p style={{ fontSize: '1.15rem', fontWeight: 800, color: 'var(--color-success)', marginTop: '0.25rem' }}>
@@ -1303,7 +1282,7 @@ const Dashboard = ({ activeInnovation, setActiveInnovation, globalQuery, setGlob
                 </p>
               </div>
               <div>
-                <span style={{ fontSize: '0.65rem', color: 'var(--text-muted)', textTransform: 'uppercase', fontFamily: 'var(--font-mono)' }}>
+                <span style={{ fontSize: '0.65rem', color: 'var(--text-muted)', textTransform: 'uppercase', fontFamily: 'var(--font-sans)' }}>
                   MARKET GROWTH
                 </span>
                 <p style={{ fontSize: '1.15rem', fontWeight: 800, color: 'var(--text-main)', marginTop: '0.25rem' }}>
@@ -1311,7 +1290,7 @@ const Dashboard = ({ activeInnovation, setActiveInnovation, globalQuery, setGlob
                 </p>
               </div>
               <div>
-                <span style={{ fontSize: '0.65rem', color: 'var(--text-muted)', textTransform: 'uppercase', fontFamily: 'var(--font-mono)' }}>
+                <span style={{ fontSize: '0.65rem', color: 'var(--text-muted)', textTransform: 'uppercase', fontFamily: 'var(--font-sans)' }}>
                   TARGET SECTOR
                 </span>
                 <p style={{ fontSize: '1.15rem', fontWeight: 800, color: 'var(--color-secondary)', marginTop: '0.25rem' }}>
@@ -1319,7 +1298,7 @@ const Dashboard = ({ activeInnovation, setActiveInnovation, globalQuery, setGlob
                 </p>
               </div>
               <div>
-                <span style={{ fontSize: '0.65rem', color: 'var(--text-muted)', textTransform: 'uppercase', fontFamily: 'var(--font-mono)' }}>
+                <span style={{ fontSize: '0.65rem', color: 'var(--text-muted)', textTransform: 'uppercase', fontFamily: 'var(--font-sans)' }}>
                   ORIGINALITY INDEX
                 </span>
                 <p style={{ fontSize: '1.15rem', fontWeight: 800, color: 'var(--color-primary)', marginTop: '0.25rem' }}>
@@ -1333,19 +1312,19 @@ const Dashboard = ({ activeInnovation, setActiveInnovation, globalQuery, setGlob
           <div className="glass-panel animate-fade-in" style={{ padding: '2rem', display: 'flex', flexDirection: 'column', gap: '1.25rem', borderLeft: '3px solid var(--color-primary)', background: 'rgba(59,130,246,0.02)' }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderBottom: '1px solid var(--border-color)', paddingBottom: '0.75rem' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                <BookOpen size={16} color="var(--color-primary)" />
+                <span className="material-symbols-outlined" style={{ fontSize: '16px', color: 'var(--color-primary)' }}>menu_book</span>
                 <h3 style={{ fontSize: '1.05rem', fontWeight: 700, fontFamily: 'var(--font-display)', color: 'var(--text-main)' }}>
                   AI Innovation Mentor Diagnostics
                 </h3>
               </div>
-              <span style={{ fontSize: '0.7rem', fontFamily: 'var(--font-mono)', background: 'rgba(59,130,246,0.15)', color: 'var(--color-primary)', padding: '0.2rem 0.5rem', borderRadius: '4px', border: '1px solid rgba(59,130,246,0.3)', fontWeight: 'bold' }}>
+              <span style={{ fontSize: '0.7rem', fontFamily: 'var(--font-sans)', background: 'rgba(59,130,246,0.15)', color: 'var(--color-primary)', padding: '0.2rem 0.5rem', borderRadius: '4px', border: '1px solid rgba(59,130,246,0.3)', fontWeight: 'bold' }}>
                 MENTOR DIAGNOSTICS SCORE: {selectedItem.confidenceScore || 85}%
               </span>
             </div>
 
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '1.25rem' }}>
               <div>
-                <span style={{ fontSize: '0.65rem', color: 'var(--text-muted)', fontFamily: 'var(--font-mono)', display: 'block', textTransform: 'uppercase', fontWeight: 'bold' }}>
+                <span style={{ fontSize: '0.65rem', color: 'var(--text-muted)', fontFamily: 'var(--font-sans)', display: 'block', textTransform: 'uppercase', fontWeight: 'bold' }}>
                   Modern Revival Enablers
                 </span>
                 <p style={{ fontSize: '0.8rem', color: 'var(--text-main)', marginTop: '0.35rem', lineHeight: '1.4' }}>
@@ -1354,7 +1333,7 @@ const Dashboard = ({ activeInnovation, setActiveInnovation, globalQuery, setGlob
               </div>
 
               <div>
-                <span style={{ fontSize: '0.65rem', color: 'var(--text-muted)', fontFamily: 'var(--font-mono)', display: 'block', textTransform: 'uppercase', fontWeight: 'bold' }}>
+                <span style={{ fontSize: '0.65rem', color: 'var(--text-muted)', fontFamily: 'var(--font-sans)', display: 'block', textTransform: 'uppercase', fontWeight: 'bold' }}>
                   Common Developer Pitfalls
                 </span>
                 <p style={{ fontSize: '0.8rem', color: 'var(--text-main)', marginTop: '0.35rem', lineHeight: '1.4' }}>
@@ -1363,7 +1342,7 @@ const Dashboard = ({ activeInnovation, setActiveInnovation, globalQuery, setGlob
               </div>
 
               <div>
-                <span style={{ fontSize: '0.65rem', color: 'var(--text-muted)', fontFamily: 'var(--font-mono)', display: 'block', textTransform: 'uppercase', fontWeight: 'bold' }}>
+                <span style={{ fontSize: '0.65rem', color: 'var(--text-muted)', fontFamily: 'var(--font-sans)', display: 'block', textTransform: 'uppercase', fontWeight: 'bold' }}>
                   Similar Successful Systems
                 </span>
                 <p style={{ fontSize: '0.8rem', color: 'var(--text-main)', marginTop: '0.35rem', lineHeight: '1.4' }}>
@@ -1378,7 +1357,7 @@ const Dashboard = ({ activeInnovation, setActiveInnovation, globalQuery, setGlob
             {/* Failure Bottlenecks */}
             <div className="glass-panel" style={{ borderLeft: '3px solid var(--color-danger)', borderTop: 'none' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '1rem' }}>
-                <AlertTriangle size={16} color="var(--color-danger)" />
+                <span className="material-symbols-outlined" style={{ fontSize: '16px', color: 'var(--color-danger)' }}>warning</span>
                 <h3 style={{ fontSize: '0.95rem', fontWeight: 700, fontFamily: 'var(--font-display)', color: 'var(--color-danger)' }}>
                   Primary Failure Bottlenecks
                 </h3>
@@ -1396,7 +1375,7 @@ const Dashboard = ({ activeInnovation, setActiveInnovation, globalQuery, setGlob
             {/* AI Enhancement Vectors */}
             <div className="glass-panel" style={{ borderLeft: '3px solid var(--color-success)', borderTop: 'none' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '1rem' }}>
-                <CheckCircle size={16} color="var(--color-success)" />
+                <span className="material-symbols-outlined" style={{ fontSize: '16px', color: 'var(--color-success)' }}>check_circle</span>
                 <h3 style={{ fontSize: '0.95rem', fontWeight: 700, fontFamily: 'var(--font-display)', color: 'var(--color-success)' }}>
                   AI Enhancement Vector
                 </h3>
@@ -1416,32 +1395,32 @@ const Dashboard = ({ activeInnovation, setActiveInnovation, globalQuery, setGlob
           {selectedItem.swot && (
             <div className="glass-panel animate-fade-in" style={{ padding: '2rem', display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', borderBottom: '1px solid var(--border-color)', paddingBottom: '0.75rem' }}>
-                <Cpu size={16} color="var(--color-primary)" />
+                <span className="material-symbols-outlined" style={{ fontSize: '16px', color: 'var(--color-primary)' }}>developer_board</span>
                 <h3 style={{ fontSize: '1rem', fontWeight: 700, fontFamily: 'var(--font-display)', color: 'var(--text-main)' }}>
                   Strategic SWOT Analysis
                 </h3>
               </div>
               <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '1.25rem' }}>
                 <div style={{ padding: '1.25rem', background: 'rgba(52,211,153,0.02)', border: '1px solid rgba(52,211,153,0.15)', borderRadius: '8px', boxShadow: '0 4px 12px rgba(0,0,0,0.2)' }}>
-                  <span style={{ fontSize: '0.75rem', fontWeight: 'bold', color: 'var(--color-success)', fontFamily: 'var(--font-mono)', display: 'block', borderBottom: '1px solid rgba(52,211,153,0.1)', paddingBottom: '0.25rem' }}>[S] STRENGTHS</span>
+                  <span style={{ fontSize: '0.75rem', fontWeight: 'bold', color: 'var(--color-success)', fontFamily: 'var(--font-sans)', display: 'block', borderBottom: '1px solid rgba(52,211,153,0.1)', paddingBottom: '0.25rem' }}>[S] STRENGTHS</span>
                   <ul style={{ paddingLeft: '1rem', marginTop: '0.75rem', fontSize: '0.8rem', color: 'var(--text-main)', display: 'flex', flexDirection: 'column', gap: '0.4rem' }}>
                     {(selectedItem.swot.strengths || []).map((s, idx) => <li key={idx}>{s}</li>)}
                   </ul>
                 </div>
                 <div style={{ padding: '1.25rem', background: 'rgba(239,68,68,0.02)', border: '1px solid rgba(239,68,68,0.15)', borderRadius: '8px', boxShadow: '0 4px 12px rgba(0,0,0,0.2)' }}>
-                  <span style={{ fontSize: '0.75rem', fontWeight: 'bold', color: 'var(--color-danger)', fontFamily: 'var(--font-mono)', display: 'block', borderBottom: '1px solid rgba(239,68,68,0.1)', paddingBottom: '0.25rem' }}>[W] WEAKNESSES</span>
+                  <span style={{ fontSize: '0.75rem', fontWeight: 'bold', color: 'var(--color-danger)', fontFamily: 'var(--font-sans)', display: 'block', borderBottom: '1px solid rgba(239,68,68,0.1)', paddingBottom: '0.25rem' }}>[W] WEAKNESSES</span>
                   <ul style={{ paddingLeft: '1rem', marginTop: '0.75rem', fontSize: '0.8rem', color: 'var(--text-main)', display: 'flex', flexDirection: 'column', gap: '0.4rem' }}>
                     {(selectedItem.swot.weaknesses || []).map((w, idx) => <li key={idx}>{w}</li>)}
                   </ul>
                 </div>
                 <div style={{ padding: '1.25rem', background: 'rgba(0,242,254,0.02)', border: '1px solid rgba(0,242,254,0.15)', borderRadius: '8px', boxShadow: '0 4px 12px rgba(0,0,0,0.2)' }}>
-                  <span style={{ fontSize: '0.75rem', fontWeight: 'bold', color: 'var(--color-secondary)', fontFamily: 'var(--font-mono)', display: 'block', borderBottom: '1px solid rgba(0,242,254,0.1)', paddingBottom: '0.25rem' }}>[O] OPPORTUNITIES</span>
+                  <span style={{ fontSize: '0.75rem', fontWeight: 'bold', color: 'var(--color-secondary)', fontFamily: 'var(--font-sans)', display: 'block', borderBottom: '1px solid rgba(0,242,254,0.1)', paddingBottom: '0.25rem' }}>[O] OPPORTUNITIES</span>
                   <ul style={{ paddingLeft: '1rem', marginTop: '0.75rem', fontSize: '0.8rem', color: 'var(--text-main)', display: 'flex', flexDirection: 'column', gap: '0.4rem' }}>
                     {(selectedItem.swot.opportunities || []).map((o, idx) => <li key={idx}>{o}</li>)}
                   </ul>
                 </div>
                 <div style={{ padding: '1.25rem', background: 'rgba(245,158,11,0.02)', border: '1px solid rgba(245,158,11,0.15)', borderRadius: '8px', boxShadow: '0 4px 12px rgba(0,0,0,0.2)' }}>
-                  <span style={{ fontSize: '0.75rem', fontWeight: 'bold', color: 'var(--color-warning)', fontFamily: 'var(--font-mono)', display: 'block', borderBottom: '1px solid rgba(245,158,11,0.1)', paddingBottom: '0.25rem' }}>[T] THREATS</span>
+                  <span style={{ fontSize: '0.75rem', fontWeight: 'bold', color: 'var(--color-warning)', fontFamily: 'var(--font-sans)', display: 'block', borderBottom: '1px solid rgba(245,158,11,0.1)', paddingBottom: '0.25rem' }}>[T] THREATS</span>
                   <ul style={{ paddingLeft: '1rem', marginTop: '0.75rem', fontSize: '0.8rem', color: 'var(--text-main)', display: 'flex', flexDirection: 'column', gap: '0.4rem' }}>
                     {(selectedItem.swot.threats || []).map((t, idx) => <li key={idx}>{t}</li>)}
                   </ul>
@@ -1454,7 +1433,7 @@ const Dashboard = ({ activeInnovation, setActiveInnovation, globalQuery, setGlob
           {selectedItem.roadmap && (
             <div className="glass-panel animate-fade-in" style={{ padding: '2rem', display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', borderBottom: '1px solid var(--border-color)', paddingBottom: '0.75rem' }}>
-                <TrendingUp size={16} color="var(--color-secondary)" />
+                <span className="material-symbols-outlined" style={{ fontSize: '16px', color: 'var(--color-secondary)' }}>trending_up</span>
                 <h3 style={{ fontSize: '1rem', fontWeight: 700, fontFamily: 'var(--font-display)', color: 'var(--text-main)' }}>
                   Project Revival Roadmap
                 </h3>
@@ -1463,7 +1442,7 @@ const Dashboard = ({ activeInnovation, setActiveInnovation, globalQuery, setGlob
                 {(selectedItem.roadmap || []).map((step, idx) => (
                   <div key={idx} style={{ display: 'flex', gap: '1.25rem', position: 'relative' }}>
                     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-                      <div style={{ width: '26px', height: '26px', borderRadius: '50%', background: 'rgba(0,242,254,0.1)', border: '2px solid var(--color-secondary)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '0.8rem', color: 'var(--color-secondary)', fontWeight: 'bold', fontFamily: 'var(--font-mono)', zIndex: 2 }}>
+                      <div style={{ width: '26px', height: '26px', borderRadius: '50%', background: 'rgba(0,242,254,0.1)', border: '2px solid var(--color-secondary)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '0.8rem', color: 'var(--color-secondary)', fontWeight: 'bold', fontFamily: 'var(--font-sans)', zIndex: 2 }}>
                         {idx + 1}
                       </div>
                       {idx < selectedItem.roadmap.length - 1 && (
@@ -1484,7 +1463,7 @@ const Dashboard = ({ activeInnovation, setActiveInnovation, globalQuery, setGlob
           {selectedItem && (
             <div className="glass-panel animate-fade-in" style={{ padding: '2rem', display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', borderBottom: '1px solid var(--border-color)', paddingBottom: '0.75rem' }}>
-                <TrendingUp size={16} color="var(--color-primary)" />
+                <span className="material-symbols-outlined" style={{ fontSize: '16px', color: 'var(--color-primary)' }}>trending_up</span>
                 <h3 style={{ fontSize: '1rem', fontWeight: 700, fontFamily: 'var(--font-display)', color: 'var(--text-main)' }}>
                   Historical Innovation Timeline
                 </h3>
@@ -1492,25 +1471,25 @@ const Dashboard = ({ activeInnovation, setActiveInnovation, globalQuery, setGlob
               
               <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(130px, 1fr))', gap: '1rem', position: 'relative' }}>
                 <div style={{ padding: '1rem', background: 'rgba(255,255,255,0.01)', border: '1px solid var(--border-color)', borderRadius: '6px' }}>
-                  <span style={{ fontSize: '0.75rem', fontFamily: 'var(--font-mono)', color: 'var(--color-secondary)', fontWeight: 'bold' }}>{selectedItem.yearFiled || 2012}</span>
+                  <span style={{ fontSize: '0.75rem', fontFamily: 'var(--font-sans)', color: 'var(--color-secondary)', fontWeight: 'bold' }}>{selectedItem.yearFiled || 2012}</span>
                   <h4 style={{ fontSize: '0.8rem', color: 'var(--text-main)', marginTop: '0.25rem', fontWeight: 700 }}>Patent Lodged</h4>
                   <p style={{ fontSize: '0.7rem', color: 'var(--text-muted)', marginTop: '0.25rem' }}>Initial technology configuration registered.</p>
                 </div>
 
                 <div style={{ padding: '1rem', background: 'rgba(239,68,68,0.01)', border: '1px solid rgba(239,68,68,0.2)', borderRadius: '6px' }}>
-                  <span style={{ fontSize: '0.75rem', fontFamily: 'var(--font-mono)', color: 'var(--color-danger)', fontWeight: 'bold' }}>{selectedItem.yearFiled ? selectedItem.yearFiled + 3 : 2015}</span>
+                  <span style={{ fontSize: '0.75rem', fontFamily: 'var(--font-sans)', color: 'var(--color-danger)', fontWeight: 'bold' }}>{selectedItem.yearFiled ? selectedItem.yearFiled + 3 : 2015}</span>
                   <h4 style={{ fontSize: '0.8rem', color: 'var(--text-main)', marginTop: '0.25rem', fontWeight: 700 }}>Failure Node</h4>
                   <p style={{ fontSize: '0.7rem', color: 'var(--text-muted)', marginTop: '0.25rem' }}>Suspended due to legacy hardware / high scaling costs.</p>
                 </div>
 
                 <div style={{ padding: '1rem', background: 'rgba(52,211,153,0.01)', border: '1px solid rgba(52,211,153,0.2)', borderRadius: '6px' }}>
-                  <span style={{ fontSize: '0.75rem', fontFamily: 'var(--font-mono)', color: 'var(--color-success)', fontWeight: 'bold' }}>2024</span>
+                  <span style={{ fontSize: '0.75rem', fontFamily: 'var(--font-sans)', color: 'var(--color-success)', fontWeight: 'bold' }}>2024</span>
                   <h4 style={{ fontSize: '0.8rem', color: 'var(--text-main)', marginTop: '0.25rem', fontWeight: 700 }}>AI Enabler Era</h4>
                   <p style={{ fontSize: '0.7rem', color: 'var(--text-muted)', marginTop: '0.25rem' }}>Edge neural processors and IoT grids mature.</p>
                 </div>
 
                 <div style={{ padding: '1rem', background: 'rgba(0,242,254,0.01)', border: '1px solid rgba(0,242,254,0.2)', borderRadius: '6px' }}>
-                  <span style={{ fontSize: '0.75rem', fontFamily: 'var(--font-mono)', color: 'var(--color-secondary)', fontWeight: 'bold' }}>2026</span>
+                  <span style={{ fontSize: '0.75rem', fontFamily: 'var(--font-sans)', color: 'var(--color-secondary)', fontWeight: 'bold' }}>2026</span>
                   <h4 style={{ fontSize: '0.8rem', color: 'var(--text-main)', marginTop: '0.25rem', fontWeight: 700 }}>Revival Window</h4>
                   <p style={{ fontSize: '0.7rem', color: 'var(--text-muted)', marginTop: '0.25rem' }}>Active re-entry vector compiled via Invenza AI.</p>
                 </div>
@@ -1523,25 +1502,25 @@ const Dashboard = ({ activeInnovation, setActiveInnovation, globalQuery, setGlob
             <div className="glass-panel animate-fade-in" style={{ padding: '2rem', display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderBottom: '1px solid var(--border-color)', paddingBottom: '0.75rem' }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                  <Globe size={16} color="var(--color-success)" />
+                  <span className="material-symbols-outlined" style={{ fontSize: '16px', color: 'var(--color-success)' }}>language</span>
                   <h3 style={{ fontSize: '1rem', fontWeight: 700, fontFamily: 'var(--font-display)', color: 'var(--text-main)' }}>
                     Sustainability & Circular Impact Audit
                   </h3>
                 </div>
-                <span style={{ fontSize: '0.75rem', fontFamily: 'var(--font-mono)', background: 'rgba(52,211,153,0.15)', color: 'var(--color-success)', padding: '0.25rem 0.5rem', borderRadius: '4px', border: '1px solid rgba(52,211,153,0.3)', fontWeight: 'bold' }}>
+                <span style={{ fontSize: '0.75rem', fontFamily: 'var(--font-sans)', background: 'rgba(52,211,153,0.15)', color: 'var(--color-success)', padding: '0.25rem 0.5rem', borderRadius: '4px', border: '1px solid rgba(52,211,153,0.3)', fontWeight: 'bold' }}>
                   SUSTAINABLE GRADE: A-
                 </span>
               </div>
               
               <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1.25rem' }}>
                 <div style={{ padding: '0.75rem', background: 'rgba(255,255,255,0.01)', border: '1px solid var(--border-color)', borderRadius: '6px' }}>
-                  <span style={{ fontSize: '0.65rem', color: 'var(--text-muted)', fontFamily: 'var(--font-mono)', display: 'block', textTransform: 'uppercase' }}>Ecological Footprint Offset</span>
+                  <span style={{ fontSize: '0.65rem', color: 'var(--text-muted)', fontFamily: 'var(--font-sans)', display: 'block', textTransform: 'uppercase' }}>Ecological Footprint Offset</span>
                   <p style={{ fontSize: '0.85rem', color: 'var(--text-main)', marginTop: '0.25rem', lineHeight: '1.4' }}>
                     Reduces electronic and material waste by {65 + (nameHash % 20)}% compared to legacy manufacturing standards.
                   </p>
                 </div>
                 <div style={{ padding: '0.75rem', background: 'rgba(255,255,255,0.01)', border: '1px solid var(--border-color)', borderRadius: '6px' }}>
-                  <span style={{ fontSize: '0.65rem', color: 'var(--text-muted)', fontFamily: 'var(--font-mono)', display: 'block', textTransform: 'uppercase' }}>Circular Resource Integration</span>
+                  <span style={{ fontSize: '0.65rem', color: 'var(--text-muted)', fontFamily: 'var(--font-sans)', display: 'block', textTransform: 'uppercase' }}>Circular Resource Integration</span>
                   <p style={{ fontSize: '0.85rem', color: 'var(--text-main)', marginTop: '0.25rem', lineHeight: '1.4' }}>
                     Features a modular, repairable chassis architecture aligning with modern global Right-to-Repair regulations.
                   </p>
@@ -1553,32 +1532,32 @@ const Dashboard = ({ activeInnovation, setActiveInnovation, globalQuery, setGlob
           {/* Regulatory Risk Matrix */}
           <div className="glass-panel animate-fade-in" style={{ padding: '2rem', display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', borderBottom: '1px solid var(--border-color)', paddingBottom: '0.75rem' }}>
-              <Shield size={16} color="var(--color-warning)" />
+              <span className="material-symbols-outlined" style={{ fontSize: '16px', color: 'var(--color-warning)' }}>shield</span>
               <h3 style={{ fontSize: '1rem', fontWeight: 700, fontFamily: 'var(--font-display)', color: 'var(--text-main)' }}>
                 Regulatory Risk Matrix (Live Telemetry)
               </h3>
             </div>
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(140px, 1fr))', gap: '1rem' }}>
               <div style={{ padding: '1rem 0.75rem', background: 'rgba(255,255,255,0.01)', border: '1px solid var(--border-color)', borderRadius: '6px', textAlign: 'center' }}>
-                <span style={{ fontSize: '0.65rem', fontFamily: 'var(--font-mono)', color: 'var(--text-muted)', display: 'block', fontWeight: 'bold' }}>FDA CLEARANCE</span>
+                <span style={{ fontSize: '0.65rem', fontFamily: 'var(--font-sans)', color: 'var(--text-muted)', display: 'block', fontWeight: 'bold' }}>FDA CLEARANCE</span>
                 {selectedItem.sector?.toLowerCase().includes("diagnostic") || selectedItem.sector?.toLowerCase().includes("bio") ? (
                   <span style={{ display: 'inline-block', fontSize: '0.65rem', fontWeight: 'bold', background: 'rgba(239,68,68,0.15)', color: 'var(--color-danger)', border: '1px solid rgba(239,68,68,0.3)', padding: '0.2rem 0.5rem', borderRadius: '4px', marginTop: '0.5rem' }}>HIGH RISK // SEC 510K</span>
                 ) : (
-                  <span style={{ display: 'inline-block', fontSize: '0.65rem', fontWeight: 'bold', background: 'rgba(255,255,255,0.05)', color: 'var(--text-dim)', border: '1px solid rgba(255,255,255,0.1)', padding: '0.2rem 0.5rem', borderRadius: '4px', marginTop: '0.5rem' }}>EXEMPT // N/A</span>
+                  <span style={{ display: 'inline-block', fontSize: '0.65rem', fontWeight: 'bold', background: 'rgba(255,255,255,0.05)', color: 'var(--text-dim)', border: '1px solid var(--border-color)', padding: '0.2rem 0.5rem', borderRadius: '4px', marginTop: '0.5rem' }}>EXEMPT // N/A</span>
                 )}
               </div>
 
               <div style={{ padding: '1rem 0.75rem', background: 'rgba(255,255,255,0.01)', border: '1px solid var(--border-color)', borderRadius: '6px', textAlign: 'center' }}>
-                <span style={{ fontSize: '0.65rem', fontFamily: 'var(--font-mono)', color: 'var(--text-muted)', display: 'block', fontWeight: 'bold' }}>FCC PART 15</span>
+                <span style={{ fontSize: '0.65rem', fontFamily: 'var(--font-sans)', color: 'var(--text-muted)', display: 'block', fontWeight: 'bold' }}>FCC PART 15</span>
                 {selectedItem.sector?.toLowerCase().includes("wearable") || selectedItem.sector?.toLowerCase().includes("reality") || selectedItem.sector?.toLowerCase().includes("optics") ? (
                   <span style={{ display: 'inline-block', fontSize: '0.65rem', fontWeight: 'bold', background: 'rgba(52,211,153,0.15)', color: 'var(--color-success)', border: '1px solid rgba(52,211,153,0.3)', padding: '0.2rem 0.5rem', borderRadius: '4px', marginTop: '0.5rem' }}>COMPLIANT // FCC OK</span>
                 ) : (
-                  <span style={{ display: 'inline-block', fontSize: '0.65rem', fontWeight: 'bold', background: 'rgba(255,255,255,0.05)', color: 'var(--text-dim)', border: '1px solid rgba(255,255,255,0.1)', padding: '0.2rem 0.5rem', borderRadius: '4px', marginTop: '0.5rem' }}>EXEMPT // WIRELESS OFF</span>
+                  <span style={{ display: 'inline-block', fontSize: '0.65rem', fontWeight: 'bold', background: 'rgba(255,255,255,0.05)', color: 'var(--text-dim)', border: '1px solid var(--border-color)', padding: '0.2rem 0.5rem', borderRadius: '4px', marginTop: '0.5rem' }}>EXEMPT // WIRELESS OFF</span>
                 )}
               </div>
 
               <div style={{ padding: '1rem 0.75rem', background: 'rgba(255,255,255,0.01)', border: '1px solid var(--border-color)', borderRadius: '6px', textAlign: 'center' }}>
-                <span style={{ fontSize: '0.65rem', fontFamily: 'var(--font-mono)', color: 'var(--text-muted)', display: 'block', fontWeight: 'bold' }}>EPA STANDARD</span>
+                <span style={{ fontSize: '0.65rem', fontFamily: 'var(--font-sans)', color: 'var(--text-muted)', display: 'block', fontWeight: 'bold' }}>EPA STANDARD</span>
                 {selectedItem.sector?.toLowerCase().includes("water") || selectedItem.sector?.toLowerCase().includes("environmental") ? (
                   <span style={{ display: 'inline-block', fontSize: '0.65rem', fontWeight: 'bold', background: 'rgba(245,158,11,0.15)', color: 'var(--color-warning)', border: '1px solid rgba(245,158,11,0.3)', padding: '0.2rem 0.5rem', borderRadius: '4px', marginTop: '0.5rem' }}>CAUTION // LIQ WASTES</span>
                 ) : (
@@ -1587,7 +1566,7 @@ const Dashboard = ({ activeInnovation, setActiveInnovation, globalQuery, setGlob
               </div>
 
               <div style={{ padding: '1rem 0.75rem', background: 'rgba(255,255,255,0.01)', border: '1px solid var(--border-color)', borderRadius: '6px', textAlign: 'center' }}>
-                <span style={{ fontSize: '0.65rem', fontFamily: 'var(--font-mono)', color: 'var(--text-muted)', display: 'block', fontWeight: 'bold' }}>CE COMPLIANCE</span>
+                <span style={{ fontSize: '0.65rem', fontFamily: 'var(--font-sans)', color: 'var(--text-muted)', display: 'block', fontWeight: 'bold' }}>CE COMPLIANCE</span>
                 <span style={{ display: 'inline-block', fontSize: '0.65rem', fontWeight: 'bold', background: 'rgba(52,211,153,0.15)', color: 'var(--color-success)', border: '1px solid rgba(52,211,153,0.3)', padding: '0.2rem 0.5rem', borderRadius: '4px', marginTop: '0.5rem' }}>VERIFIED // CE MARK</span>
               </div>
             </div>
@@ -1597,7 +1576,7 @@ const Dashboard = ({ activeInnovation, setActiveInnovation, globalQuery, setGlob
           <div className="glass-panel animate-fade-in" style={{ padding: '2rem', display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderBottom: '1px solid var(--border-color)', paddingBottom: '0.75rem' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                <Terminal size={16} color="var(--color-secondary)" />
+                <span className="material-symbols-outlined" style={{ fontSize: '16px', color: 'var(--color-secondary)' }}>terminal</span>
                 <h3 style={{ fontSize: '1rem', fontWeight: 700, fontFamily: 'var(--font-display)', color: 'var(--text-main)' }}>
                   AI Market Revival Simulator
                 </h3>
@@ -1617,7 +1596,7 @@ const Dashboard = ({ activeInnovation, setActiveInnovation, globalQuery, setGlob
               border: '1px solid var(--border-color)',
               borderRadius: '6px',
               padding: '1rem',
-              fontFamily: 'var(--font-mono)',
+              fontFamily: 'var(--font-sans)',
               fontSize: '0.75rem',
               color: 'var(--color-success)',
               minHeight: '140px',
@@ -1644,18 +1623,18 @@ const Dashboard = ({ activeInnovation, setActiveInnovation, globalQuery, setGlob
           {selectedItem.financials && (
             <div className="glass-panel animate-fade-in" style={{ padding: '2rem', display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', borderBottom: '1px solid var(--border-color)', paddingBottom: '0.75rem' }}>
-                <DollarSign size={16} color="var(--color-success)" />
+                <span className="material-symbols-outlined" style={{ fontSize: '16px', color: 'var(--color-success)' }}>attach_money</span>
                 <h3 style={{ fontSize: '1rem', fontWeight: 700, fontFamily: 'var(--font-display)', color: 'var(--text-main)' }}>
                   Investment & Financial Portfolio
                 </h3>
               </div>
               <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1.5rem' }}>
                 <div>
-                  <span style={{ fontSize: '0.7rem', color: 'var(--text-muted)', fontFamily: 'var(--font-mono)', textTransform: 'uppercase', fontWeight: 'bold' }}>Development Cost</span>
+                  <span style={{ fontSize: '0.7rem', color: 'var(--text-muted)', fontFamily: 'var(--font-sans)', textTransform: 'uppercase', fontWeight: 'bold' }}>Development Cost</span>
                   <p style={{ fontSize: '1.25rem', fontWeight: 800, color: 'var(--color-success)', marginTop: '0.25rem' }}>{selectedItem.financials.estimatedCost || selectedItem.estimatedCost || "$150,000"}</p>
                 </div>
                 <div>
-                  <span style={{ fontSize: '0.7rem', color: 'var(--text-muted)', fontFamily: 'var(--font-mono)', textTransform: 'uppercase', fontWeight: 'bold' }}>Target Industries</span>
+                  <span style={{ fontSize: '0.7rem', color: 'var(--text-muted)', fontFamily: 'var(--font-sans)', textTransform: 'uppercase', fontWeight: 'bold' }}>Target Industries</span>
                   <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.35rem', marginTop: '0.5rem' }}>
                     {(selectedItem.financials.targetIndustries || []).map((ind, idx) => (
                       <span key={idx} style={{ fontSize: '0.65rem', background: 'rgba(236,72,153,0.1)', color: 'var(--color-primary)', border: '1px solid rgba(236,72,153,0.2)', padding: '0.15rem 0.4rem', borderRadius: '4px' }}>
@@ -1665,7 +1644,7 @@ const Dashboard = ({ activeInnovation, setActiveInnovation, globalQuery, setGlob
                   </div>
                 </div>
                 <div>
-                  <span style={{ fontSize: '0.7rem', color: 'var(--text-muted)', fontFamily: 'var(--font-mono)', textTransform: 'uppercase', fontWeight: 'bold' }}>Required Skills</span>
+                  <span style={{ fontSize: '0.7rem', color: 'var(--text-muted)', fontFamily: 'var(--font-sans)', textTransform: 'uppercase', fontWeight: 'bold' }}>Required Skills</span>
                   <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.35rem', marginTop: '0.5rem' }}>
                     {(selectedItem.financials.requiredSkills || []).map((sk, idx) => (
                       <span key={idx} style={{ fontSize: '0.65rem', background: 'rgba(0,242,254,0.1)', color: 'var(--color-secondary)', border: '1px solid rgba(0,242,254,0.2)', padding: '0.15rem 0.4rem', borderRadius: '4px' }}>
@@ -1675,7 +1654,7 @@ const Dashboard = ({ activeInnovation, setActiveInnovation, globalQuery, setGlob
                   </div>
                 </div>
                 <div>
-                  <span style={{ fontSize: '0.7rem', color: 'var(--text-muted)', fontFamily: 'var(--font-mono)', textTransform: 'uppercase', fontWeight: 'bold' }}>Potential Investors</span>
+                  <span style={{ fontSize: '0.7rem', color: 'var(--text-muted)', fontFamily: 'var(--font-sans)', textTransform: 'uppercase', fontWeight: 'bold' }}>Potential Investors</span>
                   <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.35rem', marginTop: '0.5rem' }}>
                     {(selectedItem.financials.potentialInvestors || []).map((inv, idx) => (
                       <span key={idx} style={{ fontSize: '0.65rem', background: 'rgba(245,158,11,0.1)', color: 'var(--color-warning)', border: '1px solid rgba(245,158,11,0.2)', padding: '0.15rem 0.4rem', borderRadius: '4px' }}>
@@ -1692,7 +1671,7 @@ const Dashboard = ({ activeInnovation, setActiveInnovation, globalQuery, setGlob
         {/* Right Side: Diagnostics Panel */}
         <div className="glass-panel" style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem', background: 'rgba(10,13,20,0.85)' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', borderBottom: '1px solid var(--border-color)', paddingBottom: '0.75rem' }}>
-            <Activity size={18} color="var(--color-secondary)" />
+            <span className="material-symbols-outlined" style={{ fontSize: '18px', color: 'var(--color-secondary)' }}>monitoring</span>
             <h3 style={{ fontSize: '1rem', fontWeight: 700, fontFamily: 'var(--font-display)', letterSpacing: '0.05em' }}>
               DIAGNOSTICS PANEL
             </h3>
@@ -1717,7 +1696,7 @@ const Dashboard = ({ activeInnovation, setActiveInnovation, globalQuery, setGlob
                   style={{ stroke: 'var(--color-primary)', strokeWidth: '6px' }}
                 />
               </svg>
-              <span style={{ position: 'absolute', fontWeight: 800, fontSize: '0.95rem', color: 'var(--text-main)', textShadow: '0 0 8px var(--color-primary)', fontFamily: 'var(--font-mono)' }}>{selectedItem.recommendationScore || 75}</span>
+              <span style={{ position: 'absolute', fontWeight: 800, fontSize: '0.95rem', color: 'var(--text-main)', textShadow: '0 0 8px var(--color-primary)', fontFamily: 'var(--font-sans)' }}>{selectedItem.recommendationScore || 75}</span>
             </div>
           </div>
 
@@ -1735,7 +1714,7 @@ const Dashboard = ({ activeInnovation, setActiveInnovation, globalQuery, setGlob
           {/* Market Revival Trend Line */}
           <div>
             <span style={{ fontSize: '0.85rem', fontWeight: 600, color: 'var(--text-main)' }}>Market Revival Trend</span>
-            <div style={{ marginTop: '0.5rem', background: 'rgba(0,0,0,0.2)', border: '1px solid var(--border-color)', borderRadius: '6px', padding: '0.5rem' }}>
+            <div style={{ marginTop: '0.5rem', background: 'var(--bg-panel)', border: '1px solid var(--border-color)', borderRadius: '6px', padding: '0.5rem' }}>
               <svg width="100%" height="60" viewBox="0 0 240 60" style={{ overflow: 'visible' }}>
                 <defs>
                   <linearGradient id="trendGrad" x1="0" y1="0" x2="0" y2="1">
@@ -1761,7 +1740,7 @@ const Dashboard = ({ activeInnovation, setActiveInnovation, globalQuery, setGlob
                   fill="var(--color-secondary)"
                 />
               </svg>
-              <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.65rem', color: 'var(--text-dim)', fontFamily: 'var(--font-mono)', marginTop: '0.25rem' }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.65rem', color: 'var(--text-dim)', fontFamily: 'var(--font-sans)', marginTop: '0.25rem' }}>
                 <span>2020</span>
                 <span>2022</span>
                 <span>2024</span>
@@ -1776,7 +1755,7 @@ const Dashboard = ({ activeInnovation, setActiveInnovation, globalQuery, setGlob
               <span style={{ fontSize: '0.85rem', fontWeight: 600 }}>Readiness Level (TRL)</span>
               <p style={{ fontSize: '0.65rem', color: 'var(--text-muted)' }}>Feasibility score range</p>
             </div>
-            <span style={{ fontSize: '0.75rem', fontFamily: 'var(--font-mono)', background: 'rgba(245,158,11,0.15)', color: 'var(--color-warning)', padding: '0.25rem 0.5rem', borderRadius: '4px', border: '1px solid rgba(245,158,11,0.3)' }}>
+            <span style={{ fontSize: '0.75rem', fontFamily: 'var(--font-sans)', background: 'rgba(245,158,11,0.15)', color: 'var(--color-warning)', padding: '0.25rem 0.5rem', borderRadius: '4px', border: '1px solid rgba(245,158,11,0.3)' }}>
               TRL {selectedItem.readinessLevel || 3}/9
             </span>
           </div>
@@ -1808,21 +1787,18 @@ const Dashboard = ({ activeInnovation, setActiveInnovation, globalQuery, setGlob
           </div>
 
           {/* AI Patent Claims Auditor */}
-          <div className="glass-panel animate-fade-in" style={{ marginTop: '1rem', padding: '1.25rem', borderLeft: '3px solid var(--color-primary)', background: 'rgba(0,0,0,0.2)' }}>
-            <span style={{ fontSize: '0.65rem', color: 'var(--text-muted)', fontFamily: 'var(--font-mono)', display: 'block', textTransform: 'uppercase' }}>[PATENT_CLAIMS_VERIFICATION]</span>
+          <div className="glass-panel animate-fade-in" style={{ marginTop: '1rem', padding: '1.25rem', borderLeft: '3px solid var(--color-primary)', background: 'var(--bg-panel)' }}>
             <h4 style={{ fontSize: '0.85rem', color: 'var(--text-main)', margin: '0.25rem 0 0.75rem 0', fontWeight: 700 }}>Independent Patent Claims Status</h4>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
               <div style={{ padding: '0.5rem', background: 'rgba(52,211,153,0.03)', border: '1px solid rgba(52,211,153,0.15)', borderRadius: '4px', fontSize: '0.75rem' }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '0.25rem' }}>
                   <span style={{ fontWeight: 'bold', color: 'var(--color-success)' }}>Claim 1: Core System Method</span>
-                  <span style={{ fontSize: '0.6rem', fontFamily: 'var(--font-mono)', color: 'var(--color-success)' }}>[EXPIRED / OPEN_SOURCE]</span>
                 </div>
                 <p style={{ color: 'var(--text-muted)', fontSize: '0.7rem' }}>Defines the method for operating a {selectedItem.name} apparatus utilizing local processors.</p>
               </div>
               <div style={{ padding: '0.5rem', background: 'rgba(239,68,68,0.03)', border: '1px solid rgba(239,68,68,0.15)', borderRadius: '4px', fontSize: '0.75rem' }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '0.25rem' }}>
                   <span style={{ fontWeight: 'bold', color: 'var(--color-danger)' }}>Claim 2: Neural Model Feedback</span>
-                  <span style={{ fontSize: '0.6rem', fontFamily: 'var(--font-mono)', color: 'var(--color-danger)' }}>[ACTIVE / IP_PROTECTED]</span>
                 </div>
                 <p style={{ color: 'var(--text-muted)', fontSize: '0.7rem' }}>Claims the feedback loop adjusting sensor gains via dynamic deep learning models.</p>
               </div>
@@ -1830,39 +1806,34 @@ const Dashboard = ({ activeInnovation, setActiveInnovation, globalQuery, setGlob
           </div>
 
           {/* AI Pitch Teleprompter Preview */}
-          <div className="glass-panel animate-fade-in" style={{ marginTop: '1rem', padding: '1.25rem', borderLeft: '3px solid var(--color-secondary)', background: 'rgba(0,0,0,0.2)' }}>
-            <span style={{ fontSize: '0.65rem', color: 'var(--text-muted)', fontFamily: 'var(--font-mono)', display: 'block', textTransform: 'uppercase' }}>[ELEVATOR_PITCH_PROTOTYPE]</span>
+          <div className="glass-panel animate-fade-in" style={{ marginTop: '1rem', padding: '1.25rem', borderLeft: '3px solid var(--color-secondary)', background: 'var(--bg-panel)' }}>
             <h4 style={{ fontSize: '0.85rem', color: 'var(--text-main)', margin: '0.25rem 0 0.5rem 0', fontWeight: 700 }}>AI Oral Presentation Script Preview</h4>
-            <div style={{ padding: '0.75rem', background: 'rgba(0,0,0,0.4)', border: '1px solid var(--border-color)', borderRadius: '4px', fontStyle: 'italic', fontSize: '0.75rem', color: 'var(--text-main)', lineHeight: '1.5' }}>
+            <div style={{ padding: '0.75rem', background: 'var(--bg-panel)', border: '1px solid var(--border-color)', borderRadius: '4px', fontStyle: 'italic', fontSize: '0.75rem', color: 'var(--text-main)', lineHeight: '1.5' }}>
               "Hello, we are launching a modernized revival of {selectedItem.name}. While original configurations failed due to early mechanical bottlenecks, we solve this by coupling the architecture with edge RAG processors and low-latency local NPUs. This lets us capture the market at a projected CAGR of {selectedItem.marketGrowth || '14.5%'} with a lean development budget..."
             </div>
             <p style={{ fontSize: '0.65rem', color: 'var(--text-muted)', marginTop: '0.5rem', display: 'flex', alignItems: 'center', gap: '0.35rem' }}>
-              <Lightbulb size={12} style={{ color: 'var(--color-warning)', flexShrink: 0 }} />
+              <span className="material-symbols-outlined" style={{ fontSize: '12px',  color: 'var(--color-warning)', flexShrink: 0  }}>lightbulb</span>
               <span>Practice this slide-deck script with voice synthesis under the <strong>AI Pitch Coach</strong> tab!</span>
             </p>
           </div>
 
           {/* Connected Knowledge Feeds Integration Hub */}
           {selectedItem && (
-            <div className="glass-panel animate-fade-in" style={{ marginTop: '1rem', padding: '1.25rem', borderLeft: '3px solid var(--color-success)', background: 'rgba(0,0,0,0.2)' }}>
-              <span style={{ fontSize: '0.65rem', color: 'var(--text-muted)', fontFamily: 'var(--font-mono)', display: 'block', textTransform: 'uppercase' }}>[CONNECTED_KNOWLEDGE_PIPELINES]</span>
+            <div className="glass-panel animate-fade-in" style={{ marginTop: '1rem', padding: '1.25rem', borderLeft: '3px solid var(--color-success)', background: 'var(--bg-panel)' }}>
               <h4 style={{ fontSize: '0.85rem', color: 'var(--text-main)', margin: '0.25rem 0 0.75rem 0', fontWeight: 700 }}>Real-World Data Aggregation Hub</h4>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '0.55rem' }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', fontSize: '0.75rem', padding: '0.35rem 0.5rem', background: 'rgba(255,255,255,0.02)', border: '1px solid var(--border-color)', borderRadius: '4px' }}>
-                  <span style={{ display: 'flex', alignItems: 'center', gap: '0.35rem' }}><Globe size={11} color="var(--color-secondary)" /> Wikipedia API Stream</span>
-                  <span style={{ fontSize: '0.6rem', color: 'var(--color-success)', fontFamily: 'var(--font-mono)' }}>[CONNECTED // ONLINE]</span>
+                  <span style={{ display: 'flex', alignItems: 'center', gap: '0.35rem' }}><span className="material-symbols-outlined" style={{ fontSize: '11px', color: 'var(--color-secondary)' }}>language</span> Wikipedia API Stream</span>
                 </div>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', fontSize: '0.75rem', padding: '0.35rem 0.5rem', background: 'rgba(255,255,255,0.02)', border: '1px solid var(--border-color)', borderRadius: '4px' }}>
-                  <span style={{ display: 'flex', alignItems: 'center', gap: '0.35rem' }}><Cpu size={11} color="var(--color-primary)" /> WIPO Patent Registry</span>
-                  <span style={{ fontSize: '0.6rem', color: 'var(--color-success)', fontFamily: 'var(--font-mono)' }}>[ACTIVE INDEX MATCH: {selectedItem.patentId || 'US-PENDING-B2'}]</span>
+                  <span style={{ display: 'flex', alignItems: 'center', gap: '0.35rem' }}><span className="material-symbols-outlined" style={{ fontSize: '11px', color: 'var(--color-primary)' }}>developer_board</span> WIPO Patent Registry</span>
+                  <span style={{ fontSize: '0.6rem', color: 'var(--color-success)', fontFamily: 'var(--font-sans)' }}>[ACTIVE INDEX MATCH: {selectedItem.patentId || 'US-PENDING-B2'}]</span>
                 </div>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', fontSize: '0.75rem', padding: '0.35rem 0.5rem', background: 'rgba(255,255,255,0.02)', border: '1px solid var(--border-color)', borderRadius: '4px' }}>
-                  <span style={{ display: 'flex', alignItems: 'center', gap: '0.35rem' }}><FileText size={11} color="var(--color-accent)" /> Academic Publications</span>
-                  <span style={{ fontSize: '0.6rem', color: 'var(--color-secondary)', fontFamily: 'var(--font-mono)' }}>[SYNAPSED ACADEMIC GAPS]</span>
+                  <span style={{ display: 'flex', alignItems: 'center', gap: '0.35rem' }}><span className="material-symbols-outlined" style={{ fontSize: '11px', color: 'var(--color-accent)' }}>description</span> Academic Publications</span>
                 </div>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', fontSize: '0.75rem', padding: '0.35rem 0.5rem', background: 'rgba(255,255,255,0.02)', border: '1px solid var(--border-color)', borderRadius: '4px' }}>
-                  <span style={{ display: 'flex', alignItems: 'center', gap: '0.35rem' }}><Terminal size={11} color="#fff" /> GitHub Repositories</span>
-                  <span style={{ fontSize: '0.65rem', fontFamily: 'var(--font-mono)', color: 'var(--color-success)' }}>[REPOSITORY SYNCED]</span>
+                  <span style={{ display: 'flex', alignItems: 'center', gap: '0.35rem' }}><span className="material-symbols-outlined" style={{ fontSize: '11px', color: '#fff' }}>terminal</span> GitHub Repositories</span>
                 </div>
               </div>
             </div>
@@ -1872,7 +1843,7 @@ const Dashboard = ({ activeInnovation, setActiveInnovation, globalQuery, setGlob
           {selectedItem && (
             <div className="glass-panel animate-fade-in" style={{ marginTop: '1.5rem', padding: '2rem', display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', borderBottom: '1px solid var(--border-color)', paddingBottom: '0.75rem' }}>
-                <TrendingUp size={16} color="var(--color-primary)" />
+                <span className="material-symbols-outlined" style={{ fontSize: '16px', color: 'var(--color-primary)' }}>trending_up</span>
                 <h3 style={{ fontSize: '1rem', fontWeight: 700, fontFamily: 'var(--font-display)', color: 'var(--text-main)' }}>
                   Related Innovations
                 </h3>
@@ -1904,7 +1875,7 @@ const Dashboard = ({ activeInnovation, setActiveInnovation, globalQuery, setGlob
                       onMouseEnter={(e) => e.currentTarget.style.borderColor = 'var(--color-primary)'}
                       onMouseLeave={(e) => e.currentTarget.style.borderColor = 'var(--border-color)'}
                     >
-                      <span style={{ fontSize: '0.65rem', color: 'var(--color-secondary)', fontFamily: 'var(--font-mono)' }}>
+                      <span style={{ fontSize: '0.65rem', color: 'var(--color-secondary)', fontFamily: 'var(--font-sans)' }}>
                         {related.sector}
                       </span>
                       <h4 style={{ fontSize: '0.85rem', fontWeight: 700, color: 'var(--text-main)', marginTop: '0.25rem' }}>

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Menu } from 'lucide-react';
+
 import Sidebar from './components/Sidebar';
 import Login from './pages/Login';
 import Dashboard from './pages/Dashboard';
@@ -142,13 +142,20 @@ function App() {
     }
   };
 
-  // Light Mode / Dark Mode state selection
+  // Light Mode / Dark Mode state selection — defaults to light (Google-style white theme)
   const [theme, setTheme] = useState(() => {
-    return localStorage.getItem('theme') || 'dark';
+    const saved = localStorage.getItem('theme');
+    // Reset any previously saved dark theme to show the new white design
+    if (saved === 'dark' && !localStorage.getItem('theme_user_set')) {
+      localStorage.removeItem('theme');
+      return 'light';
+    }
+    return saved || 'light';
   });
 
   // Toggle Theme helper
   const toggleTheme = () => {
+    localStorage.setItem('theme_user_set', '1');
     setTheme(prev => (prev === 'light' ? 'dark' : 'light'));
   };
 
@@ -156,51 +163,60 @@ function App() {
   useEffect(() => {
     const root = document.documentElement;
     if (theme === 'light') {
-      root.style.setProperty('--bg-main', '#f8fafc');
-      root.style.setProperty('--bg-sidebar', '#ffffff');
-      root.style.setProperty('--bg-panel', 'rgba(255, 255, 255, 0.9)');
-      root.style.setProperty('--bg-panel-solid', '#ffffff');
-      root.style.setProperty('--bg-input', '#ffffff');
-      root.style.setProperty('--bg-list-item', 'rgba(255, 255, 255, 0.8)');
-      root.style.setProperty('--border-list-item', 'rgba(15, 23, 42, 0.08)');
-      root.style.setProperty('--panel-shadow', '0 10px 30px rgba(15, 23, 42, 0.03)');
-      root.style.setProperty('--text-main', '#0f172a');
-      root.style.setProperty('--text-muted', '#475569');
-      root.style.setProperty('--text-dim', '#94a3b8');
-      root.style.setProperty('--border-color', 'rgba(15, 23, 42, 0.08)');
-      root.style.setProperty('--border-color-glow', 'rgba(37, 99, 235, 0.2)');
+      root.style.setProperty('--bg-main', '#F8F9FA');
+      root.style.setProperty('--bg-sidebar', '#FFFFFF');
+      root.style.setProperty('--bg-panel', '#FFFFFF');
+      root.style.setProperty('--bg-panel-solid', '#FFFFFF');
+      root.style.setProperty('--bg-input', '#FFFFFF');
+      root.style.setProperty('--bg-list-item', '#FFFFFF');
+      root.style.setProperty('--bg-hover', '#F1F3F4');
+      root.style.setProperty('--bg-active', '#E8F0FE');
+      root.style.setProperty('--border-list-item', '#DADCE0');
+      root.style.setProperty('--panel-shadow', '0 1px 2px 0 rgba(60,64,67,0.30), 0 1px 3px 1px rgba(60,64,67,0.15)');
+      root.style.setProperty('--text-main', '#202124');
+      root.style.setProperty('--text-muted', '#5F6368');
+      root.style.setProperty('--text-dim', '#9AA0A6');
+      root.style.setProperty('--border-color', '#DADCE0');
+      root.style.setProperty('--border-color-glow', 'rgba(26, 115, 232, 0.3)');
       
-      if (portalMode === 'student') {
-        root.style.setProperty('--color-primary', '#2563eb');
-        root.style.setProperty('--color-secondary', '#0d9488');
-      } else {
-        root.style.setProperty('--color-primary', '#0d9488');
-        root.style.setProperty('--color-secondary', '#2563eb');
-      }
-      root.style.setProperty('--color-accent', '#4f46e5');
+      root.style.setProperty('--color-primary', '#1A73E8');
+      root.style.setProperty('--color-primary-light', '#E8F0FE');
+      root.style.setProperty('--color-secondary', '#1E293B');
+      root.style.setProperty('--color-secondary-light', '#F1F5F9');
+      root.style.setProperty('--color-accent', '#0EA5E9');
+      root.style.setProperty('--color-accent-light', '#E0F2FE');
+      root.style.setProperty('--color-warning', '#38BDF8');
+      root.style.setProperty('--color-danger', '#EA4335');
+      root.style.setProperty('--color-danger-light', '#FCE8E6');
+      root.style.setProperty('--color-success', '#0F172A');
     } else {
-      root.style.setProperty('--bg-main', '#000000');
-      root.style.setProperty('--bg-sidebar', '#050505');
-      root.style.setProperty('--bg-panel', 'rgba(18, 18, 18, 0.85)');
-      root.style.setProperty('--bg-panel-solid', '#121212');
-      root.style.setProperty('--bg-input', '#121212');
-      root.style.setProperty('--bg-list-item', 'rgba(18, 18, 18, 0.4)');
-      root.style.setProperty('--border-list-item', 'rgba(255, 255, 255, 0.08)');
-      root.style.setProperty('--panel-shadow', '0 10px 30px rgba(0, 0, 0, 0.55)');
-      root.style.setProperty('--text-main', '#f8fafc');
-      root.style.setProperty('--text-muted', '#94a3b8');
-      root.style.setProperty('--text-dim', '#64748b');
-      root.style.setProperty('--border-color', 'rgba(255, 255, 255, 0.08)');
-      root.style.setProperty('--border-color-glow', 'rgba(59, 130, 246, 0.25)');
+      // MD3 Dark Theme
+      root.style.setProperty('--bg-main', '#202124');
+      root.style.setProperty('--bg-sidebar', '#292A2D');
+      root.style.setProperty('--bg-panel', '#303134');
+      root.style.setProperty('--bg-panel-solid', '#303134');
+      root.style.setProperty('--bg-input', '#3C4043');
+      root.style.setProperty('--bg-list-item', '#3C4043');
+      root.style.setProperty('--bg-hover', '#3C4043');
+      root.style.setProperty('--bg-active', 'rgba(138, 180, 248, 0.12)');
+      root.style.setProperty('--border-list-item', '#5F6368');
+      root.style.setProperty('--panel-shadow', '0 1px 3px rgba(0,0,0,0.5), 0 1px 2px rgba(0,0,0,0.7)');
+      root.style.setProperty('--text-main', '#E8EAED');
+      root.style.setProperty('--text-muted', '#9AA0A6');
+      root.style.setProperty('--text-dim', '#5F6368');
+      root.style.setProperty('--border-color', '#5F6368');
+      root.style.setProperty('--border-color-glow', 'rgba(138, 180, 248, 0.2)');
       
-      if (portalMode === 'student') {
-        root.style.setProperty('--color-primary', '#3b82f6');
-        root.style.setProperty('--color-secondary', '#0d9488');
-      } else {
-        root.style.setProperty('--color-primary', '#0d9488');
-        root.style.setProperty('--color-secondary', '#3b82f6');
-      }
-      root.style.setProperty('--color-accent', '#6366f1');
+      root.style.setProperty('--color-primary', '#7facf4');
+      root.style.setProperty('--color-primary-light', 'rgba(127, 172, 244, 0.12)');
+      root.style.setProperty('--color-secondary', '#1A73E8');
+      root.style.setProperty('--color-secondary-light', 'rgba(26, 115, 232, 0.12)');
+      root.style.setProperty('--color-accent', '#0f63bd');
+      root.style.setProperty('--color-accent-light', 'rgba(15, 99, 189, 0.12)');
+      root.style.setProperty('--color-warning', '#7facf4');
+      root.style.setProperty('--color-danger', '#F28B82');
+      root.style.setProperty('--color-danger-light', 'rgba(242, 139, 130, 0.12)');
+      root.style.setProperty('--color-success', '#7facf4');
     }
     localStorage.setItem('theme', theme);
   }, [theme, portalMode]);
@@ -567,7 +583,7 @@ function App() {
             padding: '0.5rem'
           }}
         >
-          <Menu size={20} />
+          <span className="material-symbols-outlined" style={{ fontSize: '20px' }}>menu</span>
         </button>
         
         <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
@@ -588,7 +604,7 @@ function App() {
             left: 0,
             right: 0,
             bottom: 0,
-            background: 'rgba(0, 0, 0, 0.65)',
+            background: 'var(--bg-panel)',
             backdropFilter: 'blur(4px)',
             zIndex: 99
           }}

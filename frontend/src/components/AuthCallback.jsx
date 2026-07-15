@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Cpu, ShieldCheck, AlertCircle, ArrowRight } from 'lucide-react';
+
 
 const AuthCallback = ({ onLoginSuccess, onOnboardingNeeded, onCancel }) => {
   const [statusStep, setStatusStep] = useState(1); // 1: Parsing, 2: Handshake, 3: Verifying, 4: Success, 5: Error
@@ -117,7 +117,7 @@ const AuthCallback = ({ onLoginSuccess, onOnboardingNeeded, onCancel }) => {
               justifyContent: 'center',
               border: '2px solid rgba(59, 130, 246, 0.15)'
             }}>
-              <Cpu size={32} className="pulse" style={{ color: 'var(--color-primary)' }} />
+              <span className="material-symbols-outlined pulse" style={{ fontSize: '32px',  color: 'var(--color-primary)'  }}>developer_board</span>
               <div style={{
                 position: 'absolute',
                 top: '-2px', left: '-2px', right: '-2px', bottom: '-2px',
@@ -139,7 +139,7 @@ const AuthCallback = ({ onLoginSuccess, onOnboardingNeeded, onCancel }) => {
               border: '2px solid var(--color-success)',
               color: 'var(--color-success)'
             }}>
-              <ShieldCheck size={36} />
+              <span className="material-symbols-outlined" style={{ fontSize: '36px' }}>verified_user</span>
             </div>
           ) : (
             <div style={{
@@ -153,7 +153,7 @@ const AuthCallback = ({ onLoginSuccess, onOnboardingNeeded, onCancel }) => {
               border: '2px solid var(--color-danger)',
               color: 'var(--color-danger)'
             }}>
-              <AlertCircle size={36} />
+              <span className="material-symbols-outlined" style={{ fontSize: '36px' }}>error</span>
             </div>
           )}
         </div>
@@ -177,12 +177,12 @@ const AuthCallback = ({ onLoginSuccess, onOnboardingNeeded, onCancel }) => {
           borderRadius: '8px',
           padding: '1rem',
           textAlign: 'left',
-          fontFamily: 'var(--font-mono)',
+          fontFamily: 'var(--font-sans)',
           fontSize: '0.7rem',
           color: '#34d399',
           height: '110px',
           overflowY: 'auto',
-          border: '1px solid rgba(255,255,255,0.03)',
+          border: '1px solid var(--border-color)',
           display: 'flex',
           flexDirection: 'column',
           gap: '0.35rem'
@@ -194,7 +194,7 @@ const AuthCallback = ({ onLoginSuccess, onOnboardingNeeded, onCancel }) => {
 
         {statusStep === 5 && (
           <button onClick={onCancel} className="tech-button" style={{ width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem' }}>
-            Return to Login Portal <ArrowRight size={14} />
+            Return to Login Portal <span className="material-symbols-outlined" style={{ fontSize: '14px' }}>arrow_forward</span>
           </button>
         )}
 

@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { MessageSquare, X, Send, Bot, User, Sparkles } from 'lucide-react';
+
 import { generateClientChat } from '../dataFallback';
 
 const ChatAssistant = () => {
@@ -74,7 +74,7 @@ const ChatAssistant = () => {
         return <h4 key={i} style={{ color: 'var(--color-secondary)', margin: '0.8rem 0 0.4rem 0', fontFamily: 'var(--font-display)', fontSize: '0.95rem' }}>{trimmed.replace('### ', '')}</h4>;
       }
       if (trimmed.startsWith('#### ')) {
-        return <h5 key={i} style={{ color: 'var(--color-primary)', margin: '0.6rem 0 0.3rem 0', fontFamily: 'var(--font-mono)', fontSize: '0.85rem', textTransform: 'uppercase' }}>{trimmed.replace('#### ', '')}</h5>;
+        return <h5 key={i} style={{ color: 'var(--color-primary)', margin: '0.6rem 0 0.3rem 0', fontFamily: 'var(--font-sans)', fontSize: '0.85rem', textTransform: 'uppercase' }}>{trimmed.replace('#### ', '')}</h5>;
       }
       if (trimmed.startsWith('* ') || trimmed.startsWith('- ') || trimmed.startsWith('➔ ') || trimmed.startsWith('* ➔') || trimmed.startsWith('- ➔')) {
         let cleanLine = trimmed
@@ -124,7 +124,7 @@ const ChatAssistant = () => {
           boxShadow: '0 0 20px rgba(6, 182, 212, 0.4)'
         }}
       >
-        {isOpen ? <X size={24} /> : <MessageSquare size={24} />}
+        {isOpen ? <span className="material-symbols-outlined" style={{ fontSize: '24px' }}>close</span> : <span className="material-symbols-outlined" style={{ fontSize: '24px' }}>chat</span>}
       </button>
 
       {/* Chat Drawer */}
@@ -156,7 +156,7 @@ const ChatAssistant = () => {
             justifyContent: 'space-between'
           }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-              <Bot size={20} color="var(--color-primary)" />
+              <span className="material-symbols-outlined" style={{ fontSize: '20px', color: 'var(--color-primary)' }}>smart_toy</span>
               <div>
                 <h3 style={{ fontSize: '0.95rem', fontWeight: 700, fontFamily: 'var(--font-display)' }}>ReviveAI Copilot</h3>
                 <span style={{ fontSize: '0.65rem', color: 'var(--color-success)', display: 'flex', alignItems: 'center', gap: '0.25rem' }}>
@@ -168,7 +168,7 @@ const ChatAssistant = () => {
               onClick={() => setIsOpen(false)}
               style={{ background: 'transparent', border: 'none', color: 'var(--text-muted)', cursor: 'pointer' }}
             >
-              <X size={18} />
+              <span className="material-symbols-outlined" style={{ fontSize: '18px' }}>close</span>
             </button>
           </div>
 
@@ -180,7 +180,7 @@ const ChatAssistant = () => {
             display: 'flex',
             flexDirection: 'column',
             gap: '1.25rem',
-            background: 'rgba(0, 0, 0, 0.2)'
+            background: 'var(--bg-panel)'
           }}>
             {messages.map((msg, idx) => {
               const isAssistant = msg.role === 'assistant';
@@ -205,7 +205,7 @@ const ChatAssistant = () => {
                     justifyContent: 'center',
                     flexShrink: 0
                   }}>
-                    {isAssistant ? <Bot size={14} color="var(--color-primary)" /> : <User size={14} color="var(--color-secondary)" />}
+                    {isAssistant ? <span className="material-symbols-outlined" style={{ fontSize: '14px', color: 'var(--color-primary)' }}>smart_toy</span> : <span className="material-symbols-outlined" style={{ fontSize: '14px', color: 'var(--color-secondary)' }}>person</span>}
                   </div>
                   <div style={{
                     background: isAssistant ? 'rgba(30, 41, 59, 0.5)' : 'rgba(6, 182, 212, 0.15)',
@@ -234,7 +234,7 @@ const ChatAssistant = () => {
                   alignItems: 'center',
                   justifyContent: 'center'
                 }}>
-                  <Bot size={14} color="var(--color-primary)" />
+                  <span className="material-symbols-outlined" style={{ fontSize: '14px', color: 'var(--color-primary)' }}>smart_toy</span>
                 </div>
                 <div style={{ display: 'flex', gap: '4px' }}>
                   <div className="pulse-indicator" style={{ animationDelay: '0s' }}></div>
@@ -313,7 +313,7 @@ const ChatAssistant = () => {
                 flexShrink: 0
               }}
             >
-              <Send size={16} />
+              <span className="material-symbols-outlined" style={{ fontSize: '16px' }}>send</span>
             </button>
           </form>
         </div>

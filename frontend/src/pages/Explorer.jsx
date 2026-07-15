@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Search, Compass, UploadCloud, Cpu, AlertTriangle, ArrowRight, Save, Play } from 'lucide-react';
+
 import { calculateClientSimilarity } from '../dataFallback';
 import { useSearch } from '../context/SearchContext';
 
@@ -151,7 +151,7 @@ const Explorer = ({ onImportToStartup, setCurrentPage, setGlobalQuery }) => {
         </div>
 
         {isLocalMode && (
-          <span style={{ fontSize: '0.75rem', color: 'var(--color-warning)', background: 'rgba(245,158,11,0.15)', padding: '0.25rem 0.6rem', border: '1px solid rgba(245,158,11,0.25)', borderRadius: '4px', fontFamily: 'var(--font-mono)' }}>
+          <span style={{ fontSize: '0.75rem', color: 'var(--color-warning)', background: 'rgba(245,158,11,0.15)', padding: '0.25rem 0.6rem', border: '1px solid rgba(245,158,11,0.25)', borderRadius: '4px', fontFamily: 'var(--font-sans)' }}>
             ⚠️ OFFLINE BACKUP MODE ACTIVE
           </span>
         )}
@@ -174,7 +174,7 @@ const Explorer = ({ onImportToStartup, setCurrentPage, setGlobalQuery }) => {
               justifyContent: 'space-between', 
               alignItems: 'center' 
             }}>
-              <span style={{ fontSize: '0.75rem', color: '#ff4d6d', fontWeight: 700, fontFamily: 'var(--font-mono)' }}>
+              <span style={{ fontSize: '0.75rem', color: '#ff4d6d', fontWeight: 700, fontFamily: 'var(--font-sans)' }}>
                 [CRITICAL_ERROR: INVALID_QUERY] {customError}
               </span>
               <button 
@@ -196,13 +196,13 @@ const Explorer = ({ onImportToStartup, setCurrentPage, setGlobalQuery }) => {
 
           <div className="glass-panel glass-panel-glow" style={{ position: 'relative' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '1.25rem' }}>
-              <UploadCloud size={20} color="var(--color-secondary)" />
+              <span className="material-symbols-outlined" style={{ fontSize: '20px', color: 'var(--color-secondary)' }}>cloud_upload</span>
               <h2 style={{ fontSize: '1.2rem', fontFamily: 'var(--font-display)' }}>Analyze Custom Concept</h2>
             </div>
 
             <form onSubmit={handleAnalyze} style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
               <div>
-                <label style={{ fontSize: '0.75rem', color: 'var(--text-muted)', display: 'block', marginBottom: '0.35rem', fontFamily: 'var(--font-mono)' }}>CONCEPT TITLE</label>
+                <label style={{ fontSize: '0.75rem', color: 'var(--text-muted)', display: 'block', marginBottom: '0.35rem', fontFamily: 'var(--font-sans)' }}>CONCEPT TITLE</label>
                 <input 
                   type="text" 
                   className="tech-input" 
@@ -217,7 +217,7 @@ const Explorer = ({ onImportToStartup, setCurrentPage, setGlobalQuery }) => {
               </div>
 
               <div>
-                <label style={{ fontSize: '0.75rem', color: 'var(--text-muted)', display: 'block', marginBottom: '0.35rem', fontFamily: 'var(--font-mono)' }}>ABSTRACT / DESCRIPTION</label>
+                <label style={{ fontSize: '0.75rem', color: 'var(--text-muted)', display: 'block', marginBottom: '0.35rem', fontFamily: 'var(--font-sans)' }}>ABSTRACT / DESCRIPTION</label>
                 <textarea 
                   className="tech-input" 
                   rows={4}
@@ -233,7 +233,7 @@ const Explorer = ({ onImportToStartup, setCurrentPage, setGlobalQuery }) => {
               </div>
 
               <div>
-                <label style={{ fontSize: '0.75rem', color: 'var(--text-muted)', display: 'block', marginBottom: '0.35rem', fontFamily: 'var(--font-mono)' }}>INDUSTRY SECTOR</label>
+                <label style={{ fontSize: '0.75rem', color: 'var(--text-muted)', display: 'block', marginBottom: '0.35rem', fontFamily: 'var(--font-sans)' }}>INDUSTRY SECTOR</label>
                 <select 
                   className="tech-select"
                   value={customSector}
@@ -246,7 +246,7 @@ const Explorer = ({ onImportToStartup, setCurrentPage, setGlobalQuery }) => {
               </div>
 
               <button type="submit" className="tech-button tech-button-glow" style={{ marginTop: '0.5rem' }}>
-                <Cpu size={16} /> Run Semantic AI Audit
+                <span className="material-symbols-outlined" style={{ fontSize: '16px' }}>developer_board</span> Run Semantic AI Audit
               </button>
             </form>
           </div>
@@ -254,12 +254,12 @@ const Explorer = ({ onImportToStartup, setCurrentPage, setGlobalQuery }) => {
           {/* AI Processing Console */}
           {isAnalyzing && (
             <div className="glass-panel" style={{ background: '#000', border: '1px solid var(--color-secondary)', padding: '1.25rem' }}>
-              <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.75rem', color: 'var(--color-secondary)', display: 'block', marginBottom: '0.5rem' }}>
+              <span style={{ fontFamily: 'var(--font-sans)', fontSize: '0.75rem', color: 'var(--color-secondary)', display: 'block', marginBottom: '0.5rem' }}>
                 SYSTEM AUDIT CONSOLE: ACTIVE
               </span>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '0.35rem' }}>
                 {analysisSteps.map((step, idx) => (
-                  <p key={idx} style={{ fontFamily: 'var(--font-mono)', fontSize: '0.75rem', color: '#10b981' }}>
+                  <p key={idx} style={{ fontFamily: 'var(--font-sans)', fontSize: '0.75rem', color: '#10b981' }}>
                     &gt; {step}
                   </p>
                 ))}
@@ -274,7 +274,7 @@ const Explorer = ({ onImportToStartup, setCurrentPage, setGlobalQuery }) => {
                 <span className="status-badge badge-active" style={{ backgroundColor: 'rgba(16, 185, 129, 0.15)' }}>
                   Audit Complete {analysisResult.isOfflineProcessed && '(Offline Local)'}
                 </span>
-                <span style={{ fontSize: '0.75rem', fontFamily: 'var(--font-mono)', color: 'var(--color-success)' }}>
+                <span style={{ fontSize: '0.75rem', fontFamily: 'var(--font-sans)', color: 'var(--color-success)' }}>
                   SimilarityScore: {analysisResult.similarityScore}%
                 </span>
               </div>
@@ -289,11 +289,11 @@ const Explorer = ({ onImportToStartup, setCurrentPage, setGlobalQuery }) => {
               </div>
 
               <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.75rem' }}>
-                <div style={{ background: 'rgba(0,0,0,0.2)', padding: '0.5rem', borderRadius: '6px', border: '1px solid var(--border-color)' }}>
+                <div style={{ background: 'var(--bg-panel)', padding: '0.5rem', borderRadius: '6px', border: '1px solid var(--border-color)' }}>
                   <span style={{ fontSize: '0.65rem', color: 'var(--text-muted)', display: 'block' }}>REVIVAL VIABILITY</span>
                   <strong style={{ fontSize: '1.1rem', color: 'var(--color-primary)' }}>{analysisResult.revivalViability}%</strong>
                 </div>
-                <div style={{ background: 'rgba(0,0,0,0.2)', padding: '0.5rem', borderRadius: '6px', border: '1px solid var(--border-color)' }}>
+                <div style={{ background: 'var(--bg-panel)', padding: '0.5rem', borderRadius: '6px', border: '1px solid var(--border-color)' }}>
                   <span style={{ fontSize: '0.65rem', color: 'var(--text-muted)', display: 'block' }}>TRL RATING</span>
                   <strong style={{ fontSize: '1.1rem', color: 'var(--color-warning)' }}>TRL {analysisResult.readinessLevel}/9</strong>
                 </div>
@@ -301,7 +301,7 @@ const Explorer = ({ onImportToStartup, setCurrentPage, setGlobalQuery }) => {
 
               {analysisResult.similarityScore > 10 && (
                 <div style={{ display: 'flex', gap: '0.5rem', background: 'rgba(245, 158, 11, 0.1)', padding: '0.75rem', borderRadius: '6px', border: '1px solid rgba(245,158,11,0.2)' }}>
-                  <AlertTriangle size={16} color="var(--color-warning)" style={{ flexShrink: 0, marginTop: '2px' }} />
+                  <span className="material-symbols-outlined" style={{ fontSize: '16px', color: 'var(--color-warning)',  flexShrink: 0, marginTop: '2px'  }}>warning</span>
                   <p style={{ fontSize: '0.75rem', color: 'var(--text-main)', lineHeight: '1.3' }}>
                     <strong>Patent Overlap</strong>: Closely relates to the defunct <strong>{analysisResult.originalName}</strong>. 
                   </p>
@@ -314,14 +314,14 @@ const Explorer = ({ onImportToStartup, setCurrentPage, setGlobalQuery }) => {
                   className="tech-button tech-button-outline" 
                   style={{ flex: 1, fontSize: '0.8rem', padding: '0.5rem' }}
                 >
-                  <Save size={12} /> Save to Workspace
+                  <span className="material-symbols-outlined" style={{ fontSize: '12px' }}>save</span> Save to Workspace
                 </button>
                 <button 
                   onClick={() => onImportToStartup(analysisResult)}
                   className="tech-button" 
                   style={{ flex: 1, fontSize: '0.8rem', padding: '0.5rem' }}
                 >
-                  Plan Startup <ArrowRight size={12} />
+                  Plan Startup <span className="material-symbols-outlined" style={{ fontSize: '12px' }}>arrow_forward</span>
                 </button>
               </div>
             </div>
@@ -333,7 +333,7 @@ const Explorer = ({ onImportToStartup, setCurrentPage, setGlobalQuery }) => {
         <div className="glass-panel" style={{ padding: '2rem', display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
           
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', borderBottom: '1px solid var(--border-color)', paddingBottom: '0.75rem' }}>
-            <Compass size={16} color="var(--color-secondary)" />
+            <span className="material-symbols-outlined" style={{ fontSize: '16px', color: 'var(--color-secondary)' }}>explore</span>
             <h3 style={{ fontSize: '1rem', fontWeight: 700, fontFamily: 'var(--font-display)', color: 'var(--text-main)' }}>
               Pre-Indexed Patent Gap Database
             </h3>
@@ -352,7 +352,7 @@ const Explorer = ({ onImportToStartup, setCurrentPage, setGlobalQuery }) => {
                 style={{ flex: 1 }}
               />
               <button type="submit" className="tech-button" style={{ padding: '0 1rem' }}>
-                <Search size={14} />
+                <span className="material-symbols-outlined" style={{ fontSize: '14px' }}>search</span>
               </button>
             </form>
             
@@ -390,7 +390,7 @@ const Explorer = ({ onImportToStartup, setCurrentPage, setGlobalQuery }) => {
                       setCustomError(null);
                     }}
                   >
-                    <Cpu size={20} color="var(--color-primary)" style={{ marginBottom: '0.4rem', animation: 'pulse 1.5s infinite' }} />
+                    <span className="material-symbols-outlined" style={{ fontSize: '20px', color: 'var(--color-primary)',  marginBottom: '0.4rem', animation: 'pulse 1.5s infinite'  }}>developer_board</span>
                     <h4 style={{ fontSize: '0.85rem', fontWeight: 'bold', color: 'var(--text-main)' }}>Generate Custom AI Profile for "{searchQuery}"?</h4>
                     <p style={{ fontSize: '0.7rem', color: 'var(--text-muted)', marginTop: '0.25rem' }}>
                       Click here to load this title into the AI analyzer form.
@@ -404,7 +404,7 @@ const Explorer = ({ onImportToStartup, setCurrentPage, setGlobalQuery }) => {
                   <div style={{ display: 'flex', flexDirection: 'column', gap: '0.35rem', maxWidth: '70%' }}>
                     <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
                       <span className="status-badge badge-expired" style={{ fontSize: '0.65rem' }}>{item.status}</span>
-                      <span style={{ fontSize: '0.7rem', color: 'var(--text-muted)', fontFamily: 'var(--font-mono)' }}>{item.sector}</span>
+                      <span style={{ fontSize: '0.7rem', color: 'var(--text-muted)', fontFamily: 'var(--font-sans)' }}>{item.sector}</span>
                     </div>
                     <h3 style={{ fontSize: '1.05rem', fontWeight: 700 }}>{item.name}</h3>
                     <p style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>
@@ -433,7 +433,7 @@ const Explorer = ({ onImportToStartup, setCurrentPage, setGlobalQuery }) => {
                         className="tech-button tech-button-outline"
                         style={{ fontSize: '0.65rem', padding: '0.3rem 0.5rem' }}
                       >
-                        Plan <Play size={8} style={{ marginLeft: '1px' }} />
+                        Plan <span className="material-symbols-outlined" style={{ fontSize: '8px',  marginLeft: '1px'  }}>play_arrow</span>
                       </button>
                     </div>
                   </div>

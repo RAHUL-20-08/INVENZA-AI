@@ -1,18 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { 
-  FolderGit2, 
-  Search, 
-  Folder, 
-  File, 
-  ArrowLeft, 
-  ExternalLink, 
-  Star, 
-  GitFork, 
-  RefreshCw,
-  Code,
-  Terminal,
-  ChevronRight
-} from 'lucide-react';
+
 
 const GithubViewer = ({ globalQuery, setGlobalQuery }) => {
   const [query, setQuery] = useState(globalQuery || '');
@@ -172,7 +159,7 @@ const GithubViewer = ({ globalQuery, setGlobalQuery }) => {
       <div className="glass-panel" style={{ padding: '1.5rem', display: 'flex', gap: '0.75rem', alignItems: 'center' }}>
         <form onSubmit={(e) => { e.preventDefault(); handleSearch(); }} style={{ display: 'flex', gap: '0.5rem', flex: 1 }}>
           <div style={{ position: 'relative', flex: 1 }}>
-            <Search size={16} color="var(--text-dim)" style={{ position: 'absolute', left: '12px', top: '50%', transform: 'translateY(-50%)' }} />
+            <span className="material-symbols-outlined" style={{ fontSize: '16px', color: 'var(--text-dim)',  position: 'absolute', left: '12px', top: '50%', transform: 'translateY(-50%)'  }}>search</span>
             <input 
               type="text"
               className="tech-input"
@@ -183,7 +170,7 @@ const GithubViewer = ({ globalQuery, setGlobalQuery }) => {
             />
           </div>
           <button type="submit" className="tech-button" style={{ height: '42px', padding: '0 1.5rem' }}>
-            <FolderGit2 size={16} />
+            <span className="material-symbols-outlined" style={{ fontSize: '16px' }}>folder</span>
             SEARCH REPOS
           </button>
         </form>
@@ -198,7 +185,7 @@ const GithubViewer = ({ globalQuery, setGlobalQuery }) => {
           borderRadius: '4px',
           color: 'var(--color-danger)',
           fontSize: '0.85rem',
-          fontFamily: 'var(--font-mono)'
+          fontFamily: 'var(--font-sans)'
         }}>
           ⚠️ {error}
         </div>
@@ -219,8 +206,8 @@ const GithubViewer = ({ globalQuery, setGlobalQuery }) => {
               
               {loading ? (
                 <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: '4rem 0', gap: '0.5rem' }}>
-                  <RefreshCw size={24} className="glow-text-cyan" style={{ animation: 'spin 2s linear infinite' }} />
-                  <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)', fontFamily: 'var(--font-mono)' }}>SCANNING GITHUB INDEX...</span>
+                  <span className="material-symbols-outlined glow-text-cyan" style={{ fontSize: '24px',  animation: 'spin 2s linear infinite'  }}>refresh</span>
+                  <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)', fontFamily: 'var(--font-sans)' }}>SCANNING GITHUB INDEX...</span>
                 </div>
               ) : repos.length === 0 ? (
                 <div style={{ textAlign: 'center', padding: '3rem 1rem', color: 'var(--text-dim)', fontSize: '0.85rem' }}>
@@ -242,7 +229,7 @@ const GithubViewer = ({ globalQuery, setGlobalQuery }) => {
                         <span style={{ fontSize: '0.85rem', fontWeight: 'bold', color: 'var(--color-primary)' }}>
                           {repo.full_name}
                         </span>
-                        <ChevronRight size={14} color="var(--text-dim)" />
+                        <span className="material-symbols-outlined" style={{ fontSize: '14px', color: 'var(--text-dim)' }}>chevron_right</span>
                       </div>
                       
                       {repo.description && (
@@ -251,12 +238,12 @@ const GithubViewer = ({ globalQuery, setGlobalQuery }) => {
                         </p>
                       )}
 
-                      <div style={{ display: 'flex', gap: '1rem', fontSize: '0.7rem', color: 'var(--text-dim)', fontFamily: 'var(--font-mono)', marginTop: '0.25rem' }}>
+                      <div style={{ display: 'flex', gap: '1rem', fontSize: '0.7rem', color: 'var(--text-dim)', fontFamily: 'var(--font-sans)', marginTop: '0.25rem' }}>
                         <span style={{ display: 'flex', alignItems: 'center', gap: '0.2rem' }}>
-                          <Star size={10} /> {repo.stargazers_count}
+                          <span className="material-symbols-outlined" style={{ fontSize: '10px' }}>star</span> {repo.stargazers_count}
                         </span>
                         <span style={{ display: 'flex', alignItems: 'center', gap: '0.2rem' }}>
-                          <GitFork size={10} /> {repo.forks_count}
+                          <span className="material-symbols-outlined" style={{ fontSize: '10px' }}>fork_right</span> {repo.forks_count}
                         </span>
                         {repo.language && (
                           <span style={{ color: 'var(--color-secondary)' }}>{repo.language}</span>
@@ -276,9 +263,9 @@ const GithubViewer = ({ globalQuery, setGlobalQuery }) => {
                   className="tech-button tech-button-outline"
                   style={{ padding: '0.3rem 0.6rem', fontSize: '0.7rem' }}
                 >
-                  <ArrowLeft size={10} /> Back
+                  <span className="material-symbols-outlined" style={{ fontSize: '10px' }}>arrow_back</span> Back
                 </button>
-                <span style={{ fontSize: '0.7rem', color: 'var(--text-dim)', fontFamily: 'var(--font-mono)' }}>EXPLORING DIR</span>
+                <span style={{ fontSize: '0.7rem', color: 'var(--text-dim)', fontFamily: 'var(--font-sans)' }}>EXPLORING DIR</span>
               </div>
 
               <div style={{ borderBottom: '1px solid var(--border-color)', paddingBottom: '0.75rem' }}>
@@ -291,13 +278,13 @@ const GithubViewer = ({ globalQuery, setGlobalQuery }) => {
                   rel="noreferrer" 
                   style={{ display: 'inline-flex', alignItems: 'center', gap: '0.25rem', fontSize: '0.7rem', color: 'var(--color-secondary)', marginTop: '0.25rem', textDecoration: 'none' }}
                 >
-                  View on GitHub <ExternalLink size={10} />
+                  View on GitHub <span className="material-symbols-outlined" style={{ fontSize: '10px' }}>open_in_new</span>
                 </a>
               </div>
 
               {contentsLoading ? (
                 <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: '3rem 0', gap: '0.5rem' }}>
-                  <RefreshCw size={18} className="glow-text-cyan" style={{ animation: 'spin 2s linear infinite' }} />
+                  <span className="material-symbols-outlined glow-text-cyan" style={{ fontSize: '18px',  animation: 'spin 2s linear infinite'  }}>refresh</span>
                   <span style={{ fontSize: '0.7rem', color: 'var(--text-muted)' }}>Reading branch index...</span>
                 </div>
               ) : (
@@ -308,7 +295,7 @@ const GithubViewer = ({ globalQuery, setGlobalQuery }) => {
                       className="list-item"
                       style={{ cursor: 'pointer', padding: '0.5rem 0.75rem', background: 'rgba(255,255,255,0.02)' }}
                     >
-                      <span style={{ fontSize: '0.75rem', fontFamily: 'var(--font-mono)', color: 'var(--color-accent)' }}>📁 .. (parent folder)</span>
+                      <span style={{ fontSize: '0.75rem', fontFamily: 'var(--font-sans)', color: 'var(--color-accent)' }}>📁 .. (parent folder)</span>
                     </div>
                   )}
 
@@ -332,11 +319,11 @@ const GithubViewer = ({ globalQuery, setGlobalQuery }) => {
                     >
                       <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', width: '100%' }}>
                         {item.type === 'dir' ? (
-                          <Folder size={14} color="var(--color-secondary)" />
+                          <span className="material-symbols-outlined" style={{ fontSize: '14px', color: 'var(--color-secondary)' }}>folder</span>
                         ) : (
-                          <File size={14} color="var(--text-dim)" />
+                          <span className="material-symbols-outlined" style={{ fontSize: '14px', color: 'var(--text-dim)' }}>insert_drive_file</span>
                         )}
-                        <span style={{ fontSize: '0.75rem', fontFamily: 'var(--font-mono)', color: item.type === 'dir' ? 'var(--text-main)' : 'var(--text-muted)' }}>
+                        <span style={{ fontSize: '0.75rem', fontFamily: 'var(--font-sans)', color: item.type === 'dir' ? 'var(--text-main)' : 'var(--text-muted)' }}>
                           {item.name}
                         </span>
                       </div>
@@ -356,7 +343,7 @@ const GithubViewer = ({ globalQuery, setGlobalQuery }) => {
             {!selectedFile ? (
               // Empty selection display
               <div style={{ display: 'flex', flex: 1, flexDirection: 'column', alignItems: 'center', justifyContent: 'center', color: 'var(--text-dim)', gap: '0.75rem', textAlign: 'center', padding: '4rem 1rem' }}>
-                <Code size={40} color="var(--border-color-glow)" />
+                <span className="material-symbols-outlined" style={{ fontSize: '40px', color: 'var(--border-color-glow)' }}>code</span>
                 <h4 style={{ fontSize: '0.95rem', color: 'var(--text-main)' }}>Interactive Code Inspector</h4>
                 <p style={{ fontSize: '0.8rem', maxWidth: '340px', lineHeight: '1.4' }}>
                   Select any code or text file from the repository directory tree on the left to inspect its contents.
@@ -365,8 +352,8 @@ const GithubViewer = ({ globalQuery, setGlobalQuery }) => {
             ) : fileLoading ? (
               // Loading file
               <div style={{ display: 'flex', flex: 1, flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: '0.5rem' }}>
-                <RefreshCw size={24} className="glow-text-cyan" style={{ animation: 'spin 2s linear infinite' }} />
-                <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)', fontFamily: 'var(--font-mono)' }}>DECODING BASE64 CONTENT...</span>
+                <span className="material-symbols-outlined glow-text-cyan" style={{ fontSize: '24px',  animation: 'spin 2s linear infinite'  }}>refresh</span>
+                <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)', fontFamily: 'var(--font-sans)' }}>DECODING BASE64 CONTENT...</span>
               </div>
             ) : (
               // Loaded File Content Display
@@ -376,11 +363,11 @@ const GithubViewer = ({ globalQuery, setGlobalQuery }) => {
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderBottom: '1px solid var(--border-color)', paddingBottom: '0.75rem' }}>
                   <div>
                     <span className="mono-tag" style={{ fontSize: '0.65rem', color: 'var(--color-primary)' }}>FILEPATH IN REPO</span>
-                    <h3 style={{ fontSize: '0.95rem', fontFamily: 'var(--font-mono)', color: 'var(--text-main)', marginTop: '0.2' }}>
+                    <h3 style={{ fontSize: '0.95rem', fontFamily: 'var(--font-sans)', color: 'var(--text-main)', marginTop: '0.2' }}>
                       {selectedFile.path}
                     </h3>
                   </div>
-                  <span style={{ fontSize: '0.65rem', fontFamily: 'var(--font-mono)', background: 'rgba(255,255,255,0.05)', padding: '0.2rem 0.5rem', borderRadius: '4px', border: '1px solid var(--border-color)' }}>
+                  <span style={{ fontSize: '0.65rem', fontFamily: 'var(--font-sans)', background: 'rgba(255,255,255,0.05)', padding: '0.2rem 0.5rem', borderRadius: '4px', border: '1px solid var(--border-color)' }}>
                     SIZE: {(selectedFile.size / 1024).toFixed(2)} KB
                   </span>
                 </div>
@@ -391,13 +378,13 @@ const GithubViewer = ({ globalQuery, setGlobalQuery }) => {
                     <pre style={{
                       margin: 0,
                       padding: '1.25rem',
-                      background: 'rgba(0,0,0,0.85)',
+                      background: 'var(--bg-panel)',
                       border: '1px solid var(--border-color)',
                       borderRadius: '6px',
                       overflow: 'auto',
                       maxHeight: '480px',
                       color: '#adbac7',
-                      fontFamily: 'var(--font-mono)',
+                      fontFamily: 'var(--font-sans)',
                       fontSize: '0.8rem',
                       lineHeight: '1.5',
                       textAlign: 'left',
@@ -408,7 +395,7 @@ const GithubViewer = ({ globalQuery, setGlobalQuery }) => {
                   </div>
                 ) : (
                   <div style={{ display: 'flex', flex: 1, flexDirection: 'column', alignItems: 'center', justifyContent: 'center', color: 'var(--text-dim)', gap: '0.5rem', padding: '3rem 1rem' }}>
-                    <Terminal size={32} />
+                    <span className="material-symbols-outlined" style={{ fontSize: '32px' }}>terminal</span>
                     <span style={{ fontSize: '0.8rem' }}>Binary/Non-text file formats cannot be previewed in line.</span>
                     <a 
                       href={selectedFile.download_url} 

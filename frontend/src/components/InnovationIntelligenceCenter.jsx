@@ -1,26 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { 
-  Search, 
-  Cpu, 
-  FileText, 
-  FolderGit2, 
-  Rocket, 
-  Trophy, 
-  CheckCircle, 
-  HelpCircle, 
-  TrendingUp, 
-  Activity, 
-  AlertTriangle, 
-  Globe, 
-  BookOpen, 
-  ListTodo, 
-  Play, 
-  Copy, 
-  ChevronRight,
-  Sparkles,
-  Zap,
-  Briefcase
-} from 'lucide-react';
+
 import { usePortal } from '../context/PortalContext';
 
 const InnovationIntelligenceCenter = ({ theme, activeInnovation, setCurrentPage, setGlobalQuery }) => {
@@ -127,7 +106,6 @@ const InnovationIntelligenceCenter = ({ theme, activeInnovation, setCurrentPage,
           
           {/* FEATURE 2: AI OPPORTUNITY FINDER */}
           <div className="glass-panel" style={{ padding: '1.5rem' }}>
-            <span style={{ fontSize: '0.65rem', color: 'var(--color-accent)', fontFamily: 'var(--font-mono)', display: 'block', marginBottom: '0.75rem' }}>[PERSONALIZED_AI_OPPORTUNITY_FINDER]</span>
             
             <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
               {opportunityFinderItems.map(opt => (
@@ -146,8 +124,8 @@ const InnovationIntelligenceCenter = ({ theme, activeInnovation, setCurrentPage,
                       <p style={{ margin: 0 }}>{opt.whyToday}</p>
                     </div>
                   </div>
-                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', background: 'rgba(0,0,0,0.2)', padding: '0.55rem 0.85rem', borderRadius: '4px', fontSize: '0.75rem' }}>
-                    <span>Recommended Stack: <code style={{ color: 'var(--color-accent)', fontFamily: 'var(--font-mono)' }}>{opt.tech}</code></span>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', background: 'var(--bg-panel)', padding: '0.55rem 0.85rem', borderRadius: '4px', fontSize: '0.75rem' }}>
+                    <span>Recommended Stack: <code style={{ color: 'var(--color-accent)', fontFamily: 'var(--font-sans)' }}>{opt.tech}</code></span>
                     <span style={{ color: 'var(--text-dim)' }}>Diff: {opt.difficulty}</span>
                   </div>
                 </div>
@@ -157,7 +135,7 @@ const InnovationIntelligenceCenter = ({ theme, activeInnovation, setCurrentPage,
 
           {/* FEATURE 1: INNOVATION OPPORTUNITY DASHBOARD */}
           <div className="glass-panel" style={{ padding: '1.5rem' }}>
-            <span style={{ fontSize: '0.65rem', color: 'var(--color-secondary)', fontFamily: 'var(--font-mono)', display: 'block', marginBottom: '0.75rem' }}>// REALTIME_OPPORTUNITY_FEED</span>
+            <span style={{ fontSize: '0.65rem', color: 'var(--color-secondary)', fontFamily: 'var(--font-sans)', display: 'block', marginBottom: '0.75rem' }}>// REALTIME_OPPORTUNITY_FEED</span>
             
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
               {[
@@ -169,7 +147,7 @@ const InnovationIntelligenceCenter = ({ theme, activeInnovation, setCurrentPage,
                 <div key={idx} style={{ background: 'rgba(255,255,255,0.01)', border: '1px solid var(--border-color)', padding: '1rem', borderRadius: '8px', display: 'flex', flexDirection: 'column', gap: '0.45rem' }}>
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                     <strong style={{ fontSize: '0.8rem', color: 'var(--text-main)' }}>{item.title}</strong>
-                    <span style={{ fontSize: '0.6rem', color: 'var(--color-secondary)', fontFamily: 'var(--font-mono)' }}>[{item.stat}]</span>
+                    <span style={{ fontSize: '0.6rem', color: 'var(--color-secondary)', fontFamily: 'var(--font-sans)' }}>[{item.stat}]</span>
                   </div>
                   <p style={{ fontSize: '0.75rem', color: 'var(--text-muted)', margin: 0, lineHeight: '1.4' }}>{item.desc}</p>
                 </div>
@@ -179,13 +157,13 @@ const InnovationIntelligenceCenter = ({ theme, activeInnovation, setCurrentPage,
 
           {/* FEATURE 5: INNOVATION REVIVAL OPPORTUNITIES */}
           <div className="glass-panel" style={{ padding: '1.5rem' }}>
-            <span style={{ fontSize: '0.65rem', color: 'var(--color-primary)', fontFamily: 'var(--font-mono)', display: 'block', marginBottom: '0.75rem' }}>// INNOVATIONS_WITH_HIGH_REVIVAL_POTENTIAL</span>
+            <span style={{ fontSize: '0.65rem', color: 'var(--color-primary)', fontFamily: 'var(--font-sans)', display: 'block', marginBottom: '0.75rem' }}>// INNOVATIONS_WITH_HIGH_REVIVAL_POTENTIAL</span>
             
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '1rem' }}>
               {revivalList.map((item, idx) => (
                 <div key={idx} style={{ background: 'rgba(255,255,255,0.01)', border: '1px solid var(--border-color)', padding: '1.25rem', borderRadius: '8px', display: 'flex', flexDirection: 'column', gap: '0.65rem' }}>
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
-                    <span style={{ fontSize: '0.65rem', color: 'var(--color-secondary)', fontFamily: 'var(--font-mono)' }}>{item.sector.toUpperCase()}</span>
+                    <span style={{ fontSize: '0.65rem', color: 'var(--color-secondary)', fontFamily: 'var(--font-sans)' }}>{item.sector.toUpperCase()}</span>
                     <strong style={{ fontSize: '1rem', color: 'var(--color-success)' }}>{item.score}%</strong>
                   </div>
                   <h4 style={{ fontSize: '0.9rem', fontWeight: 'bold', margin: 0, color: 'var(--text-main)' }}>{item.name}</h4>
@@ -210,7 +188,6 @@ const InnovationIntelligenceCenter = ({ theme, activeInnovation, setCurrentPage,
 
           {/* FEATURE 6: AI PROJECT COMPARISON */}
           <div className="glass-panel" style={{ padding: '1.5rem' }}>
-            <span style={{ fontSize: '0.65rem', color: 'var(--color-accent)', fontFamily: 'var(--font-mono)', display: 'block', marginBottom: '0.75rem' }}>[AI_PROJECT_COMPARISON_ENGINE]</span>
             {conceptName ? (
               <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
                 <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '1.25rem', borderBottom: '1px solid rgba(255,255,255,0.03)', paddingBottom: '0.75rem' }}>
@@ -259,7 +236,7 @@ const InnovationIntelligenceCenter = ({ theme, activeInnovation, setCurrentPage,
           
           {/* FEATURE 3: CONTINUE YOUR JOURNEY */}
           <div className="glass-panel" style={{ padding: '1.25rem' }}>
-            <span style={{ fontSize: '0.65rem', color: 'var(--text-muted)', fontFamily: 'var(--font-mono)', display: 'block', marginBottom: '0.65rem' }}>// CONTINUE_YOUR_JOURNEY</span>
+            <span style={{ fontSize: '0.65rem', color: 'var(--text-muted)', fontFamily: 'var(--font-sans)', display: 'block', marginBottom: '0.65rem' }}>// CONTINUE_YOUR_JOURNEY</span>
             
             {activeProject ? (
               <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
@@ -298,10 +275,9 @@ const InnovationIntelligenceCenter = ({ theme, activeInnovation, setCurrentPage,
 
           {/* FEATURE 4: AI NEXT-STEP ENGINE */}
           <div className="glass-panel" style={{ padding: '1.25rem', borderLeft: '3px solid var(--color-success)', background: 'rgba(52, 211, 153, 0.03)' }}>
-            <span style={{ fontSize: '0.65rem', color: 'var(--color-success)', fontFamily: 'var(--font-mono)', display: 'block', marginBottom: '0.5rem' }}>[AI_NEXT_STEP_ENGINE]</span>
             <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>You completed:</span>
             <div style={{ fontSize: '0.8rem', fontWeight: 'bold', display: 'flex', alignItems: 'center', gap: '0.35rem', margin: '0.15rem 0 0.65rem 0' }}>
-              <CheckCircle size={12} color="var(--color-success)" /> Literature Review
+              <span className="material-symbols-outlined" style={{ fontSize: '12px', color: 'var(--color-success)' }}>check_circle</span> Literature Review
             </div>
             
             <div style={{ display: 'flex', flexDirection: 'column', gap: '0.35rem', fontSize: '0.75rem' }}>
@@ -316,7 +292,6 @@ const InnovationIntelligenceCenter = ({ theme, activeInnovation, setCurrentPage,
             {portalMode === 'student' ? (
               // FEATURE 11: STUDENT SUCCESS PANEL
               <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
-                <span style={{ fontSize: '0.65rem', color: 'var(--color-primary)', fontFamily: 'var(--font-mono)', display: 'block' }}>[STUDENT_SUCCESS_PANEL]</span>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', fontSize: '0.75rem' }}>
                   <div style={{ display: 'flex', justifyContent: 'space-between' }}>
                     <span>Project Completion:</span>
@@ -339,7 +314,6 @@ const InnovationIntelligenceCenter = ({ theme, activeInnovation, setCurrentPage,
             ) : (
               // FEATURE 10: STARTUP READINESS PANEL
               <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
-                <span style={{ fontSize: '0.65rem', color: 'var(--color-secondary)', fontFamily: 'var(--font-mono)', display: 'block' }}>[STARTUP_READINESS_PANEL]</span>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', fontSize: '0.75rem' }}>
                   <div style={{ display: 'flex', justifyContent: 'space-between' }}>
                     <span>Business Validation:</span>
@@ -364,22 +338,21 @@ const InnovationIntelligenceCenter = ({ theme, activeInnovation, setCurrentPage,
 
           {/* FEATURE 12: AI DAILY DISCOVERY */}
           <div className="glass-panel" style={{ padding: '1.25rem', borderLeft: '3px solid var(--color-accent)', background: 'rgba(99, 102, 241, 0.03)' }}>
-            <span style={{ fontSize: '0.65rem', color: 'var(--color-accent)', fontFamily: 'var(--font-mono)', display: 'block', marginBottom: '0.5rem' }}>[AI_DAILY_DISCOVERY]</span>
             <div style={{ fontSize: '0.8rem', fontWeight: 'bold' }}>Today's Promising Expired Patent:</div>
             <p style={{ fontSize: '0.75rem', color: 'var(--text-muted)', margin: '0.2rem 0 0.5rem 0', lineHeight: '1.4' }}>
               US-382911: E-ink screen refreshing matrix. Expired globally, open for low-power localized smart boards revival.
             </p>
             <div style={{ fontSize: '0.7rem', color: 'var(--color-secondary)' }}>
-              💡 Ideal Match: <strong>Wearables Tech</strong>
+              ?? Ideal Match: <strong>Wearables Tech</strong>
             </div>
           </div>
 
           {/* FEATURE 14: INNOVATION INSIGHT CARDS */}
           <div className="glass-panel" style={{ padding: '1.25rem' }}>
-            <span style={{ fontSize: '0.65rem', color: 'var(--text-muted)', fontFamily: 'var(--font-mono)', display: 'block', marginBottom: '0.5rem' }}>// CONCISE_AI_INSIGHTS</span>
+            <span style={{ fontSize: '0.65rem', color: 'var(--text-muted)', fontFamily: 'var(--font-sans)', display: 'block', marginBottom: '0.5rem' }}>// CONCISE_AI_INSIGHTS</span>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '0.55rem', fontSize: '0.75rem', lineHeight: '1.4' }}>
-              <div>➔ **Patent Expiry**: Pebble smartwatch refresh APIs expire globally in 45 days.</div>
-              <div>➔ **Failure Vector**: betamax-revival failed historically because of licensing; modern open codecs bypass this completely.</div>
+              <div>? **Patent Expiry**: Pebble smartwatch refresh APIs expire globally in 45 days.</div>
+              <div>? **Failure Vector**: betamax-revival failed historically because of licensing; modern open codecs bypass this completely.</div>
             </div>
           </div>
 
@@ -389,7 +362,7 @@ const InnovationIntelligenceCenter = ({ theme, activeInnovation, setCurrentPage,
 
       {/* FEATURE 9: INNOVATION TIMELINE MILSTONES */}
       <div className="glass-panel" style={{ padding: '1.5rem' }}>
-        <span style={{ fontSize: '0.65rem', color: 'var(--text-muted)', fontFamily: 'var(--font-mono)', display: 'block', marginBottom: '1rem' }}>// MY_INNOVATION_TIMELINE_JOURNEY</span>
+        <span style={{ fontSize: '0.65rem', color: 'var(--text-muted)', fontFamily: 'var(--font-sans)', display: 'block', marginBottom: '1rem' }}>// MY_INNOVATION_TIMELINE_JOURNEY</span>
         
         {/* Horizontal Timeline nodes */}
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '1rem' }}>
@@ -424,7 +397,7 @@ const InnovationIntelligenceCenter = ({ theme, activeInnovation, setCurrentPage,
                   color: '#fff',
                   fontSize: '8px'
                 }}>
-                  {isDone ? '✓' : ''}
+                  {isDone ? '?' : ''}
                 </div>
                 <span style={{ color: isDone ? 'var(--color-success)' : 'var(--text-muted)' }}>
                   {step.name}
@@ -437,7 +410,7 @@ const InnovationIntelligenceCenter = ({ theme, activeInnovation, setCurrentPage,
 
       {/* FEATURE 8: AI RESOURCE HUB */}
       <div className="glass-panel" style={{ padding: '1.5rem' }}>
-        <span style={{ fontSize: '0.65rem', color: 'var(--color-secondary)', fontFamily: 'var(--font-mono)', display: 'block', marginBottom: '0.75rem' }}>// PERSONALIZED_AI_RESOURCE_HUB</span>
+        <span style={{ fontSize: '0.65rem', color: 'var(--color-secondary)', fontFamily: 'var(--font-sans)', display: 'block', marginBottom: '0.75rem' }}>// PERSONALIZED_AI_RESOURCE_HUB</span>
         
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: '1rem', fontSize: '0.75rem' }}>
           {[
@@ -456,7 +429,7 @@ const InnovationIntelligenceCenter = ({ theme, activeInnovation, setCurrentPage,
 
       {/* FEATURE 7: INNOVATION CHALLENGE CENTER */}
       <div className="glass-panel" style={{ padding: '1.5rem' }}>
-        <span style={{ fontSize: '0.65rem', color: 'var(--color-primary)', fontFamily: 'var(--font-mono)', display: 'block', marginBottom: '1rem' }}>// INNOVATION_CHALLENGE_CENTER</span>
+        <span style={{ fontSize: '0.65rem', color: 'var(--color-primary)', fontFamily: 'var(--font-sans)', display: 'block', marginBottom: '1rem' }}>// INNOVATION_CHALLENGE_CENTER</span>
         
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '1rem' }}>
           {challenges.map((c, idx) => (
@@ -485,13 +458,13 @@ const InnovationIntelligenceCenter = ({ theme, activeInnovation, setCurrentPage,
       {/* FEATURE 13: QUICK ACTION CARDS */}
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: '1rem' }}>
         {[
-          { label: "🔍 Search Innovation", page: "explorer" },
-          { label: "💡 Discover New Idea", page: "discovery" },
-          { label: "📄 Find Expired Patents", page: "patents" },
-          { label: "📚 Research Papers", page: "papers" },
-          { label: "🚀 Build Startup", page: "startup" },
-          { label: "🏆 Prepare for Hackathon", page: "hackathons" },
-          { label: "🎤 AI Pitch Generator", page: "pitch-coach" }
+          { label: "?? Search Innovation", page: "explorer" },
+          { label: "?? Discover New Idea", page: "discovery" },
+          { label: "?? Find Expired Patents", page: "patents" },
+          { label: "?? Research Papers", page: "papers" },
+          { label: "?? Build Startup", page: "startup" },
+          { label: "?? Prepare for Hackathon", page: "hackathons" },
+          { label: "?? AI Pitch Generator", page: "pitch-coach" }
         ].map((card, idx) => (
           <button
             key={idx}

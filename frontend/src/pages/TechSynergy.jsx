@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Sparkles, Cpu, RefreshCw, Zap, Bookmark, Type, Library } from 'lucide-react';
+
 import { fallbackInnovations } from '../dataFallback';
 
 const TechSynergy = () => {
@@ -108,7 +108,7 @@ const TechSynergy = () => {
   const renderInputSection = (type, setType, seededVal, setSeededVal, savedVal, setSavedVal, customVal, setCustomVal, label) => {
     return (
       <div style={{ display: 'flex', flexDirection: 'column', gap: '0.65rem' }}>
-        <label style={{ fontSize: '0.65rem', color: 'var(--text-muted)', fontFamily: 'var(--font-mono)' }}>{label}</label>
+        <label style={{ fontSize: '0.65rem', color: 'var(--text-muted)', fontFamily: 'var(--font-sans)' }}>{label}</label>
         
         {/* Toggle Option Tabs */}
         <div style={{ display: 'flex', gap: '0.25rem', background: 'rgba(255,255,255,0.02)', padding: '0.2rem', borderRadius: '6px', border: '1px solid var(--border-color)' }}>
@@ -118,7 +118,7 @@ const TechSynergy = () => {
             className={`tech-button ${type === 'seeded' ? '' : 'tech-button-outline'}`}
             style={{ fontSize: '0.65rem', padding: '0.3rem 0.5rem', flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.25rem' }}
           >
-            <Library size={10} /> Pre-Seeded
+            <span className="material-symbols-outlined" style={{ fontSize: '10px' }}>local_library</span> Pre-Seeded
           </button>
           <button 
             type="button"
@@ -126,7 +126,7 @@ const TechSynergy = () => {
             className={`tech-button ${type === 'saved' ? '' : 'tech-button-outline'}`}
             style={{ fontSize: '0.65rem', padding: '0.3rem 0.5rem', flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.25rem' }}
           >
-            <Bookmark size={10} /> Saved Basket
+            <span className="material-symbols-outlined" style={{ fontSize: '10px' }}>bookmark</span> Saved Basket
           </button>
           <button 
             type="button"
@@ -134,7 +134,7 @@ const TechSynergy = () => {
             className={`tech-button ${type === 'custom' ? '' : 'tech-button-outline'}`}
             style={{ fontSize: '0.65rem', padding: '0.3rem 0.5rem', flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.25rem' }}
           >
-            <Type size={10} /> Custom Text
+            <span className="material-symbols-outlined" style={{ fontSize: '10px' }}>text_fields</span> Custom Text
           </button>
         </div>
 
@@ -155,7 +155,7 @@ const TechSynergy = () => {
               ))}
             </select>
           ) : (
-            <div style={{ fontSize: '0.7rem', color: 'var(--color-warning)', background: 'rgba(245,158,11,0.06)', border: '1px solid rgba(245,158,11,0.2)', padding: '0.5rem', borderRadius: '4px', fontFamily: 'var(--font-mono)' }}>
+            <div style={{ fontSize: '0.7rem', color: 'var(--color-warning)', background: 'rgba(245,158,11,0.06)', border: '1px solid rgba(245,158,11,0.2)', padding: '0.5rem', borderRadius: '4px', fontFamily: 'var(--font-sans)' }}>
               [EMPTY: SAVE AN IDEA IN DASHBOARD FIRST]
             </div>
           )
@@ -188,7 +188,7 @@ const TechSynergy = () => {
         {/* Left Column: Selector Form */}
         <div className="glass-panel" style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', borderBottom: '1px solid var(--border-color)', paddingBottom: '0.75rem' }}>
-            <Cpu size={18} color="var(--color-primary)" />
+            <span className="material-symbols-outlined" style={{ fontSize: '18px', color: 'var(--color-primary)' }}>developer_board</span>
             <h3 style={{ fontSize: '1rem', fontWeight: 700 }}>Select Components</h3>
           </div>
 
@@ -203,7 +203,7 @@ const TechSynergy = () => {
 
           <div style={{ display: 'flex', flexDirection: 'column', gap: '0.35rem', margin: '0.25rem 0' }}>
             <div style={{ alignSelf: 'center', background: 'rgba(255,255,255,0.03)', borderRadius: '50%', padding: '0.45rem', border: '1px solid var(--border-color)' }}>
-              <Zap size={12} color="var(--color-secondary)" />
+              <span className="material-symbols-outlined" style={{ fontSize: '12px', color: 'var(--color-secondary)' }}>bolt</span>
             </div>
           </div>
 
@@ -217,7 +217,7 @@ const TechSynergy = () => {
           )}
 
           <button onClick={handleSynthesize} className="tech-button" style={{ marginTop: '0.75rem', width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.35rem' }}>
-            <Sparkles size={14} /> Synthesize Synergy
+            <span className="material-symbols-outlined" style={{ fontSize: '14px' }}>auto_awesome</span> Synthesize Synergy
           </button>
         </div>
 
@@ -225,29 +225,29 @@ const TechSynergy = () => {
         <div className="glass-panel" style={{ minHeight: '380px', display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
           {synthesizing ? (
             <div style={{ display: 'flex', flex: 1, flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: '1rem', color: 'var(--text-muted)' }}>
-              <RefreshCw size={24} className="glow-text-pink" style={{ animation: 'spin 2s linear infinite' }} />
-              <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.8rem' }}>CROSS-MUTATING GENETIC PATENTS...</span>
+              <span className="material-symbols-outlined glow-text-pink" style={{ fontSize: '24px',  animation: 'spin 2s linear infinite'  }}>refresh</span>
+              <span style={{ fontFamily: 'var(--font-sans)', fontSize: '0.8rem' }}>CROSS-MUTATING GENETIC PATENTS...</span>
             </div>
           ) : report ? (
             <div className="animate-fade-in" style={{ display: 'flex', flexDirection: 'column', gap: '1.1rem' }}>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderBottom: '1px solid var(--border-color)', paddingBottom: '0.75rem' }}>
                 <div>
                   <span className="mono-tag" style={{ color: 'var(--color-secondary)' }}>HYBRID SYSTEM COMPILED</span>
-                  <h2 style={{ fontSize: '1.4rem', fontWeight: 800, marginTop: '0.15rem', color: '#fff' }}>{report.name}</h2>
+                  <h2 style={{ fontSize: '1.4rem', fontWeight: 800, marginTop: '0.15rem', color: 'var(--text-main)' }}>{report.name}</h2>
                 </div>
                 <div style={{ textAlign: 'right' }}>
-                  <span style={{ fontSize: '0.65rem', color: 'var(--text-muted)', display: 'block', fontFamily: 'var(--font-mono)' }}>RE-ENTRY SCORING</span>
-                  <span style={{ fontSize: '1.2rem', fontWeight: 800, color: 'var(--color-success)', fontFamily: 'var(--font-mono)' }}>{report.viability}%</span>
+                  <span style={{ fontSize: '0.65rem', color: 'var(--text-muted)', display: 'block', fontFamily: 'var(--font-sans)' }}>RE-ENTRY SCORING</span>
+                  <span style={{ fontSize: '1.2rem', fontWeight: 800, color: 'var(--color-success)', fontFamily: 'var(--font-sans)' }}>{report.viability}%</span>
                 </div>
               </div>
 
               <div>
-                <span style={{ fontSize: '0.65rem', color: 'var(--text-muted)', fontFamily: 'var(--font-mono)', display: 'block' }}>CONCEPT DESCRIPTION</span>
+                <span style={{ fontSize: '0.65rem', color: 'var(--text-muted)', fontFamily: 'var(--font-sans)', display: 'block' }}>CONCEPT DESCRIPTION</span>
                 <p style={{ fontSize: '0.85rem', color: 'var(--text-main)', marginTop: '0.25rem', lineHeight: '1.5' }}>{report.proposition}</p>
               </div>
 
               <div>
-                <span style={{ fontSize: '0.65rem', color: 'var(--text-muted)', fontFamily: 'var(--font-mono)', display: 'block', marginBottom: '0.4rem' }}>KEY CAPABILITIES</span>
+                <span style={{ fontSize: '0.65rem', color: 'var(--text-muted)', fontFamily: 'var(--font-sans)', display: 'block', marginBottom: '0.4rem' }}>KEY CAPABILITIES</span>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
                   {report.features.map((feat, idx) => (
                     <div key={idx} style={{ display: 'flex', gap: '0.5rem', alignItems: 'flex-start', fontSize: '0.8rem', color: 'var(--text-main)' }}>
@@ -259,14 +259,14 @@ const TechSynergy = () => {
               </div>
 
               <div style={{ background: 'rgba(0, 242, 254, 0.03)', border: '1px solid rgba(0, 242, 254, 0.15)', padding: '0.85rem 1rem', borderRadius: '6px', marginTop: '0.5rem' }}>
-                <span style={{ fontSize: '0.65rem', color: 'var(--color-secondary)', display: 'block', fontWeight: 'bold', fontFamily: 'var(--font-mono)' }}>TARGET CONSUMER SECTOR FIT</span>
+                <span style={{ fontSize: '0.65rem', color: 'var(--color-secondary)', display: 'block', fontWeight: 'bold', fontFamily: 'var(--font-sans)' }}>TARGET CONSUMER SECTOR FIT</span>
                 <p style={{ fontSize: '0.8rem', color: 'var(--text-muted)', marginTop: '0.15rem', lineHeight: '1.4' }}>{report.marketFit}</p>
               </div>
             </div>
           ) : (
             <div style={{ display: 'flex', flex: 1, flexDirection: 'column', alignItems: 'center', justifyContent: 'center', color: 'var(--text-muted)', textAlign: 'center', padding: '2rem' }}>
-              <Zap size={32} color="var(--border-color)" style={{ marginBottom: '0.75rem' }} />
-              <span style={{ fontSize: '0.85rem', fontFamily: 'var(--font-mono)' }}>[SYNERGY LAB STANDBY]</span>
+              <span className="material-symbols-outlined" style={{ fontSize: '32px', color: 'var(--border-color)',  marginBottom: '0.75rem'  }}>bolt</span>
+              <span style={{ fontSize: '0.85rem', fontFamily: 'var(--font-sans)' }}>[SYNERGY LAB STANDBY]</span>
               <p style={{ fontSize: '0.75rem', color: 'var(--text-dim)', marginTop: '0.25rem', maxWidth: '300px' }}>
                 Select or type any two technologies and click synthesize to compile their hybrid specifications.
               </p>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Sparkles, Save, ArrowLeft, RefreshCw, Volume2, Smile } from 'lucide-react';
+
 
 const PitchGenerator = ({ 
   pitchMode, 
@@ -22,7 +22,7 @@ const PitchGenerator = ({
           className="tech-button tech-button-outline"
           style={{ fontSize: '0.75rem', padding: '0.45rem 1rem', display: 'flex', alignItems: 'center', gap: '0.35rem' }}
         >
-          <ArrowLeft size={14} /> Back to Dashboard
+          <span className="material-symbols-outlined" style={{ fontSize: '14px' }}>arrow_back</span> Back to Dashboard
         </button>
         <strong style={{ fontSize: '1.1rem', fontFamily: 'var(--font-display)' }}>AI Pitch Configurator</strong>
       </div>
@@ -80,7 +80,7 @@ const PitchGenerator = ({
       <div className="glass-panel" style={{ padding: '2rem' }}>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderBottom: '1px solid var(--border-color)', paddingBottom: '0.75rem', marginBottom: '1.25rem' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-            <Sparkles size={16} color="var(--color-primary)" />
+            <span className="material-symbols-outlined" style={{ fontSize: '16px', color: 'var(--color-primary)' }}>auto_awesome</span>
             <span style={{ fontSize: '0.95rem', fontWeight: 700, fontFamily: 'var(--font-display)' }}>Personalized Speech Teleprompter</span>
           </div>
           <button 
@@ -88,14 +88,14 @@ const PitchGenerator = ({
             className="tech-button" 
             style={{ fontSize: '0.75rem', padding: '0.45rem 1.25rem', display: 'flex', alignItems: 'center', gap: '0.35rem' }}
           >
-            <Save size={12} /> Save Script Configuration
+            <span className="material-symbols-outlined" style={{ fontSize: '12px' }}>save</span> Save Script Configuration
           </button>
         </div>
 
         {/* Tempo HUD indicator */}
         <div style={{ display: 'flex', gap: '1.5rem', background: 'rgba(59, 130, 246, 0.05)', border: '1px solid rgba(59, 130, 246, 0.2)', padding: '0.85rem', borderRadius: '6px', fontSize: '0.75rem', marginBottom: '1.25rem' }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '0.35rem' }}><Volume2 size={12} style={{ color: 'var(--color-primary)' }} /> <span>Speaking Tempo: <strong>{tempo}</strong></span></div>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '0.35rem' }}><Smile size={12} style={{ color: 'var(--color-success)' }} /> <span>Delivery Tone: <strong>{tone}</strong></span></div>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.35rem' }}><span className="material-symbols-outlined" style={{ fontSize: '12px',  color: 'var(--color-primary)'  }}>volume_up</span> <span>Speaking Tempo: <strong>{tempo}</strong></span></div>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.35rem' }}><span className="material-symbols-outlined" style={{ fontSize: '12px',  color: 'var(--color-success)'  }}>sentiment_satisfied</span> <span>Delivery Tone: <strong>{tone}</strong></span></div>
         </div>
 
         {/* Generated Script */}
