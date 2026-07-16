@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { usePortal } from '../context/PortalContext';
-import aiBrainLogo from '../assets/ai_brain_logo_transparent.png';
+import aiBrainLogo from '../assets/invenza_ai_logo_transparent.png';
 
 const Sidebar = ({ currentPage, setCurrentPage, sidebarOpen, setSidebarOpen, userEmail, handleLogout, theme, toggleTheme }) => {
   const { portalMode, setPortalMode } = usePortal();
