@@ -669,5 +669,32 @@
       "preferredDomains": []
     },
     "businessProfile": null
+  },
+  {
+    "email": "praven@gmail.com",
+    "password": "b047da3e7083c8c5deba5cd6fc1c91939e2604c79e8eea9ce080328b014d62a5",
+    "role": "student",
+    "roles": [
+      "student"
+    ],
+    "mfaEnabled": false,
+    "mfaType": "none",
+    "totpSecret": null,
+    "backupCodes": [],
+    "loginFailures": 0,
+    "lockoutUntil": null,
+    "activeSessions": [],
+    "loginHistory": [],
+    "studentProfile": {
+      "fullName": "praveen",
+      "college": "smvec",
+      "department": "ai ds",
+      "yearOfStudy": "2",
+      "registerNumber": "",
+      "skills": [],
+      "interests": [],
+      "preferredDomains": []
+    },
+    "businessProfile": null
   }
 ]

@@ -57,10 +57,7 @@ const PitchEvaluator = ({
         </div>
 
         {/* Right: Detailed metrics */}
-        <div className="glass-panel" style={{ padding: '1.5rem' }}>
-          <span style={{ fontSize: '0.65rem', color: 'var(--text-muted)', fontFamily: 'var(--font-sans)', display: 'block', marginBottom: '1rem', textAlign: 'left' }}>// PITCH_EVALUATION_RADAR</span>
-          
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+        <div className="glass-panel" style={{ padding: '1.5rem' }}>          <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
             {evaluations.map((evalItem, idx) => (
               <div key={idx} style={{ fontSize: '0.8rem', textAlign: 'left' }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '0.35rem' }}>

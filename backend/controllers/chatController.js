@@ -2,6 +2,8 @@ import fs from 'fs';
 import path from 'path';
 import https from 'https';
 import { fileURLToPath } from 'url';
+import { loadInnovationsFromDB } from '../utils/dbFetcher.js';
+import { fetchCerebrasSearch } from '../utils/cerebrasSearch.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -183,7 +185,7 @@ export const chatWithAI = async (req, res) => {
 
   const userQuery = messages[messages.length - 1].content;
   const latestMessage = userQuery.toLowerCase().trim();
-  const db = loadDatabase();
+  const db = await loadInnovationsFromDB();
   let responseText = "";
 
   // Check for common greetings

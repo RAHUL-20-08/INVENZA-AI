@@ -2,6 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import crypto from 'crypto';
 import nodemailer from 'nodemailer';
+import db from '../database/db.js';
 
 const USERS_FILE = path.resolve('users.json');
 const AUDIT_LOGS_FILE = path.resolve('audit_logs.json');
@@ -128,14 +129,14 @@ const parseUserAgent = (userAgentHeader) => {
 };
 
 // Authenticate user middleware inline parser
-const getAuthUserFromToken = (req) => {
+const getAuthUserFromToken = async (req) => {
   const authHeader = req.headers.authorization;
   if (!authHeader || !authHeader.startsWith('Bearer ')) return null;
   try {
     const token = authHeader.split(' ')[1];
     const payload = JSON.parse(Buffer.from(token, 'base64').toString('ascii'));
     if (payload.exp && Date.now() / 1000 > payload.exp) return null;
-    const users = loadUsers();
+    const users = await loadUsers();
     return users.find(u => u.email.toLowerCase() === payload.email.toLowerCase()) || null;
   } catch(e) {
     return null;
@@ -148,7 +149,7 @@ export const sendRegisterOTP = async (req, res) => {
     return res.status(400).json({ success: false, message: "Email and portalType are required." });
   }
 
-  const users = loadUsers();
+  const users = await loadUsers();
   const existingUser = users.find(u => u.email.toLowerCase() === email.toLowerCase());
   
   if (existingUser) {
@@ -225,7 +226,7 @@ export const registerUser = async (req, res) => {
 
   delete otpSessions[sessionKey];
 
-  const users = loadUsers();
+  const users = await loadUsers();
   const existingIdx = users.findIndex(u => u.email.toLowerCase() === email.toLowerCase());
 
   if (existingIdx !== -1) {
@@ -264,8 +265,8 @@ export const registerUser = async (req, res) => {
     }
 
     users[existingIdx] = user;
-    saveUsers(users);
-    logAuditEvent(user.email, 'LINK_PORTAL_ROLE', { portalType });
+    await saveUsers(users);
+    await logAuditEvent(user.email, 'LINK_PORTAL_ROLE', { portalType });
 
     const tokenPayload = { email: user.email, role: portalType, exp: Math.floor(Date.now() / 1000) + (3600) };
     const token = Buffer.from(JSON.stringify(tokenPayload)).toString('base64');
@@ -319,8 +320,8 @@ export const registerUser = async (req, res) => {
     };
 
     users.push(newUser);
-    saveUsers(users);
-    logAuditEvent(newUser.email, 'REGISTER_USER', { portalType });
+    await saveUsers(users);
+    await logAuditEvent(newUser.email, 'REGISTER_USER', { portalType });
 
     const tokenPayload = { email: newUser.email, role: portalType, exp: Math.floor(Date.now() / 1000) + (3600) };
     const token = Buffer.from(JSON.stringify(tokenPayload)).toString('base64');
@@ -348,7 +349,7 @@ export const loginUser = async (req, res) => {
     return res.status(400).json({ success: false, message: "Invalid email or password." });
   }
 
-  const users = loadUsers();
+  const users = await loadUsers();
   const userIdx = users.findIndex(u => u.email.toLowerCase() === email.toLowerCase());
 
   if (userIdx === -1) {
@@ -376,14 +377,14 @@ export const loginUser = async (req, res) => {
       lockout = true;
     }
     users[userIdx] = user;
-    saveUsers(users);
+    await saveUsers(users);
     
     // Exponential response latency backoff for login protections
     const backoff = Math.min(Math.pow(2, user.loginFailures) * 500, 5000);
     await new Promise(r => setTimeout(r, backoff));
 
     if (lockout) {
-      logAuditEvent(user.email, 'ACCOUNT_TEMPORARILY_LOCKED', { reason: 'Consectutive login failures limit exceeded' });
+      await logAuditEvent(user.email, 'ACCOUNT_TEMPORARILY_LOCKED', { reason: 'Consectutive login failures limit exceeded' });
       return res.status(403).json({ success: false, message: "Too many failed attempts. Your account is temporarily locked for 15 minutes." });
     }
 
@@ -401,7 +402,7 @@ export const loginUser = async (req, res) => {
   const roles = user.roles || [user.role || 'student'];
   if (portalType && !roles.includes(portalType)) {
     users[userIdx] = user;
-    saveUsers(users);
+    await saveUsers(users);
     return res.status(403).json({ success: false, message: "You do not have a registered profile for this portal." });
   }
 
@@ -435,7 +436,7 @@ export const loginUser = async (req, res) => {
 
   if (isNewDevice) {
     console.log(`[SECURITY ALERT] Email alert sent to ${user.email}: New device login detected from ${userAgent.browser} on ${userAgent.os}`);
-    logAuditEvent(user.email, 'NEW_DEVICE_LOGIN_ALERT', { device: currentDeviceSignature });
+    await logAuditEvent(user.email, 'NEW_DEVICE_LOGIN_ALERT', { device: currentDeviceSignature });
   }
 
   user.loginHistory = user.loginHistory || [];
@@ -449,8 +450,8 @@ export const loginUser = async (req, res) => {
   });
 
   users[userIdx] = user;
-  saveUsers(users);
-  logAuditEvent(user.email, 'LOGIN_SUCCESS', { portalType: activeRole, sessionId });
+  await saveUsers(users);
+  await logAuditEvent(user.email, 'LOGIN_SUCCESS', { portalType: activeRole, sessionId });
 
   res.json({
     success: true,
@@ -473,7 +474,7 @@ export const verifyMFA = async (req, res) => {
     return res.status(400).json({ success: false, message: "Email and code are required." });
   }
 
-  const users = loadUsers();
+  const users = await loadUsers();
   const userIdx = users.findIndex(u => u.email.toLowerCase() === email.toLowerCase());
   if (userIdx === -1) return res.status(404).json({ success: false, message: "User not found." });
   const user = users[userIdx];
@@ -482,9 +483,9 @@ export const verifyMFA = async (req, res) => {
   if (user.backupCodes && user.backupCodes.includes(code)) {
     user.backupCodes = user.backupCodes.filter(c => c !== code); // consume code
     users[userIdx] = user;
-    saveUsers(users);
-    logAuditEvent(user.email, 'MFA_BACKUP_CODE_USED');
-    return finalizeMFALogin(req, res, user, portalType);
+    await saveUsers(users);
+    await logAuditEvent(user.email, 'MFA_BACKUP_CODE_USED');
+    return await finalizeMFALogin(req, res, user, portalType);
   }
 
   // 2. Try OTP verify
@@ -508,10 +509,10 @@ export const verifyMFA = async (req, res) => {
   }
 
   delete otpSessions[sessionKey];
-  return finalizeMFALogin(req, res, user, portalType);
+  return await finalizeMFALogin(req, res, user, portalType);
 };
 
-const finalizeMFALogin = (req, res, user, portalType) => {
+const finalizeMFALogin = async (req, res, user, portalType) => {
   const activeRole = portalType || 'business';
   const tokenPayload = { email: user.email, role: activeRole, exp: Math.floor(Date.now() / 1000) + (3600) };
   const token = Buffer.from(JSON.stringify(tokenPayload)).toString('base64');
@@ -525,12 +526,12 @@ const finalizeMFALogin = (req, res, user, portalType) => {
     sessionId, token, ip: ipAddress, os: userAgent.os, browser: userAgent.browser, deviceType: userAgent.deviceType, lastActive: new Date().toISOString()
   });
 
-  const users = loadUsers();
+  const users = await loadUsers();
   const idx = users.findIndex(u => u.email.toLowerCase() === user.email.toLowerCase());
   users[idx] = user;
-  saveUsers(users);
+  await saveUsers(users);
 
-  logAuditEvent(user.email, 'MFA_VERIFIED_LOGIN_SUCCESS', { sessionId });
+  await logAuditEvent(user.email, 'MFA_VERIFIED_LOGIN_SUCCESS', { sessionId });
 
   res.json({
     success: true,
@@ -548,7 +549,7 @@ const finalizeMFALogin = (req, res, user, portalType) => {
 };
 
 export const getSecurityProfile = async (req, res) => {
-  const user = getAuthUserFromToken(req);
+  const user = await getAuthUserFromToken(req);
   if (!user) return res.status(401).json({ success: false, message: "Unauthorized access token." });
 
   // Load audits
@@ -581,7 +582,7 @@ export const getSecurityProfile = async (req, res) => {
 };
 
 export const setupMFA = async (req, res) => {
-  const user = getAuthUserFromToken(req);
+  const user = await getAuthUserFromToken(req);
   if (!user) return res.status(401).json({ success: false, message: "Unauthorized access token." });
   const { type } = req.body; // 'email' or 'totp'
 
@@ -605,7 +606,7 @@ export const setupMFA = async (req, res) => {
 };
 
 export const enableMFA = async (req, res) => {
-  const user = getAuthUserFromToken(req);
+  const user = await getAuthUserFromToken(req);
   if (!user) return res.status(401).json({ success: false, message: "Unauthorized." });
   const { code } = req.body;
 
@@ -620,7 +621,7 @@ export const enableMFA = async (req, res) => {
     return res.status(400).json({ success: false, message: "Invalid setup verification code." });
   }
 
-  const users = loadUsers();
+  const users = await loadUsers();
   const idx = users.findIndex(u => u.email.toLowerCase() === user.email.toLowerCase());
   
   users[idx].mfaEnabled = true;
@@ -628,15 +629,15 @@ export const enableMFA = async (req, res) => {
   users[idx].totpSecret = setup.totpSecret;
   users[idx].backupCodes = setup.backupCodes;
   
-  saveUsers(users);
+  await saveUsers(users);
   delete otpSessions[setupKey];
-  logAuditEvent(user.email, 'MFA_ENABLED', { mfaType: setup.type });
+  await logAuditEvent(user.email, 'MFA_ENABLED', { mfaType: setup.type });
 
   res.json({ success: true, message: "Multi-Factor Authentication enabled successfully." });
 };
 
 export const disableMFA = async (req, res) => {
-  const user = getAuthUserFromToken(req);
+  const user = await getAuthUserFromToken(req);
   if (!user) return res.status(401).json({ success: false, message: "Unauthorized." });
   const { password } = req.body;
 
@@ -644,7 +645,7 @@ export const disableMFA = async (req, res) => {
     return res.status(401).json({ success: false, message: "Invalid credentials." });
   }
 
-  const users = loadUsers();
+  const users = await loadUsers();
   const idx = users.findIndex(u => u.email.toLowerCase() === user.email.toLowerCase());
   
   users[idx].mfaEnabled = false;
@@ -652,47 +653,47 @@ export const disableMFA = async (req, res) => {
   users[idx].totpSecret = null;
   users[idx].backupCodes = [];
   
-  saveUsers(users);
-  logAuditEvent(user.email, 'MFA_DISABLED');
+  await saveUsers(users);
+  await logAuditEvent(user.email, 'MFA_DISABLED');
 
   res.json({ success: true, message: "Multi-Factor Authentication disabled." });
 };
 
 export const terminateSession = async (req, res) => {
-  const user = getAuthUserFromToken(req);
+  const user = await getAuthUserFromToken(req);
   if (!user) return res.status(401).json({ success: false, message: "Unauthorized." });
   const { sessionId } = req.params;
 
-  const users = loadUsers();
+  const users = await loadUsers();
   const idx = users.findIndex(u => u.email.toLowerCase() === user.email.toLowerCase());
   
   users[idx].activeSessions = (users[idx].activeSessions || []).filter(s => s.sessionId !== sessionId);
-  saveUsers(users);
-  logAuditEvent(user.email, 'TERMINATE_SESSION', { sessionId });
+  await saveUsers(users);
+  await logAuditEvent(user.email, 'TERMINATE_SESSION', { sessionId });
 
   res.json({ success: true, message: "Session terminated successfully." });
 };
 
 export const terminateAllSessions = async (req, res) => {
-  const user = getAuthUserFromToken(req);
+  const user = await getAuthUserFromToken(req);
   if (!user) return res.status(401).json({ success: false, message: "Unauthorized." });
 
   // Keep only current session
   const authHeader = req.headers.authorization;
   const currentToken = authHeader.split(' ')[1];
 
-  const users = loadUsers();
+  const users = await loadUsers();
   const idx = users.findIndex(u => u.email.toLowerCase() === user.email.toLowerCase());
   
   users[idx].activeSessions = (users[idx].activeSessions || []).filter(s => s.token === currentToken);
-  saveUsers(users);
-  logAuditEvent(user.email, 'TERMINATE_ALL_OTHER_SESSIONS');
+  await saveUsers(users);
+  await logAuditEvent(user.email, 'TERMINATE_ALL_OTHER_SESSIONS');
 
   res.json({ success: true, message: "All other sessions signed out." });
 };
 
 export const changePassword = async (req, res) => {
-  const user = getAuthUserFromToken(req);
+  const user = await getAuthUserFromToken(req);
   if (!user) return res.status(401).json({ success: false, message: "Unauthorized." });
   const { currentPassword, newPassword, mfaCode } = req.body;
 
@@ -711,7 +712,7 @@ export const changePassword = async (req, res) => {
     }
   }
 
-  const users = loadUsers();
+  const users = await loadUsers();
   const idx = users.findIndex(u => u.email.toLowerCase() === user.email.toLowerCase());
   users[idx].password = hashPassword(newPassword);
   
@@ -720,14 +721,14 @@ export const changePassword = async (req, res) => {
   const currentToken = authHeader.split(' ')[1];
   users[idx].activeSessions = (users[idx].activeSessions || []).filter(s => s.token === currentToken);
 
-  saveUsers(users);
-  logAuditEvent(user.email, 'PASSWORD_CHANGE_SUCCESS');
+  await saveUsers(users);
+  await logAuditEvent(user.email, 'PASSWORD_CHANGE_SUCCESS');
 
   res.json({ success: true, message: "Password updated and secondary sessions signed out." });
 };
 
 export const deleteAccount = async (req, res) => {
-  const user = getAuthUserFromToken(req);
+  const user = await getAuthUserFromToken(req);
   if (!user) return res.status(401).json({ success: false, message: "Unauthorized." });
   const { password, mfaCode } = req.body;
 
@@ -741,16 +742,16 @@ export const deleteAccount = async (req, res) => {
     }
   }
 
-  const users = loadUsers();
+  const users = await loadUsers();
   const filtered = users.filter(u => u.email.toLowerCase() !== user.email.toLowerCase());
-  saveUsers(filtered);
-  logAuditEvent(user.email, 'DELETE_ACCOUNT_PERMANENT');
+  await saveUsers(filtered);
+  await logAuditEvent(user.email, 'DELETE_ACCOUNT_PERMANENT');
 
   res.json({ success: true, message: "Account deleted permanently." });
 };
 
 export const verifySensitiveAction = async (req, res) => {
-  const user = getAuthUserFromToken(req);
+  const user = await getAuthUserFromToken(req);
   if (!user) return res.status(401).json({ success: false, message: "Unauthorized." });
   const { mfaCode } = req.body;
 
@@ -770,7 +771,7 @@ export const requestForgotPassword = async (req, res) => {
   const { email } = req.body;
   if (!email) return res.status(400).json({ success: false, message: "Email is required." });
 
-  const users = loadUsers();
+  const users = await loadUsers();
   const exists = users.some(u => u.email.toLowerCase() === email.toLowerCase());
   if (!exists) {
     // Prevent email enumeration: return generic message
@@ -840,14 +841,14 @@ export const resetPassword = async (req, res) => {
     return res.status(400).json({ success: false, message: "Invalid reset session token." });
   }
 
-  const users = loadUsers();
+  const users = await loadUsers();
   const idx = users.findIndex(u => u.email.toLowerCase() === email.toLowerCase());
   if (idx === -1) return res.status(404).json({ success: false, message: "User not found." });
 
   users[idx].password = hashPassword(newPassword);
-  saveUsers(users);
+  await saveUsers(users);
   delete otpSessions[email.toLowerCase()];
-  logAuditEvent(email, 'PASSWORD_RESET_SUCCESS');
+  await logAuditEvent(email, 'PASSWORD_RESET_SUCCESS');
 
   res.json({ success: true, message: "Your password has been changed successfully." });
 };
@@ -959,7 +960,7 @@ export const oauthCallback = async (req, res) => {
       }
     }
 
-    const users = loadUsers();
+    const users = await loadUsers();
     let userIdx = users.findIndex(u => u.email.toLowerCase() === email.toLowerCase());
     let user;
     let isNewUser = false;
@@ -985,8 +986,8 @@ export const oauthCallback = async (req, res) => {
         businessProfile: null
       };
       users.push(user);
-      saveUsers(users);
-      logAuditEvent(email, 'OAUTH_REGISTER_INIT', { provider, portalType });
+      await saveUsers(users);
+      await logAuditEvent(email, 'OAUTH_REGISTER_INIT', { provider, portalType });
     } else {
       user = users[userIdx];
       const roles = user.roles || [user.role || 'student'];
@@ -997,8 +998,8 @@ export const oauthCallback = async (req, res) => {
       }
       isNewUser = user.onboardingRequired || (!user.studentProfile && portalType === 'student') || (!user.businessProfile && portalType === 'business');
       users[userIdx] = user;
-      saveUsers(users);
-      logAuditEvent(email, 'OAUTH_LOGIN_SUCCESS', { provider, portalType });
+      await saveUsers(users);
+      await logAuditEvent(email, 'OAUTH_LOGIN_SUCCESS', { provider, portalType });
     }
 
     // Short-lived access token (15 mins) and long-lived refresh token (7 days)
@@ -1040,7 +1041,7 @@ export const oauthCallback = async (req, res) => {
     const freshUsers = loadUsers();
     const freshIdx = freshUsers.findIndex(u => u.email.toLowerCase() === email.toLowerCase());
     freshUsers[freshIdx] = user;
-    saveUsers(freshUsers);
+    await saveUsers(freshUsers);
 
     // Set secure HttpOnly cookies
     const isProd = process.env.NODE_ENV === 'production';
@@ -1094,7 +1095,7 @@ export const refreshTokenRotation = async (req, res) => {
       return res.status(401).json({ success: false, message: "Refresh token expired." });
     }
 
-    const users = loadUsers();
+    const users = await loadUsers();
     const user = users.find(u => u.email.toLowerCase() === payload.email.toLowerCase());
     if (!user) {
       return res.status(401).json({ success: false, message: "Invalid session credentials." });
@@ -1108,7 +1109,7 @@ export const refreshTokenRotation = async (req, res) => {
       const freshUsers = loadUsers();
       const freshIdx = freshUsers.findIndex(u => u.email.toLowerCase() === user.email.toLowerCase());
       freshUsers[freshIdx] = user;
-      saveUsers(freshUsers);
+      await saveUsers(freshUsers);
       return res.status(401).json({ success: false, message: "Security breach detected: token reuse. All active sessions revoked." });
     }
 
@@ -1130,7 +1131,7 @@ export const refreshTokenRotation = async (req, res) => {
     const freshUsers = loadUsers();
     const freshIdx = freshUsers.findIndex(u => u.email.toLowerCase() === user.email.toLowerCase());
     freshUsers[freshIdx] = user;
-    saveUsers(freshUsers);
+    await saveUsers(freshUsers);
 
     const isProd = process.env.NODE_ENV === 'production';
     res.setHeader('Set-Cookie', [
@@ -1175,7 +1176,7 @@ export const adminOauthConfig = async (req, res) => {
 
 // Complete Onboarding metadata fields
 export const completeOnboarding = async (req, res) => {
-  const user = getAuthUserFromToken(req);
+  const user = await getAuthUserFromToken(req);
   if (!user) return res.status(401).json({ success: false, message: "Unauthorized clearance token." });
 
   const { portalType, profileFields } = req.body;
@@ -1183,7 +1184,7 @@ export const completeOnboarding = async (req, res) => {
     return res.status(400).json({ success: false, message: "portalType and profileFields are required." });
   }
 
-  const users = loadUsers();
+  const users = await loadUsers();
   const idx = users.findIndex(u => u.email.toLowerCase() === user.email.toLowerCase());
   if (idx === -1) return res.status(404).json({ success: false, message: "User not found." });
 
@@ -1215,9 +1216,9 @@ export const completeOnboarding = async (req, res) => {
 
   updatedUser.onboardingRequired = false;
   users[idx] = updatedUser;
-  saveUsers(users);
+  await saveUsers(users);
 
-  logAuditEvent(updatedUser.email, 'ONBOARDING_COMPLETED', { portalType });
+  await logAuditEvent(updatedUser.email, 'ONBOARDING_COMPLETED', { portalType });
 
   res.json({
     success: true,

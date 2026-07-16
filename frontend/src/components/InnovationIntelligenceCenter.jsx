@@ -88,9 +88,7 @@ const InnovationIntelligenceCenter = ({ theme, activeInnovation, setCurrentPage,
     <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem', marginTop: '1.5rem', color: 'var(--text-main)' }}>
       
       {/* HEADER CARD */}
-      <div className="glass-panel" style={{ padding: '2rem', border: '1.5px solid var(--border-color)', borderRadius: '12px', background: 'var(--bg-panel-solid)' }}>
-        <span className="mono-tag" style={{ color: 'var(--color-primary)' }}>// COMMAND_CENTER</span>
-        <h1 style={{ fontSize: '2rem', marginTop: '0.25rem', fontFamily: 'var(--font-display)', textTransform: 'uppercase' }}>
+      <div className="glass-panel" style={{ padding: '2rem', border: '1.5px solid var(--border-color)', borderRadius: '12px', background: 'var(--bg-panel-solid)' }}>        <h1 style={{ fontSize: '2rem', marginTop: '0.25rem', fontFamily: 'var(--font-display)', textTransform: 'uppercase' }}>
           Innovation Intelligence Center
         </h1>
         <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', margin: 0 }}>
@@ -134,10 +132,7 @@ const InnovationIntelligenceCenter = ({ theme, activeInnovation, setCurrentPage,
           </div>
 
           {/* FEATURE 1: INNOVATION OPPORTUNITY DASHBOARD */}
-          <div className="glass-panel" style={{ padding: '1.5rem' }}>
-            <span style={{ fontSize: '0.65rem', color: 'var(--color-secondary)', fontFamily: 'var(--font-sans)', display: 'block', marginBottom: '0.75rem' }}>// REALTIME_OPPORTUNITY_FEED</span>
-            
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
+          <div className="glass-panel" style={{ padding: '1.5rem' }}>            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
               {[
                 { title: "Newly Expired Patents", desc: "US-482011-B2: Local storage sensor polling algorithm (Expired 45 days ago).", stat: "Active" },
                 { title: "Recently Failed Startups", desc: "AeroCrop: Agricultural drone sensor analytics (Friction: Hardware overhead).", stat: "Worth Revisiting" },
@@ -156,10 +151,7 @@ const InnovationIntelligenceCenter = ({ theme, activeInnovation, setCurrentPage,
           </div>
 
           {/* FEATURE 5: INNOVATION REVIVAL OPPORTUNITIES */}
-          <div className="glass-panel" style={{ padding: '1.5rem' }}>
-            <span style={{ fontSize: '0.65rem', color: 'var(--color-primary)', fontFamily: 'var(--font-sans)', display: 'block', marginBottom: '0.75rem' }}>// INNOVATIONS_WITH_HIGH_REVIVAL_POTENTIAL</span>
-            
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '1rem' }}>
+          <div className="glass-panel" style={{ padding: '1.5rem' }}>            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '1rem' }}>
               {revivalList.map((item, idx) => (
                 <div key={idx} style={{ background: 'rgba(255,255,255,0.01)', border: '1px solid var(--border-color)', padding: '1.25rem', borderRadius: '8px', display: 'flex', flexDirection: 'column', gap: '0.65rem' }}>
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
@@ -235,10 +227,7 @@ const InnovationIntelligenceCenter = ({ theme, activeInnovation, setCurrentPage,
         <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
           
           {/* FEATURE 3: CONTINUE YOUR JOURNEY */}
-          <div className="glass-panel" style={{ padding: '1.25rem' }}>
-            <span style={{ fontSize: '0.65rem', color: 'var(--text-muted)', fontFamily: 'var(--font-sans)', display: 'block', marginBottom: '0.65rem' }}>// CONTINUE_YOUR_JOURNEY</span>
-            
-            {activeProject ? (
+          <div className="glass-panel" style={{ padding: '1.25rem' }}>            {activeProject ? (
               <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
                 <h4 style={{ fontSize: '0.9rem', fontWeight: 'bold', color: 'var(--text-main)', margin: 0 }}>{activeProject.title}</h4>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '0.35rem', fontSize: '0.75rem' }}>
@@ -348,9 +337,7 @@ const InnovationIntelligenceCenter = ({ theme, activeInnovation, setCurrentPage,
           </div>
 
           {/* FEATURE 14: INNOVATION INSIGHT CARDS */}
-          <div className="glass-panel" style={{ padding: '1.25rem' }}>
-            <span style={{ fontSize: '0.65rem', color: 'var(--text-muted)', fontFamily: 'var(--font-sans)', display: 'block', marginBottom: '0.5rem' }}>// CONCISE_AI_INSIGHTS</span>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.55rem', fontSize: '0.75rem', lineHeight: '1.4' }}>
+          <div className="glass-panel" style={{ padding: '1.25rem' }}>            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.55rem', fontSize: '0.75rem', lineHeight: '1.4' }}>
               <div>? **Patent Expiry**: Pebble smartwatch refresh APIs expire globally in 45 days.</div>
               <div>? **Failure Vector**: betamax-revival failed historically because of licensing; modern open codecs bypass this completely.</div>
             </div>
@@ -361,10 +348,7 @@ const InnovationIntelligenceCenter = ({ theme, activeInnovation, setCurrentPage,
       </div>
 
       {/* FEATURE 9: INNOVATION TIMELINE MILSTONES */}
-      <div className="glass-panel" style={{ padding: '1.5rem' }}>
-        <span style={{ fontSize: '0.65rem', color: 'var(--text-muted)', fontFamily: 'var(--font-sans)', display: 'block', marginBottom: '1rem' }}>// MY_INNOVATION_TIMELINE_JOURNEY</span>
-        
-        {/* Horizontal Timeline nodes */}
+      <div className="glass-panel" style={{ padding: '1.5rem' }}>        {/* Horizontal Timeline nodes */}
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '1rem' }}>
           {milestonesList.map(step => {
             const isDone = completedMilestones.has(step.id);
@@ -409,10 +393,7 @@ const InnovationIntelligenceCenter = ({ theme, activeInnovation, setCurrentPage,
       </div>
 
       {/* FEATURE 8: AI RESOURCE HUB */}
-      <div className="glass-panel" style={{ padding: '1.5rem' }}>
-        <span style={{ fontSize: '0.65rem', color: 'var(--color-secondary)', fontFamily: 'var(--font-sans)', display: 'block', marginBottom: '0.75rem' }}>// PERSONALIZED_AI_RESOURCE_HUB</span>
-        
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: '1rem', fontSize: '0.75rem' }}>
+      <div className="glass-panel" style={{ padding: '1.5rem' }}>        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: '1rem', fontSize: '0.75rem' }}>
           {[
             { cat: "Relevant APIs", desc: "WIPO Public query XML parser API, Wikipedia Abstract streams." },
             { cat: "GitHub Repositories", desc: "Local-quantized-Inference templates, edge-caching routers." },
@@ -428,10 +409,7 @@ const InnovationIntelligenceCenter = ({ theme, activeInnovation, setCurrentPage,
       </div>
 
       {/* FEATURE 7: INNOVATION CHALLENGE CENTER */}
-      <div className="glass-panel" style={{ padding: '1.5rem' }}>
-        <span style={{ fontSize: '0.65rem', color: 'var(--color-primary)', fontFamily: 'var(--font-sans)', display: 'block', marginBottom: '1rem' }}>// INNOVATION_CHALLENGE_CENTER</span>
-        
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '1rem' }}>
+      <div className="glass-panel" style={{ padding: '1.5rem' }}>        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '1rem' }}>
           {challenges.map((c, idx) => (
             <div key={idx} style={{ background: 'rgba(255,255,255,0.01)', border: '1px solid var(--border-color)', padding: '1rem', borderRadius: '8px', display: 'flex', flexDirection: 'column', gap: '0.55rem' }}>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>

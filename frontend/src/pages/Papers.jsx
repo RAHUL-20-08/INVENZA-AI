@@ -735,9 +735,7 @@ Contributions: ${analysis.highlights.contributions}`;
             </div>
 
             {/* Abstract text */}
-            <div>
-              <span style={{ fontSize: '0.65rem', color: 'var(--text-muted)', fontFamily: 'var(--font-sans)', display: 'block', marginBottom: '0.25rem' }}>// DOCUMENT_ABSTRACT</span>
-              <p style={{ fontSize: '0.85rem', color: 'var(--text-main)', lineHeight: '1.4', margin: 0 }}>
+            <div>              <p style={{ fontSize: '0.85rem', color: 'var(--text-main)', lineHeight: '1.4', margin: 0 }}>
                 "{selectedPaper.abstract}"
               </p>
             </div>
@@ -807,9 +805,7 @@ Contributions: ${analysis.highlights.contributions}`;
               
               {/* Citation layout */}
               <div className="glass-panel" style={{ padding: '0.85rem', background: '#07090e', border: '1px solid var(--border-color)' }}>
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.55rem' }}>
-                  <span style={{ fontSize: '0.65rem', color: 'var(--text-muted)', fontFamily: 'var(--font-sans)' }}>// BIBTEX_CITATION</span>
-                  <div style={{ display: 'flex', gap: '0.35rem' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.55rem' }}>                  <div style={{ display: 'flex', gap: '0.35rem' }}>
                     <button 
                       onClick={handleCopyBib}
                       style={{ background: 'transparent', border: 'none', color: copiedBib ? 'var(--color-success)' : 'var(--color-primary)', cursor: 'pointer', fontSize: '0.65rem', fontWeight: 'bold' }}

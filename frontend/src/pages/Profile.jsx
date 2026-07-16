@@ -25,16 +25,26 @@ const Profile = ({ userEmail, theme }) => {
 
   // --- 1. USER METADATA STATE (LOAD FROM AUTH OR CACHE) ---
   const [profileData, setProfileData] = useState(() => {
-    const saved = localStorage.getItem('profile_data');
-    if (saved) return JSON.parse(saved);
-
     const authUser = JSON.parse(localStorage.getItem('auth_user') || '{}');
     const email = authUser.email || userEmail || '';
-    const username = email ? email.split('@')[0] : '';
-    
+    const authUsername = email ? email.split('@')[0] : 'user';
+    const authFullName = authUser.name || (authUsername ? authUsername.charAt(0).toUpperCase() + authUsername.slice(1) : 'User');
+
+    const saved = localStorage.getItem('profile_data');
+    if (saved) {
+      const parsedSaved = JSON.parse(saved);
+      // Ensure the identity shown matches the currently logged-in authUser!
+      return {
+        ...parsedSaved,
+        fullName: authFullName,
+        username: authUsername,
+        role: authUser.role || parsedSaved.role || 'student',
+      };
+    }
+
     return {
-      fullName: authUser.name || (username ? username.charAt(0).toUpperCase() + username.slice(1) : ''),
-      username: username,
+      fullName: authFullName,
+      username: authUsername,
       bio: '',
       role: authUser.role || 'student',
       company: '',
@@ -604,172 +614,108 @@ const Profile = ({ userEmail, theme }) => {
   };
 
   return (
-    <div className="animate-fade-in" style={{ display: 'flex', flexDirection: 'column', gap: '2rem', paddingBottom: '3rem' }}>
+    <div className="animate-fade-in" style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem', paddingBottom: '3rem' }}>
       
-      {/* 1. Header & Cover customization banner */}
-      <div className="glass-panel" style={{ padding: 0, overflow: 'hidden', border: '1px solid var(--border-color)', borderRadius: '12px', background: 'var(--bg-panel-solid)' }}>
+      {/* TOP COMPACT GRID: Identity & Stats */}
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '1.5rem' }}>
         
-        {/* Cover photo presets */}
-        <div style={{
-          height: '160px',
-          background: `linear-gradient(135deg, ${profileData.coverColor}, #13141f)`,
-          position: 'relative'
-        }}>
-          {isEditing && (
-            <div style={{ position: 'absolute', top: '1rem', right: '1rem', display: 'flex', gap: '0.5rem' }}>
-              {['#3b82f6', '#10b981', '#6366f1', '#ec4899', '#f59e0b'].map(color => (
-                <button
-                  key={color}
-                  type="button"
-                  onClick={() => setProfileData(prev => ({ ...prev, coverColor: color }))}
-                  style={{
-                    width: '20px',
-                    height: '20px',
-                    borderRadius: '50%',
-                    background: color,
-                    border: '2px solid #fff',
-                    cursor: 'pointer'
-                  }}
-                />
-              ))}
-            </div>
-          )}
-        </div>
-
-        {/* Profile Card Header Info */}
-        <div style={{ padding: '0 2rem 2rem 2rem', position: 'relative', marginTop: '-60px' }}>
+        {/* LEFT: IDENTITY & BIO CARD */}
+        <div className="glass-panel" style={{ padding: '2rem', border: '1px solid var(--border-color)', borderRadius: '12px', background: 'var(--bg-panel-solid)', display: 'flex', flexDirection: 'column', gap: '1.5rem', position: 'relative', overflow: 'hidden' }}>
           
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', flexWrap: 'wrap', gap: '1.5rem' }}>
-            
-            {/* Avatar & Title details */}
-            <div style={{ display: 'flex', alignItems: 'flex-end', gap: '1.5rem', flexWrap: 'wrap' }}>
-              <div style={{
-                width: '120px',
-                height: '120px',
-                borderRadius: '50%',
-                background: 'linear-gradient(135deg, var(--color-accent), var(--color-primary))',
-                border: '4px solid var(--bg-panel-solid)',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                fontWeight: 'bold',
-                fontSize: '2.5rem',
-                color: '#fff',
-                boxShadow: '0 8px 24px rgba(0,0,0,0.4)'
-              }}>
-                {profileData.fullName ? profileData.fullName.charAt(0) : 'U'}
-              </div>
+          {/* Top Edge Gradient Accent */}
+          <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '4px', background: `linear-gradient(90deg, ${profileData.coverColor || 'var(--color-primary)'}, var(--color-accent))` }} />
 
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '0.25rem', paddingBottom: '0.5rem' }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
-                  <h2 style={{ fontSize: '1.65rem', fontWeight: 800, margin: 0, fontFamily: 'var(--font-display)', color: 'var(--text-main)' }}>
+          {/* Avatar and Basic Info */}
+          <div style={{ display: 'flex', alignItems: 'center', gap: '1.25rem' }}>
+            <div style={{
+              width: '80px', height: '80px', borderRadius: '16px',
+              background: 'linear-gradient(135deg, var(--color-accent), var(--color-primary))',
+              display: 'flex', alignItems: 'center', justifyContent: 'center',
+              fontWeight: '900', fontSize: '2.5rem', color: '#fff',
+              boxShadow: '0 4px 12px rgba(0,0,0,0.15)'
+            }}>
+              {profileData.fullName ? profileData.fullName.charAt(0) : 'U'}
+            </div>
+            
+            <div style={{ flex: 1 }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
+                <div>
+                  <h2 style={{ fontSize: '1.4rem', fontWeight: 800, margin: 0, fontFamily: 'var(--font-display)', color: 'var(--text-main)', letterSpacing: '-0.02em' }}>
                     {profileData.fullName || "Unspecified User"}
                   </h2>
-                  <span style={{ fontSize: '0.75rem', fontFamily: 'var(--font-sans)', background: 'rgba(255,255,255,0.05)', padding: '0.2rem 0.5rem', borderRadius: '4px', border: '1px solid var(--border-color)', color: 'var(--color-secondary)' }}>
-                    Level {currentLevel} {getLevelTitle(currentLevel)}
+                  <span style={{ fontSize: '0.8rem', color: 'var(--text-muted)', fontFamily: 'var(--font-sans)', display: 'block', marginTop: '0.2rem' }}>
+                    @{profileData.username || "username"}
                   </span>
                 </div>
-                
-                <span style={{ fontSize: '0.85rem', color: 'var(--text-muted)', fontFamily: 'var(--font-sans)' }}>
-                  @{profileData.username || "username"}
-                </span>
-
-                <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', fontSize: '0.8rem', color: 'var(--text-dim)', marginTop: '0.5rem' }}>
-                  {profileData.location && <span style={{ display: 'flex', alignItems: 'center', gap: '0.25rem' }}><span className="material-symbols-outlined" style={{ fontSize: '12px' }}>location_on</span> {profileData.location}</span>}
-                  <span style={{ display: 'flex', alignItems: 'center', gap: '0.25rem' }}><span className="material-symbols-outlined" style={{ fontSize: '12px' }}>schedule</span> Joined {profileData.joinDate}</span>
-                </div>
+                <button onClick={() => setIsEditing(!isEditing)} className="tech-button tech-button-outline" style={{ display: 'flex', alignItems: 'center', gap: '0.35rem', fontSize: '0.7rem', padding: '0.35rem 0.75rem' }}>
+                  <span className="material-symbols-outlined" style={{ fontSize: '12px' }}>{isEditing ? "close" : "edit"}</span> {isEditing ? "Cancel" : "Edit"}
+                </button>
+              </div>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', fontSize: '0.75rem', color: 'var(--text-dim)', marginTop: '0.75rem' }}>
+                {profileData.location && <span style={{ display: 'flex', alignItems: 'center', gap: '0.25rem' }}><span className="material-symbols-outlined" style={{ fontSize: '12px' }}>location_on</span> {profileData.location}</span>}
+                <span style={{ display: 'flex', alignItems: 'center', gap: '0.25rem' }}><span className="material-symbols-outlined" style={{ fontSize: '12px' }}>schedule</span> Joined {profileData.joinDate}</span>
               </div>
             </div>
-
-            {/* Profile Action triggers */}
-            <div style={{ display: 'flex', gap: '0.75rem', paddingBottom: '0.5rem' }}>
-              <button
-                onClick={() => setIsEditing(!isEditing)}
-                className="tech-button"
-                style={{ display: 'flex', alignItems: 'center', gap: '0.35rem', fontSize: '0.75rem', padding: '0.5rem 1.25rem' }}
-              >
-                <span className="material-symbols-outlined" style={{ fontSize: '12px' }}>edit</span> {isEditing ? "Cancel" : "Edit Profile"}
-              </button>
-            </div>
-
           </div>
 
-          {/* Social totals bar */}
-          <div style={{ display: 'flex', gap: '1.5rem', marginTop: '1.25rem', borderTop: '1px solid rgba(255,255,255,0.03)', paddingTop: '1rem' }}>
-            <span style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>
-              <strong style={{ color: 'var(--text-main)', fontSize: '0.9rem' }}>0</strong> followers
-            </span>
-            <span style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>
-              <strong style={{ color: 'var(--text-main)', fontSize: '0.9rem' }}>0</strong> following
-            </span>
-            <span style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>
-              <strong style={{ color: 'var(--text-main)', fontSize: '0.9rem' }}>{projectsCreated}</strong> creations
-            </span>
-          </div>
-
-          {/* EDIT FORM CONTAINER */}
+          {/* EDIT FORM */}
           {isEditing && (
-            <form onSubmit={handleSaveProfile} className="glass-panel animate-fade-in" style={{ marginTop: '1.5rem', border: '1px solid var(--border-color)', background: 'var(--bg-panel-solid)', padding: '1.5rem' }}>
-              <h4 style={{ fontSize: '0.95rem', fontWeight: 'bold', margin: '0 0 1rem 0' }}>Edit Profile Information</h4>
+            <form onSubmit={handleSaveProfile} className="animate-fade-in" style={{ display: 'flex', flexDirection: 'column', gap: '1rem', marginTop: '0.5rem', borderTop: '1px solid rgba(255,255,255,0.05)', paddingTop: '1.5rem' }}>
+              <div style={{ display: 'flex', gap: '0.5rem', marginBottom: '0.5rem' }}>
+                <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>Theme:</span>
+                {['#3b82f6', '#10b981', '#6366f1', '#ec4899', '#f59e0b'].map(color => (
+                  <button key={color} type="button" onClick={() => setProfileData(prev => ({ ...prev, coverColor: color }))} style={{ width: '16px', height: '16px', borderRadius: '50%', background: color, border: '1px solid var(--border-color)', cursor: 'pointer' }} />
+                ))}
+              </div>
               <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
                 <div>
-                  <label style={{ fontSize: '0.75rem', color: 'var(--text-muted)', display: 'block', marginBottom: '0.25rem' }}>Full Name</label>
-                  <input type="text" className="tech-input" value={profileData.fullName} onChange={e => setProfileData({ ...profileData, fullName: e.target.value })} style={{ width: '100%' }} />
+                  <label style={{ fontSize: '0.7rem', color: 'var(--text-muted)', display: 'block', marginBottom: '0.25rem' }}>Full Name</label>
+                  <input type="text" className="tech-input" value={profileData.fullName} onChange={e => setProfileData({ ...profileData, fullName: e.target.value })} style={{ width: '100%', padding: '0.4rem 0.5rem' }} />
                 </div>
                 <div>
-                  <label style={{ fontSize: '0.75rem', color: 'var(--text-muted)', display: 'block', marginBottom: '0.25rem' }}>Location</label>
-                  <input type="text" className="tech-input" value={profileData.location} onChange={e => setProfileData({ ...profileData, location: e.target.value })} placeholder="e.g. San Francisco, CA" style={{ width: '100%' }} />
+                  <label style={{ fontSize: '0.7rem', color: 'var(--text-muted)', display: 'block', marginBottom: '0.25rem' }}>Location</label>
+                  <input type="text" className="tech-input" value={profileData.location} onChange={e => setProfileData({ ...profileData, location: e.target.value })} style={{ width: '100%', padding: '0.4rem 0.5rem' }} />
                 </div>
                 <div style={{ gridColumn: 'span 2' }}>
-                  <label style={{ fontSize: '0.75rem', color: 'var(--text-muted)', display: 'block', marginBottom: '0.25rem' }}>Bio</label>
-                  <textarea rows="2" className="tech-input" value={profileData.bio} onChange={e => setProfileData({ ...profileData, bio: e.target.value })} placeholder="Write something about your innovation interests..." style={{ width: '100%' }} />
+                  <label style={{ fontSize: '0.7rem', color: 'var(--text-muted)', display: 'block', marginBottom: '0.25rem' }}>Bio</label>
+                  <textarea rows="2" className="tech-input" value={profileData.bio} onChange={e => setProfileData({ ...profileData, bio: e.target.value })} style={{ width: '100%', padding: '0.4rem 0.5rem' }} />
                 </div>
                 <div>
-                  <label style={{ fontSize: '0.75rem', color: 'var(--text-muted)', display: 'block', marginBottom: '0.25rem' }}>College or Company</label>
-                  <input type="text" className="tech-input" value={profileData.company} onChange={e => setProfileData({ ...profileData, company: e.target.value })} style={{ width: '100%' }} />
+                  <label style={{ fontSize: '0.7rem', color: 'var(--text-muted)', display: 'block', marginBottom: '0.25rem' }}>Company / College</label>
+                  <input type="text" className="tech-input" value={profileData.company} onChange={e => setProfileData({ ...profileData, company: e.target.value })} style={{ width: '100%', padding: '0.4rem 0.5rem' }} />
                 </div>
                 <div>
-                  <label style={{ fontSize: '0.75rem', color: 'var(--text-muted)', display: 'block', marginBottom: '0.25rem' }}>Department</label>
-                  <input type="text" className="tech-input" value={profileData.department} onChange={e => setProfileData({ ...profileData, department: e.target.value })} style={{ width: '100%' }} />
-                </div>
-                <div>
-                  <label style={{ fontSize: '0.75rem', color: 'var(--text-muted)', display: 'block', marginBottom: '0.25rem' }}>GitHub Handle</label>
-                  <input type="text" className="tech-input" value={profileData.github} onChange={e => setProfileData({ ...profileData, github: e.target.value })} placeholder="github.com/username" style={{ width: '100%' }} />
-                </div>
-                <div>
-                  <label style={{ fontSize: '0.75rem', color: 'var(--text-muted)', display: 'block', marginBottom: '0.25rem' }}>LinkedIn Handle</label>
-                  <input type="text" className="tech-input" value={profileData.linkedin} onChange={e => setProfileData({ ...profileData, linkedin: e.target.value })} placeholder="linkedin.com/in/username" style={{ width: '100%' }} />
+                  <label style={{ fontSize: '0.7rem', color: 'var(--text-muted)', display: 'block', marginBottom: '0.25rem' }}>GitHub</label>
+                  <input type="text" className="tech-input" value={profileData.github} onChange={e => setProfileData({ ...profileData, github: e.target.value })} style={{ width: '100%', padding: '0.4rem 0.5rem' }} />
                 </div>
                 <div style={{ gridColumn: 'span 2' }}>
-                  <label style={{ fontSize: '0.75rem', color: 'var(--text-muted)', display: 'block', marginBottom: '0.25rem' }}>Skills (comma-separated)</label>
-                  <input type="text" className="tech-input" value={skillsInput} onChange={e => setSkillsInput(e.target.value)} placeholder="React, Node, Patents" style={{ width: '100%' }} />
+                  <label style={{ fontSize: '0.7rem', color: 'var(--text-muted)', display: 'block', marginBottom: '0.25rem' }}>Skills (comma-separated)</label>
+                  <input type="text" className="tech-input" value={skillsInput} onChange={e => setSkillsInput(e.target.value)} style={{ width: '100%', padding: '0.4rem 0.5rem' }} />
                 </div>
               </div>
-              <div style={{ display: 'flex', justifyContent: 'flex-end', gap: '0.75rem', marginTop: '1.25rem' }}>
-                <button type="button" onClick={() => setIsEditing(false)} className="tech-button tech-button-outline" style={{ fontSize: '0.75rem' }}>Cancel</button>
-                <button type="submit" className="tech-button" style={{ fontSize: '0.75rem' }}>Save Metadata</button>
+              <div style={{ display: 'flex', justifyContent: 'flex-end', marginTop: '0.5rem' }}>
+                <button type="submit" className="tech-button" style={{ fontSize: '0.75rem', padding: '0.4rem 1rem' }}>Save Metadata</button>
               </div>
             </form>
           )}
 
-          {/* Bio Details panel display */}
+          {/* BIO & LINKS */}
           {!isEditing && (
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', marginTop: '1.5rem', background: 'rgba(255,255,255,0.01)', border: '1px solid var(--border-color)', padding: '1.25rem', borderRadius: '8px' }}>
+            <div style={{ borderTop: '1px solid rgba(255,255,255,0.05)', paddingTop: '1.5rem', display: 'flex', flexDirection: 'column', gap: '1rem' }}>
               <div>
-                <span style={{ fontSize: '0.65rem', color: 'var(--text-muted)', fontFamily: 'var(--font-sans)', display: 'block', marginBottom: '0.25rem' }}>// BIOGRAPHY_METADATA</span>
                 {profileData.bio ? (
-                  <p style={{ fontSize: '0.85rem', margin: 0, lineHeight: '1.5' }}>{profileData.bio}</p>
+                  <p style={{ fontSize: '0.85rem', margin: 0, lineHeight: '1.5', color: 'var(--text-main)' }}>{profileData.bio}</p>
                 ) : (
-                  <p style={{ fontSize: '0.8rem', color: 'var(--text-dim)', fontStyle: 'italic', margin: 0 }}>No bio added yet. Click 'Edit Profile' to add your bio.</p>
+                  <p style={{ fontSize: '0.75rem', color: 'var(--text-dim)', fontStyle: 'italic', margin: 0 }}>No bio added yet. Click 'Edit' to set up your profile.</p>
                 )}
               </div>
-
+              
               {(profileData.role || profileData.company || profileData.github || profileData.linkedin) && (
-                <div style={{ display: 'flex', gap: '1.25rem', flexWrap: 'wrap', fontSize: '0.8rem', borderTop: '1px solid rgba(255,255,255,0.03)', paddingTop: '0.85rem' }}>
+                <div style={{ display: 'flex', gap: '1.25rem', flexWrap: 'wrap', fontSize: '0.75rem', color: 'var(--text-muted)' }}>
                   {profileData.company && (
                     <div style={{ display: 'flex', alignItems: 'center', gap: '0.35rem' }}>
                       <span className="material-symbols-outlined" style={{ fontSize: '12px', color: 'var(--color-primary)' }}>work</span> 
-                      <span>{profileData.role} at {profileData.company} {profileData.department && `(${profileData.department})`}</span>
+                      <span>{profileData.role} at {profileData.company}</span>
                     </div>
                   )}
                   {profileData.github && (
@@ -777,46 +723,63 @@ const Profile = ({ userEmail, theme }) => {
                       <GithubIcon size={12} /> {profileData.github}
                     </a>
                   )}
-                  {profileData.linkedin && (
-                    <a href={`https://${profileData.linkedin}`} target="_blank" rel="noopener noreferrer" style={{ display: 'flex', alignItems: 'center', gap: '0.35rem', color: 'var(--text-muted)' }}>
-                      <LinkedinIcon size={12} /> {profileData.linkedin}
-                    </a>
-                  )}
                 </div>
               )}
 
-              <div>
-                <span style={{ fontSize: '0.65rem', color: 'var(--text-muted)', fontFamily: 'var(--font-sans)', display: 'block', marginBottom: '0.35rem' }}>// TECHNICAL_SKILLS</span>
+              <div style={{ marginTop: '0.5rem' }}>
                 {profileData.skills.length > 0 ? (
                   <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
                     {profileData.skills.map((skill, index) => (
-                      <span key={index} style={{ fontSize: '0.7rem', padding: '0.2rem 0.5rem', borderRadius: '4px', background: 'rgba(59, 130, 246, 0.08)', color: 'var(--color-primary)', border: '1px solid rgba(59,130,246,0.15)' }}>
+                      <span key={index} style={{ fontSize: '0.7rem', padding: '0.2rem 0.6rem', borderRadius: '20px', background: 'rgba(59, 130, 246, 0.08)', color: 'var(--color-primary)', border: '1px solid rgba(59,130,246,0.2)' }}>
                         {skill}
                       </span>
                     ))}
                   </div>
                 ) : (
-                  <p style={{ fontSize: '0.75rem', color: 'var(--text-dim)', fontStyle: 'italic', margin: 0 }}>No skills added.</p>
+                  <p style={{ fontSize: '0.75rem', color: 'var(--text-dim)', fontStyle: 'italic', margin: 0 }}>No skills defined.</p>
                 )}
               </div>
             </div>
           )}
-
         </div>
 
-      </div>
-
-      {/* Gamification progress tracker */}
-      <div className="glass-panel" style={{ padding: '1.25rem', border: '1px solid var(--border-color)', borderRadius: '12px', background: 'var(--bg-panel-solid)' }}>
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.75rem' }}>
-          <div>
-            <span style={{ fontSize: '0.65rem', color: 'var(--text-muted)', fontFamily: 'var(--font-sans)', display: 'block' }}>// GAMIFIED_EXPERIENCE_LOG</span>
-            <strong style={{ fontSize: '0.9rem', color: 'var(--color-primary)' }}>Level {currentLevel} — {getLevelTitle(currentLevel)}</strong>
+        {/* RIGHT: STATS & GAMIFICATION CARDS */}
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+          
+          {/* Stats Grid */}
+          <div className="glass-panel" style={{ padding: '2rem', border: '1px solid var(--border-color)', borderRadius: '12px', background: 'var(--bg-panel)', display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '1rem', textAlign: 'center' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.25rem' }}>
+              <span style={{ fontSize: '1.5rem', fontWeight: 800, color: 'var(--text-main)', fontFamily: 'var(--font-display)' }}>0</span>
+              <span style={{ fontSize: '0.7rem', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Followers</span>
+            </div>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.25rem', borderLeft: '1px solid var(--border-color)', borderRight: '1px solid var(--border-color)' }}>
+              <span style={{ fontSize: '1.5rem', fontWeight: 800, color: 'var(--text-main)', fontFamily: 'var(--font-display)' }}>0</span>
+              <span style={{ fontSize: '0.7rem', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Following</span>
+            </div>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.25rem' }}>
+              <span style={{ fontSize: '1.5rem', fontWeight: 800, color: 'var(--text-main)', fontFamily: 'var(--font-display)' }}>{projectsCreated}</span>
+              <span style={{ fontSize: '0.7rem', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Creations</span>
+            </div>
           </div>
-          <span style={{ fontSize: '0.75rem', fontFamily: 'var(--font-sans)', color: 'var(--text-muted)' }}>{currentXp} / 1000 XP</span>
-        </div>
-        <div style={{ width: '100%', height: '10px', background: 'rgba(255,255,255,0.05)', borderRadius: '5px', overflow: 'hidden' }}>
-          <div style={{ width: `${(currentXp / 1000) * 100}%`, height: '100%', background: 'linear-gradient(90deg, var(--color-primary), var(--color-accent))', transition: 'width 0.4s' }}></div>
+
+          {/* Gamification / XP Tracker */}
+          <div className="glass-panel" style={{ padding: '2rem', border: '1px solid var(--border-color)', borderRadius: '12px', background: 'var(--bg-panel)', flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem' }}>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '0.25rem' }}>
+                <span style={{ fontSize: '0.7rem', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Current Status</span>
+                <strong style={{ fontSize: '1.1rem', color: 'var(--color-primary)', fontFamily: 'var(--font-display)' }}>Level {currentLevel} — {getLevelTitle(currentLevel)}</strong>
+              </div>
+              <div style={{ textAlign: 'right' }}>
+                <span style={{ fontSize: '1.25rem', fontWeight: 800, color: 'var(--text-main)', fontFamily: 'var(--font-display)' }}>{currentXp}</span>
+                <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}> / 1000 XP</span>
+              </div>
+            </div>
+            <div style={{ width: '100%', height: '8px', background: 'rgba(255,255,255,0.05)', borderRadius: '4px', overflow: 'hidden' }}>
+              <div style={{ width: `${(currentXp / 1000) * 100}%`, height: '100%', background: 'linear-gradient(90deg, var(--color-primary), var(--color-accent))', transition: 'width 0.8s cubic-bezier(0.4, 0, 0.2, 1)' }}></div>
+            </div>
+            <span style={{ fontSize: '0.7rem', color: 'var(--text-dim)', marginTop: '0.75rem', textAlign: 'center' }}>Create projects or complete tasks to earn XP</span>
+          </div>
+
         </div>
       </div>
 
@@ -876,10 +839,7 @@ const Profile = ({ userEmail, theme }) => {
             </div>
 
             {/* Computed Badges Shelves */}
-            <div className="glass-panel" style={{ padding: '1.5rem' }}>
-              <span style={{ fontSize: '0.65rem', color: 'var(--text-muted)', fontFamily: 'var(--font-sans)', display: 'block', marginBottom: '0.75rem' }}>// DYNAMIC_ACHIEVEMENTS_SHELF</span>
-              
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '1rem' }}>
+            <div className="glass-panel" style={{ padding: '1.5rem' }}>              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '1rem' }}>
                 {badges.map(badge => (
                   <div key={badge.id} style={{
                     padding: '1rem',
@@ -944,10 +904,7 @@ const Profile = ({ userEmail, theme }) => {
             </div>
 
             {/* Activity log */}
-            <div className="glass-panel" style={{ padding: '1.5rem' }}>
-              <span style={{ fontSize: '0.65rem', color: 'var(--text-muted)', fontFamily: 'var(--font-sans)', display: 'block', marginBottom: '0.85rem' }}>// VERIFIED_ACTIVITY_LOG</span>
-              
-              {activities.length === 0 ? (
+            <div className="glass-panel" style={{ padding: '1.5rem' }}>              {activities.length === 0 ? (
                 <p style={{ fontSize: '0.8rem', color: 'var(--text-dim)', fontStyle: 'italic', margin: 0 }}>No recent activity.</p>
               ) : (
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
@@ -1287,9 +1244,7 @@ const Profile = ({ userEmail, theme }) => {
             </div>
 
             {/* B. Update Password Credentials */}
-            <div className="glass-panel" style={{ padding: '1.5rem' }}>
-              <span style={{ fontSize: '0.65rem', color: 'var(--text-muted)', fontFamily: 'var(--font-sans)', display: 'block', marginBottom: '0.75rem' }}>// CREDENTIALS_CIPHER_ROTATE</span>
-              <h4 style={{ fontSize: '0.95rem', margin: '0 0 1rem 0', fontWeight: 'bold' }}>Change Security Password</h4>
+            <div className="glass-panel" style={{ padding: '1.5rem' }}>              <h4 style={{ fontSize: '0.95rem', margin: '0 0 1rem 0', fontWeight: 'bold' }}>Change Security Password</h4>
 
               <form onSubmit={handleChangePasswordSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
                 <div>
@@ -1370,9 +1325,7 @@ const Profile = ({ userEmail, theme }) => {
             {/* C. Active sessions tracker */}
             <div className="glass-panel" style={{ padding: '1.5rem' }}>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.85rem' }}>
-                <div>
-                  <span style={{ fontSize: '0.65rem', color: 'var(--text-muted)', fontFamily: 'var(--font-sans)', display: 'block' }}>// SESSION_DEVICE_REGISTRY</span>
-                  <h4 style={{ fontSize: '0.95rem', margin: 0, fontWeight: 'bold' }}>Active Authorized Sessions</h4>
+                <div>                  <h4 style={{ fontSize: '0.95rem', margin: 0, fontWeight: 'bold' }}>Active Authorized Sessions</h4>
                 </div>
                 <button 
                   onClick={handleTerminateAllSessions}
@@ -1425,9 +1378,7 @@ const Profile = ({ userEmail, theme }) => {
             </div>
 
             {/* D. Login history telemetry logs */}
-            <div className="glass-panel" style={{ padding: '1.5rem' }}>
-              <span style={{ fontSize: '0.65rem', color: 'var(--text-muted)', fontFamily: 'var(--font-sans)', display: 'block', marginBottom: '0.85rem' }}>// SECURITY_IP_TELEMETRY_LOGS</span>
-              <h4 style={{ fontSize: '0.95rem', margin: '0 0 1rem 0', fontWeight: 'bold' }}>Recent Login History</h4>
+            <div className="glass-panel" style={{ padding: '1.5rem' }}>              <h4 style={{ fontSize: '0.95rem', margin: '0 0 1rem 0', fontWeight: 'bold' }}>Recent Login History</h4>
 
               <div style={{ overflowX: 'auto' }}>
                 <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.75rem', textAlign: 'left' }}>
@@ -1454,9 +1405,7 @@ const Profile = ({ userEmail, theme }) => {
             </div>
 
             {/* E. Server side audit events list */}
-            <div className="glass-panel" style={{ padding: '1.5rem' }}>
-              <span style={{ fontSize: '0.65rem', color: 'var(--text-muted)', fontFamily: 'var(--font-sans)', display: 'block', marginBottom: '0.85rem' }}>// AUDIT_EVENTS_TIMELINE</span>
-              <h4 style={{ fontSize: '0.95rem', margin: '0 0 1rem 0', fontWeight: 'bold' }}>Server Audit Event Registry</h4>
+            <div className="glass-panel" style={{ padding: '1.5rem' }}>              <h4 style={{ fontSize: '0.95rem', margin: '0 0 1rem 0', fontWeight: 'bold' }}>Server Audit Event Registry</h4>
               
               <div style={{ display: 'flex', flexDirection: 'column', gap: '0.65rem' }}>
                 {(securityConfig?.auditLogs || []).slice().reverse().map((audit, idx) => (

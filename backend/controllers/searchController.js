@@ -1,6 +1,8 @@
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import { loadInnovationsFromDB } from '../utils/dbFetcher.js';
+import { fetchCerebrasSearch } from '../utils/cerebrasSearch.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -53,9 +55,9 @@ const isValidSearchQuery = (clean) => {
   return true;
 };
 
-export const getInnovations = (req, res) => {
+export const getInnovations = async (req, res) => {
   const { query, sector } = req.query;
-  const db = loadDatabase();
+  const db = await loadInnovationsFromDB();
   let results = db.innovations || [];
 
   if (query) {
@@ -75,9 +77,9 @@ export const getInnovations = (req, res) => {
   res.json({ success: true, count: results.length, data: results });
 };
 
-export const getInnovationById = (req, res) => {
+export const getInnovationById = async (req, res) => {
   const { id } = req.params;
-  const db = loadDatabase();
+  const db = await loadInnovationsFromDB();
   const innovation = (db.innovations || []).find(item => item.id === id);
 
   if (!innovation) {
@@ -89,7 +91,7 @@ export const getInnovationById = (req, res) => {
 
 export const searchPatents = async (req, res) => {
   const { query } = req.query;
-  const db = loadDatabase();
+  const db = await loadInnovationsFromDB();
   const innovations = db.innovations || [];
 
   // Build basic list from local innovations
@@ -291,7 +293,7 @@ export const getSuggestions = async (req, res) => {
     return res.json({ success: true, suggestions: [] });
   }
 
-  const db = loadDatabase();
+  const db = await loadInnovationsFromDB();
   const innovations = db.innovations || [];
   
   // Find local database matches

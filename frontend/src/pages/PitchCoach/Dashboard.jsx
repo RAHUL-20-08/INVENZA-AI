@@ -87,9 +87,7 @@ const Dashboard = ({
         <div style={{ display: 'flex', flexDirection: 'column', gap: '2.0rem' }}>
           
           {/* Active project card details */}
-          <div className="glass-panel" style={{ padding: '1.5rem' }}>
-            <span style={{ fontSize: '0.65rem', color: 'var(--color-secondary)', fontFamily: 'var(--font-sans)', textAlign: 'left', display: 'block' }}>// ACTIVE_TARGET_CONTEXT</span>
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderBottom: '1px solid var(--border-color)', paddingBottom: '0.75rem', marginBottom: '1rem' }}>
+          <div className="glass-panel" style={{ padding: '1.5rem' }}>            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderBottom: '1px solid var(--border-color)', paddingBottom: '0.75rem', marginBottom: '1rem' }}>
               <h3 style={{ fontSize: '1.25rem', fontFamily: 'var(--font-display)', margin: 0, fontWeight: 800 }}>{activeItem.name}</h3>
               <span className="mono-tag" style={{ color: 'var(--color-primary)' }}>{activeItem.sector}</span>
             </div>
@@ -162,9 +160,7 @@ const Dashboard = ({
           </div>
 
           {/* Quick HUD Metrics */}
-          <div className="glass-panel" style={{ padding: '1.25rem' }}>
-            <span style={{ fontSize: '0.65rem', color: 'var(--text-muted)', fontFamily: 'var(--font-sans)', display: 'block', marginBottom: '0.75rem' }}>// PITCH_CONFIGURATION_HUD</span>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem', fontSize: '0.75rem', textAlign: 'left' }}>
+          <div className="glass-panel" style={{ padding: '1.25rem' }}>            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem', fontSize: '0.75rem', textAlign: 'left' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.45rem' }}><span className="material-symbols-outlined" style={{ fontSize: '12px',  color: 'var(--color-primary)'  }}>timer</span> <span>Autoplay Mode: <strong>Voice Trigger Enabled</strong></span></div>
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.45rem' }}><span className="material-symbols-outlined" style={{ fontSize: '12px',  color: 'var(--color-secondary)'  }}>volume_up</span> <span>Speaking Tempo: <strong>{tempo}</strong></span></div>
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.45rem' }}><span className="material-symbols-outlined" style={{ fontSize: '12px',  color: 'var(--color-success)'  }}>sentiment_satisfied</span> <span>Delivery Tone: <strong>{tone}</strong></span></div>

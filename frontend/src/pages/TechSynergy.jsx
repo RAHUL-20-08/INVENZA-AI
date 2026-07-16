@@ -193,13 +193,20 @@ const TechSynergy = () => {
           </div>
 
           {/* Input A */}
-          {renderInputSection(
-            typeA, setTypeA, 
-            selectedSeededA, setSelectedSeededA, 
-            selectedSavedA, setSelectedSavedA, 
-            customTextA, setCustomTextA, 
-            "BASE TECHNOLOGY A"
-          )}
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '0.65rem' }}>
+            <label style={{ fontSize: '0.65rem', color: 'var(--text-muted)', fontFamily: 'var(--font-sans)' }}>BASE TECHNOLOGY A</label>
+            <input 
+              type="text" 
+              className="tech-input" 
+              placeholder="Search or type base technology..."
+              value={customTextA}
+              onChange={(e) => {
+                setTypeA('custom');
+                setCustomTextA(e.target.value);
+              }}
+              style={{ width: '100%' }}
+            />
+          </div>
 
           <div style={{ display: 'flex', flexDirection: 'column', gap: '0.35rem', margin: '0.25rem 0' }}>
             <div style={{ alignSelf: 'center', background: 'rgba(255,255,255,0.03)', borderRadius: '50%', padding: '0.45rem', border: '1px solid var(--border-color)' }}>
@@ -235,9 +242,30 @@ const TechSynergy = () => {
                   <span className="mono-tag" style={{ color: 'var(--color-secondary)' }}>HYBRID SYSTEM COMPILED</span>
                   <h2 style={{ fontSize: '1.4rem', fontWeight: 800, marginTop: '0.15rem', color: 'var(--text-main)' }}>{report.name}</h2>
                 </div>
-                <div style={{ textAlign: 'right' }}>
-                  <span style={{ fontSize: '0.65rem', color: 'var(--text-muted)', display: 'block', fontFamily: 'var(--font-sans)' }}>RE-ENTRY SCORING</span>
-                  <span style={{ fontSize: '1.2rem', fontWeight: 800, color: 'var(--color-success)', fontFamily: 'var(--font-sans)' }}>{report.viability}%</span>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.8rem' }}>
+                  <div style={{ textAlign: 'right' }}>
+                    <span style={{ fontSize: '0.65rem', color: 'var(--text-muted)', display: 'block', fontFamily: 'var(--font-sans)' }}>RE-ENTRY SCORING</span>
+                    <span style={{ fontSize: '1.2rem', fontWeight: 800, color: 'var(--color-success)', fontFamily: 'var(--font-sans)' }}>{report.viability}%</span>
+                  </div>
+                  <div style={{ position: 'relative', width: '46px', height: '46px' }}>
+                    <svg viewBox="0 0 36 36" style={{ width: '100%', height: '100%', transform: 'rotate(-90deg)' }}>
+                      <path
+                        d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
+                        fill="none"
+                        stroke="var(--border-color)"
+                        strokeWidth="3.5"
+                      />
+                      <path
+                        d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
+                        fill="none"
+                        stroke="var(--color-success)"
+                        strokeWidth="3.5"
+                        strokeDasharray={`${report.viability}, 100`}
+                        strokeLinecap="round"
+                        style={{ transition: 'stroke-dasharray 1s ease-out', animation: 'dash 1s ease-out forwards' }}
+                      />
+                    </svg>
+                  </div>
                 </div>
               </div>
 

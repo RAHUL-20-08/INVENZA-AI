@@ -154,6 +154,6 @@ router.get('/auth/admin/config', authenticateToken(), adminOauthConfig);
 router.post('/analysis/save-startup', authenticateToken('business'), saveStartupIdea);
 router.get('/analysis/saved-startups', authenticateToken('business'), getSavedStartupIdeas);
 router.post('/analysis/regenerate-section', authenticateToken('business'), regenerateSection);
-router.post('/analysis/innovate-engine', authenticateToken('student'), getInnovationOpportunities);
+router.post('/analysis/innovate-engine', getInnovationOpportunities);
 
 export default router;

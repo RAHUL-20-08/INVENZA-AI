@@ -216,7 +216,7 @@ const Patents = ({ onInspect, setCurrentPage, setGlobalQuery }) => {
 
         {/* Detailed Claims Side-Over */}
         {selectedPatent && (
-          <div className="glass-panel animate-fade-in" style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem', background: 'rgba(10,13,20,0.9)' }}>
+          <div className="glass-panel animate-fade-in" style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', borderBottom: '1px solid var(--border-color)', paddingBottom: '0.75rem' }}>
               <div>
                 <h3 style={{ fontSize: '1.1rem', fontWeight: 700, fontFamily: 'var(--font-display)' }}>Patent Specifications</h3>

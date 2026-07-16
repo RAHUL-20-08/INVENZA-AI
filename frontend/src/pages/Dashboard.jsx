@@ -1219,6 +1219,12 @@ const Dashboard = ({ activeInnovation, setActiveInnovation, globalQuery, setGlob
               {/* Radial Score Gauge */}
               <div className="circle-gauge" style={{ width: '110px', height: '110px' }}>
                 <svg>
+                  <defs>
+                    <linearGradient id="viabilityGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stopColor="#3b82f6" />
+                      <stop offset="100%" stopColor="#10b981" />
+                    </linearGradient>
+                  </defs>
                   <circle className="circle-gauge-bg" cx="55" cy="55" r="45" />
                   <circle 
                     className="circle-gauge-fill" 
@@ -1227,14 +1233,14 @@ const Dashboard = ({ activeInnovation, setActiveInnovation, globalQuery, setGlob
                     r="45" 
                     strokeDasharray={282}
                     strokeDashoffset={282 - (282 * (selectedItem.revivalViability || 0)) / 100}
-                    style={{ stroke: 'var(--color-secondary)' }}
+                    style={{ stroke: 'url(#viabilityGradient)' }}
                   />
                 </svg>
                 <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', position: 'absolute' }}>
-                  <span style={{ fontSize: '1.5rem', fontWeight: 800, fontFamily: 'var(--font-sans)', color: 'var(--text-main)', textShadow: '0 0 8px var(--color-secondary)' }}>
+                  <span style={{ fontSize: '1.6rem', fontWeight: 900, fontFamily: 'var(--font-sans)', color: 'transparent', background: 'linear-gradient(135deg, #3b82f6, #10b981)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', dropShadow: '0 2px 4px rgba(0,0,0,0.1)' }}>
                     {selectedItem.revivalViability}%
                   </span>
-                  <span style={{ fontSize: '0.55rem', textTransform: 'uppercase', color: 'var(--text-muted)', letterSpacing: '0.05em', fontWeight: 'bold' }}>
+                  <span style={{ fontSize: '0.55rem', textTransform: 'uppercase', color: 'var(--text-muted)', letterSpacing: '0.1em', fontWeight: 800, marginTop: '-2px' }}>
                     VIABILITY
                   </span>
                 </div>
@@ -1669,7 +1675,7 @@ const Dashboard = ({ activeInnovation, setActiveInnovation, globalQuery, setGlob
         </div>
 
         {/* Right Side: Diagnostics Panel */}
-        <div className="glass-panel" style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem', background: 'rgba(10,13,20,0.85)' }}>
+        <div className="glass-panel" style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem', background: 'var(--bg-panel)' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', borderBottom: '1px solid var(--border-color)', paddingBottom: '0.75rem' }}>
             <span className="material-symbols-outlined" style={{ fontSize: '18px', color: 'var(--color-secondary)' }}>monitoring</span>
             <h3 style={{ fontSize: '1rem', fontWeight: 700, fontFamily: 'var(--font-display)', letterSpacing: '0.05em' }}>
@@ -1677,44 +1683,81 @@ const Dashboard = ({ activeInnovation, setActiveInnovation, globalQuery, setGlob
             </h3>
           </div>
 
-          {/* Innovation Score Circle */}
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-            <div>
-              <span style={{ fontSize: '0.85rem', fontWeight: 600, color: 'var(--text-main)' }}>Innovation Score</span>
-              <p style={{ fontSize: '0.65rem', color: 'var(--text-muted)' }}>Patent uniqueness score</p>
+          {/* Compact Metrics Grid */}
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 240px))', gap: '1rem', justifyContent: 'start' }}>
+            
+            {/* Innovation Score Circle Box */}
+            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'space-between', background: 'transparent', border: '1px solid var(--border-color)', borderRadius: '8px', padding: '1.25rem 1rem', gap: '0.75rem' }}>
+              <div style={{ textAlign: 'center' }}>
+                <span style={{ fontSize: '0.85rem', fontWeight: 600, color: 'var(--text-main)' }}>Innovation Score</span>
+                <p style={{ fontSize: '0.65rem', color: 'var(--text-muted)', margin: '0.2rem 0 0 0' }}>Patent uniqueness score</p>
+              </div>
+              <div className="circle-gauge" style={{ width: '60px', height: '60px' }}>
+                <svg>
+                  <defs>
+                    <linearGradient id="innovGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stopColor="var(--color-primary)" />
+                      <stop offset="100%" stopColor="#8b5cf6" />
+                    </linearGradient>
+                  </defs>
+                  <circle className="circle-gauge-bg" cx="30" cy="30" r="24" />
+                  <circle 
+                    className="circle-gauge-fill" 
+                    cx="30" 
+                    cy="30" 
+                    r="24" 
+                    strokeDasharray={150}
+                    strokeDashoffset={150 - (150 * (selectedItem.recommendationScore || 75)) / 100}
+                    style={{ stroke: 'url(#innovGrad)', strokeWidth: '5px' }}
+                  />
+                </svg>
+                <span style={{ position: 'absolute', fontWeight: 900, fontSize: '0.9rem', color: 'transparent', background: 'linear-gradient(135deg, var(--color-primary), #8b5cf6)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', fontFamily: 'var(--font-sans)', dropShadow: '0 2px 4px rgba(0,0,0,0.1)' }}>
+                  {selectedItem.recommendationScore || 75}
+                </span>
+              </div>
             </div>
-            <div className="circle-gauge" style={{ width: '70px', height: '70px' }}>
-              <svg>
-                <circle className="circle-gauge-bg" cx="35" cy="35" r="28" />
-                <circle 
-                  className="circle-gauge-fill" 
-                  cx="35" 
-                  cy="35" 
-                  r="28" 
-                  strokeDasharray={176}
-                  strokeDashoffset={176 - (176 * (selectedItem.recommendationScore || 75)) / 100}
-                  style={{ stroke: 'var(--color-primary)', strokeWidth: '6px' }}
-                />
-              </svg>
-              <span style={{ position: 'absolute', fontWeight: 800, fontSize: '0.95rem', color: 'var(--text-main)', textShadow: '0 0 8px var(--color-primary)', fontFamily: 'var(--font-sans)' }}>{selectedItem.recommendationScore || 75}</span>
-            </div>
-          </div>
 
-          {/* Revival Probability Bar */}
-          <div>
-            <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.85rem', fontWeight: 600, marginBottom: '0.5rem' }}>
-              <span>Revival Probability</span>
-              <span style={{ color: 'var(--color-success)' }}>{selectedItem.revivalViability}%</span>
+            {/* Revival Probability Bar Box */}
+            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'space-between', background: 'transparent', border: '1px solid var(--border-color)', borderRadius: '8px', padding: '1.25rem 1rem', gap: '0.75rem' }}>
+              <div style={{ textAlign: 'center' }}>
+                <span style={{ fontSize: '0.85rem', fontWeight: 600, color: 'var(--text-main)' }}>Revival Probability</span>
+                <p style={{ fontSize: '0.65rem', color: 'var(--text-muted)', margin: '0.2rem 0 0 0' }}>Likelihood of success</p>
+              </div>
+              <div style={{ width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.5rem' }}>
+                <span style={{ color: 'var(--color-success)', fontWeight: 800, fontSize: '1.4rem', fontFamily: 'var(--font-sans)', lineHeight: 1 }}>{selectedItem.revivalViability}%</span>
+                <div style={{ width: '80%', height: '6px', background: 'rgba(0,0,0,0.05)', borderRadius: '3px', overflow: 'hidden' }}>
+                  <div style={{ width: `${selectedItem.revivalViability}%`, height: '100%', background: 'linear-gradient(90deg, var(--color-primary), var(--color-success))', borderRadius: '3px' }}></div>
+                </div>
+              </div>
             </div>
-            <div style={{ width: '100%', height: '8px', background: 'rgba(255,255,255,0.05)', borderRadius: '4px', overflow: 'hidden' }}>
-              <div style={{ width: `${selectedItem.revivalViability}%`, height: '100%', background: 'linear-gradient(90deg, var(--color-primary), var(--color-success))', borderRadius: '4px' }}></div>
+
+            {/* Readiness Level (TRL) */}
+            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'space-between', background: 'transparent', border: '1px solid var(--border-color)', borderRadius: '8px', padding: '1.25rem 1rem', gap: '0.75rem' }}>
+              <div style={{ textAlign: 'center' }}>
+                <span style={{ fontSize: '0.85rem', fontWeight: 600, color: 'var(--text-main)' }}>Readiness Level (TRL)</span>
+                <p style={{ fontSize: '0.65rem', color: 'var(--text-muted)', margin: '0.2rem 0 0 0' }}>Feasibility score range</p>
+              </div>
+              <span style={{ fontSize: '0.8rem', fontFamily: 'var(--font-sans)', background: 'rgba(245,158,11,0.1)', color: 'var(--color-warning)', padding: '0.35rem 1rem', borderRadius: '20px', border: '1px solid rgba(245,158,11,0.3)', textAlign: 'center', fontWeight: 'bold' }}>
+                TRL {selectedItem.readinessLevel || 3}/9
+              </span>
+            </div>
+
+            {/* Recommendation Score */}
+            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'space-between', background: 'transparent', border: '1px solid var(--border-color)', borderRadius: '8px', padding: '1.25rem 1rem', gap: '0.75rem' }}>
+              <div style={{ textAlign: 'center' }}>
+                <span style={{ fontSize: '0.85rem', fontWeight: 600, color: 'var(--text-main)' }}>Recommendation Score</span>
+                <p style={{ fontSize: '0.65rem', color: 'var(--text-muted)', margin: '0.2rem 0 0 0' }}>AI-driven match rating</p>
+              </div>
+              <span style={{ fontSize: '1.4rem', fontWeight: 900, color: 'transparent', background: 'linear-gradient(135deg, var(--color-accent), #ec4899)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', fontFamily: 'var(--font-display)', filter: 'drop-shadow(0px 2px 4px rgba(0,0,0,0.1))', textAlign: 'center', lineHeight: 1 }}>
+                {selectedItem.recommendationScore || 75}/100
+              </span>
             </div>
           </div>
 
           {/* Market Revival Trend Line */}
-          <div>
+          <div style={{ maxWidth: '500px' }}>
             <span style={{ fontSize: '0.85rem', fontWeight: 600, color: 'var(--text-main)' }}>Market Revival Trend</span>
-            <div style={{ marginTop: '0.5rem', background: 'var(--bg-panel)', border: '1px solid var(--border-color)', borderRadius: '6px', padding: '0.5rem' }}>
+            <div style={{ marginTop: '0.5rem', background: 'transparent', border: '1px solid var(--border-color)', borderRadius: '8px', padding: '1rem' }}>
               <svg width="100%" height="60" viewBox="0 0 240 60" style={{ overflow: 'visible' }}>
                 <defs>
                   <linearGradient id="trendGrad" x1="0" y1="0" x2="0" y2="1">
@@ -1740,35 +1783,13 @@ const Dashboard = ({ activeInnovation, setActiveInnovation, globalQuery, setGlob
                   fill="var(--color-secondary)"
                 />
               </svg>
-              <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.65rem', color: 'var(--text-dim)', fontFamily: 'var(--font-sans)', marginTop: '0.25rem' }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.65rem', color: 'var(--text-dim)', fontFamily: 'var(--font-sans)', marginTop: '0.5rem' }}>
                 <span>2020</span>
                 <span>2022</span>
                 <span>2024</span>
                 <span>2026 (Now)</span>
               </div>
             </div>
-          </div>
-
-          {/* Readiness Level (TRL) */}
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', background: 'rgba(255,255,255,0.02)', border: '1px solid var(--border-color)', borderRadius: '8px', padding: '0.75rem' }}>
-            <div>
-              <span style={{ fontSize: '0.85rem', fontWeight: 600 }}>Readiness Level (TRL)</span>
-              <p style={{ fontSize: '0.65rem', color: 'var(--text-muted)' }}>Feasibility score range</p>
-            </div>
-            <span style={{ fontSize: '0.75rem', fontFamily: 'var(--font-sans)', background: 'rgba(245,158,11,0.15)', color: 'var(--color-warning)', padding: '0.25rem 0.5rem', borderRadius: '4px', border: '1px solid rgba(245,158,11,0.3)' }}>
-              TRL {selectedItem.readinessLevel || 3}/9
-            </span>
-          </div>
-
-          {/* Recommendation Score */}
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', background: 'rgba(255,255,255,0.02)', border: '1px solid var(--border-color)', borderRadius: '8px', padding: '0.75rem' }}>
-            <div>
-              <span style={{ fontSize: '0.85rem', fontWeight: 600 }}>Recommendation Score</span>
-              <p style={{ fontSize: '0.65rem', color: 'var(--text-muted)' }}>AI-driven match rating</p>
-            </div>
-            <span style={{ fontSize: '0.95rem', fontWeight: 800, color: 'var(--color-accent)', fontFamily: 'var(--font-display)', textShadow: '0 0 8px var(--color-accent)' }}>
-              {selectedItem.recommendationScore || 75}/100
-            </span>
           </div>
 
           {/* Recent Activity Logs */}
@@ -1786,58 +1807,62 @@ const Dashboard = ({ activeInnovation, setActiveInnovation, globalQuery, setGlob
             </div>
           </div>
 
-          {/* AI Patent Claims Auditor */}
-          <div className="glass-panel animate-fade-in" style={{ marginTop: '1rem', padding: '1.25rem', borderLeft: '3px solid var(--color-primary)', background: 'var(--bg-panel)' }}>
-            <h4 style={{ fontSize: '0.85rem', color: 'var(--text-main)', margin: '0.25rem 0 0.75rem 0', fontWeight: 700 }}>Independent Patent Claims Status</h4>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
-              <div style={{ padding: '0.5rem', background: 'rgba(52,211,153,0.03)', border: '1px solid rgba(52,211,153,0.15)', borderRadius: '4px', fontSize: '0.75rem' }}>
-                <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '0.25rem' }}>
-                  <span style={{ fontWeight: 'bold', color: 'var(--color-success)' }}>Claim 1: Core System Method</span>
+          {/* Supplementary Diagnostics Grid */}
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '1rem', marginTop: '1rem' }}>
+            
+            {/* AI Patent Claims Auditor */}
+            <div className="glass-panel animate-fade-in" style={{ padding: '1.25rem', borderLeft: '3px solid var(--color-primary)', background: 'var(--bg-panel)' }}>
+              <h4 style={{ fontSize: '0.85rem', color: 'var(--text-main)', margin: '0.25rem 0 0.75rem 0', fontWeight: 700 }}>Independent Patent Claims Status</h4>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+                <div style={{ padding: '0.5rem', background: 'rgba(52,211,153,0.03)', border: '1px solid rgba(52,211,153,0.15)', borderRadius: '4px', fontSize: '0.75rem' }}>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '0.25rem' }}>
+                    <span style={{ fontWeight: 'bold', color: 'var(--color-success)' }}>Claim 1: Core System Method</span>
+                  </div>
+                  <p style={{ color: 'var(--text-muted)', fontSize: '0.7rem' }}>Defines the method for operating a {selectedItem.name} apparatus utilizing local processors.</p>
                 </div>
-                <p style={{ color: 'var(--text-muted)', fontSize: '0.7rem' }}>Defines the method for operating a {selectedItem.name} apparatus utilizing local processors.</p>
-              </div>
-              <div style={{ padding: '0.5rem', background: 'rgba(239,68,68,0.03)', border: '1px solid rgba(239,68,68,0.15)', borderRadius: '4px', fontSize: '0.75rem' }}>
-                <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '0.25rem' }}>
-                  <span style={{ fontWeight: 'bold', color: 'var(--color-danger)' }}>Claim 2: Neural Model Feedback</span>
+                <div style={{ padding: '0.5rem', background: 'rgba(239,68,68,0.03)', border: '1px solid rgba(239,68,68,0.15)', borderRadius: '4px', fontSize: '0.75rem' }}>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '0.25rem' }}>
+                    <span style={{ fontWeight: 'bold', color: 'var(--color-danger)' }}>Claim 2: Neural Model Feedback</span>
+                  </div>
+                  <p style={{ color: 'var(--text-muted)', fontSize: '0.7rem' }}>Claims the feedback loop adjusting sensor gains via dynamic deep learning models.</p>
                 </div>
-                <p style={{ color: 'var(--text-muted)', fontSize: '0.7rem' }}>Claims the feedback loop adjusting sensor gains via dynamic deep learning models.</p>
               </div>
             </div>
-          </div>
 
-          {/* AI Pitch Teleprompter Preview */}
-          <div className="glass-panel animate-fade-in" style={{ marginTop: '1rem', padding: '1.25rem', borderLeft: '3px solid var(--color-secondary)', background: 'var(--bg-panel)' }}>
-            <h4 style={{ fontSize: '0.85rem', color: 'var(--text-main)', margin: '0.25rem 0 0.5rem 0', fontWeight: 700 }}>AI Oral Presentation Script Preview</h4>
-            <div style={{ padding: '0.75rem', background: 'var(--bg-panel)', border: '1px solid var(--border-color)', borderRadius: '4px', fontStyle: 'italic', fontSize: '0.75rem', color: 'var(--text-main)', lineHeight: '1.5' }}>
-              "Hello, we are launching a modernized revival of {selectedItem.name}. While original configurations failed due to early mechanical bottlenecks, we solve this by coupling the architecture with edge RAG processors and low-latency local NPUs. This lets us capture the market at a projected CAGR of {selectedItem.marketGrowth || '14.5%'} with a lean development budget..."
+            {/* AI Pitch Teleprompter Preview */}
+            <div className="glass-panel animate-fade-in" style={{ padding: '1.25rem', borderLeft: '3px solid var(--color-secondary)', background: 'var(--bg-panel)', display: 'flex', flexDirection: 'column' }}>
+              <h4 style={{ fontSize: '0.85rem', color: 'var(--text-main)', margin: '0.25rem 0 0.5rem 0', fontWeight: 700 }}>AI Oral Presentation Script Preview</h4>
+              <div style={{ padding: '0.75rem', background: 'var(--bg-panel)', border: '1px solid var(--border-color)', borderRadius: '4px', fontStyle: 'italic', fontSize: '0.75rem', color: 'var(--text-main)', lineHeight: '1.5', flexGrow: 1 }}>
+                "Hello, we are launching a modernized revival of {selectedItem.name}. While original configurations failed due to early mechanical bottlenecks, we solve this by coupling the architecture with edge RAG processors and low-latency local NPUs. This lets us capture the market at a projected CAGR of {selectedItem.marketGrowth || '14.5%'} with a lean development budget..."
+              </div>
+              <p style={{ fontSize: '0.65rem', color: 'var(--text-muted)', marginTop: '0.75rem', display: 'flex', alignItems: 'center', gap: '0.35rem' }}>
+                <span className="material-symbols-outlined" style={{ fontSize: '12px',  color: 'var(--color-warning)', flexShrink: 0  }}>lightbulb</span>
+                <span>Practice this script in the <strong>AI Pitch Coach</strong>!</span>
+              </p>
             </div>
-            <p style={{ fontSize: '0.65rem', color: 'var(--text-muted)', marginTop: '0.5rem', display: 'flex', alignItems: 'center', gap: '0.35rem' }}>
-              <span className="material-symbols-outlined" style={{ fontSize: '12px',  color: 'var(--color-warning)', flexShrink: 0  }}>lightbulb</span>
-              <span>Practice this slide-deck script with voice synthesis under the <strong>AI Pitch Coach</strong> tab!</span>
-            </p>
-          </div>
 
-          {/* Connected Knowledge Feeds Integration Hub */}
-          {selectedItem && (
-            <div className="glass-panel animate-fade-in" style={{ marginTop: '1rem', padding: '1.25rem', borderLeft: '3px solid var(--color-success)', background: 'var(--bg-panel)' }}>
-              <h4 style={{ fontSize: '0.85rem', color: 'var(--text-main)', margin: '0.25rem 0 0.75rem 0', fontWeight: 700 }}>Real-World Data Aggregation Hub</h4>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '0.55rem' }}>
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', fontSize: '0.75rem', padding: '0.35rem 0.5rem', background: 'rgba(255,255,255,0.02)', border: '1px solid var(--border-color)', borderRadius: '4px' }}>
-                  <span style={{ display: 'flex', alignItems: 'center', gap: '0.35rem' }}><span className="material-symbols-outlined" style={{ fontSize: '11px', color: 'var(--color-secondary)' }}>language</span> Wikipedia API Stream</span>
-                </div>
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', fontSize: '0.75rem', padding: '0.35rem 0.5rem', background: 'rgba(255,255,255,0.02)', border: '1px solid var(--border-color)', borderRadius: '4px' }}>
-                  <span style={{ display: 'flex', alignItems: 'center', gap: '0.35rem' }}><span className="material-symbols-outlined" style={{ fontSize: '11px', color: 'var(--color-primary)' }}>developer_board</span> WIPO Patent Registry</span>
-                  <span style={{ fontSize: '0.6rem', color: 'var(--color-success)', fontFamily: 'var(--font-sans)' }}>[ACTIVE INDEX MATCH: {selectedItem.patentId || 'US-PENDING-B2'}]</span>
-                </div>
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', fontSize: '0.75rem', padding: '0.35rem 0.5rem', background: 'rgba(255,255,255,0.02)', border: '1px solid var(--border-color)', borderRadius: '4px' }}>
-                  <span style={{ display: 'flex', alignItems: 'center', gap: '0.35rem' }}><span className="material-symbols-outlined" style={{ fontSize: '11px', color: 'var(--color-accent)' }}>description</span> Academic Publications</span>
-                </div>
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', fontSize: '0.75rem', padding: '0.35rem 0.5rem', background: 'rgba(255,255,255,0.02)', border: '1px solid var(--border-color)', borderRadius: '4px' }}>
-                  <span style={{ display: 'flex', alignItems: 'center', gap: '0.35rem' }}><span className="material-symbols-outlined" style={{ fontSize: '11px', color: '#fff' }}>terminal</span> GitHub Repositories</span>
+            {/* Connected Knowledge Feeds Integration Hub */}
+            {selectedItem && (
+              <div className="glass-panel animate-fade-in" style={{ padding: '1.25rem', borderLeft: '3px solid var(--color-success)', background: 'var(--bg-panel)' }}>
+                <h4 style={{ fontSize: '0.85rem', color: 'var(--text-main)', margin: '0.25rem 0 0.75rem 0', fontWeight: 700 }}>Real-World Data Aggregation Hub</h4>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '0.55rem' }}>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', fontSize: '0.75rem', padding: '0.35rem 0.5rem', background: 'rgba(255,255,255,0.02)', border: '1px solid var(--border-color)', borderRadius: '4px' }}>
+                    <span style={{ display: 'flex', alignItems: 'center', gap: '0.35rem' }}><span className="material-symbols-outlined" style={{ fontSize: '11px', color: 'var(--color-secondary)' }}>language</span> Wikipedia API Stream</span>
+                  </div>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', fontSize: '0.75rem', padding: '0.35rem 0.5rem', background: 'rgba(255,255,255,0.02)', border: '1px solid var(--border-color)', borderRadius: '4px' }}>
+                    <span style={{ display: 'flex', alignItems: 'center', gap: '0.35rem' }}><span className="material-symbols-outlined" style={{ fontSize: '11px', color: 'var(--color-primary)' }}>developer_board</span> WIPO Patent Registry</span>
+                    <span style={{ fontSize: '0.6rem', color: 'var(--color-success)', fontFamily: 'var(--font-sans)' }}>[MATCH: {selectedItem.patentId || 'US-PENDING-B2'}]</span>
+                  </div>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', fontSize: '0.75rem', padding: '0.35rem 0.5rem', background: 'rgba(255,255,255,0.02)', border: '1px solid var(--border-color)', borderRadius: '4px' }}>
+                    <span style={{ display: 'flex', alignItems: 'center', gap: '0.35rem' }}><span className="material-symbols-outlined" style={{ fontSize: '11px', color: 'var(--color-accent)' }}>description</span> Academic Publications</span>
+                  </div>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', fontSize: '0.75rem', padding: '0.35rem 0.5rem', background: 'rgba(255,255,255,0.02)', border: '1px solid var(--border-color)', borderRadius: '4px' }}>
+                    <span style={{ display: 'flex', alignItems: 'center', gap: '0.35rem' }}><span className="material-symbols-outlined" style={{ fontSize: '11px', color: 'var(--color-primary)' }}>terminal</span> GitHub Repositories</span>
+                  </div>
                 </div>
               </div>
-            </div>
-          )}
+            )}
+          </div>
 
           {/* Related Innovations Section */}
           {selectedItem && (

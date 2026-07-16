@@ -51,9 +51,7 @@ const JudgeSimulator = ({
           </div>
 
           {/* Active Question display */}
-          <div style={{ background: 'rgba(255,255,255,0.01)', border: '1px solid var(--border-color)', padding: '1.25rem', borderRadius: '6px', display: 'flex', flexDirection: 'column', gap: '0.55rem', textAlign: 'left' }}>
-            <span style={{ fontSize: '0.65rem', fontFamily: 'var(--font-sans)', color: 'var(--color-accent)' }}>// PRACTICE_QUESTION_PANEL</span>
-            <p style={{ fontSize: '0.85rem', color: '#fff', margin: 0, lineHeight: '1.4' }}>
+          <div style={{ background: 'rgba(255,255,255,0.01)', border: '1px solid var(--border-color)', padding: '1.25rem', borderRadius: '6px', display: 'flex', flexDirection: 'column', gap: '0.55rem', textAlign: 'left' }}>            <p style={{ fontSize: '0.85rem', color: '#fff', margin: 0, lineHeight: '1.4' }}>
               {practiceQuestions[activeQuestionIndex].question}
             </p>
             <span style={{ fontSize: '0.7rem', color: 'var(--text-dim)', fontStyle: 'italic' }}>

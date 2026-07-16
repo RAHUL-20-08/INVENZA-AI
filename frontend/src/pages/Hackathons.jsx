@@ -97,6 +97,8 @@ const Hackathons = () => {
       const data = await res.json();
       if (data.success) {
         setGeneratedInnovation(data.innovation);
+      } else {
+        alert(data.message || "Failed to synthesize innovation.");
       }
     } catch (err) {
       alert("Failed to connect to Innovation Engine. Make sure server is running.");
@@ -341,8 +343,8 @@ const Hackathons = () => {
 
                     {/* Metadata details list */}
                     <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.75rem', fontSize: '0.75rem', color: 'var(--text-muted)', borderTop: '1px solid rgba(255,255,255,0.04)', paddingTop: '0.75rem' }}>
-                      <div style={{ display: 'flex', alignItems: 'center', gap: '0.3rem' }}>
-                        <span className="material-symbols-outlined" style={{ fontSize: '12px',  color: portalAccent  }}>location_on</span> {h.mode} ({h.venue.split('/')[0].trim()})
+                      <div style={{ display: 'inline-flex', alignItems: 'center', gap: '0.35rem', background: 'rgba(255,255,255,0.05)', padding: '0.3rem 0.6rem', borderRadius: '6px', border: '1px solid rgba(255,255,255,0.1)', color: 'var(--text-main)', fontWeight: 600 }}>
+                        <span className="material-symbols-outlined" style={{ fontSize: '14px',  color: portalAccent  }}>location_on</span> {h.mode} ({h.venue.split('/')[0].trim()})
                       </div>
                       <div style={{ display: 'flex', alignItems: 'center', gap: '0.3rem' }}>
                         <span className="material-symbols-outlined" style={{ fontSize: '12px',  color: '#f59e0b'  }}>workspace_premium</span> {h.prizePool}

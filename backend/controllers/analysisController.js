@@ -1,6 +1,9 @@
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import { loadInnovationsFromDB, loadSavedStartupsFromDB } from '../utils/dbFetcher.js';
+import db from '../database/db.js';
+import { fetchCerebrasSearch } from '../utils/cerebrasSearch.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -503,7 +506,7 @@ export const analyzeIdea = async (req, res) => {
     });
   }
 
-  const db = loadDatabase();
+  const db = await loadInnovationsFromDB();
   const userTokens = getTokens((title || "") + " " + (description || "") + " " + (sector || ""));
   
   let bestMatch = null;
@@ -794,7 +797,7 @@ export const validateStartup = async (req, res) => {
   }
 
   // If no match in pre-seeded DB AND no wikiData exists, reject query
-  const db = loadDatabase();
+  const db = await loadInnovationsFromDB();
   const list = db.innovations || [];
   const matchedSeed = list.find(item => item.name.toLowerCase().includes(title.toLowerCase()));
 
@@ -1116,20 +1119,20 @@ export const saveStartupIdea = async (req, res) => {
     return res.status(400).json({ success: false, message: "A valid business idea is required to save." });
   }
 
-  const saved = loadSavedStartups();
+  const saved = await loadSavedStartupsFromDB();
   const existsIdx = saved.findIndex(s => s.title.toLowerCase() === idea.title.toLowerCase());
   if (existsIdx > -1) {
     saved[existsIdx] = { ...saved[existsIdx], ...idea, savedAt: new Date().toISOString() };
   } else {
     saved.push({ ...idea, savedAt: new Date().toISOString() });
   }
-  saveSavedStartups(saved);
+  await saveSavedStartups(saved);
 
   res.json({ success: true, message: "Business idea saved successfully to workspace database." });
 };
 
 export const getSavedStartupIdeas = async (req, res) => {
-  const saved = loadSavedStartups();
+  const saved = await loadSavedStartupsFromDB();
   res.json({ success: true, startups: saved });
 };
 

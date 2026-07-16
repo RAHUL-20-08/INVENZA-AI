@@ -28,6 +28,8 @@ const Login = ({ onLoginSuccess }) => {
   const [confirmPassword, setConfirmPassword] = useState('');
   const [fullName, setFullName] = useState('');
   const [rememberMe, setRememberMe] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   
   // Student registration metadata
   const [college, setCollege] = useState('');
@@ -860,29 +862,30 @@ const Login = ({ onLoginSuccess }) => {
                 </div>
 
                 <div>
-                  <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '0.35rem' }}>
+                  <div style={{ marginBottom: '0.35rem' }}>
                     <label style={{ fontSize: '0.75rem', color: 'var(--text-muted)', fontFamily: 'var(--font-sans)' }}>SECURITY PASSWORD</label>
-                    <span 
-                      onClick={() => setView(isStudentTheme ? 'student-forgot' : 'business-forgot')}
-                      style={{ fontSize: '0.7rem', color: portalAccent, cursor: 'pointer', fontFamily: 'var(--font-sans)' }}
-                    >
-                      Forgot Password?
-                    </span>
                   </div>
                   <div style={{ position: 'relative' }}>
                     <span className="material-symbols-outlined" style={{ fontSize: '14px',  position: 'absolute', left: '12px', top: '15px', color: 'var(--text-dim)'  }}>lock</span>
                     <input 
                       id="login-password"
                       name="password"
-                      type="password" 
+                      type={showPassword ? "text" : "password"} 
                       className="tech-input" 
-                      style={{ paddingLeft: '2.5rem' }} 
+                      style={{ paddingLeft: '2.5rem', paddingRight: '2.5rem' }} 
                       placeholder="••••••••••••"
                       value={password}
                       onChange={e => setPassword(e.target.value)}
                       autoComplete="current-password"
                       required
                     />
+                    <span 
+                      className="material-symbols-outlined" 
+                      onClick={() => setShowPassword(!showPassword)}
+                      style={{ fontSize: '14px', position: 'absolute', right: '12px', top: '15px', color: 'var(--text-dim)', cursor: 'pointer' }}
+                    >
+                      {showPassword ? "visibility_off" : "visibility"}
+                    </span>
                   </div>
                 </div>
 
@@ -921,9 +924,9 @@ const Login = ({ onLoginSuccess }) => {
                   type="submit" 
                   className="tech-button" 
                   disabled={isLoading}
-                  style={{ width: '100%', marginTop: '0.5rem', background: portalAccent, color: '#fff', borderColor: portalAccent }}
+                  style={{ width: '100%', marginTop: '0.5rem', background: portalAccent, color: '#fff', borderColor: portalAccent, display: 'flex', justifyContent: 'center', alignItems: 'center' }}
                 >
-                  {isLoading ? "Authenticating..." : "Validate Clearance & Login"}
+                  {isLoading ? "Authenticating..." : "Login"}
                 </button>
 
                 {/* Switch to Signup Link */}
@@ -1382,28 +1385,6 @@ const Login = ({ onLoginSuccess }) => {
 
           </div>
 
-          {/* Terminal log logs terminal */}
-          {logs.length > 0 && (
-            <div style={{
-              background: 'var(--bg-panel)',
-              border: '1px solid var(--border-color)',
-              borderRadius: '8px',
-              padding: '0.75rem',
-              fontFamily: 'var(--font-sans)',
-              fontSize: '0.65rem',
-              color: portalAccent,
-              display: 'flex',
-              flexDirection: 'column',
-              gap: '0.25rem',
-              boxShadow: 'inset 0 4px 10px rgba(0,0,0,0.6)',
-              maxHeight: '120px',
-              overflowY: 'auto'
-            }}>
-              {logs.map((log, index) => (
-                <div key={index} style={{ wordBreak: 'break-all' }}>{log}</div>
-              ))}
-            </div>
-          )}
 
           {/* Compliance banner */}
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.35rem', justifyContent: 'center', color: 'var(--text-dim)', fontSize: '0.6rem', fontFamily: 'var(--font-sans)' }}>

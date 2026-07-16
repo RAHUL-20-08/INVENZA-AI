@@ -23,9 +23,7 @@ const ExportCenter = ({
         <strong style={{ fontSize: '1.1rem', fontFamily: 'var(--font-display)' }}>Export Center</strong>
       </div>
 
-      <div className="glass-panel" style={{ padding: '2rem' }}>
-        <span style={{ fontSize: '0.65rem', color: 'var(--text-muted)', fontFamily: 'var(--font-sans)', display: 'block', marginBottom: '0.5rem', textAlign: 'left' }}>// EXPORT_CENTER_DASHBOARD</span>
-        <h3 style={{ fontSize: '1.1rem', fontFamily: 'var(--font-display)', marginBottom: '1.5rem', textAlign: 'left' }}>Download Presentation Assets</h3>
+      <div className="glass-panel" style={{ padding: '2rem' }}>        <h3 style={{ fontSize: '1.1rem', fontFamily: 'var(--font-display)', marginBottom: '1.5rem', textAlign: 'left' }}>Download Presentation Assets</h3>
 
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1.5rem' }}>
           

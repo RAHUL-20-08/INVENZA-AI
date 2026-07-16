@@ -26,9 +26,7 @@ const SlideRenderer = ({ slide, isMobile, audienceType }) => {
         <div style={{ display: 'flex', flexDirection: 'column', height: '100%', justifyContent: 'space-between' }}>
           {headerMeta}
           <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1.2fr 0.8fr', gap: '2rem', flex: 1, alignItems: 'center' }}>
-            <div style={{ textAlign: 'left' }}>
-              <span className="mono-tag" style={{ color: 'var(--color-primary)', fontSize: '0.75rem', marginBottom: '0.5rem', display: 'inline-block' }}>// PITCH_DECK_REVIVAL</span>
-              <h1 style={{ fontSize: isMobile ? '1.5rem' : '2.5rem', fontWeight: 900, fontFamily: 'var(--font-display)', color: '#fff', margin: '0 0 1rem 0', lineHeight: 1.15 }}>
+            <div style={{ textAlign: 'left' }}>              <h1 style={{ fontSize: isMobile ? '1.5rem' : '2.5rem', fontWeight: 900, fontFamily: 'var(--font-display)', color: '#fff', margin: '0 0 1rem 0', lineHeight: 1.15 }}>
                 {title.replace("Slide 1: ", "")}
               </h1>
               <p style={{ fontSize: '0.95rem', color: 'var(--text-main)', margin: '0 0 1.5rem 0', lineHeight: 1.5 }}>
@@ -121,9 +119,7 @@ const SlideRenderer = ({ slide, isMobile, audienceType }) => {
         <div style={{ display: 'flex', flexDirection: 'column', height: '100%', justifyContent: 'space-between' }}>
           {headerMeta}
           <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1.1fr 0.9fr', gap: '2rem', flex: 1, alignItems: 'center' }}>
-            <div style={{ textAlign: 'left', display: 'flex', flexDirection: 'column', gap: '0.85rem' }}>
-              <span className="mono-tag" style={{ color: 'var(--color-primary)' }}>// REVAL_MATRIX_SOLUTION</span>
-              <h2 style={{ fontSize: '1.35rem', margin: 0, color: '#fff', fontWeight: 800 }}>Proposed AI Overlay</h2>
+            <div style={{ textAlign: 'left', display: 'flex', flexDirection: 'column', gap: '0.85rem' }}>              <h2 style={{ fontSize: '1.35rem', margin: 0, color: '#fff', fontWeight: 800 }}>Proposed AI Overlay</h2>
               <p style={{ fontSize: '0.85rem', color: 'var(--text-main)', lineHeight: 1.5, margin: 0 }}>
                 {detail}
               </p>
@@ -190,9 +186,7 @@ const SlideRenderer = ({ slide, isMobile, audienceType }) => {
         <div style={{ display: 'flex', flexDirection: 'column', height: '100%', justifyContent: 'space-between' }}>
           {headerMeta}
           <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '0.9fr 1.1fr', gap: '2rem', flex: 1, alignItems: 'center' }}>
-            <div style={{ textAlign: 'left', display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
-              <span style={{ fontSize: '0.65rem', color: 'var(--color-primary)', fontFamily: 'var(--font-sans)' }}>// DATA_FLOWCHART</span>
-              <strong style={{ fontSize: '1.25rem', color: '#fff' }}>Holographic Waveguide Pipeline</strong>
+            <div style={{ textAlign: 'left', display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>              <strong style={{ fontSize: '1.25rem', color: '#fff' }}>Holographic Waveguide Pipeline</strong>
               <p style={{ fontSize: '0.8rem', color: 'var(--text-main)', lineHeight: 1.45, margin: 0 }}>
                 {detail}
               </p>
@@ -255,9 +249,7 @@ const SlideRenderer = ({ slide, isMobile, audienceType }) => {
         <div style={{ display: 'flex', flexDirection: 'column', height: '100%', justifyContent: 'space-between' }}>
           {headerMeta}
           <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr', gap: '2rem', flex: 1, alignItems: 'center' }}>
-            <div style={{ textAlign: 'left', display: 'flex', flexDirection: 'column', gap: '0.85rem' }}>
-              <span className="mono-tag" style={{ color: 'var(--color-success)' }}>// CORE_NEURAL_WEIGHTS</span>
-              <strong style={{ fontSize: '1.25rem', color: '#fff' }}>Aberration Quantization</strong>
+            <div style={{ textAlign: 'left', display: 'flex', flexDirection: 'column', gap: '0.85rem' }}>              <strong style={{ fontSize: '1.25rem', color: '#fff' }}>Aberration Quantization</strong>
               <p style={{ fontSize: '0.85rem', color: 'var(--text-main)', lineHeight: 1.5, margin: 0 }}>
                 {detail}
               </p>
@@ -315,9 +307,7 @@ const SlideRenderer = ({ slide, isMobile, audienceType }) => {
         <div style={{ display: 'flex', flexDirection: 'column', height: '100%', justifyContent: 'space-between' }}>
           {headerMeta}
           <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1.1fr 0.9fr', gap: '2rem', flex: 1, alignItems: 'center' }}>
-            <div style={{ textAlign: 'left', display: 'flex', flexDirection: 'column', gap: '0.85rem' }}>
-              <span className="mono-tag" style={{ color: 'var(--color-primary)' }}>// RESEARCH_CITATIONS</span>
-              <strong style={{ fontSize: '1.25rem', color: '#fff' }}>Scientific Refraction Math</strong>
+            <div style={{ textAlign: 'left', display: 'flex', flexDirection: 'column', gap: '0.85rem' }}>              <strong style={{ fontSize: '1.25rem', color: '#fff' }}>Scientific Refraction Math</strong>
               <p style={{ fontSize: '0.85rem', color: 'var(--text-main)', lineHeight: 1.5, margin: 0 }}>
                 {detail}
               </p>
@@ -340,9 +330,7 @@ const SlideRenderer = ({ slide, isMobile, audienceType }) => {
         <div style={{ display: 'flex', flexDirection: 'column', height: '100%', justifyContent: 'space-between' }}>
           {headerMeta}
           <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1.1fr 0.9fr', gap: '2rem', flex: 1, alignItems: 'center' }}>
-            <div style={{ textAlign: 'left', display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-              <span className="mono-tag" style={{ color: 'var(--color-secondary)' }}>// TAM_EXPANSION</span>
-              <strong style={{ fontSize: '1.35rem', color: '#fff' }}>Market Momentum Growth</strong>
+            <div style={{ textAlign: 'left', display: 'flex', flexDirection: 'column', gap: '1rem' }}>              <strong style={{ fontSize: '1.35rem', color: '#fff' }}>Market Momentum Growth</strong>
               <p style={{ fontSize: '0.85rem', color: 'var(--text-main)', lineHeight: 1.45, margin: 0 }}>
                 {detail}
               </p>
@@ -418,9 +406,7 @@ const SlideRenderer = ({ slide, isMobile, audienceType }) => {
         <div style={{ display: 'flex', flexDirection: 'column', height: '100%', justifyContent: 'space-between' }}>
           {headerMeta}
           <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '0.9fr 1.1fr', gap: '2rem', flex: 1, alignItems: 'center' }}>
-            <div style={{ textAlign: 'left', display: 'flex', flexDirection: 'column', gap: '0.85rem' }}>
-              <span className="mono-tag" style={{ color: 'var(--color-success)' }}>// TIMELINE_ROADMAP</span>
-              <strong style={{ fontSize: '1.25rem', color: '#fff' }}>18-Month Scope Path</strong>
+            <div style={{ textAlign: 'left', display: 'flex', flexDirection: 'column', gap: '0.85rem' }}>              <strong style={{ fontSize: '1.25rem', color: '#fff' }}>18-Month Scope Path</strong>
               <p style={{ fontSize: '0.8rem', color: 'var(--text-main)', lineHeight: 1.45, margin: 0 }}>
                 {detail}
               </p>
@@ -447,9 +433,7 @@ const SlideRenderer = ({ slide, isMobile, audienceType }) => {
         <div style={{ display: 'flex', flexDirection: 'column', height: '100%', justifyContent: 'space-between' }}>
           {headerMeta}
           <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1.2fr 0.8fr', gap: '2rem', flex: 1, alignItems: 'center' }}>
-            <div style={{ textAlign: 'left' }}>
-              <span className="mono-tag" style={{ color: 'var(--color-success)', fontSize: '0.75rem', marginBottom: '0.5rem', display: 'inline-block' }}>// PITCH_CONCLUDED</span>
-              <h1 style={{ fontSize: isMobile ? '1.8rem' : '2.8rem', fontWeight: 900, fontFamily: 'var(--font-display)', color: '#fff', margin: '0 0 1rem 0' }}>
+            <div style={{ textAlign: 'left' }}>              <h1 style={{ fontSize: isMobile ? '1.8rem' : '2.8rem', fontWeight: 900, fontFamily: 'var(--font-display)', color: '#fff', margin: '0 0 1rem 0' }}>
                 Thank You!
               </h1>
               <p style={{ fontSize: '0.95rem', color: 'var(--text-main)', margin: '0 0 1.5rem 0' }}>

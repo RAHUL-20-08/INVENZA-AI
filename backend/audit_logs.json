@@ -324,5 +324,13 @@
     "metadata": {
       "portalType": "student"
     }
+  },
+  {
+    "timestamp": "2026-07-16T12:58:21.964Z",
+    "email": "praven@gmail.com",
+    "action": "REGISTER_USER",
+    "metadata": {
+      "portalType": "student"
+    }
   }
 ]
