@@ -20,7 +20,7 @@ export const SearchProvider = ({ children }) => {
 
     const delayDebounceFn = setTimeout(async () => {
       try {
-        const response = await fetch(`http://localhost:5000/api/suggestions?q=${encodeURIComponent(query)}`);
+        const response = await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/suggestions?q=${encodeURIComponent(query)}`);
         const data = await response.json();
         if (data.success) {
           setSuggestions(data.suggestions || []);
@@ -65,7 +65,7 @@ export const SearchProvider = ({ children }) => {
 
     try {
       // 2. Validate and load Core SWOT and Revival analysis from server
-      const analyzeRes = await fetch('http://localhost:5000/api/analyze', {
+      const analyzeRes = await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/analyze`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ title: term, description: `RAG search verification for ${term}` })
@@ -88,8 +88,8 @@ export const SearchProvider = ({ children }) => {
 
       // 3. Parallel fetch to Patent registry, research publications, and GitHub code repos
       const [patentsRes, papersRes, githubRes] = await Promise.allSettled([
-        fetch(`http://localhost:5000/api/patents?query=${encodeURIComponent(term)}`),
-        fetch(`http://localhost:5000/api/search-papers?query=${encodeURIComponent(term)}`),
+        fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/patents?query=${encodeURIComponent(term)}`),
+        fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/search-papers?query=${encodeURIComponent(term)}`),
         fetch(`https://api.github.com/search/repositories?q=${encodeURIComponent(term)}`)
       ]);
 

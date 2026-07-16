@@ -37,7 +37,7 @@ const AuthCallback = ({ onLoginSuccess, onOnboardingNeeded, onCancel }) => {
       addLog(`Initiating secure backend handshake with ${provider} auth nodes...`);
 
       try {
-        const response = await fetch('http://localhost:5000/api/auth/oauth/callback', {
+        const response = await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/auth/oauth/callback`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ code, provider, portalType })

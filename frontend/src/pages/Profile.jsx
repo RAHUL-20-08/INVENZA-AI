@@ -284,7 +284,7 @@ const Profile = ({ userEmail, theme }) => {
   const fetchSecurityProfile = async () => {
     try {
       const token = localStorage.getItem('auth_token');
-      const res = await fetch('http://localhost:5000/api/auth/security-profile', {
+      const res = await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/auth/security-profile`, {
         headers: { 'Authorization': `Bearer ${token}` }
       });
       const data = await res.json();
@@ -320,7 +320,7 @@ const Profile = ({ userEmail, theme }) => {
     setSecuritySuccess('');
     try {
       const token = localStorage.getItem('auth_token');
-      const res = await fetch('http://localhost:5000/api/auth/security/mfa/setup', {
+      const res = await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/auth/security/mfa/setup`, {
         method: 'POST',
         headers: { 
           'Content-Type': 'application/json',
@@ -351,7 +351,7 @@ const Profile = ({ userEmail, theme }) => {
     setSecuritySuccess('');
     try {
       const token = localStorage.getItem('auth_token');
-      const res = await fetch('http://localhost:5000/api/auth/security/mfa/enable', {
+      const res = await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/auth/security/mfa/enable`, {
         method: 'POST',
         headers: { 
           'Content-Type': 'application/json',
@@ -395,7 +395,7 @@ const Profile = ({ userEmail, theme }) => {
     setSecuritySuccess('');
     try {
       const token = localStorage.getItem('auth_token');
-      const res = await fetch('http://localhost:5000/api/auth/security/mfa/disable', {
+      const res = await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/auth/security/mfa/disable`, {
         method: 'POST',
         headers: { 
           'Content-Type': 'application/json',
@@ -432,7 +432,7 @@ const Profile = ({ userEmail, theme }) => {
     setSecuritySuccess('');
     try {
       const token = localStorage.getItem('auth_token');
-      const res = await fetch(`http://localhost:5000/api/auth/security/sessions/${sessId}/terminate`, {
+      const res = await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/auth/security/sessions/${sessId}/terminate`, {
         method: 'POST',
         headers: { 'Authorization': `Bearer ${token}` }
       });
@@ -459,7 +459,7 @@ const Profile = ({ userEmail, theme }) => {
     setSecuritySuccess('');
     try {
       const token = localStorage.getItem('auth_token');
-      const res = await fetch('http://localhost:5000/api/auth/security/sessions/terminate-all', {
+      const res = await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/auth/security/sessions/terminate-all`, {
         method: 'POST',
         headers: { 'Authorization': `Bearer ${token}` }
       });
@@ -503,7 +503,7 @@ const Profile = ({ userEmail, theme }) => {
 
     try {
       const token = localStorage.getItem('auth_token');
-      const res = await fetch('http://localhost:5000/api/auth/security/change-password', {
+      const res = await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/auth/security/change-password`, {
         method: 'POST',
         headers: { 
           'Content-Type': 'application/json',
@@ -542,7 +542,7 @@ const Profile = ({ userEmail, theme }) => {
     setSecurityError('');
     try {
       const token = localStorage.getItem('auth_token');
-      const res = await fetch('http://localhost:5000/api/auth/security/verify-sensitive', {
+      const res = await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/auth/security/verify-sensitive`, {
         method: 'POST',
         headers: { 
           'Content-Type': 'application/json',
@@ -569,7 +569,7 @@ const Profile = ({ userEmail, theme }) => {
         } else if (sensitiveAction === 'delete') {
           const passConfirm = prompt("Confirm critical action. Enter password to delete account:");
           if (!passConfirm) return;
-          const deleteRes = await fetch('http://localhost:5000/api/auth/security/delete-account', {
+          const deleteRes = await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/auth/security/delete-account`, {
             method: 'POST',
             headers: { 
               'Content-Type': 'application/json',

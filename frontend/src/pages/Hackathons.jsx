@@ -58,7 +58,7 @@ const Hackathons = () => {
         department: 'CS',
         yearOfStudy: '3'
       };
-      const res = await fetch(`http://localhost:5000/api/hackathons?profile=${encodeURIComponent(JSON.stringify(studentProfile))}`);
+      const res = await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/hackathons?profile=${encodeURIComponent(JSON.stringify(studentProfile))}`);
       const data = await res.json();
       if (data.success) {
         setHackathonsList(data.hackathons || []);
@@ -86,7 +86,7 @@ const Hackathons = () => {
     setInnovLoading(true);
     try {
       const token = localStorage.getItem('auth_token');
-      const res = await fetch('http://localhost:5000/api/analysis/innovate-engine', {
+      const res = await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/analysis/innovate-engine`, {
         method: 'POST',
         headers: { 
           'Content-Type': 'application/json',

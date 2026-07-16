@@ -145,7 +145,7 @@ const Login = ({ onLoginSuccess }) => {
     const portalType = view.startsWith('student') ? 'student' : 'business';
 
     try {
-      const res = await fetch('http://localhost:5000/api/auth/verify-mfa', {
+      const res = await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/auth/verify-mfa`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, code: mfaCodeInput, portalType })
@@ -202,7 +202,7 @@ const Login = ({ onLoginSuccess }) => {
     const portalType = view.startsWith('student') ? 'student' : 'business';
 
     try {
-      const res = await fetch('http://localhost:5000/api/auth/login', {
+      const res = await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/auth/login`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, password, portalType })
@@ -297,7 +297,7 @@ const Login = ({ onLoginSuccess }) => {
     addLog(`Contacting secure ${provider} SSO parameters...`);
     
     try {
-      const res = await fetch('http://localhost:5000/api/auth/oauth/config');
+      const res = await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/auth/oauth/config`);
       const config = await res.json();
       setIsLoading(false);
 
@@ -406,7 +406,7 @@ const Login = ({ onLoginSuccess }) => {
     const portalType = view.startsWith('student') ? 'student' : 'business';
 
     try {
-      const res = await fetch('http://localhost:5000/api/auth/send-register-otp', {
+      const res = await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/auth/send-register-otp`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, portalType })
@@ -465,7 +465,7 @@ const Login = ({ onLoginSuccess }) => {
     };
 
     try {
-      const res = await fetch('http://localhost:5000/api/auth/register', {
+      const res = await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/auth/register`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(registrationPayload)
@@ -516,7 +516,7 @@ const Login = ({ onLoginSuccess }) => {
     setSuccessMsg('');
 
     try {
-      const res = await fetch('http://localhost:5000/api/auth/forgot-password', {
+      const res = await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/auth/forgot-password`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email: resetEmail })
@@ -545,7 +545,7 @@ const Login = ({ onLoginSuccess }) => {
     setErrorMsg('');
 
     try {
-      const res = await fetch('http://localhost:5000/api/auth/verify-otp', {
+      const res = await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/auth/verify-otp`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email: resetEmail, otp: otpCode })
@@ -587,7 +587,7 @@ const Login = ({ onLoginSuccess }) => {
     const portalType = view.startsWith('student') ? 'student' : 'business';
 
     try {
-      const res = await fetch('http://localhost:5000/api/auth/reset-password', {
+      const res = await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/auth/reset-password`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email: resetEmail, resetToken, newPassword: password })

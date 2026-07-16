@@ -16,7 +16,7 @@ const AdminConfig = ({ theme, portalAccent }) => {
     setError('');
     try {
       const token = localStorage.getItem('auth_token');
-      const res = await fetch('http://localhost:5000/api/auth/admin/config', {
+      const res = await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/auth/admin/config`, {
         headers: {
           'Authorization': `Bearer ${token}`
         }

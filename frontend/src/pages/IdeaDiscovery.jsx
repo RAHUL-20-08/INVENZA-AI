@@ -246,7 +246,7 @@ const IdeaDiscovery = () => {
   const fetchSavedStartups = async () => {
     try {
       const token = localStorage.getItem('auth_token');
-      const res = await fetch('http://localhost:5000/api/analysis/saved-startups', {
+      const res = await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/analysis/saved-startups`, {
         headers: { 'Authorization': `Bearer ${token}` }
       });
       const data = await res.json();
@@ -276,7 +276,7 @@ const IdeaDiscovery = () => {
         marketTrends: inputs.marketTrends
       };
 
-      const res = await fetch('http://localhost:5000/api/discover-ideas', {
+      const res = await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/discover-ideas`, {
         method: 'POST',
         headers: { 
           'Content-Type': 'application/json',
@@ -306,7 +306,7 @@ const IdeaDiscovery = () => {
     setSaveLoading(true);
     try {
       const token = localStorage.getItem('auth_token');
-      const res = await fetch('http://localhost:5000/api/analysis/save-startup', {
+      const res = await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/analysis/save-startup`, {
         method: 'POST',
         headers: { 
           'Content-Type': 'application/json',
@@ -390,7 +390,7 @@ const IdeaDiscovery = () => {
     if (!activeIdea) return;
     try {
       const token = localStorage.getItem('auth_token');
-      const res = await fetch('http://localhost:5000/api/analysis/regenerate-section', {
+      const res = await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/analysis/regenerate-section`, {
         method: 'POST',
         headers: { 
           'Content-Type': 'application/json',
@@ -428,7 +428,7 @@ const IdeaDiscovery = () => {
       const token = localStorage.getItem('auth_token');
       const context = activeIdea ? `My startup is: ${activeIdea.title}. Description: ${activeIdea.description}. Problem: ${activeIdea.problem}. Solution: ${activeIdea.solution}.` : 'No active startup loaded.';
       
-      const res = await fetch('http://localhost:5000/api/chat', {
+      const res = await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/chat`, {
         method: 'POST',
         headers: { 
           'Content-Type': 'application/json',

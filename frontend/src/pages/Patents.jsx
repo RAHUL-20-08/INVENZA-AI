@@ -53,7 +53,7 @@ const Patents = ({ onInspect, setCurrentPage, setGlobalQuery }) => {
     }
     setLoading(true);
     try {
-      const res = await fetch(`http://localhost:5000/api/patents?query=${encodeURIComponent(searchVal)}`);
+      const res = await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/patents?query=${encodeURIComponent(searchVal)}`);
       const data = await res.json();
       if (data.success) {
         setPatents(data.data);

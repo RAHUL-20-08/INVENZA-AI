@@ -550,7 +550,7 @@ const Dashboard = ({ activeInnovation, setActiveInnovation, globalQuery, setGlob
   useEffect(() => {
     const fetchItems = async () => {
       try {
-        const response = await fetch('http://localhost:5000/api/innovations');
+        const response = await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/innovations`);
         const data = await response.json();
         if (data.success && data.data.length > 0) {
           setInnovations(data.data);
@@ -620,7 +620,7 @@ const Dashboard = ({ activeInnovation, setActiveInnovation, globalQuery, setGlob
 
     setTimeout(async () => {
       try {
-        const response = await fetch('http://localhost:5000/api/analyze', {
+        const response = await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/analyze`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({

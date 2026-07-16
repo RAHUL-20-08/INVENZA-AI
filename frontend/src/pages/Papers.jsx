@@ -132,7 +132,7 @@ const Papers = ({ globalQuery, setGlobalQuery, setCurrentPage }) => {
     const fetchPapers = async () => {
       setCustomError(null);
       try {
-        const url = `http://localhost:5000/api/search-papers?query=${encodeURIComponent(globalQuery)}`;
+        const url = `${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/search-papers?query=${encodeURIComponent(globalQuery)}`;
         const response = await fetch(url);
         const data = await response.json();
         if (data.success) {
@@ -277,7 +277,7 @@ const Papers = ({ globalQuery, setGlobalQuery, setCurrentPage }) => {
     }
 
     try {
-      const url = `http://localhost:5000/api/paper-links?id=${id}`;
+      const url = `${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/paper-links?id=${id}`;
       const response = await fetch(url);
       const data = await response.json();
       if (data.success) {

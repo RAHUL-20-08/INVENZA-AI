@@ -65,7 +65,7 @@ export const MentorProvider = ({ children }) => {
     setReviewLoading(true);
     setCodeReview(null);
     try {
-      const res = await fetch('http://localhost:5000/api/code-review', {
+      const res = await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/code-review`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ code: codeString })
@@ -94,7 +94,7 @@ export const MentorProvider = ({ children }) => {
   const fetchDocument = async (docType) => {
     setDocsLoading(true);
     try {
-      const res = await fetch('http://localhost:5000/api/generate-docs', {
+      const res = await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/generate-docs`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ title: project.name, docType })

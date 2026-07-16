@@ -23,7 +23,7 @@ const Explorer = ({ onImportToStartup, setCurrentPage, setGlobalQuery }) => {
   // Load innovations with fallback
   const loadInnovations = async () => {
     try {
-      const url = `http://localhost:5000/api/innovations?query=${searchQuery}&sector=${selectedSector}`;
+      const url = `${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/innovations?query=${searchQuery}&sector=${selectedSector}`;
       const response = await fetch(url);
       const data = await response.json();
       if (data.success) {
@@ -81,7 +81,7 @@ const Explorer = ({ onImportToStartup, setCurrentPage, setGlobalQuery }) => {
     }
 
     try {
-      const response = await fetch('http://localhost:5000/api/analyze', {
+      const response = await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/analyze`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
