@@ -20,6 +20,8 @@ import { useSearch } from './context/SearchContext';
 import { usePortal } from './context/PortalContext';
 import AuthCallback from './components/AuthCallback';
 import AdminConfig from './components/AdminConfig';
+import AuditLog from './pages/AuditLog';
+import AccountManagement from './pages/AccountManagement';
 
 function App() {
   const getInitialPageFromUrl = () => {
@@ -297,7 +299,10 @@ function App() {
         return <Profile userEmail={userEmail} theme={theme} />;
       case 'admin-config':
         return <AdminConfig theme={theme} portalAccent={portalMode === 'student' ? '#3b82f6' : '#0d9488'} />;
-
+      case 'audit-log':
+        return <AuditLog />;
+      case 'account-management':
+        return <AccountManagement />;
       default:
         return <div>Page not found</div>;
     }

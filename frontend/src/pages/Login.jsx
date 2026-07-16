@@ -247,10 +247,12 @@ const Login = ({ onLoginSuccess }) => {
           matchedUser = { email: 'analyst@gmail.com', role: 'student', roles: ['student'] };
         } else if (lowerEmail === 'analyst@outlook.com' && password === 'microsoftpassword') {
           matchedUser = { email: 'analyst@outlook.com', role: 'business', roles: ['business'] };
+        } else if (lowerEmail === 'superadmin@invenza.ai' && password === 'superadmin123') {
+          matchedUser = { email: 'superadmin@invenza.ai', role: 'superadmin', roles: ['superadmin'] };
         }
 
         if (matchedUser) {
-          if (matchedUser.role !== portalType) {
+          if (matchedUser.role !== 'superadmin' && matchedUser.role !== portalType) {
             setIsLoading(false);
             setErrorMsg(`You do not have a registered account for the ${portalType === 'student' ? 'Student' : 'Business'} Portal.`);
             addLog("Clearance verification: DENIED (Unauthorized Role)");
@@ -939,35 +941,7 @@ const Login = ({ onLoginSuccess }) => {
                   </span>
                 </div>
 
-                {/* Divider */}
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', margin: '0.5rem 0' }}>
-                  <div style={{ flex: 1, height: '1px', background: 'rgba(255,255,255,0.05)' }}></div>
-                  <span style={{ fontSize: '0.6rem', color: 'var(--text-dim)', fontFamily: 'var(--font-sans)' }}>SSO CLEARANCE</span>
-                  <div style={{ flex: 1, height: '1px', background: 'rgba(255,255,255,0.05)' }}></div>
-                </div>
 
-                {/* Social Federated buttons */}
-                <div style={{ display: 'flex', gap: '0.75rem' }}>
-                  <button 
-                    id="login-sso-google"
-                    type="button" 
-                    onClick={() => handleSSOLogin('Google')}
-                    className="tech-button tech-button-outline"
-                    style={{ flex: 1, fontSize: '0.7rem', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.35rem', padding: '0.55rem' }}
-                  >
-                    <GoogleIcon /> Google
-                  </button>
-                  <button 
-                    id="login-sso-linkedin"
-                    type="button" 
-                    onClick={() => handleSSOLogin('LinkedIn')}
-                    className="tech-button tech-button-outline"
-                    style={{ flex: 1, fontSize: '0.7rem', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.35rem', padding: '0.55rem' }}
-                  >
-                    <LinkedinIcon /> 
-                    <span>LinkedIn</span>
-                  </button>
-                </div>
               </form>
             )}
 

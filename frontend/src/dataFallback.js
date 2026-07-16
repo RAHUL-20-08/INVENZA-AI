@@ -1,4 +1,74 @@
 // Client-side Database Fallback & Simulated AI Engine (Offline Capabilities)
+export const mockHackathons = [
+  {
+    id: "h1",
+    platform: "Unstop",
+    name: "AI Innovate 2026",
+    organizer: "TechVentures",
+    description: "Build cutting-edge AI solutions for global challenges. Open to students and professionals.",
+    mode: "Online",
+    venue: "Virtual / GatherTown",
+    prizePool: "$10,000",
+    deadline: "2026-08-15T23:59:59",
+    teamSize: "1-4",
+    officialLink: "#",
+    tags: ["AI", "Open Innovation"],
+    matchScore: 95,
+    daysRemaining: 30,
+    status: "Open"
+  },
+  {
+    id: "h2",
+    platform: "Knowafest",
+    name: "IoT Smart City Hack",
+    organizer: "CityTech University",
+    description: "Develop IoT infrastructure for the smart cities of tomorrow. Hardware provided for offline participants.",
+    mode: "Hybrid",
+    venue: "Campus / Zoom",
+    prizePool: "$5,000",
+    deadline: "2026-07-25T23:59:59",
+    teamSize: "2-5",
+    officialLink: "#",
+    tags: ["IoT", "Smart Cities"],
+    matchScore: 88,
+    daysRemaining: 9,
+    status: "Closing Soon"
+  },
+  {
+    id: "h3",
+    platform: "Unstop",
+    name: "HealthTech 3.0",
+    organizer: "BioMedical Corp",
+    description: "Revolutionizing healthcare through data and biotechnology.",
+    mode: "Online",
+    venue: "Virtual / Teams",
+    prizePool: "$15,000",
+    deadline: "2026-09-01T23:59:59",
+    teamSize: "1-5",
+    officialLink: "#",
+    tags: ["Healthcare", "AI"],
+    matchScore: 78,
+    daysRemaining: 47,
+    status: "Open"
+  }
+];
+
+export const mockUsers = [
+  { id: 1, name: "Harish Analyst", email: "harishwarankrish20@gmail.com", role: "student", portal: "student", status: "Active", lastLogin: "2026-07-16T10:00:00" },
+  { id: 2, name: "Business Pro", email: "analyst@outlook.com", role: "business", portal: "business", status: "Active", lastLogin: "2026-07-15T09:30:00" },
+  { id: 3, name: "Jane Doe", email: "jane.doe@university.edu", role: "student", portal: "student", status: "Suspended", lastLogin: "2026-07-10T14:20:00" },
+  { id: 4, name: "Tech Startup Inc.", email: "founder@techstartup.com", role: "business", portal: "business", status: "Active", lastLogin: "2026-07-16T11:15:00" }
+];
+
+export const mockAuditLogs = [
+  { id: 101, timestamp: "2026-07-16T10:05:22", user: "harishwarankrish20@gmail.com", action: "User logged in", portal: "student", type: "auth" },
+  { id: 102, timestamp: "2026-07-16T10:15:40", user: "harishwarankrish20@gmail.com", action: "Viewed Patent US8289440B2", portal: "student", type: "activity" },
+  { id: 103, timestamp: "2026-07-16T11:20:10", user: "founder@techstartup.com", action: "Created Startup Pitch Draft", portal: "business", type: "activity" },
+  { id: 104, timestamp: "2026-07-15T09:31:00", user: "analyst@outlook.com", action: "User logged in", portal: "business", type: "auth" },
+  { id: 105, timestamp: "2026-07-15T14:45:12", user: "jane.doe@university.edu", action: "Failed Login Attempt", portal: "student", type: "security" },
+  { id: 106, timestamp: "2026-07-10T14:20:00", user: "System", action: "Suspended account: jane.doe@university.edu", portal: "system", type: "security" }
+];
+
 export const fallbackInnovations = [
   {
     "id": "lytro-camera",

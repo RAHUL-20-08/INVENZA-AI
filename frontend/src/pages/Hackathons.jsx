@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 import { useMentor } from '../context/MentorContext';
 import { usePortal } from '../context/PortalContext';
+import { mockHackathons } from '../dataFallback';
 
 const Hackathons = () => {
   const { portalMode } = usePortal();
@@ -65,7 +66,8 @@ const Hackathons = () => {
         setError("Failed to load hackathons from server.");
       }
     } catch (e) {
-      setError("Hackathon backend offline.");
+      console.warn("Hackathon backend offline, using mock data.");
+      setHackathonsList(mockHackathons);
     } finally {
       setListLoading(false);
     }
