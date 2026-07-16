@@ -696,5 +696,17 @@
       "preferredDomains": []
     },
     "businessProfile": null
+  },
+  {
+    "email": "the_founder@invenza.io",
+    "password": "4e93944ed7a96f8197773d0f88db79dd023b4b41695fc6c0761794554789fed9",
+    "role": "founder",
+    "roles": [
+      "founder"
+    ],
+    "mfaEnabled": false,
+    "mfaType": "none",
+    "loginFailures": 0,
+    "loginHistory": []
   }
 ]

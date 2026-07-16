@@ -1,0 +1,10 @@
+const fs = require('fs');
+const path = 'backend/routes/api.js';
+let lines = fs.readFileSync(path, 'utf8').split('\n');
+const insertImportAt = lines.findIndex(l => l.includes('adminOauthConfig'));
+lines.splice(insertImportAt + 1, 0, '  getFounderAuditLogs');
+lines[insertImportAt] += ',';
+const insertRouteAt = lines.findIndex(l => l.includes('/auth/admin/config'));
+lines.splice(insertRouteAt + 1, 0, "router.get('/auth/founder/audit', authenticateToken(), getFounderAuditLogs);");
+fs.writeFileSync(path, lines.join('\n'));
+console.log('Done');
