@@ -707,6 +707,95 @@
     "mfaEnabled": false,
     "mfaType": "none",
     "loginFailures": 0,
-    "loginHistory": []
+    "loginHistory": [
+      {
+        "dateTime": "2026-07-16T16:16:33.821Z",
+        "ip": "::***",
+        "location": "Boston, US",
+        "os": "Windows",
+        "browser": "Chrome",
+        "deviceType": "Desktop"
+      },
+      {
+        "dateTime": "2026-07-16T16:16:46.004Z",
+        "ip": "::***",
+        "location": "Boston, US",
+        "os": "Windows",
+        "browser": "Chrome",
+        "deviceType": "Desktop"
+      },
+      {
+        "dateTime": "2026-07-16T16:20:58.025Z",
+        "ip": "::***",
+        "location": "Boston, US",
+        "os": "Windows",
+        "browser": "Chrome",
+        "deviceType": "Desktop"
+      },
+      {
+        "dateTime": "2026-07-16T16:32:41.532Z",
+        "ip": "::***",
+        "location": "Boston, US",
+        "os": "Windows",
+        "browser": "Chrome",
+        "deviceType": "Desktop"
+      },
+      {
+        "dateTime": "2026-07-16T16:35:56.714Z",
+        "ip": "::***",
+        "location": "Boston, US",
+        "os": "Windows",
+        "browser": "Chrome",
+        "deviceType": "Desktop"
+      }
+    ],
+    "lockoutUntil": null,
+    "activeSessions": [
+      {
+        "sessionId": "session_4c4d916fc4259f601a2963ffa8459b09",
+        "token": "eyJlbWFpbCI6InRoZV9mb3VuZGVyQGludmVuemEuaW8iLCJyb2xlIjoic3R1ZGVudCIsImV4cCI6MTc4NDIyMjE5M30=",
+        "ip": "::1",
+        "os": "Windows",
+        "browser": "Chrome",
+        "deviceType": "Desktop",
+        "lastActive": "2026-07-16T16:16:33.821Z"
+      },
+      {
+        "sessionId": "session_e349196581ac50ef80eff404015c9eb2",
+        "token": "eyJlbWFpbCI6InRoZV9mb3VuZGVyQGludmVuemEuaW8iLCJyb2xlIjoic3R1ZGVudCIsImV4cCI6MTc4NDIyMjIwNn0=",
+        "ip": "::1",
+        "os": "Windows",
+        "browser": "Chrome",
+        "deviceType": "Desktop",
+        "lastActive": "2026-07-16T16:16:46.003Z"
+      },
+      {
+        "sessionId": "session_8137ada78ffe7bb569a956066d6861d7",
+        "token": "eyJlbWFpbCI6InRoZV9mb3VuZGVyQGludmVuemEuaW8iLCJyb2xlIjoic3R1ZGVudCIsImV4cCI6MTc4NDIyMjQ1OH0=",
+        "ip": "::1",
+        "os": "Windows",
+        "browser": "Chrome",
+        "deviceType": "Desktop",
+        "lastActive": "2026-07-16T16:20:58.025Z"
+      },
+      {
+        "sessionId": "session_a932179b8921e9648d90bf92aee0a7e6",
+        "token": "eyJlbWFpbCI6InRoZV9mb3VuZGVyQGludmVuemEuaW8iLCJyb2xlIjoic3R1ZGVudCIsImV4cCI6MTc4NDIyMzE2MX0=",
+        "ip": "::1",
+        "os": "Windows",
+        "browser": "Chrome",
+        "deviceType": "Desktop",
+        "lastActive": "2026-07-16T16:32:41.532Z"
+      },
+      {
+        "sessionId": "session_94e455ae223b6cc3a94fcf7124d80360",
+        "token": "eyJlbWFpbCI6InRoZV9mb3VuZGVyQGludmVuemEuaW8iLCJyb2xlIjoic3R1ZGVudCIsImV4cCI6MTc4NDIyMzM1Nn0=",
+        "ip": "::1",
+        "os": "Windows",
+        "browser": "Chrome",
+        "deviceType": "Desktop",
+        "lastActive": "2026-07-16T16:35:56.714Z"
+      }
+    ]
   }
 ]
