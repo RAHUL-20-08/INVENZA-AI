@@ -268,13 +268,16 @@ function App() {
             </div>
           </>
         );
-      case 'admin-audit':
-        return userRole === 'founder' ? <FounderAudit /> : (
+      case 'admin-audit': {
+        const authUser = JSON.parse(localStorage.getItem('auth_user') || '{}');
+        const roles = authUser.roles || [userRole];
+        return roles.includes('founder') ? <FounderAudit /> : (
           <div className="glass-panel" style={{ padding: '2rem', textAlign: 'center', border: '1px solid var(--color-danger)', margin: '1.5rem' }}>
             <h2 style={{ color: 'var(--color-danger)', fontFamily: 'var(--font-display)' }}>Access Restricted</h2>
             <p style={{ color: 'var(--text-muted)', marginTop: '0.5rem', fontSize: '0.9rem' }}>This module is restricted to administrators.</p>
           </div>
         );
+      }
       case 'explorer':
         return <Explorer onImportToStartup={handleImportToStartup} setCurrentPage={setCurrentPage} setGlobalQuery={setGlobalQuery} />;
       case 'startup':
