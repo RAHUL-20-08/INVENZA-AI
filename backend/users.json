@@ -709,17 +709,58 @@
     "loginFailures": 0,
     "loginHistory": [
       {
+<<<<<<< HEAD
         "dateTime": "2026-07-16T16:59:47.887Z",
         "ip": "127.0.0.***",
         "location": "Localnode, US",
         "os": "Unknown OS",
         "browser": "Unknown Browser",
+=======
+        "dateTime": "2026-07-16T16:16:33.821Z",
+        "ip": "::***",
+        "location": "Boston, US",
+        "os": "Windows",
+        "browser": "Chrome",
+        "deviceType": "Desktop"
+      },
+      {
+        "dateTime": "2026-07-16T16:16:46.004Z",
+        "ip": "::***",
+        "location": "Boston, US",
+        "os": "Windows",
+        "browser": "Chrome",
+        "deviceType": "Desktop"
+      },
+      {
+        "dateTime": "2026-07-16T16:20:58.025Z",
+        "ip": "::***",
+        "location": "Boston, US",
+        "os": "Windows",
+        "browser": "Chrome",
+        "deviceType": "Desktop"
+      },
+      {
+        "dateTime": "2026-07-16T16:32:41.532Z",
+        "ip": "::***",
+        "location": "Boston, US",
+        "os": "Windows",
+        "browser": "Chrome",
+        "deviceType": "Desktop"
+      },
+      {
+        "dateTime": "2026-07-16T16:35:56.714Z",
+        "ip": "::***",
+        "location": "Boston, US",
+        "os": "Windows",
+        "browser": "Chrome",
+>>>>>>> 3070b5eb2159d7a7a667b877cd7c4855bd050071
         "deviceType": "Desktop"
       }
     ],
     "lockoutUntil": null,
     "activeSessions": [
       {
+<<<<<<< HEAD
         "sessionId": "session_7cfc9c13c40736df1ea77992cd0abd30",
         "token": "eyJlbWFpbCI6InRoZV9mb3VuZGVyQGludmVuemEuaW8iLCJyb2xlIjoic3R1ZGVudCIsImV4cCI6MTc4NDIyNDc4N30=",
         "ip": "127.0.0.1",
@@ -727,6 +768,51 @@
         "browser": "Unknown Browser",
         "deviceType": "Desktop",
         "lastActive": "2026-07-16T16:59:47.887Z"
+=======
+        "sessionId": "session_4c4d916fc4259f601a2963ffa8459b09",
+        "token": "eyJlbWFpbCI6InRoZV9mb3VuZGVyQGludmVuemEuaW8iLCJyb2xlIjoic3R1ZGVudCIsImV4cCI6MTc4NDIyMjE5M30=",
+        "ip": "::1",
+        "os": "Windows",
+        "browser": "Chrome",
+        "deviceType": "Desktop",
+        "lastActive": "2026-07-16T16:16:33.821Z"
+      },
+      {
+        "sessionId": "session_e349196581ac50ef80eff404015c9eb2",
+        "token": "eyJlbWFpbCI6InRoZV9mb3VuZGVyQGludmVuemEuaW8iLCJyb2xlIjoic3R1ZGVudCIsImV4cCI6MTc4NDIyMjIwNn0=",
+        "ip": "::1",
+        "os": "Windows",
+        "browser": "Chrome",
+        "deviceType": "Desktop",
+        "lastActive": "2026-07-16T16:16:46.003Z"
+      },
+      {
+        "sessionId": "session_8137ada78ffe7bb569a956066d6861d7",
+        "token": "eyJlbWFpbCI6InRoZV9mb3VuZGVyQGludmVuemEuaW8iLCJyb2xlIjoic3R1ZGVudCIsImV4cCI6MTc4NDIyMjQ1OH0=",
+        "ip": "::1",
+        "os": "Windows",
+        "browser": "Chrome",
+        "deviceType": "Desktop",
+        "lastActive": "2026-07-16T16:20:58.025Z"
+      },
+      {
+        "sessionId": "session_a932179b8921e9648d90bf92aee0a7e6",
+        "token": "eyJlbWFpbCI6InRoZV9mb3VuZGVyQGludmVuemEuaW8iLCJyb2xlIjoic3R1ZGVudCIsImV4cCI6MTc4NDIyMzE2MX0=",
+        "ip": "::1",
+        "os": "Windows",
+        "browser": "Chrome",
+        "deviceType": "Desktop",
+        "lastActive": "2026-07-16T16:32:41.532Z"
+      },
+      {
+        "sessionId": "session_94e455ae223b6cc3a94fcf7124d80360",
+        "token": "eyJlbWFpbCI6InRoZV9mb3VuZGVyQGludmVuemEuaW8iLCJyb2xlIjoic3R1ZGVudCIsImV4cCI6MTc4NDIyMzM1Nn0=",
+        "ip": "::1",
+        "os": "Windows",
+        "browser": "Chrome",
+        "deviceType": "Desktop",
+        "lastActive": "2026-07-16T16:35:56.714Z"
+>>>>>>> 3070b5eb2159d7a7a667b877cd7c4855bd050071
       }
     ]
   }

@@ -14,7 +14,7 @@ if (!content.includes("import { fetchCerebrasSearch } from '../utils/cerebrasSea
 }
 
 // Rewrite fetchWikiData
-const fetchWikiDataRegex = /const fetchWikiData = async \(query\) => \{[\s\S]*?return null;\n  \}\n\};/;
+const fetchWikiDataRegex = /const fetchWikiData = async \(query\) => \{[\s\S]*?console\.error\("Wikipedia API fetch error:", [^\)]+\);\n    return null;\n  \}\n\};/;
 
 const newFetchWikiData = `const fetchWikiData = async (query) => {
   try {

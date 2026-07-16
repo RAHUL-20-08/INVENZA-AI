@@ -154,7 +154,7 @@ const newSearchPatents = `    // If not found locally, fetch from Cerebras API
 if (content.includes('// If not found locally, fetch from Wikipedia API')) {
   // It's a huge string, so string replace might fail if there's any mismatch. 
   // Let's use Regex instead for robustness.
-  const regex = /\/\/ If not found locally, fetch from Wikipedia API[\s\S]*?catch \(e\) \{\n      console\.warn\("Wikipedia API lookup failed for patent search, using local fallback\.", e\);\n    \}/;
+  const regex = /\/\/ If not found locally, fetch from Wikipedia API[\s\S]*?catch \([^\)]+\) \{[\s\S]*?\n    \}/;
   content = content.replace(regex, newSearchPatents);
 }
 

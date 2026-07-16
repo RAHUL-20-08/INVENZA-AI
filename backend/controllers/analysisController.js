@@ -1126,7 +1126,7 @@ export const saveStartupIdea = async (req, res) => {
   } else {
     saved.push({ ...idea, savedAt: new Date().toISOString() });
   }
-  await saveSavedStartups(saved);
+  await await saveSavedStartups(saved);
 
   res.json({ success: true, message: "Business idea saved successfully to workspace database." });
 };
