@@ -71,16 +71,18 @@ export const SearchProvider = ({ children }) => {
         body: JSON.stringify({ title: term, description: `RAG search verification for ${term}` })
       });
 
-      if (!analyzeRes.ok) {
+      let analyzeData;
+      try {
+        analyzeData = await analyzeRes.json();
+      } catch(e) {
         setLoading(false);
-        setError("No verified innovation found.");
+        setError("Failed to parse response from server.");
         return;
       }
 
-      const analyzeData = await analyzeRes.json();
-      if (!analyzeData.success || !analyzeData.report) {
+      if (!analyzeRes.ok || !analyzeData.success || !analyzeData.report) {
         setLoading(false);
-        setError("No verified innovation found.");
+        setError(analyzeData.message || "No verified innovation found.");
         return;
       }
 
