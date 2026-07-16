@@ -519,12 +519,10 @@
   },
   {
     "email": "admin@invenza.io",
-    "password": "8c8bdd8a17d1b915e3e710c64bdb310c40ab1ad78c1091256440abfdbad6553d",
-    "role": "student",
+    "password": "240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9",
+    "role": "founder",
     "roles": [
-      "student",
-      "business",
-      "admin"
+      "founder"
     ],
     "mfaEnabled": false,
     "mfaType": "none",
@@ -709,13 +707,14 @@
     "loginFailures": 0,
     "loginHistory": [
       {
-<<<<<<< HEAD
         "dateTime": "2026-07-16T16:59:47.887Z",
         "ip": "127.0.0.***",
         "location": "Localnode, US",
         "os": "Unknown OS",
         "browser": "Unknown Browser",
-=======
+        "deviceType": "Unknown Device"
+      },
+      {
         "dateTime": "2026-07-16T16:16:33.821Z",
         "ip": "::***",
         "location": "Boston, US",
@@ -753,22 +752,12 @@
         "location": "Boston, US",
         "os": "Windows",
         "browser": "Chrome",
->>>>>>> 3070b5eb2159d7a7a667b877cd7c4855bd050071
         "deviceType": "Desktop"
       }
     ],
     "lockoutUntil": null,
     "activeSessions": [
       {
-<<<<<<< HEAD
-        "sessionId": "session_7cfc9c13c40736df1ea77992cd0abd30",
-        "token": "eyJlbWFpbCI6InRoZV9mb3VuZGVyQGludmVuemEuaW8iLCJyb2xlIjoic3R1ZGVudCIsImV4cCI6MTc4NDIyNDc4N30=",
-        "ip": "127.0.0.1",
-        "os": "Unknown OS",
-        "browser": "Unknown Browser",
-        "deviceType": "Desktop",
-        "lastActive": "2026-07-16T16:59:47.887Z"
-=======
         "sessionId": "session_4c4d916fc4259f601a2963ffa8459b09",
         "token": "eyJlbWFpbCI6InRoZV9mb3VuZGVyQGludmVuemEuaW8iLCJyb2xlIjoic3R1ZGVudCIsImV4cCI6MTc4NDIyMjE5M30=",
         "ip": "::1",
@@ -812,7 +801,6 @@
         "browser": "Chrome",
         "deviceType": "Desktop",
         "lastActive": "2026-07-16T16:35:56.714Z"
->>>>>>> 3070b5eb2159d7a7a667b877cd7c4855bd050071
       }
     ]
   }
