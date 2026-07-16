@@ -332,5 +332,50 @@
     "metadata": {
       "portalType": "student"
     }
+  },
+  {
+    "timestamp": "2026-07-16T16:16:33.824Z",
+    "email": "the_founder@invenza.io",
+    "action": "LOGIN_SUCCESS",
+    "metadata": {
+      "portalType": "student",
+      "sessionId": "session_4c4d916fc4259f601a2963ffa8459b09"
+    }
+  },
+  {
+    "timestamp": "2026-07-16T16:16:46.007Z",
+    "email": "the_founder@invenza.io",
+    "action": "LOGIN_SUCCESS",
+    "metadata": {
+      "portalType": "student",
+      "sessionId": "session_e349196581ac50ef80eff404015c9eb2"
+    }
+  },
+  {
+    "timestamp": "2026-07-16T16:20:58.031Z",
+    "email": "the_founder@invenza.io",
+    "action": "LOGIN_SUCCESS",
+    "metadata": {
+      "portalType": "student",
+      "sessionId": "session_8137ada78ffe7bb569a956066d6861d7"
+    }
+  },
+  {
+    "timestamp": "2026-07-16T16:32:41.535Z",
+    "email": "the_founder@invenza.io",
+    "action": "LOGIN_SUCCESS",
+    "metadata": {
+      "portalType": "student",
+      "sessionId": "session_a932179b8921e9648d90bf92aee0a7e6"
+    }
+  },
+  {
+    "timestamp": "2026-07-16T16:35:56.716Z",
+    "email": "the_founder@invenza.io",
+    "action": "LOGIN_SUCCESS",
+    "metadata": {
+      "portalType": "student",
+      "sessionId": "session_94e455ae223b6cc3a94fcf7124d80360"
+    }
   }
 ]

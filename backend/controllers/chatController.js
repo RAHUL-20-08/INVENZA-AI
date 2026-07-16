@@ -316,87 +316,22 @@ Would you like me to generate a detailed **Business Canvas** or a **SWOT Analysi
     });
   }
 
-  // 2. Perform Real-Time Wikipedia Search for general questions (ChatGPT/Perplexity Simulator)
+  // 2. Perform Real-Time Cerebras Search for general questions (ChatGPT/Perplexity Simulator)
   try {
-    const wikiSearchUrl = `https://en.wikipedia.org/w/api.php?action=query&format=json&list=search&srsearch=${encodeURIComponent(userQuery)}&origin=*`;
-    const searchData = await fetchJson(wikiSearchUrl);
-
-    if (searchData.query && searchData.query.search && searchData.query.search.length > 0) {
-      const bestWikiMatch = searchData.query.search[0];
+    const cerebrasData = await fetchCerebrasSearch(userQuery);
+    if (cerebrasData) {
+      const responseText = `**INVENZA AI Research Agent Insight**\n\nBased on global intelligence data regarding **${cerebrasData.title}**:\n\n* **Description**: ${cerebrasData.description}\n* **Key Details**: Classification: ${cerebrasData.classifications}, Year: ${cerebrasData.year || 'N/A'}\n* **Technical Claims / Focus Areas**: \n  - ${(cerebrasData.claims || []).join('\n  - ')}\n\nWould you like me to build a business canvas or generate a specific roadmap based on this entity?`;
       
-      // Fetch detailed page abstract
-      const detailUrl = `https://en.wikipedia.org/w/api.php?action=query&format=json&prop=extracts&exintro=1&explaintext=1&titles=${encodeURIComponent(bestWikiMatch.title)}&origin=*`;
-      const detailData = await fetchJson(detailUrl);
-      
-      const pages = detailData.query.pages;
-      const pageId = Object.keys(pages)[0];
-      const extract = pageId !== "-1" ? pages[pageId].extract : "";
-
-      if (extract && extract.trim().length > 30) {
-        // Determine operating status from Wikipedia abstract
-        let operatingStatus = "INACTIVE (Historical Technology)";
-        const lowerExtract = extract.toLowerCase();
-        if (lowerExtract.includes("discontinued") || lowerExtract.includes("ceased") || lowerExtract.includes("defunct") || lowerExtract.includes("abandoned") || lowerExtract.includes("shut down") || lowerExtract.includes("cancelled")) {
-          operatingStatus = "DISCONTINUED / OBSOLETE";
-        } else if (lowerExtract.includes("active") || lowerExtract.includes("ongoing") || lowerExtract.includes("currently in use") || lowerExtract.includes("current")) {
-          operatingStatus = "ACTIVE / OPERATIONAL";
+      return res.json({
+        success: true,
+        message: {
+          role: "assistant",
+          content: responseText
         }
-
-        // Extrapolate filing date from text
-        let filedYear = 2010;
-        const yearMatches = extract.match(/\b(19\d{2}|20\d{2})\b/g);
-        if (yearMatches) {
-          const validYears = yearMatches
-            .map(y => parseInt(y, 10))
-            .filter(y => y >= 1950 && y <= new Date().getFullYear());
-          if (validYears.length > 0) {
-            filedYear = Math.min(...validYears);
-          }
-        }
-
-        // Dynamic accelerators suggestions derived from the actual Wikipedia page abstract!
-        const keywords = extractTechnicalKeywords(extract, bestWikiMatch.title);
-        const keyword1 = keywords[0] || "Edge AI";
-        const keyword2 = keywords[1] || "Decentralized RAG";
-        const keyword3 = keywords[2] || "Modular APIs";
-
-        responseText = `### 🔍 Real-Time System Search: ${bestWikiMatch.title}
-
-Based on current global registries and technical archives, here is a diagnostic review of **${bestWikiMatch.title}**:
-
-#### 📋 Technology Abstract
-"${extract.slice(0, 320) + (extract.length > 320 ? "..." : "")}"
-
-#### ⚙️ Technical Working & Status Details
-* **Operating Status**: ${operatingStatus}
-* **Filing Era**: Estimated founding/filed in ${filedYear} (Patent Clearance: ${ (filedYear + 20) < new Date().getFullYear() ? 'EXPIRED - Public Domain' : 'ACTIVE - IP Protected' })
-
-#### 💡 Suggested Modern Revival Accelerators
-* **➔ Integrate Edge Computing**: Combine advanced computational layers with modern **${keyword1}** frameworks to bypass legacy hardware limitations.
-* **➔ Decentralize Infrastructure**: Deploy distributed grid micro-networks to route currents based on real-time **${keyword2}** patterns.
-* **➔ Leverage Smart Materials**: Apply scalable **${keyword3}** solutions to drive enterprise commercialization paths.
-
-#### 📊 Startup & Commercialization Pathway
-* **Estimated Budget**: $450,000 to construct a modular proof-of-concept.
-* **Suggested Funding**: Venture capital micro-funds, green technology grants, and local incubators.
-* **Development Milestones**:
-  1. *Phase 1 (Wireframing)*: Design layout endpoints and mock telemetry monitors.
-  2. *Phase 2 (MVP prototype)*: Fabricate small-scale verification modules.
-  3. *Phase 3 (Validation)*: Run local charging loop performance audits.
-
-Is there any specific detail or code snippet you would like me to generate for this project?`;
-
-        return res.json({
-          success: true,
-          message: {
-            role: "assistant",
-            content: responseText
-          }
-        });
-      }
+      });
     }
-  } catch (err) {
-    console.warn("Wikipedia Registry query failed inside Chat Copilot:", err);
+  } catch (e) {
+    console.error("Cerebras Live Search Error:", e);
   }
 
   // 3. Fallback smart simulator for general tech topics when Wikipedia doesn't return page content

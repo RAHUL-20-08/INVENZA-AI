@@ -13,7 +13,7 @@ if (!content.includes("import { fetchCerebrasSearch } from '../utils/cerebrasSea
   content = content.replace("import { fileURLToPath } from 'url';", "import { fileURLToPath } from 'url';\nimport { fetchCerebrasSearch } from '../utils/cerebrasSearch.js';");
 }
 
-const chatWikiRegex = /\/\/ 2\. Perform Real-Time Wikipedia Search[\s\S]*?\} catch \(e\) \{\n    console\.error\("Wikipedia Live Search Error:", e\);\n  \}/;
+const chatWikiRegex = /\/\/ 2\. Perform Real-Time Wikipedia Search[\s\S]*?catch \([^\)]+\) \{[\s\S]*?\n  \}/;
 
 const newChatLogic = `// 2. Perform Real-Time Cerebras Search for general questions (ChatGPT/Perplexity Simulator)
   try {
