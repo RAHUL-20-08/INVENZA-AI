@@ -13,6 +13,7 @@ import TechSynergy from './pages/TechSynergy';
 import Hackathons from './pages/Hackathons';
 import IdeaDiscovery from './pages/IdeaDiscovery';
 import GithubViewer from './pages/GithubViewer';
+import FounderAudit from './pages/FounderAudit';
 import Profile from './pages/Profile';
 import InnovationIntelligenceCenter from './components/InnovationIntelligenceCenter';
 import AICanvasBackground from './components/AICanvasBackground';
@@ -495,6 +496,15 @@ function App() {
   // Render Login page if session is inactive
   if (!isLoggedIn) {
     return <Login onLoginSuccess={handleLoginSuccess} />;
+  }
+
+  // Early return for Founder Dashboard to bypass standard layout
+  if (userRole === 'founder') {
+    return (
+      <div className="founder-layout" style={{ background: '#000', width: '100vw', minHeight: '100vh', overflowX: 'hidden' }}>
+        <FounderAudit onLogout={handleLogout} />
+      </div>
+    );
   }
 
   // Early return for completely clean Presentation Layout (outside app-container, sidebar, main-content margins)

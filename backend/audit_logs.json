@@ -332,5 +332,14 @@
     "metadata": {
       "portalType": "student"
     }
+  },
+  {
+    "timestamp": "2026-07-16T16:59:47.889Z",
+    "email": "the_founder@invenza.io",
+    "action": "LOGIN_SUCCESS",
+    "metadata": {
+      "portalType": "student",
+      "sessionId": "session_7cfc9c13c40736df1ea77992cd0abd30"
+    }
   }
 ]
