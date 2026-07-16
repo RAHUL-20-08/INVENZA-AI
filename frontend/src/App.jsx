@@ -159,67 +159,10 @@ function App() {
     setTheme(prev => (prev === 'light' ? 'dark' : 'light'));
   };
 
-  // Run global CSS variables update based on current selection
+  // Persist theme preference (light only for new design)
   useEffect(() => {
-    const root = document.documentElement;
-    if (theme === 'light') {
-      root.style.setProperty('--bg-main', '#F8F9FA');
-      root.style.setProperty('--bg-sidebar', '#FFFFFF');
-      root.style.setProperty('--bg-panel', '#FFFFFF');
-      root.style.setProperty('--bg-panel-solid', '#FFFFFF');
-      root.style.setProperty('--bg-input', '#FFFFFF');
-      root.style.setProperty('--bg-list-item', '#FFFFFF');
-      root.style.setProperty('--bg-hover', '#F1F3F4');
-      root.style.setProperty('--bg-active', '#E8F0FE');
-      root.style.setProperty('--border-list-item', '#DADCE0');
-      root.style.setProperty('--panel-shadow', '0 1px 2px 0 rgba(60,64,67,0.30), 0 1px 3px 1px rgba(60,64,67,0.15)');
-      root.style.setProperty('--text-main', '#202124');
-      root.style.setProperty('--text-muted', '#5F6368');
-      root.style.setProperty('--text-dim', '#9AA0A6');
-      root.style.setProperty('--border-color', '#DADCE0');
-      root.style.setProperty('--border-color-glow', 'rgba(26, 115, 232, 0.3)');
-      
-      root.style.setProperty('--color-primary', '#1A73E8');
-      root.style.setProperty('--color-primary-light', '#E8F0FE');
-      root.style.setProperty('--color-secondary', '#1E293B');
-      root.style.setProperty('--color-secondary-light', '#F1F5F9');
-      root.style.setProperty('--color-accent', '#0EA5E9');
-      root.style.setProperty('--color-accent-light', '#E0F2FE');
-      root.style.setProperty('--color-warning', '#38BDF8');
-      root.style.setProperty('--color-danger', '#EA4335');
-      root.style.setProperty('--color-danger-light', '#FCE8E6');
-      root.style.setProperty('--color-success', '#0F172A');
-    } else {
-      // MD3 Dark Theme
-      root.style.setProperty('--bg-main', '#202124');
-      root.style.setProperty('--bg-sidebar', '#292A2D');
-      root.style.setProperty('--bg-panel', '#303134');
-      root.style.setProperty('--bg-panel-solid', '#303134');
-      root.style.setProperty('--bg-input', '#3C4043');
-      root.style.setProperty('--bg-list-item', '#3C4043');
-      root.style.setProperty('--bg-hover', '#3C4043');
-      root.style.setProperty('--bg-active', 'rgba(138, 180, 248, 0.12)');
-      root.style.setProperty('--border-list-item', '#5F6368');
-      root.style.setProperty('--panel-shadow', '0 1px 3px rgba(0,0,0,0.5), 0 1px 2px rgba(0,0,0,0.7)');
-      root.style.setProperty('--text-main', '#E8EAED');
-      root.style.setProperty('--text-muted', '#9AA0A6');
-      root.style.setProperty('--text-dim', '#5F6368');
-      root.style.setProperty('--border-color', '#5F6368');
-      root.style.setProperty('--border-color-glow', 'rgba(138, 180, 248, 0.2)');
-      
-      root.style.setProperty('--color-primary', '#7facf4');
-      root.style.setProperty('--color-primary-light', 'rgba(127, 172, 244, 0.12)');
-      root.style.setProperty('--color-secondary', '#1A73E8');
-      root.style.setProperty('--color-secondary-light', 'rgba(26, 115, 232, 0.12)');
-      root.style.setProperty('--color-accent', '#0f63bd');
-      root.style.setProperty('--color-accent-light', 'rgba(15, 99, 189, 0.12)');
-      root.style.setProperty('--color-warning', '#7facf4');
-      root.style.setProperty('--color-danger', '#F28B82');
-      root.style.setProperty('--color-danger-light', 'rgba(242, 139, 130, 0.12)');
-      root.style.setProperty('--color-success', '#7facf4');
-    }
-    localStorage.setItem('theme', theme);
-  }, [theme, portalMode]);
+    localStorage.setItem('theme', 'light');
+  }, []);
 
   // Synchronize portal switcher with user role on mount/login
   useEffect(() => {
@@ -567,53 +510,42 @@ function App() {
 
   return (
     <div className="app-container">
-      <AICanvasBackground theme={theme} />
-      
+
+      {/* Mobile header */}
       <header className="mobile-header">
-        <button 
+        <button
           onClick={() => setSidebarOpen(true)}
-          style={{
-            background: 'transparent',
-            border: 'none',
-            color: 'var(--text-main)',
-            cursor: 'pointer',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            padding: '0.5rem'
-          }}
+          style={{ background: 'transparent', border: 'none', color: 'var(--text-primary)', cursor: 'pointer', display: 'flex', alignItems: 'center', padding: '0.25rem' }}
         >
-          <span className="material-symbols-outlined" style={{ fontSize: '20px' }}>menu</span>
+          <span className="material-symbols-outlined" style={{ fontSize: '22px' }}>menu</span>
         </button>
-        
-        <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-          <strong style={{ fontSize: '1rem', fontFamily: 'var(--font-display)', color: '#fff' }}>Invenza AI</strong>
-          <span className="hud-sys-label" style={{ fontSize: '0.55rem' }}>OS v2.0</span>
+
+        <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+          <img src="/favicon.png" alt="Invenza AI" style={{ width: '24px', height: '24px', objectFit: 'contain' }} />
+          <strong style={{ fontSize: '15px', fontWeight: 800, color: 'var(--text-primary)', letterSpacing: '-0.3px' }}>
+            Invenza <span style={{ color: 'var(--blue-600)' }}>AI</span>
+          </strong>
         </div>
-        
-        <div style={{ width: '30px' }}></div>
+
+        <div style={{ width: '30px' }} />
       </header>
 
+      {/* Sidebar overlay (mobile) */}
       {sidebarOpen && (
-        <div 
-          className="sidebar-overlay"
+        <div
           onClick={() => setSidebarOpen(false)}
           style={{
-            position: 'fixed',
-            top: 0,
-            left: 0,
-            right: 0,
-            bottom: 0,
-            background: 'var(--bg-panel)',
-            backdropFilter: 'blur(4px)',
+            position: 'fixed', top: 0, left: 0, right: 0, bottom: 0,
+            background: 'rgba(17, 24, 39, 0.4)',
+            backdropFilter: 'blur(2px)',
             zIndex: 99
           }}
         />
       )}
 
-      <Sidebar 
-        currentPage={currentPage} 
-        setCurrentPage={navigateTo} 
+      <Sidebar
+        currentPage={currentPage}
+        setCurrentPage={navigateTo}
         sidebarOpen={sidebarOpen}
         setSidebarOpen={setSidebarOpen}
         userEmail={userEmail}
