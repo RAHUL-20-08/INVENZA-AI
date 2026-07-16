@@ -560,5 +560,3405 @@
     "description": "Tackle urban challenges in transit routing, garbage tracking, and solar grid balancing maps.",
     "officialLink": "https://unstop.com/hackathons/smart-cities-2026",
     "registrationFee": "Free"
+  },
+  {
+    "id": "hackathon-e8m3dqk-1784228475763",
+    "name": "Global AI Innovation Challenge 2026 - Series 1",
+    "organizer": "MIT Media Lab",
+    "platform": "Devpost",
+    "deadline": "2026-09-10",
+    "startDate": "2026-09-10",
+    "endDate": "2026-09-13",
+    "mode": "Hybrid",
+    "venue": "London, UK",
+    "prizePool": "$14,000",
+    "teamSize": "1-4 members",
+    "difficulty": "Expert",
+    "eligibleBranches": [
+      "All Branches",
+      "CS",
+      "Data Science",
+      "EECS"
+    ],
+    "technologies": [
+      "Python",
+      "React",
+      "Node.js",
+      "TensorFlow"
+    ],
+    "tags": [
+      "AI",
+      "Innovation",
+      "Startups"
+    ],
+    "description": "Join the Global AI Innovation Challenge hosted by MIT Media Lab. Build next-generation applications leveraging AI. Expect intensive 48-hour coding, mentorship from industry leaders, and a chance to pitch your product to top-tier VC firms.",
+    "officialLink": "https://example.com/hackathon/ai-2026",
+    "registrationFee": "$20"
+  },
+  {
+    "id": "hackathon-t86n9h2-1784228475763",
+    "name": "Global Blockchain Innovation Challenge 2026 - Series 2",
+    "organizer": "Stanford AI Hub",
+    "platform": "Unstop",
+    "deadline": "2026-08-11",
+    "startDate": "2026-08-11",
+    "endDate": "2026-08-15",
+    "mode": "Hybrid",
+    "venue": "New York, NY",
+    "prizePool": "$27,000",
+    "teamSize": "1-4 members",
+    "difficulty": "Intermediate",
+    "eligibleBranches": [
+      "All Branches",
+      "CS",
+      "Data Science",
+      "EECS"
+    ],
+    "technologies": [
+      "Python",
+      "React",
+      "Node.js",
+      "TensorFlow"
+    ],
+    "tags": [
+      "Blockchain",
+      "Innovation",
+      "Startups"
+    ],
+    "description": "Join the Global Blockchain Innovation Challenge hosted by Stanford AI Hub. Build next-generation applications leveraging Blockchain. Expect intensive 48-hour coding, mentorship from industry leaders, and a chance to pitch your product to top-tier VC firms.",
+    "officialLink": "https://example.com/hackathon/blockchain-2026",
+    "registrationFee": "Free"
+  },
+  {
+    "id": "hackathon-2nlnf23-1784228475763",
+    "name": "Global Web3 Innovation Challenge 2026 - Series 3",
+    "organizer": "Google Developers Group",
+    "platform": "HackerEarth",
+    "deadline": "2026-09-10",
+    "startDate": "2026-09-10",
+    "endDate": "2026-09-14",
+    "mode": "Offline",
+    "venue": "New York, NY",
+    "prizePool": "$53,000",
+    "teamSize": "1-4 members",
+    "difficulty": "Intermediate",
+    "eligibleBranches": [
+      "All Branches",
+      "CS",
+      "Data Science",
+      "EECS"
+    ],
+    "technologies": [
+      "Python",
+      "React",
+      "Node.js",
+      "TensorFlow"
+    ],
+    "tags": [
+      "Web3",
+      "Innovation",
+      "Startups"
+    ],
+    "description": "Join the Global Web3 Innovation Challenge hosted by Google Developers Group. Build next-generation applications leveraging Web3. Expect intensive 48-hour coding, mentorship from industry leaders, and a chance to pitch your product to top-tier VC firms.",
+    "officialLink": "https://example.com/hackathon/web3-2026",
+    "registrationFee": "Free"
+  },
+  {
+    "id": "hackathon-eg8zh06-1784228475763",
+    "name": "Global HealthTech Innovation Challenge 2026 - Series 4",
+    "organizer": "AWS Startups",
+    "platform": "Devfolio",
+    "deadline": "2026-10-09",
+    "startDate": "2026-10-09",
+    "endDate": "2026-10-12",
+    "mode": "Hybrid",
+    "venue": "Berlin, Germany",
+    "prizePool": "$33,000",
+    "teamSize": "1-4 members",
+    "difficulty": "Advanced",
+    "eligibleBranches": [
+      "All Branches",
+      "CS",
+      "Data Science",
+      "EECS"
+    ],
+    "technologies": [
+      "Python",
+      "React",
+      "Node.js",
+      "TensorFlow"
+    ],
+    "tags": [
+      "HealthTech",
+      "Innovation",
+      "Startups"
+    ],
+    "description": "Join the Global HealthTech Innovation Challenge hosted by AWS Startups. Build next-generation applications leveraging HealthTech. Expect intensive 48-hour coding, mentorship from industry leaders, and a chance to pitch your product to top-tier VC firms.",
+    "officialLink": "https://example.com/hackathon/healthtech-2026",
+    "registrationFee": "Free"
+  },
+  {
+    "id": "hackathon-p0cokom-1784228475763",
+    "name": "Global FinTech Innovation Challenge 2026 - Series 5",
+    "organizer": "Microsoft Garage",
+    "platform": "Devpost",
+    "deadline": "2026-09-15",
+    "startDate": "2026-09-15",
+    "endDate": "2026-09-18",
+    "mode": "Hybrid",
+    "venue": "Singapore",
+    "prizePool": "$49,000",
+    "teamSize": "1-4 members",
+    "difficulty": "Advanced",
+    "eligibleBranches": [
+      "All Branches",
+      "CS",
+      "Data Science",
+      "EECS"
+    ],
+    "technologies": [
+      "Python",
+      "React",
+      "Node.js",
+      "TensorFlow"
+    ],
+    "tags": [
+      "FinTech",
+      "Innovation",
+      "Startups"
+    ],
+    "description": "Join the Global FinTech Innovation Challenge hosted by Microsoft Garage. Build next-generation applications leveraging FinTech. Expect intensive 48-hour coding, mentorship from industry leaders, and a chance to pitch your product to top-tier VC firms.",
+    "officialLink": "https://example.com/hackathon/fintech-2026",
+    "registrationFee": "$20"
+  },
+  {
+    "id": "hackathon-uhipaw9-1784228475763",
+    "name": "Global IoT Innovation Challenge 2026 - Series 6",
+    "organizer": "ETH Zurich Tech",
+    "platform": "Unstop",
+    "deadline": "2026-09-21",
+    "startDate": "2026-09-21",
+    "endDate": "2026-09-23",
+    "mode": "Hybrid",
+    "venue": "Bengaluru, India",
+    "prizePool": "$43,000",
+    "teamSize": "1-4 members",
+    "difficulty": "Advanced",
+    "eligibleBranches": [
+      "All Branches",
+      "CS",
+      "Data Science",
+      "EECS"
+    ],
+    "technologies": [
+      "Python",
+      "React",
+      "Node.js",
+      "TensorFlow"
+    ],
+    "tags": [
+      "IoT",
+      "Innovation",
+      "Startups"
+    ],
+    "description": "Join the Global IoT Innovation Challenge hosted by ETH Zurich Tech. Build next-generation applications leveraging IoT. Expect intensive 48-hour coding, mentorship from industry leaders, and a chance to pitch your product to top-tier VC firms.",
+    "officialLink": "https://example.com/hackathon/iot-2026",
+    "registrationFee": "Free"
+  },
+  {
+    "id": "hackathon-ras2z4h-1784228475763",
+    "name": "Global Cybersecurity Innovation Challenge 2026 - Series 7",
+    "organizer": "IIT Bombay",
+    "platform": "HackerEarth",
+    "deadline": "2026-09-26",
+    "startDate": "2026-09-26",
+    "endDate": "2026-09-28",
+    "mode": "Online",
+    "venue": "Remote",
+    "prizePool": "$26,000",
+    "teamSize": "1-4 members",
+    "difficulty": "Beginner-Friendly",
+    "eligibleBranches": [
+      "All Branches",
+      "CS",
+      "Data Science",
+      "EECS"
+    ],
+    "technologies": [
+      "Python",
+      "React",
+      "Node.js",
+      "TensorFlow"
+    ],
+    "tags": [
+      "Cybersecurity",
+      "Innovation",
+      "Startups"
+    ],
+    "description": "Join the Global Cybersecurity Innovation Challenge hosted by IIT Bombay. Build next-generation applications leveraging Cybersecurity. Expect intensive 48-hour coding, mentorship from industry leaders, and a chance to pitch your product to top-tier VC firms.",
+    "officialLink": "https://example.com/hackathon/cybersecurity-2026",
+    "registrationFee": "Free"
+  },
+  {
+    "id": "hackathon-hytfyrc-1784228475763",
+    "name": "Global AR/VR Innovation Challenge 2026 - Series 8",
+    "organizer": "NUS Computing",
+    "platform": "Devfolio",
+    "deadline": "2026-09-06",
+    "startDate": "2026-09-06",
+    "endDate": "2026-09-09",
+    "mode": "Online",
+    "venue": "Remote",
+    "prizePool": "$15,000",
+    "teamSize": "1-4 members",
+    "difficulty": "Beginner-Friendly",
+    "eligibleBranches": [
+      "All Branches",
+      "CS",
+      "Data Science",
+      "EECS"
+    ],
+    "technologies": [
+      "Python",
+      "React",
+      "Node.js",
+      "TensorFlow"
+    ],
+    "tags": [
+      "AR/VR",
+      "Innovation",
+      "Startups"
+    ],
+    "description": "Join the Global AR/VR Innovation Challenge hosted by NUS Computing. Build next-generation applications leveraging AR/VR. Expect intensive 48-hour coding, mentorship from industry leaders, and a chance to pitch your product to top-tier VC firms.",
+    "officialLink": "https://example.com/hackathon/ar/vr-2026",
+    "registrationFee": "Free"
+  },
+  {
+    "id": "hackathon-hbf6d3r-1784228475763",
+    "name": "Global AI Innovation Challenge 2026 - Series 9",
+    "organizer": "MIT Media Lab",
+    "platform": "Devpost",
+    "deadline": "2026-09-12",
+    "startDate": "2026-09-12",
+    "endDate": "2026-09-16",
+    "mode": "Online",
+    "venue": "Remote",
+    "prizePool": "$35,000",
+    "teamSize": "1-4 members",
+    "difficulty": "Expert",
+    "eligibleBranches": [
+      "All Branches",
+      "CS",
+      "Data Science",
+      "EECS"
+    ],
+    "technologies": [
+      "Python",
+      "React",
+      "Node.js",
+      "TensorFlow"
+    ],
+    "tags": [
+      "AI",
+      "Innovation",
+      "Startups"
+    ],
+    "description": "Join the Global AI Innovation Challenge hosted by MIT Media Lab. Build next-generation applications leveraging AI. Expect intensive 48-hour coding, mentorship from industry leaders, and a chance to pitch your product to top-tier VC firms.",
+    "officialLink": "https://example.com/hackathon/ai-2026",
+    "registrationFee": "$20"
+  },
+  {
+    "id": "hackathon-l0m6wa2-1784228475763",
+    "name": "Global Blockchain Innovation Challenge 2026 - Series 10",
+    "organizer": "Stanford AI Hub",
+    "platform": "Unstop",
+    "deadline": "2026-08-20",
+    "startDate": "2026-08-20",
+    "endDate": "2026-08-22",
+    "mode": "Hybrid",
+    "venue": "Berlin, Germany",
+    "prizePool": "$24,000",
+    "teamSize": "1-4 members",
+    "difficulty": "Intermediate",
+    "eligibleBranches": [
+      "All Branches",
+      "CS",
+      "Data Science",
+      "EECS"
+    ],
+    "technologies": [
+      "Python",
+      "React",
+      "Node.js",
+      "TensorFlow"
+    ],
+    "tags": [
+      "Blockchain",
+      "Innovation",
+      "Startups"
+    ],
+    "description": "Join the Global Blockchain Innovation Challenge hosted by Stanford AI Hub. Build next-generation applications leveraging Blockchain. Expect intensive 48-hour coding, mentorship from industry leaders, and a chance to pitch your product to top-tier VC firms.",
+    "officialLink": "https://example.com/hackathon/blockchain-2026",
+    "registrationFee": "Free"
+  },
+  {
+    "id": "hackathon-ul3omp3-1784228475763",
+    "name": "Global Web3 Innovation Challenge 2026 - Series 11",
+    "organizer": "Google Developers Group",
+    "platform": "HackerEarth",
+    "deadline": "2026-08-02",
+    "startDate": "2026-08-02",
+    "endDate": "2026-08-05",
+    "mode": "Online",
+    "venue": "Remote",
+    "prizePool": "$23,000",
+    "teamSize": "1-4 members",
+    "difficulty": "Advanced",
+    "eligibleBranches": [
+      "All Branches",
+      "CS",
+      "Data Science",
+      "EECS"
+    ],
+    "technologies": [
+      "Python",
+      "React",
+      "Node.js",
+      "TensorFlow"
+    ],
+    "tags": [
+      "Web3",
+      "Innovation",
+      "Startups"
+    ],
+    "description": "Join the Global Web3 Innovation Challenge hosted by Google Developers Group. Build next-generation applications leveraging Web3. Expect intensive 48-hour coding, mentorship from industry leaders, and a chance to pitch your product to top-tier VC firms.",
+    "officialLink": "https://example.com/hackathon/web3-2026",
+    "registrationFee": "Free"
+  },
+  {
+    "id": "hackathon-g46fb50-1784228475763",
+    "name": "Global HealthTech Innovation Challenge 2026 - Series 12",
+    "organizer": "AWS Startups",
+    "platform": "Devfolio",
+    "deadline": "2026-08-22",
+    "startDate": "2026-08-22",
+    "endDate": "2026-08-24",
+    "mode": "Online",
+    "venue": "Remote",
+    "prizePool": "$40,000",
+    "teamSize": "1-4 members",
+    "difficulty": "Intermediate",
+    "eligibleBranches": [
+      "All Branches",
+      "CS",
+      "Data Science",
+      "EECS"
+    ],
+    "technologies": [
+      "Python",
+      "React",
+      "Node.js",
+      "TensorFlow"
+    ],
+    "tags": [
+      "HealthTech",
+      "Innovation",
+      "Startups"
+    ],
+    "description": "Join the Global HealthTech Innovation Challenge hosted by AWS Startups. Build next-generation applications leveraging HealthTech. Expect intensive 48-hour coding, mentorship from industry leaders, and a chance to pitch your product to top-tier VC firms.",
+    "officialLink": "https://example.com/hackathon/healthtech-2026",
+    "registrationFee": "Free"
+  },
+  {
+    "id": "hackathon-85mr0w3-1784228475763",
+    "name": "Global FinTech Innovation Challenge 2026 - Series 13",
+    "organizer": "Microsoft Garage",
+    "platform": "Devpost",
+    "deadline": "2026-10-08",
+    "startDate": "2026-10-08",
+    "endDate": "2026-10-12",
+    "mode": "Online",
+    "venue": "Remote",
+    "prizePool": "$11,000",
+    "teamSize": "1-4 members",
+    "difficulty": "Beginner-Friendly",
+    "eligibleBranches": [
+      "All Branches",
+      "CS",
+      "Data Science",
+      "EECS"
+    ],
+    "technologies": [
+      "Python",
+      "React",
+      "Node.js",
+      "TensorFlow"
+    ],
+    "tags": [
+      "FinTech",
+      "Innovation",
+      "Startups"
+    ],
+    "description": "Join the Global FinTech Innovation Challenge hosted by Microsoft Garage. Build next-generation applications leveraging FinTech. Expect intensive 48-hour coding, mentorship from industry leaders, and a chance to pitch your product to top-tier VC firms.",
+    "officialLink": "https://example.com/hackathon/fintech-2026",
+    "registrationFee": "$20"
+  },
+  {
+    "id": "hackathon-swgfxp2-1784228475763",
+    "name": "Global IoT Innovation Challenge 2026 - Series 14",
+    "organizer": "ETH Zurich Tech",
+    "platform": "Unstop",
+    "deadline": "2026-07-30",
+    "startDate": "2026-07-30",
+    "endDate": "2026-08-03",
+    "mode": "Online",
+    "venue": "Remote",
+    "prizePool": "$26,000",
+    "teamSize": "1-4 members",
+    "difficulty": "Expert",
+    "eligibleBranches": [
+      "All Branches",
+      "CS",
+      "Data Science",
+      "EECS"
+    ],
+    "technologies": [
+      "Python",
+      "React",
+      "Node.js",
+      "TensorFlow"
+    ],
+    "tags": [
+      "IoT",
+      "Innovation",
+      "Startups"
+    ],
+    "description": "Join the Global IoT Innovation Challenge hosted by ETH Zurich Tech. Build next-generation applications leveraging IoT. Expect intensive 48-hour coding, mentorship from industry leaders, and a chance to pitch your product to top-tier VC firms.",
+    "officialLink": "https://example.com/hackathon/iot-2026",
+    "registrationFee": "Free"
+  },
+  {
+    "id": "hackathon-93oy0mz-1784228475763",
+    "name": "Global Cybersecurity Innovation Challenge 2026 - Series 15",
+    "organizer": "IIT Bombay",
+    "platform": "HackerEarth",
+    "deadline": "2026-09-09",
+    "startDate": "2026-09-09",
+    "endDate": "2026-09-13",
+    "mode": "Hybrid",
+    "venue": "Bengaluru, India",
+    "prizePool": "$26,000",
+    "teamSize": "1-4 members",
+    "difficulty": "Intermediate",
+    "eligibleBranches": [
+      "All Branches",
+      "CS",
+      "Data Science",
+      "EECS"
+    ],
+    "technologies": [
+      "Python",
+      "React",
+      "Node.js",
+      "TensorFlow"
+    ],
+    "tags": [
+      "Cybersecurity",
+      "Innovation",
+      "Startups"
+    ],
+    "description": "Join the Global Cybersecurity Innovation Challenge hosted by IIT Bombay. Build next-generation applications leveraging Cybersecurity. Expect intensive 48-hour coding, mentorship from industry leaders, and a chance to pitch your product to top-tier VC firms.",
+    "officialLink": "https://example.com/hackathon/cybersecurity-2026",
+    "registrationFee": "Free"
+  },
+  {
+    "id": "hackathon-rnnbhh4-1784228475763",
+    "name": "Global AR/VR Innovation Challenge 2026 - Series 16",
+    "organizer": "NUS Computing",
+    "platform": "Devfolio",
+    "deadline": "2026-09-09",
+    "startDate": "2026-09-09",
+    "endDate": "2026-09-13",
+    "mode": "Hybrid",
+    "venue": "New York, NY",
+    "prizePool": "$28,000",
+    "teamSize": "1-4 members",
+    "difficulty": "Expert",
+    "eligibleBranches": [
+      "All Branches",
+      "CS",
+      "Data Science",
+      "EECS"
+    ],
+    "technologies": [
+      "Python",
+      "React",
+      "Node.js",
+      "TensorFlow"
+    ],
+    "tags": [
+      "AR/VR",
+      "Innovation",
+      "Startups"
+    ],
+    "description": "Join the Global AR/VR Innovation Challenge hosted by NUS Computing. Build next-generation applications leveraging AR/VR. Expect intensive 48-hour coding, mentorship from industry leaders, and a chance to pitch your product to top-tier VC firms.",
+    "officialLink": "https://example.com/hackathon/ar/vr-2026",
+    "registrationFee": "Free"
+  },
+  {
+    "id": "hackathon-ran6g4l-1784228475763",
+    "name": "Global AI Innovation Challenge 2026 - Series 17",
+    "organizer": "MIT Media Lab",
+    "platform": "Devpost",
+    "deadline": "2026-07-23",
+    "startDate": "2026-07-23",
+    "endDate": "2026-07-26",
+    "mode": "Offline",
+    "venue": "Remote",
+    "prizePool": "$51,000",
+    "teamSize": "1-4 members",
+    "difficulty": "Expert",
+    "eligibleBranches": [
+      "All Branches",
+      "CS",
+      "Data Science",
+      "EECS"
+    ],
+    "technologies": [
+      "Python",
+      "React",
+      "Node.js",
+      "TensorFlow"
+    ],
+    "tags": [
+      "AI",
+      "Innovation",
+      "Startups"
+    ],
+    "description": "Join the Global AI Innovation Challenge hosted by MIT Media Lab. Build next-generation applications leveraging AI. Expect intensive 48-hour coding, mentorship from industry leaders, and a chance to pitch your product to top-tier VC firms.",
+    "officialLink": "https://example.com/hackathon/ai-2026",
+    "registrationFee": "$20"
+  },
+  {
+    "id": "hackathon-817br9l-1784228475763",
+    "name": "Global Blockchain Innovation Challenge 2026 - Series 18",
+    "organizer": "Stanford AI Hub",
+    "platform": "Unstop",
+    "deadline": "2026-08-30",
+    "startDate": "2026-08-30",
+    "endDate": "2026-09-02",
+    "mode": "Hybrid",
+    "venue": "Singapore",
+    "prizePool": "$29,000",
+    "teamSize": "1-4 members",
+    "difficulty": "Advanced",
+    "eligibleBranches": [
+      "All Branches",
+      "CS",
+      "Data Science",
+      "EECS"
+    ],
+    "technologies": [
+      "Python",
+      "React",
+      "Node.js",
+      "TensorFlow"
+    ],
+    "tags": [
+      "Blockchain",
+      "Innovation",
+      "Startups"
+    ],
+    "description": "Join the Global Blockchain Innovation Challenge hosted by Stanford AI Hub. Build next-generation applications leveraging Blockchain. Expect intensive 48-hour coding, mentorship from industry leaders, and a chance to pitch your product to top-tier VC firms.",
+    "officialLink": "https://example.com/hackathon/blockchain-2026",
+    "registrationFee": "Free"
+  },
+  {
+    "id": "hackathon-wth6fp7-1784228475763",
+    "name": "Global Web3 Innovation Challenge 2026 - Series 19",
+    "organizer": "Google Developers Group",
+    "platform": "HackerEarth",
+    "deadline": "2026-09-14",
+    "startDate": "2026-09-14",
+    "endDate": "2026-09-17",
+    "mode": "Offline",
+    "venue": "San Francisco, CA",
+    "prizePool": "$38,000",
+    "teamSize": "1-4 members",
+    "difficulty": "Intermediate",
+    "eligibleBranches": [
+      "All Branches",
+      "CS",
+      "Data Science",
+      "EECS"
+    ],
+    "technologies": [
+      "Python",
+      "React",
+      "Node.js",
+      "TensorFlow"
+    ],
+    "tags": [
+      "Web3",
+      "Innovation",
+      "Startups"
+    ],
+    "description": "Join the Global Web3 Innovation Challenge hosted by Google Developers Group. Build next-generation applications leveraging Web3. Expect intensive 48-hour coding, mentorship from industry leaders, and a chance to pitch your product to top-tier VC firms.",
+    "officialLink": "https://example.com/hackathon/web3-2026",
+    "registrationFee": "Free"
+  },
+  {
+    "id": "hackathon-t5vv8ms-1784228475763",
+    "name": "Global HealthTech Innovation Challenge 2026 - Series 20",
+    "organizer": "AWS Startups",
+    "platform": "Devfolio",
+    "deadline": "2026-09-29",
+    "startDate": "2026-09-29",
+    "endDate": "2026-10-02",
+    "mode": "Offline",
+    "venue": "Bengaluru, India",
+    "prizePool": "$48,000",
+    "teamSize": "1-4 members",
+    "difficulty": "Intermediate",
+    "eligibleBranches": [
+      "All Branches",
+      "CS",
+      "Data Science",
+      "EECS"
+    ],
+    "technologies": [
+      "Python",
+      "React",
+      "Node.js",
+      "TensorFlow"
+    ],
+    "tags": [
+      "HealthTech",
+      "Innovation",
+      "Startups"
+    ],
+    "description": "Join the Global HealthTech Innovation Challenge hosted by AWS Startups. Build next-generation applications leveraging HealthTech. Expect intensive 48-hour coding, mentorship from industry leaders, and a chance to pitch your product to top-tier VC firms.",
+    "officialLink": "https://example.com/hackathon/healthtech-2026",
+    "registrationFee": "Free"
+  },
+  {
+    "id": "hackathon-e5oq3u2-1784228475763",
+    "name": "Global FinTech Innovation Challenge 2026 - Series 21",
+    "organizer": "Microsoft Garage",
+    "platform": "Devpost",
+    "deadline": "2026-08-09",
+    "startDate": "2026-08-09",
+    "endDate": "2026-08-11",
+    "mode": "Offline",
+    "venue": "Remote",
+    "prizePool": "$52,000",
+    "teamSize": "1-4 members",
+    "difficulty": "Expert",
+    "eligibleBranches": [
+      "All Branches",
+      "CS",
+      "Data Science",
+      "EECS"
+    ],
+    "technologies": [
+      "Python",
+      "React",
+      "Node.js",
+      "TensorFlow"
+    ],
+    "tags": [
+      "FinTech",
+      "Innovation",
+      "Startups"
+    ],
+    "description": "Join the Global FinTech Innovation Challenge hosted by Microsoft Garage. Build next-generation applications leveraging FinTech. Expect intensive 48-hour coding, mentorship from industry leaders, and a chance to pitch your product to top-tier VC firms.",
+    "officialLink": "https://example.com/hackathon/fintech-2026",
+    "registrationFee": "$20"
+  },
+  {
+    "id": "hackathon-d9ha3hg-1784228475763",
+    "name": "Global IoT Innovation Challenge 2026 - Series 22",
+    "organizer": "ETH Zurich Tech",
+    "platform": "Unstop",
+    "deadline": "2026-10-13",
+    "startDate": "2026-10-13",
+    "endDate": "2026-10-16",
+    "mode": "Online",
+    "venue": "Remote",
+    "prizePool": "$40,000",
+    "teamSize": "1-4 members",
+    "difficulty": "Beginner-Friendly",
+    "eligibleBranches": [
+      "All Branches",
+      "CS",
+      "Data Science",
+      "EECS"
+    ],
+    "technologies": [
+      "Python",
+      "React",
+      "Node.js",
+      "TensorFlow"
+    ],
+    "tags": [
+      "IoT",
+      "Innovation",
+      "Startups"
+    ],
+    "description": "Join the Global IoT Innovation Challenge hosted by ETH Zurich Tech. Build next-generation applications leveraging IoT. Expect intensive 48-hour coding, mentorship from industry leaders, and a chance to pitch your product to top-tier VC firms.",
+    "officialLink": "https://example.com/hackathon/iot-2026",
+    "registrationFee": "Free"
+  },
+  {
+    "id": "hackathon-mij635o-1784228475763",
+    "name": "Global Cybersecurity Innovation Challenge 2026 - Series 23",
+    "organizer": "IIT Bombay",
+    "platform": "HackerEarth",
+    "deadline": "2026-09-01",
+    "startDate": "2026-09-01",
+    "endDate": "2026-09-04",
+    "mode": "Offline",
+    "venue": "Singapore",
+    "prizePool": "$59,000",
+    "teamSize": "1-4 members",
+    "difficulty": "Beginner-Friendly",
+    "eligibleBranches": [
+      "All Branches",
+      "CS",
+      "Data Science",
+      "EECS"
+    ],
+    "technologies": [
+      "Python",
+      "React",
+      "Node.js",
+      "TensorFlow"
+    ],
+    "tags": [
+      "Cybersecurity",
+      "Innovation",
+      "Startups"
+    ],
+    "description": "Join the Global Cybersecurity Innovation Challenge hosted by IIT Bombay. Build next-generation applications leveraging Cybersecurity. Expect intensive 48-hour coding, mentorship from industry leaders, and a chance to pitch your product to top-tier VC firms.",
+    "officialLink": "https://example.com/hackathon/cybersecurity-2026",
+    "registrationFee": "Free"
+  },
+  {
+    "id": "hackathon-ttz6cao-1784228475763",
+    "name": "Global AR/VR Innovation Challenge 2026 - Series 24",
+    "organizer": "NUS Computing",
+    "platform": "Devfolio",
+    "deadline": "2026-08-21",
+    "startDate": "2026-08-21",
+    "endDate": "2026-08-25",
+    "mode": "Offline",
+    "venue": "San Francisco, CA",
+    "prizePool": "$49,000",
+    "teamSize": "1-4 members",
+    "difficulty": "Intermediate",
+    "eligibleBranches": [
+      "All Branches",
+      "CS",
+      "Data Science",
+      "EECS"
+    ],
+    "technologies": [
+      "Python",
+      "React",
+      "Node.js",
+      "TensorFlow"
+    ],
+    "tags": [
+      "AR/VR",
+      "Innovation",
+      "Startups"
+    ],
+    "description": "Join the Global AR/VR Innovation Challenge hosted by NUS Computing. Build next-generation applications leveraging AR/VR. Expect intensive 48-hour coding, mentorship from industry leaders, and a chance to pitch your product to top-tier VC firms.",
+    "officialLink": "https://example.com/hackathon/ar/vr-2026",
+    "registrationFee": "Free"
+  },
+  {
+    "id": "hackathon-ra8d4gx-1784228475763",
+    "name": "Global AI Innovation Challenge 2026 - Series 25",
+    "organizer": "MIT Media Lab",
+    "platform": "Devpost",
+    "deadline": "2026-10-01",
+    "startDate": "2026-10-01",
+    "endDate": "2026-10-05",
+    "mode": "Offline",
+    "venue": "Remote",
+    "prizePool": "$14,000",
+    "teamSize": "1-4 members",
+    "difficulty": "Advanced",
+    "eligibleBranches": [
+      "All Branches",
+      "CS",
+      "Data Science",
+      "EECS"
+    ],
+    "technologies": [
+      "Python",
+      "React",
+      "Node.js",
+      "TensorFlow"
+    ],
+    "tags": [
+      "AI",
+      "Innovation",
+      "Startups"
+    ],
+    "description": "Join the Global AI Innovation Challenge hosted by MIT Media Lab. Build next-generation applications leveraging AI. Expect intensive 48-hour coding, mentorship from industry leaders, and a chance to pitch your product to top-tier VC firms.",
+    "officialLink": "https://example.com/hackathon/ai-2026",
+    "registrationFee": "$20"
+  },
+  {
+    "id": "hackathon-binxni1-1784228475763",
+    "name": "Global Blockchain Innovation Challenge 2026 - Series 26",
+    "organizer": "Stanford AI Hub",
+    "platform": "Unstop",
+    "deadline": "2026-09-28",
+    "startDate": "2026-09-28",
+    "endDate": "2026-09-30",
+    "mode": "Online",
+    "venue": "Remote",
+    "prizePool": "$15,000",
+    "teamSize": "1-4 members",
+    "difficulty": "Beginner-Friendly",
+    "eligibleBranches": [
+      "All Branches",
+      "CS",
+      "Data Science",
+      "EECS"
+    ],
+    "technologies": [
+      "Python",
+      "React",
+      "Node.js",
+      "TensorFlow"
+    ],
+    "tags": [
+      "Blockchain",
+      "Innovation",
+      "Startups"
+    ],
+    "description": "Join the Global Blockchain Innovation Challenge hosted by Stanford AI Hub. Build next-generation applications leveraging Blockchain. Expect intensive 48-hour coding, mentorship from industry leaders, and a chance to pitch your product to top-tier VC firms.",
+    "officialLink": "https://example.com/hackathon/blockchain-2026",
+    "registrationFee": "Free"
+  },
+  {
+    "id": "hackathon-jo54n6f-1784228475763",
+    "name": "Global Web3 Innovation Challenge 2026 - Series 27",
+    "organizer": "Google Developers Group",
+    "platform": "HackerEarth",
+    "deadline": "2026-08-30",
+    "startDate": "2026-08-30",
+    "endDate": "2026-09-02",
+    "mode": "Offline",
+    "venue": "Bengaluru, India",
+    "prizePool": "$60,000",
+    "teamSize": "1-4 members",
+    "difficulty": "Beginner-Friendly",
+    "eligibleBranches": [
+      "All Branches",
+      "CS",
+      "Data Science",
+      "EECS"
+    ],
+    "technologies": [
+      "Python",
+      "React",
+      "Node.js",
+      "TensorFlow"
+    ],
+    "tags": [
+      "Web3",
+      "Innovation",
+      "Startups"
+    ],
+    "description": "Join the Global Web3 Innovation Challenge hosted by Google Developers Group. Build next-generation applications leveraging Web3. Expect intensive 48-hour coding, mentorship from industry leaders, and a chance to pitch your product to top-tier VC firms.",
+    "officialLink": "https://example.com/hackathon/web3-2026",
+    "registrationFee": "Free"
+  },
+  {
+    "id": "hackathon-dnalsdl-1784228475763",
+    "name": "Global HealthTech Innovation Challenge 2026 - Series 28",
+    "organizer": "AWS Startups",
+    "platform": "Devfolio",
+    "deadline": "2026-08-11",
+    "startDate": "2026-08-11",
+    "endDate": "2026-08-13",
+    "mode": "Online",
+    "venue": "Remote",
+    "prizePool": "$45,000",
+    "teamSize": "1-4 members",
+    "difficulty": "Beginner-Friendly",
+    "eligibleBranches": [
+      "All Branches",
+      "CS",
+      "Data Science",
+      "EECS"
+    ],
+    "technologies": [
+      "Python",
+      "React",
+      "Node.js",
+      "TensorFlow"
+    ],
+    "tags": [
+      "HealthTech",
+      "Innovation",
+      "Startups"
+    ],
+    "description": "Join the Global HealthTech Innovation Challenge hosted by AWS Startups. Build next-generation applications leveraging HealthTech. Expect intensive 48-hour coding, mentorship from industry leaders, and a chance to pitch your product to top-tier VC firms.",
+    "officialLink": "https://example.com/hackathon/healthtech-2026",
+    "registrationFee": "Free"
+  },
+  {
+    "id": "hackathon-w4uza0s-1784228475763",
+    "name": "Global FinTech Innovation Challenge 2026 - Series 29",
+    "organizer": "Microsoft Garage",
+    "platform": "Devpost",
+    "deadline": "2026-08-06",
+    "startDate": "2026-08-06",
+    "endDate": "2026-08-09",
+    "mode": "Online",
+    "venue": "Remote",
+    "prizePool": "$56,000",
+    "teamSize": "1-4 members",
+    "difficulty": "Beginner-Friendly",
+    "eligibleBranches": [
+      "All Branches",
+      "CS",
+      "Data Science",
+      "EECS"
+    ],
+    "technologies": [
+      "Python",
+      "React",
+      "Node.js",
+      "TensorFlow"
+    ],
+    "tags": [
+      "FinTech",
+      "Innovation",
+      "Startups"
+    ],
+    "description": "Join the Global FinTech Innovation Challenge hosted by Microsoft Garage. Build next-generation applications leveraging FinTech. Expect intensive 48-hour coding, mentorship from industry leaders, and a chance to pitch your product to top-tier VC firms.",
+    "officialLink": "https://example.com/hackathon/fintech-2026",
+    "registrationFee": "$20"
+  },
+  {
+    "id": "hackathon-3oq8spz-1784228475763",
+    "name": "Global IoT Innovation Challenge 2026 - Series 30",
+    "organizer": "ETH Zurich Tech",
+    "platform": "Unstop",
+    "deadline": "2026-09-10",
+    "startDate": "2026-09-10",
+    "endDate": "2026-09-13",
+    "mode": "Online",
+    "venue": "Remote",
+    "prizePool": "$13,000",
+    "teamSize": "1-4 members",
+    "difficulty": "Beginner-Friendly",
+    "eligibleBranches": [
+      "All Branches",
+      "CS",
+      "Data Science",
+      "EECS"
+    ],
+    "technologies": [
+      "Python",
+      "React",
+      "Node.js",
+      "TensorFlow"
+    ],
+    "tags": [
+      "IoT",
+      "Innovation",
+      "Startups"
+    ],
+    "description": "Join the Global IoT Innovation Challenge hosted by ETH Zurich Tech. Build next-generation applications leveraging IoT. Expect intensive 48-hour coding, mentorship from industry leaders, and a chance to pitch your product to top-tier VC firms.",
+    "officialLink": "https://example.com/hackathon/iot-2026",
+    "registrationFee": "Free"
+  },
+  {
+    "id": "hackathon-o4pfnpm-1784228475763",
+    "name": "Global Cybersecurity Innovation Challenge 2026 - Series 31",
+    "organizer": "IIT Bombay",
+    "platform": "HackerEarth",
+    "deadline": "2026-08-05",
+    "startDate": "2026-08-05",
+    "endDate": "2026-08-08",
+    "mode": "Offline",
+    "venue": "Bengaluru, India",
+    "prizePool": "$18,000",
+    "teamSize": "1-4 members",
+    "difficulty": "Expert",
+    "eligibleBranches": [
+      "All Branches",
+      "CS",
+      "Data Science",
+      "EECS"
+    ],
+    "technologies": [
+      "Python",
+      "React",
+      "Node.js",
+      "TensorFlow"
+    ],
+    "tags": [
+      "Cybersecurity",
+      "Innovation",
+      "Startups"
+    ],
+    "description": "Join the Global Cybersecurity Innovation Challenge hosted by IIT Bombay. Build next-generation applications leveraging Cybersecurity. Expect intensive 48-hour coding, mentorship from industry leaders, and a chance to pitch your product to top-tier VC firms.",
+    "officialLink": "https://example.com/hackathon/cybersecurity-2026",
+    "registrationFee": "Free"
+  },
+  {
+    "id": "hackathon-6y0eldp-1784228475763",
+    "name": "Global AR/VR Innovation Challenge 2026 - Series 32",
+    "organizer": "NUS Computing",
+    "platform": "Devfolio",
+    "deadline": "2026-08-14",
+    "startDate": "2026-08-14",
+    "endDate": "2026-08-18",
+    "mode": "Online",
+    "venue": "Remote",
+    "prizePool": "$16,000",
+    "teamSize": "1-4 members",
+    "difficulty": "Advanced",
+    "eligibleBranches": [
+      "All Branches",
+      "CS",
+      "Data Science",
+      "EECS"
+    ],
+    "technologies": [
+      "Python",
+      "React",
+      "Node.js",
+      "TensorFlow"
+    ],
+    "tags": [
+      "AR/VR",
+      "Innovation",
+      "Startups"
+    ],
+    "description": "Join the Global AR/VR Innovation Challenge hosted by NUS Computing. Build next-generation applications leveraging AR/VR. Expect intensive 48-hour coding, mentorship from industry leaders, and a chance to pitch your product to top-tier VC firms.",
+    "officialLink": "https://example.com/hackathon/ar/vr-2026",
+    "registrationFee": "Free"
+  },
+  {
+    "id": "hackathon-1mlrwri-1784228475763",
+    "name": "Global AI Innovation Challenge 2026 - Series 33",
+    "organizer": "MIT Media Lab",
+    "platform": "Devpost",
+    "deadline": "2026-08-22",
+    "startDate": "2026-08-22",
+    "endDate": "2026-08-25",
+    "mode": "Online",
+    "venue": "Remote",
+    "prizePool": "$23,000",
+    "teamSize": "1-4 members",
+    "difficulty": "Expert",
+    "eligibleBranches": [
+      "All Branches",
+      "CS",
+      "Data Science",
+      "EECS"
+    ],
+    "technologies": [
+      "Python",
+      "React",
+      "Node.js",
+      "TensorFlow"
+    ],
+    "tags": [
+      "AI",
+      "Innovation",
+      "Startups"
+    ],
+    "description": "Join the Global AI Innovation Challenge hosted by MIT Media Lab. Build next-generation applications leveraging AI. Expect intensive 48-hour coding, mentorship from industry leaders, and a chance to pitch your product to top-tier VC firms.",
+    "officialLink": "https://example.com/hackathon/ai-2026",
+    "registrationFee": "$20"
+  },
+  {
+    "id": "hackathon-z8gyq3w-1784228475763",
+    "name": "Global Blockchain Innovation Challenge 2026 - Series 34",
+    "organizer": "Stanford AI Hub",
+    "platform": "Unstop",
+    "deadline": "2026-10-14",
+    "startDate": "2026-10-14",
+    "endDate": "2026-10-18",
+    "mode": "Online",
+    "venue": "Remote",
+    "prizePool": "$34,000",
+    "teamSize": "1-4 members",
+    "difficulty": "Expert",
+    "eligibleBranches": [
+      "All Branches",
+      "CS",
+      "Data Science",
+      "EECS"
+    ],
+    "technologies": [
+      "Python",
+      "React",
+      "Node.js",
+      "TensorFlow"
+    ],
+    "tags": [
+      "Blockchain",
+      "Innovation",
+      "Startups"
+    ],
+    "description": "Join the Global Blockchain Innovation Challenge hosted by Stanford AI Hub. Build next-generation applications leveraging Blockchain. Expect intensive 48-hour coding, mentorship from industry leaders, and a chance to pitch your product to top-tier VC firms.",
+    "officialLink": "https://example.com/hackathon/blockchain-2026",
+    "registrationFee": "Free"
+  },
+  {
+    "id": "hackathon-8w8cg5o-1784228475763",
+    "name": "Global Web3 Innovation Challenge 2026 - Series 35",
+    "organizer": "Google Developers Group",
+    "platform": "HackerEarth",
+    "deadline": "2026-09-14",
+    "startDate": "2026-09-14",
+    "endDate": "2026-09-17",
+    "mode": "Online",
+    "venue": "Remote",
+    "prizePool": "$58,000",
+    "teamSize": "1-4 members",
+    "difficulty": "Expert",
+    "eligibleBranches": [
+      "All Branches",
+      "CS",
+      "Data Science",
+      "EECS"
+    ],
+    "technologies": [
+      "Python",
+      "React",
+      "Node.js",
+      "TensorFlow"
+    ],
+    "tags": [
+      "Web3",
+      "Innovation",
+      "Startups"
+    ],
+    "description": "Join the Global Web3 Innovation Challenge hosted by Google Developers Group. Build next-generation applications leveraging Web3. Expect intensive 48-hour coding, mentorship from industry leaders, and a chance to pitch your product to top-tier VC firms.",
+    "officialLink": "https://example.com/hackathon/web3-2026",
+    "registrationFee": "Free"
+  },
+  {
+    "id": "hackathon-lr9a8qd-1784228475763",
+    "name": "Global HealthTech Innovation Challenge 2026 - Series 36",
+    "organizer": "AWS Startups",
+    "platform": "Devfolio",
+    "deadline": "2026-08-06",
+    "startDate": "2026-08-06",
+    "endDate": "2026-08-08",
+    "mode": "Online",
+    "venue": "Remote",
+    "prizePool": "$24,000",
+    "teamSize": "1-4 members",
+    "difficulty": "Expert",
+    "eligibleBranches": [
+      "All Branches",
+      "CS",
+      "Data Science",
+      "EECS"
+    ],
+    "technologies": [
+      "Python",
+      "React",
+      "Node.js",
+      "TensorFlow"
+    ],
+    "tags": [
+      "HealthTech",
+      "Innovation",
+      "Startups"
+    ],
+    "description": "Join the Global HealthTech Innovation Challenge hosted by AWS Startups. Build next-generation applications leveraging HealthTech. Expect intensive 48-hour coding, mentorship from industry leaders, and a chance to pitch your product to top-tier VC firms.",
+    "officialLink": "https://example.com/hackathon/healthtech-2026",
+    "registrationFee": "Free"
+  },
+  {
+    "id": "hackathon-byvhdxd-1784228475763",
+    "name": "Global FinTech Innovation Challenge 2026 - Series 37",
+    "organizer": "Microsoft Garage",
+    "platform": "Devpost",
+    "deadline": "2026-09-18",
+    "startDate": "2026-09-18",
+    "endDate": "2026-09-20",
+    "mode": "Online",
+    "venue": "Remote",
+    "prizePool": "$60,000",
+    "teamSize": "1-4 members",
+    "difficulty": "Expert",
+    "eligibleBranches": [
+      "All Branches",
+      "CS",
+      "Data Science",
+      "EECS"
+    ],
+    "technologies": [
+      "Python",
+      "React",
+      "Node.js",
+      "TensorFlow"
+    ],
+    "tags": [
+      "FinTech",
+      "Innovation",
+      "Startups"
+    ],
+    "description": "Join the Global FinTech Innovation Challenge hosted by Microsoft Garage. Build next-generation applications leveraging FinTech. Expect intensive 48-hour coding, mentorship from industry leaders, and a chance to pitch your product to top-tier VC firms.",
+    "officialLink": "https://example.com/hackathon/fintech-2026",
+    "registrationFee": "$20"
+  },
+  {
+    "id": "hackathon-v3z4d20-1784228475763",
+    "name": "Global IoT Innovation Challenge 2026 - Series 38",
+    "organizer": "ETH Zurich Tech",
+    "platform": "Unstop",
+    "deadline": "2026-09-23",
+    "startDate": "2026-09-23",
+    "endDate": "2026-09-25",
+    "mode": "Hybrid",
+    "venue": "Remote",
+    "prizePool": "$27,000",
+    "teamSize": "1-4 members",
+    "difficulty": "Beginner-Friendly",
+    "eligibleBranches": [
+      "All Branches",
+      "CS",
+      "Data Science",
+      "EECS"
+    ],
+    "technologies": [
+      "Python",
+      "React",
+      "Node.js",
+      "TensorFlow"
+    ],
+    "tags": [
+      "IoT",
+      "Innovation",
+      "Startups"
+    ],
+    "description": "Join the Global IoT Innovation Challenge hosted by ETH Zurich Tech. Build next-generation applications leveraging IoT. Expect intensive 48-hour coding, mentorship from industry leaders, and a chance to pitch your product to top-tier VC firms.",
+    "officialLink": "https://example.com/hackathon/iot-2026",
+    "registrationFee": "Free"
+  },
+  {
+    "id": "hackathon-e5qlqyd-1784228475763",
+    "name": "Global Cybersecurity Innovation Challenge 2026 - Series 39",
+    "organizer": "IIT Bombay",
+    "platform": "HackerEarth",
+    "deadline": "2026-08-20",
+    "startDate": "2026-08-20",
+    "endDate": "2026-08-22",
+    "mode": "Hybrid",
+    "venue": "New York, NY",
+    "prizePool": "$33,000",
+    "teamSize": "1-4 members",
+    "difficulty": "Beginner-Friendly",
+    "eligibleBranches": [
+      "All Branches",
+      "CS",
+      "Data Science",
+      "EECS"
+    ],
+    "technologies": [
+      "Python",
+      "React",
+      "Node.js",
+      "TensorFlow"
+    ],
+    "tags": [
+      "Cybersecurity",
+      "Innovation",
+      "Startups"
+    ],
+    "description": "Join the Global Cybersecurity Innovation Challenge hosted by IIT Bombay. Build next-generation applications leveraging Cybersecurity. Expect intensive 48-hour coding, mentorship from industry leaders, and a chance to pitch your product to top-tier VC firms.",
+    "officialLink": "https://example.com/hackathon/cybersecurity-2026",
+    "registrationFee": "Free"
+  },
+  {
+    "id": "hackathon-uu1tcuh-1784228475763",
+    "name": "Global AR/VR Innovation Challenge 2026 - Series 40",
+    "organizer": "NUS Computing",
+    "platform": "Devfolio",
+    "deadline": "2026-08-27",
+    "startDate": "2026-08-27",
+    "endDate": "2026-08-30",
+    "mode": "Hybrid",
+    "venue": "Bengaluru, India",
+    "prizePool": "$55,000",
+    "teamSize": "1-4 members",
+    "difficulty": "Expert",
+    "eligibleBranches": [
+      "All Branches",
+      "CS",
+      "Data Science",
+      "EECS"
+    ],
+    "technologies": [
+      "Python",
+      "React",
+      "Node.js",
+      "TensorFlow"
+    ],
+    "tags": [
+      "AR/VR",
+      "Innovation",
+      "Startups"
+    ],
+    "description": "Join the Global AR/VR Innovation Challenge hosted by NUS Computing. Build next-generation applications leveraging AR/VR. Expect intensive 48-hour coding, mentorship from industry leaders, and a chance to pitch your product to top-tier VC firms.",
+    "officialLink": "https://example.com/hackathon/ar/vr-2026",
+    "registrationFee": "Free"
+  },
+  {
+    "id": "hackathon-zhvijac-1784228475763",
+    "name": "Global AI Innovation Challenge 2026 - Series 41",
+    "organizer": "MIT Media Lab",
+    "platform": "Devpost",
+    "deadline": "2026-09-19",
+    "startDate": "2026-09-19",
+    "endDate": "2026-09-22",
+    "mode": "Hybrid",
+    "venue": "London, UK",
+    "prizePool": "$33,000",
+    "teamSize": "1-4 members",
+    "difficulty": "Expert",
+    "eligibleBranches": [
+      "All Branches",
+      "CS",
+      "Data Science",
+      "EECS"
+    ],
+    "technologies": [
+      "Python",
+      "React",
+      "Node.js",
+      "TensorFlow"
+    ],
+    "tags": [
+      "AI",
+      "Innovation",
+      "Startups"
+    ],
+    "description": "Join the Global AI Innovation Challenge hosted by MIT Media Lab. Build next-generation applications leveraging AI. Expect intensive 48-hour coding, mentorship from industry leaders, and a chance to pitch your product to top-tier VC firms.",
+    "officialLink": "https://example.com/hackathon/ai-2026",
+    "registrationFee": "$20"
+  },
+  {
+    "id": "hackathon-jwvhytf-1784228475763",
+    "name": "Global Blockchain Innovation Challenge 2026 - Series 42",
+    "organizer": "Stanford AI Hub",
+    "platform": "Unstop",
+    "deadline": "2026-09-07",
+    "startDate": "2026-09-07",
+    "endDate": "2026-09-10",
+    "mode": "Offline",
+    "venue": "Singapore",
+    "prizePool": "$56,000",
+    "teamSize": "1-4 members",
+    "difficulty": "Intermediate",
+    "eligibleBranches": [
+      "All Branches",
+      "CS",
+      "Data Science",
+      "EECS"
+    ],
+    "technologies": [
+      "Python",
+      "React",
+      "Node.js",
+      "TensorFlow"
+    ],
+    "tags": [
+      "Blockchain",
+      "Innovation",
+      "Startups"
+    ],
+    "description": "Join the Global Blockchain Innovation Challenge hosted by Stanford AI Hub. Build next-generation applications leveraging Blockchain. Expect intensive 48-hour coding, mentorship from industry leaders, and a chance to pitch your product to top-tier VC firms.",
+    "officialLink": "https://example.com/hackathon/blockchain-2026",
+    "registrationFee": "Free"
+  },
+  {
+    "id": "hackathon-87omegt-1784228475763",
+    "name": "Global Web3 Innovation Challenge 2026 - Series 43",
+    "organizer": "Google Developers Group",
+    "platform": "HackerEarth",
+    "deadline": "2026-09-19",
+    "startDate": "2026-09-19",
+    "endDate": "2026-09-22",
+    "mode": "Offline",
+    "venue": "Berlin, Germany",
+    "prizePool": "$24,000",
+    "teamSize": "1-4 members",
+    "difficulty": "Beginner-Friendly",
+    "eligibleBranches": [
+      "All Branches",
+      "CS",
+      "Data Science",
+      "EECS"
+    ],
+    "technologies": [
+      "Python",
+      "React",
+      "Node.js",
+      "TensorFlow"
+    ],
+    "tags": [
+      "Web3",
+      "Innovation",
+      "Startups"
+    ],
+    "description": "Join the Global Web3 Innovation Challenge hosted by Google Developers Group. Build next-generation applications leveraging Web3. Expect intensive 48-hour coding, mentorship from industry leaders, and a chance to pitch your product to top-tier VC firms.",
+    "officialLink": "https://example.com/hackathon/web3-2026",
+    "registrationFee": "Free"
+  },
+  {
+    "id": "hackathon-gp7c04o-1784228475763",
+    "name": "Global HealthTech Innovation Challenge 2026 - Series 44",
+    "organizer": "AWS Startups",
+    "platform": "Devfolio",
+    "deadline": "2026-08-22",
+    "startDate": "2026-08-22",
+    "endDate": "2026-08-24",
+    "mode": "Hybrid",
+    "venue": "London, UK",
+    "prizePool": "$26,000",
+    "teamSize": "1-4 members",
+    "difficulty": "Beginner-Friendly",
+    "eligibleBranches": [
+      "All Branches",
+      "CS",
+      "Data Science",
+      "EECS"
+    ],
+    "technologies": [
+      "Python",
+      "React",
+      "Node.js",
+      "TensorFlow"
+    ],
+    "tags": [
+      "HealthTech",
+      "Innovation",
+      "Startups"
+    ],
+    "description": "Join the Global HealthTech Innovation Challenge hosted by AWS Startups. Build next-generation applications leveraging HealthTech. Expect intensive 48-hour coding, mentorship from industry leaders, and a chance to pitch your product to top-tier VC firms.",
+    "officialLink": "https://example.com/hackathon/healthtech-2026",
+    "registrationFee": "Free"
+  },
+  {
+    "id": "hackathon-vsdeqwq-1784228475763",
+    "name": "Global FinTech Innovation Challenge 2026 - Series 45",
+    "organizer": "Microsoft Garage",
+    "platform": "Devpost",
+    "deadline": "2026-08-17",
+    "startDate": "2026-08-17",
+    "endDate": "2026-08-20",
+    "mode": "Offline",
+    "venue": "New York, NY",
+    "prizePool": "$44,000",
+    "teamSize": "1-4 members",
+    "difficulty": "Intermediate",
+    "eligibleBranches": [
+      "All Branches",
+      "CS",
+      "Data Science",
+      "EECS"
+    ],
+    "technologies": [
+      "Python",
+      "React",
+      "Node.js",
+      "TensorFlow"
+    ],
+    "tags": [
+      "FinTech",
+      "Innovation",
+      "Startups"
+    ],
+    "description": "Join the Global FinTech Innovation Challenge hosted by Microsoft Garage. Build next-generation applications leveraging FinTech. Expect intensive 48-hour coding, mentorship from industry leaders, and a chance to pitch your product to top-tier VC firms.",
+    "officialLink": "https://example.com/hackathon/fintech-2026",
+    "registrationFee": "$20"
+  },
+  {
+    "id": "hackathon-z58z2bq-1784228475763",
+    "name": "Global IoT Innovation Challenge 2026 - Series 46",
+    "organizer": "ETH Zurich Tech",
+    "platform": "Unstop",
+    "deadline": "2026-08-31",
+    "startDate": "2026-08-31",
+    "endDate": "2026-09-03",
+    "mode": "Offline",
+    "venue": "San Francisco, CA",
+    "prizePool": "$41,000",
+    "teamSize": "1-4 members",
+    "difficulty": "Expert",
+    "eligibleBranches": [
+      "All Branches",
+      "CS",
+      "Data Science",
+      "EECS"
+    ],
+    "technologies": [
+      "Python",
+      "React",
+      "Node.js",
+      "TensorFlow"
+    ],
+    "tags": [
+      "IoT",
+      "Innovation",
+      "Startups"
+    ],
+    "description": "Join the Global IoT Innovation Challenge hosted by ETH Zurich Tech. Build next-generation applications leveraging IoT. Expect intensive 48-hour coding, mentorship from industry leaders, and a chance to pitch your product to top-tier VC firms.",
+    "officialLink": "https://example.com/hackathon/iot-2026",
+    "registrationFee": "Free"
+  },
+  {
+    "id": "hackathon-dnp31cb-1784228475763",
+    "name": "Global Cybersecurity Innovation Challenge 2026 - Series 47",
+    "organizer": "IIT Bombay",
+    "platform": "HackerEarth",
+    "deadline": "2026-09-02",
+    "startDate": "2026-09-02",
+    "endDate": "2026-09-05",
+    "mode": "Online",
+    "venue": "Remote",
+    "prizePool": "$15,000",
+    "teamSize": "1-4 members",
+    "difficulty": "Expert",
+    "eligibleBranches": [
+      "All Branches",
+      "CS",
+      "Data Science",
+      "EECS"
+    ],
+    "technologies": [
+      "Python",
+      "React",
+      "Node.js",
+      "TensorFlow"
+    ],
+    "tags": [
+      "Cybersecurity",
+      "Innovation",
+      "Startups"
+    ],
+    "description": "Join the Global Cybersecurity Innovation Challenge hosted by IIT Bombay. Build next-generation applications leveraging Cybersecurity. Expect intensive 48-hour coding, mentorship from industry leaders, and a chance to pitch your product to top-tier VC firms.",
+    "officialLink": "https://example.com/hackathon/cybersecurity-2026",
+    "registrationFee": "Free"
+  },
+  {
+    "id": "hackathon-ouzjh6l-1784228475763",
+    "name": "Global AR/VR Innovation Challenge 2026 - Series 48",
+    "organizer": "NUS Computing",
+    "platform": "Devfolio",
+    "deadline": "2026-08-03",
+    "startDate": "2026-08-03",
+    "endDate": "2026-08-07",
+    "mode": "Hybrid",
+    "venue": "London, UK",
+    "prizePool": "$16,000",
+    "teamSize": "1-4 members",
+    "difficulty": "Intermediate",
+    "eligibleBranches": [
+      "All Branches",
+      "CS",
+      "Data Science",
+      "EECS"
+    ],
+    "technologies": [
+      "Python",
+      "React",
+      "Node.js",
+      "TensorFlow"
+    ],
+    "tags": [
+      "AR/VR",
+      "Innovation",
+      "Startups"
+    ],
+    "description": "Join the Global AR/VR Innovation Challenge hosted by NUS Computing. Build next-generation applications leveraging AR/VR. Expect intensive 48-hour coding, mentorship from industry leaders, and a chance to pitch your product to top-tier VC firms.",
+    "officialLink": "https://example.com/hackathon/ar/vr-2026",
+    "registrationFee": "Free"
+  },
+  {
+    "id": "hackathon-c9teah1-1784228475763",
+    "name": "Global AI Innovation Challenge 2026 - Series 49",
+    "organizer": "MIT Media Lab",
+    "platform": "Devpost",
+    "deadline": "2026-08-11",
+    "startDate": "2026-08-11",
+    "endDate": "2026-08-14",
+    "mode": "Offline",
+    "venue": "Remote",
+    "prizePool": "$52,000",
+    "teamSize": "1-4 members",
+    "difficulty": "Intermediate",
+    "eligibleBranches": [
+      "All Branches",
+      "CS",
+      "Data Science",
+      "EECS"
+    ],
+    "technologies": [
+      "Python",
+      "React",
+      "Node.js",
+      "TensorFlow"
+    ],
+    "tags": [
+      "AI",
+      "Innovation",
+      "Startups"
+    ],
+    "description": "Join the Global AI Innovation Challenge hosted by MIT Media Lab. Build next-generation applications leveraging AI. Expect intensive 48-hour coding, mentorship from industry leaders, and a chance to pitch your product to top-tier VC firms.",
+    "officialLink": "https://example.com/hackathon/ai-2026",
+    "registrationFee": "$20"
+  },
+  {
+    "id": "hackathon-6b5v6as-1784228475763",
+    "name": "Global Blockchain Innovation Challenge 2026 - Series 50",
+    "organizer": "Stanford AI Hub",
+    "platform": "Unstop",
+    "deadline": "2026-10-07",
+    "startDate": "2026-10-07",
+    "endDate": "2026-10-10",
+    "mode": "Online",
+    "venue": "Remote",
+    "prizePool": "$39,000",
+    "teamSize": "1-4 members",
+    "difficulty": "Intermediate",
+    "eligibleBranches": [
+      "All Branches",
+      "CS",
+      "Data Science",
+      "EECS"
+    ],
+    "technologies": [
+      "Python",
+      "React",
+      "Node.js",
+      "TensorFlow"
+    ],
+    "tags": [
+      "Blockchain",
+      "Innovation",
+      "Startups"
+    ],
+    "description": "Join the Global Blockchain Innovation Challenge hosted by Stanford AI Hub. Build next-generation applications leveraging Blockchain. Expect intensive 48-hour coding, mentorship from industry leaders, and a chance to pitch your product to top-tier VC firms.",
+    "officialLink": "https://example.com/hackathon/blockchain-2026",
+    "registrationFee": "Free"
+  },
+  {
+    "id": "hackathon-6xdappd-1784228475763",
+    "name": "Global Web3 Innovation Challenge 2026 - Series 51",
+    "organizer": "Google Developers Group",
+    "platform": "HackerEarth",
+    "deadline": "2026-10-12",
+    "startDate": "2026-10-12",
+    "endDate": "2026-10-16",
+    "mode": "Online",
+    "venue": "Remote",
+    "prizePool": "$22,000",
+    "teamSize": "1-4 members",
+    "difficulty": "Expert",
+    "eligibleBranches": [
+      "All Branches",
+      "CS",
+      "Data Science",
+      "EECS"
+    ],
+    "technologies": [
+      "Python",
+      "React",
+      "Node.js",
+      "TensorFlow"
+    ],
+    "tags": [
+      "Web3",
+      "Innovation",
+      "Startups"
+    ],
+    "description": "Join the Global Web3 Innovation Challenge hosted by Google Developers Group. Build next-generation applications leveraging Web3. Expect intensive 48-hour coding, mentorship from industry leaders, and a chance to pitch your product to top-tier VC firms.",
+    "officialLink": "https://example.com/hackathon/web3-2026",
+    "registrationFee": "Free"
+  },
+  {
+    "id": "hackathon-69vl6o7-1784228475763",
+    "name": "Global HealthTech Innovation Challenge 2026 - Series 52",
+    "organizer": "AWS Startups",
+    "platform": "Devfolio",
+    "deadline": "2026-07-19",
+    "startDate": "2026-07-19",
+    "endDate": "2026-07-21",
+    "mode": "Online",
+    "venue": "Remote",
+    "prizePool": "$56,000",
+    "teamSize": "1-4 members",
+    "difficulty": "Advanced",
+    "eligibleBranches": [
+      "All Branches",
+      "CS",
+      "Data Science",
+      "EECS"
+    ],
+    "technologies": [
+      "Python",
+      "React",
+      "Node.js",
+      "TensorFlow"
+    ],
+    "tags": [
+      "HealthTech",
+      "Innovation",
+      "Startups"
+    ],
+    "description": "Join the Global HealthTech Innovation Challenge hosted by AWS Startups. Build next-generation applications leveraging HealthTech. Expect intensive 48-hour coding, mentorship from industry leaders, and a chance to pitch your product to top-tier VC firms.",
+    "officialLink": "https://example.com/hackathon/healthtech-2026",
+    "registrationFee": "Free"
+  },
+  {
+    "id": "hackathon-tftvowv-1784228475763",
+    "name": "Global FinTech Innovation Challenge 2026 - Series 53",
+    "organizer": "Microsoft Garage",
+    "platform": "Devpost",
+    "deadline": "2026-09-26",
+    "startDate": "2026-09-26",
+    "endDate": "2026-09-29",
+    "mode": "Online",
+    "venue": "Remote",
+    "prizePool": "$36,000",
+    "teamSize": "1-4 members",
+    "difficulty": "Advanced",
+    "eligibleBranches": [
+      "All Branches",
+      "CS",
+      "Data Science",
+      "EECS"
+    ],
+    "technologies": [
+      "Python",
+      "React",
+      "Node.js",
+      "TensorFlow"
+    ],
+    "tags": [
+      "FinTech",
+      "Innovation",
+      "Startups"
+    ],
+    "description": "Join the Global FinTech Innovation Challenge hosted by Microsoft Garage. Build next-generation applications leveraging FinTech. Expect intensive 48-hour coding, mentorship from industry leaders, and a chance to pitch your product to top-tier VC firms.",
+    "officialLink": "https://example.com/hackathon/fintech-2026",
+    "registrationFee": "$20"
+  },
+  {
+    "id": "hackathon-u8qn9eo-1784228475763",
+    "name": "Global IoT Innovation Challenge 2026 - Series 54",
+    "organizer": "ETH Zurich Tech",
+    "platform": "Unstop",
+    "deadline": "2026-09-12",
+    "startDate": "2026-09-12",
+    "endDate": "2026-09-15",
+    "mode": "Offline",
+    "venue": "Berlin, Germany",
+    "prizePool": "$51,000",
+    "teamSize": "1-4 members",
+    "difficulty": "Beginner-Friendly",
+    "eligibleBranches": [
+      "All Branches",
+      "CS",
+      "Data Science",
+      "EECS"
+    ],
+    "technologies": [
+      "Python",
+      "React",
+      "Node.js",
+      "TensorFlow"
+    ],
+    "tags": [
+      "IoT",
+      "Innovation",
+      "Startups"
+    ],
+    "description": "Join the Global IoT Innovation Challenge hosted by ETH Zurich Tech. Build next-generation applications leveraging IoT. Expect intensive 48-hour coding, mentorship from industry leaders, and a chance to pitch your product to top-tier VC firms.",
+    "officialLink": "https://example.com/hackathon/iot-2026",
+    "registrationFee": "Free"
+  },
+  {
+    "id": "hackathon-6c4a79k-1784228475763",
+    "name": "Global Cybersecurity Innovation Challenge 2026 - Series 55",
+    "organizer": "IIT Bombay",
+    "platform": "HackerEarth",
+    "deadline": "2026-09-29",
+    "startDate": "2026-09-29",
+    "endDate": "2026-10-01",
+    "mode": "Offline",
+    "venue": "Bengaluru, India",
+    "prizePool": "$34,000",
+    "teamSize": "1-4 members",
+    "difficulty": "Expert",
+    "eligibleBranches": [
+      "All Branches",
+      "CS",
+      "Data Science",
+      "EECS"
+    ],
+    "technologies": [
+      "Python",
+      "React",
+      "Node.js",
+      "TensorFlow"
+    ],
+    "tags": [
+      "Cybersecurity",
+      "Innovation",
+      "Startups"
+    ],
+    "description": "Join the Global Cybersecurity Innovation Challenge hosted by IIT Bombay. Build next-generation applications leveraging Cybersecurity. Expect intensive 48-hour coding, mentorship from industry leaders, and a chance to pitch your product to top-tier VC firms.",
+    "officialLink": "https://example.com/hackathon/cybersecurity-2026",
+    "registrationFee": "Free"
+  },
+  {
+    "id": "hackathon-q1cclre-1784228475763",
+    "name": "Global AR/VR Innovation Challenge 2026 - Series 56",
+    "organizer": "NUS Computing",
+    "platform": "Devfolio",
+    "deadline": "2026-08-31",
+    "startDate": "2026-08-31",
+    "endDate": "2026-09-03",
+    "mode": "Hybrid",
+    "venue": "Bengaluru, India",
+    "prizePool": "$20,000",
+    "teamSize": "1-4 members",
+    "difficulty": "Expert",
+    "eligibleBranches": [
+      "All Branches",
+      "CS",
+      "Data Science",
+      "EECS"
+    ],
+    "technologies": [
+      "Python",
+      "React",
+      "Node.js",
+      "TensorFlow"
+    ],
+    "tags": [
+      "AR/VR",
+      "Innovation",
+      "Startups"
+    ],
+    "description": "Join the Global AR/VR Innovation Challenge hosted by NUS Computing. Build next-generation applications leveraging AR/VR. Expect intensive 48-hour coding, mentorship from industry leaders, and a chance to pitch your product to top-tier VC firms.",
+    "officialLink": "https://example.com/hackathon/ar/vr-2026",
+    "registrationFee": "Free"
+  },
+  {
+    "id": "hackathon-9bg9vcq-1784228475763",
+    "name": "Global AI Innovation Challenge 2026 - Series 57",
+    "organizer": "MIT Media Lab",
+    "platform": "Devpost",
+    "deadline": "2026-08-09",
+    "startDate": "2026-08-09",
+    "endDate": "2026-08-12",
+    "mode": "Online",
+    "venue": "Remote",
+    "prizePool": "$27,000",
+    "teamSize": "1-4 members",
+    "difficulty": "Intermediate",
+    "eligibleBranches": [
+      "All Branches",
+      "CS",
+      "Data Science",
+      "EECS"
+    ],
+    "technologies": [
+      "Python",
+      "React",
+      "Node.js",
+      "TensorFlow"
+    ],
+    "tags": [
+      "AI",
+      "Innovation",
+      "Startups"
+    ],
+    "description": "Join the Global AI Innovation Challenge hosted by MIT Media Lab. Build next-generation applications leveraging AI. Expect intensive 48-hour coding, mentorship from industry leaders, and a chance to pitch your product to top-tier VC firms.",
+    "officialLink": "https://example.com/hackathon/ai-2026",
+    "registrationFee": "$20"
+  },
+  {
+    "id": "hackathon-0xqypx1-1784228475763",
+    "name": "Global Blockchain Innovation Challenge 2026 - Series 58",
+    "organizer": "Stanford AI Hub",
+    "platform": "Unstop",
+    "deadline": "2026-09-03",
+    "startDate": "2026-09-03",
+    "endDate": "2026-09-06",
+    "mode": "Offline",
+    "venue": "Remote",
+    "prizePool": "$58,000",
+    "teamSize": "1-4 members",
+    "difficulty": "Beginner-Friendly",
+    "eligibleBranches": [
+      "All Branches",
+      "CS",
+      "Data Science",
+      "EECS"
+    ],
+    "technologies": [
+      "Python",
+      "React",
+      "Node.js",
+      "TensorFlow"
+    ],
+    "tags": [
+      "Blockchain",
+      "Innovation",
+      "Startups"
+    ],
+    "description": "Join the Global Blockchain Innovation Challenge hosted by Stanford AI Hub. Build next-generation applications leveraging Blockchain. Expect intensive 48-hour coding, mentorship from industry leaders, and a chance to pitch your product to top-tier VC firms.",
+    "officialLink": "https://example.com/hackathon/blockchain-2026",
+    "registrationFee": "Free"
+  },
+  {
+    "id": "hackathon-9dskoho-1784228475763",
+    "name": "Global Web3 Innovation Challenge 2026 - Series 59",
+    "organizer": "Google Developers Group",
+    "platform": "HackerEarth",
+    "deadline": "2026-09-17",
+    "startDate": "2026-09-17",
+    "endDate": "2026-09-19",
+    "mode": "Hybrid",
+    "venue": "London, UK",
+    "prizePool": "$60,000",
+    "teamSize": "1-4 members",
+    "difficulty": "Advanced",
+    "eligibleBranches": [
+      "All Branches",
+      "CS",
+      "Data Science",
+      "EECS"
+    ],
+    "technologies": [
+      "Python",
+      "React",
+      "Node.js",
+      "TensorFlow"
+    ],
+    "tags": [
+      "Web3",
+      "Innovation",
+      "Startups"
+    ],
+    "description": "Join the Global Web3 Innovation Challenge hosted by Google Developers Group. Build next-generation applications leveraging Web3. Expect intensive 48-hour coding, mentorship from industry leaders, and a chance to pitch your product to top-tier VC firms.",
+    "officialLink": "https://example.com/hackathon/web3-2026",
+    "registrationFee": "Free"
+  },
+  {
+    "id": "hackathon-0zrd5y9-1784228475763",
+    "name": "Global HealthTech Innovation Challenge 2026 - Series 60",
+    "organizer": "AWS Startups",
+    "platform": "Devfolio",
+    "deadline": "2026-09-13",
+    "startDate": "2026-09-13",
+    "endDate": "2026-09-17",
+    "mode": "Online",
+    "venue": "Remote",
+    "prizePool": "$12,000",
+    "teamSize": "1-4 members",
+    "difficulty": "Intermediate",
+    "eligibleBranches": [
+      "All Branches",
+      "CS",
+      "Data Science",
+      "EECS"
+    ],
+    "technologies": [
+      "Python",
+      "React",
+      "Node.js",
+      "TensorFlow"
+    ],
+    "tags": [
+      "HealthTech",
+      "Innovation",
+      "Startups"
+    ],
+    "description": "Join the Global HealthTech Innovation Challenge hosted by AWS Startups. Build next-generation applications leveraging HealthTech. Expect intensive 48-hour coding, mentorship from industry leaders, and a chance to pitch your product to top-tier VC firms.",
+    "officialLink": "https://example.com/hackathon/healthtech-2026",
+    "registrationFee": "Free"
+  },
+  {
+    "id": "hackathon-5u5wgfi-1784228475763",
+    "name": "Global FinTech Innovation Challenge 2026 - Series 61",
+    "organizer": "Microsoft Garage",
+    "platform": "Devpost",
+    "deadline": "2026-08-17",
+    "startDate": "2026-08-17",
+    "endDate": "2026-08-19",
+    "mode": "Offline",
+    "venue": "San Francisco, CA",
+    "prizePool": "$34,000",
+    "teamSize": "1-4 members",
+    "difficulty": "Expert",
+    "eligibleBranches": [
+      "All Branches",
+      "CS",
+      "Data Science",
+      "EECS"
+    ],
+    "technologies": [
+      "Python",
+      "React",
+      "Node.js",
+      "TensorFlow"
+    ],
+    "tags": [
+      "FinTech",
+      "Innovation",
+      "Startups"
+    ],
+    "description": "Join the Global FinTech Innovation Challenge hosted by Microsoft Garage. Build next-generation applications leveraging FinTech. Expect intensive 48-hour coding, mentorship from industry leaders, and a chance to pitch your product to top-tier VC firms.",
+    "officialLink": "https://example.com/hackathon/fintech-2026",
+    "registrationFee": "$20"
+  },
+  {
+    "id": "hackathon-fegcwt3-1784228475763",
+    "name": "Global IoT Innovation Challenge 2026 - Series 62",
+    "organizer": "ETH Zurich Tech",
+    "platform": "Unstop",
+    "deadline": "2026-09-22",
+    "startDate": "2026-09-22",
+    "endDate": "2026-09-25",
+    "mode": "Hybrid",
+    "venue": "Singapore",
+    "prizePool": "$49,000",
+    "teamSize": "1-4 members",
+    "difficulty": "Advanced",
+    "eligibleBranches": [
+      "All Branches",
+      "CS",
+      "Data Science",
+      "EECS"
+    ],
+    "technologies": [
+      "Python",
+      "React",
+      "Node.js",
+      "TensorFlow"
+    ],
+    "tags": [
+      "IoT",
+      "Innovation",
+      "Startups"
+    ],
+    "description": "Join the Global IoT Innovation Challenge hosted by ETH Zurich Tech. Build next-generation applications leveraging IoT. Expect intensive 48-hour coding, mentorship from industry leaders, and a chance to pitch your product to top-tier VC firms.",
+    "officialLink": "https://example.com/hackathon/iot-2026",
+    "registrationFee": "Free"
+  },
+  {
+    "id": "hackathon-vfo6hcz-1784228475763",
+    "name": "Global Cybersecurity Innovation Challenge 2026 - Series 63",
+    "organizer": "IIT Bombay",
+    "platform": "HackerEarth",
+    "deadline": "2026-09-22",
+    "startDate": "2026-09-22",
+    "endDate": "2026-09-25",
+    "mode": "Online",
+    "venue": "Remote",
+    "prizePool": "$22,000",
+    "teamSize": "1-4 members",
+    "difficulty": "Beginner-Friendly",
+    "eligibleBranches": [
+      "All Branches",
+      "CS",
+      "Data Science",
+      "EECS"
+    ],
+    "technologies": [
+      "Python",
+      "React",
+      "Node.js",
+      "TensorFlow"
+    ],
+    "tags": [
+      "Cybersecurity",
+      "Innovation",
+      "Startups"
+    ],
+    "description": "Join the Global Cybersecurity Innovation Challenge hosted by IIT Bombay. Build next-generation applications leveraging Cybersecurity. Expect intensive 48-hour coding, mentorship from industry leaders, and a chance to pitch your product to top-tier VC firms.",
+    "officialLink": "https://example.com/hackathon/cybersecurity-2026",
+    "registrationFee": "Free"
+  },
+  {
+    "id": "hackathon-622twa9-1784228475763",
+    "name": "Global AR/VR Innovation Challenge 2026 - Series 64",
+    "organizer": "NUS Computing",
+    "platform": "Devfolio",
+    "deadline": "2026-09-13",
+    "startDate": "2026-09-13",
+    "endDate": "2026-09-15",
+    "mode": "Hybrid",
+    "venue": "Bengaluru, India",
+    "prizePool": "$24,000",
+    "teamSize": "1-4 members",
+    "difficulty": "Beginner-Friendly",
+    "eligibleBranches": [
+      "All Branches",
+      "CS",
+      "Data Science",
+      "EECS"
+    ],
+    "technologies": [
+      "Python",
+      "React",
+      "Node.js",
+      "TensorFlow"
+    ],
+    "tags": [
+      "AR/VR",
+      "Innovation",
+      "Startups"
+    ],
+    "description": "Join the Global AR/VR Innovation Challenge hosted by NUS Computing. Build next-generation applications leveraging AR/VR. Expect intensive 48-hour coding, mentorship from industry leaders, and a chance to pitch your product to top-tier VC firms.",
+    "officialLink": "https://example.com/hackathon/ar/vr-2026",
+    "registrationFee": "Free"
+  },
+  {
+    "id": "hackathon-gzhfp3g-1784228475763",
+    "name": "Global AI Innovation Challenge 2026 - Series 65",
+    "organizer": "MIT Media Lab",
+    "platform": "Devpost",
+    "deadline": "2026-07-19",
+    "startDate": "2026-07-19",
+    "endDate": "2026-07-21",
+    "mode": "Hybrid",
+    "venue": "New York, NY",
+    "prizePool": "$38,000",
+    "teamSize": "1-4 members",
+    "difficulty": "Intermediate",
+    "eligibleBranches": [
+      "All Branches",
+      "CS",
+      "Data Science",
+      "EECS"
+    ],
+    "technologies": [
+      "Python",
+      "React",
+      "Node.js",
+      "TensorFlow"
+    ],
+    "tags": [
+      "AI",
+      "Innovation",
+      "Startups"
+    ],
+    "description": "Join the Global AI Innovation Challenge hosted by MIT Media Lab. Build next-generation applications leveraging AI. Expect intensive 48-hour coding, mentorship from industry leaders, and a chance to pitch your product to top-tier VC firms.",
+    "officialLink": "https://example.com/hackathon/ai-2026",
+    "registrationFee": "$20"
+  },
+  {
+    "id": "hackathon-8tha128-1784228475763",
+    "name": "Global Blockchain Innovation Challenge 2026 - Series 66",
+    "organizer": "Stanford AI Hub",
+    "platform": "Unstop",
+    "deadline": "2026-07-29",
+    "startDate": "2026-07-29",
+    "endDate": "2026-08-02",
+    "mode": "Offline",
+    "venue": "Bengaluru, India",
+    "prizePool": "$59,000",
+    "teamSize": "1-4 members",
+    "difficulty": "Expert",
+    "eligibleBranches": [
+      "All Branches",
+      "CS",
+      "Data Science",
+      "EECS"
+    ],
+    "technologies": [
+      "Python",
+      "React",
+      "Node.js",
+      "TensorFlow"
+    ],
+    "tags": [
+      "Blockchain",
+      "Innovation",
+      "Startups"
+    ],
+    "description": "Join the Global Blockchain Innovation Challenge hosted by Stanford AI Hub. Build next-generation applications leveraging Blockchain. Expect intensive 48-hour coding, mentorship from industry leaders, and a chance to pitch your product to top-tier VC firms.",
+    "officialLink": "https://example.com/hackathon/blockchain-2026",
+    "registrationFee": "Free"
+  },
+  {
+    "id": "hackathon-bi2vymp-1784228475763",
+    "name": "Global Web3 Innovation Challenge 2026 - Series 67",
+    "organizer": "Google Developers Group",
+    "platform": "HackerEarth",
+    "deadline": "2026-08-25",
+    "startDate": "2026-08-25",
+    "endDate": "2026-08-27",
+    "mode": "Offline",
+    "venue": "Singapore",
+    "prizePool": "$12,000",
+    "teamSize": "1-4 members",
+    "difficulty": "Intermediate",
+    "eligibleBranches": [
+      "All Branches",
+      "CS",
+      "Data Science",
+      "EECS"
+    ],
+    "technologies": [
+      "Python",
+      "React",
+      "Node.js",
+      "TensorFlow"
+    ],
+    "tags": [
+      "Web3",
+      "Innovation",
+      "Startups"
+    ],
+    "description": "Join the Global Web3 Innovation Challenge hosted by Google Developers Group. Build next-generation applications leveraging Web3. Expect intensive 48-hour coding, mentorship from industry leaders, and a chance to pitch your product to top-tier VC firms.",
+    "officialLink": "https://example.com/hackathon/web3-2026",
+    "registrationFee": "Free"
+  },
+  {
+    "id": "hackathon-uhuthgg-1784228475763",
+    "name": "Global HealthTech Innovation Challenge 2026 - Series 68",
+    "organizer": "AWS Startups",
+    "platform": "Devfolio",
+    "deadline": "2026-10-05",
+    "startDate": "2026-10-05",
+    "endDate": "2026-10-09",
+    "mode": "Offline",
+    "venue": "New York, NY",
+    "prizePool": "$45,000",
+    "teamSize": "1-4 members",
+    "difficulty": "Advanced",
+    "eligibleBranches": [
+      "All Branches",
+      "CS",
+      "Data Science",
+      "EECS"
+    ],
+    "technologies": [
+      "Python",
+      "React",
+      "Node.js",
+      "TensorFlow"
+    ],
+    "tags": [
+      "HealthTech",
+      "Innovation",
+      "Startups"
+    ],
+    "description": "Join the Global HealthTech Innovation Challenge hosted by AWS Startups. Build next-generation applications leveraging HealthTech. Expect intensive 48-hour coding, mentorship from industry leaders, and a chance to pitch your product to top-tier VC firms.",
+    "officialLink": "https://example.com/hackathon/healthtech-2026",
+    "registrationFee": "Free"
+  },
+  {
+    "id": "hackathon-1ji8wfs-1784228475763",
+    "name": "Global FinTech Innovation Challenge 2026 - Series 69",
+    "organizer": "Microsoft Garage",
+    "platform": "Devpost",
+    "deadline": "2026-10-01",
+    "startDate": "2026-10-01",
+    "endDate": "2026-10-03",
+    "mode": "Offline",
+    "venue": "Bengaluru, India",
+    "prizePool": "$33,000",
+    "teamSize": "1-4 members",
+    "difficulty": "Beginner-Friendly",
+    "eligibleBranches": [
+      "All Branches",
+      "CS",
+      "Data Science",
+      "EECS"
+    ],
+    "technologies": [
+      "Python",
+      "React",
+      "Node.js",
+      "TensorFlow"
+    ],
+    "tags": [
+      "FinTech",
+      "Innovation",
+      "Startups"
+    ],
+    "description": "Join the Global FinTech Innovation Challenge hosted by Microsoft Garage. Build next-generation applications leveraging FinTech. Expect intensive 48-hour coding, mentorship from industry leaders, and a chance to pitch your product to top-tier VC firms.",
+    "officialLink": "https://example.com/hackathon/fintech-2026",
+    "registrationFee": "$20"
+  },
+  {
+    "id": "hackathon-w1wtmo1-1784228475763",
+    "name": "Global IoT Innovation Challenge 2026 - Series 70",
+    "organizer": "ETH Zurich Tech",
+    "platform": "Unstop",
+    "deadline": "2026-08-23",
+    "startDate": "2026-08-23",
+    "endDate": "2026-08-25",
+    "mode": "Hybrid",
+    "venue": "San Francisco, CA",
+    "prizePool": "$25,000",
+    "teamSize": "1-4 members",
+    "difficulty": "Expert",
+    "eligibleBranches": [
+      "All Branches",
+      "CS",
+      "Data Science",
+      "EECS"
+    ],
+    "technologies": [
+      "Python",
+      "React",
+      "Node.js",
+      "TensorFlow"
+    ],
+    "tags": [
+      "IoT",
+      "Innovation",
+      "Startups"
+    ],
+    "description": "Join the Global IoT Innovation Challenge hosted by ETH Zurich Tech. Build next-generation applications leveraging IoT. Expect intensive 48-hour coding, mentorship from industry leaders, and a chance to pitch your product to top-tier VC firms.",
+    "officialLink": "https://example.com/hackathon/iot-2026",
+    "registrationFee": "Free"
+  },
+  {
+    "id": "hackathon-hg04v3e-1784228475764",
+    "name": "Global Cybersecurity Innovation Challenge 2026 - Series 71",
+    "organizer": "IIT Bombay",
+    "platform": "HackerEarth",
+    "deadline": "2026-08-09",
+    "startDate": "2026-08-09",
+    "endDate": "2026-08-11",
+    "mode": "Online",
+    "venue": "Remote",
+    "prizePool": "$36,000",
+    "teamSize": "1-4 members",
+    "difficulty": "Intermediate",
+    "eligibleBranches": [
+      "All Branches",
+      "CS",
+      "Data Science",
+      "EECS"
+    ],
+    "technologies": [
+      "Python",
+      "React",
+      "Node.js",
+      "TensorFlow"
+    ],
+    "tags": [
+      "Cybersecurity",
+      "Innovation",
+      "Startups"
+    ],
+    "description": "Join the Global Cybersecurity Innovation Challenge hosted by IIT Bombay. Build next-generation applications leveraging Cybersecurity. Expect intensive 48-hour coding, mentorship from industry leaders, and a chance to pitch your product to top-tier VC firms.",
+    "officialLink": "https://example.com/hackathon/cybersecurity-2026",
+    "registrationFee": "Free"
+  },
+  {
+    "id": "hackathon-v7rwjn4-1784228475764",
+    "name": "Global AR/VR Innovation Challenge 2026 - Series 72",
+    "organizer": "NUS Computing",
+    "platform": "Devfolio",
+    "deadline": "2026-08-26",
+    "startDate": "2026-08-26",
+    "endDate": "2026-08-30",
+    "mode": "Offline",
+    "venue": "Remote",
+    "prizePool": "$43,000",
+    "teamSize": "1-4 members",
+    "difficulty": "Advanced",
+    "eligibleBranches": [
+      "All Branches",
+      "CS",
+      "Data Science",
+      "EECS"
+    ],
+    "technologies": [
+      "Python",
+      "React",
+      "Node.js",
+      "TensorFlow"
+    ],
+    "tags": [
+      "AR/VR",
+      "Innovation",
+      "Startups"
+    ],
+    "description": "Join the Global AR/VR Innovation Challenge hosted by NUS Computing. Build next-generation applications leveraging AR/VR. Expect intensive 48-hour coding, mentorship from industry leaders, and a chance to pitch your product to top-tier VC firms.",
+    "officialLink": "https://example.com/hackathon/ar/vr-2026",
+    "registrationFee": "Free"
+  },
+  {
+    "id": "hackathon-7a5ccoc-1784228475764",
+    "name": "Global AI Innovation Challenge 2026 - Series 73",
+    "organizer": "MIT Media Lab",
+    "platform": "Devpost",
+    "deadline": "2026-09-22",
+    "startDate": "2026-09-22",
+    "endDate": "2026-09-24",
+    "mode": "Offline",
+    "venue": "Remote",
+    "prizePool": "$51,000",
+    "teamSize": "1-4 members",
+    "difficulty": "Intermediate",
+    "eligibleBranches": [
+      "All Branches",
+      "CS",
+      "Data Science",
+      "EECS"
+    ],
+    "technologies": [
+      "Python",
+      "React",
+      "Node.js",
+      "TensorFlow"
+    ],
+    "tags": [
+      "AI",
+      "Innovation",
+      "Startups"
+    ],
+    "description": "Join the Global AI Innovation Challenge hosted by MIT Media Lab. Build next-generation applications leveraging AI. Expect intensive 48-hour coding, mentorship from industry leaders, and a chance to pitch your product to top-tier VC firms.",
+    "officialLink": "https://example.com/hackathon/ai-2026",
+    "registrationFee": "$20"
+  },
+  {
+    "id": "hackathon-etibuq1-1784228475764",
+    "name": "Global Blockchain Innovation Challenge 2026 - Series 74",
+    "organizer": "Stanford AI Hub",
+    "platform": "Unstop",
+    "deadline": "2026-10-08",
+    "startDate": "2026-10-08",
+    "endDate": "2026-10-11",
+    "mode": "Online",
+    "venue": "Remote",
+    "prizePool": "$16,000",
+    "teamSize": "1-4 members",
+    "difficulty": "Advanced",
+    "eligibleBranches": [
+      "All Branches",
+      "CS",
+      "Data Science",
+      "EECS"
+    ],
+    "technologies": [
+      "Python",
+      "React",
+      "Node.js",
+      "TensorFlow"
+    ],
+    "tags": [
+      "Blockchain",
+      "Innovation",
+      "Startups"
+    ],
+    "description": "Join the Global Blockchain Innovation Challenge hosted by Stanford AI Hub. Build next-generation applications leveraging Blockchain. Expect intensive 48-hour coding, mentorship from industry leaders, and a chance to pitch your product to top-tier VC firms.",
+    "officialLink": "https://example.com/hackathon/blockchain-2026",
+    "registrationFee": "Free"
+  },
+  {
+    "id": "hackathon-kzj3lqh-1784228475764",
+    "name": "Global Web3 Innovation Challenge 2026 - Series 75",
+    "organizer": "Google Developers Group",
+    "platform": "HackerEarth",
+    "deadline": "2026-09-01",
+    "startDate": "2026-09-01",
+    "endDate": "2026-09-03",
+    "mode": "Online",
+    "venue": "Remote",
+    "prizePool": "$25,000",
+    "teamSize": "1-4 members",
+    "difficulty": "Beginner-Friendly",
+    "eligibleBranches": [
+      "All Branches",
+      "CS",
+      "Data Science",
+      "EECS"
+    ],
+    "technologies": [
+      "Python",
+      "React",
+      "Node.js",
+      "TensorFlow"
+    ],
+    "tags": [
+      "Web3",
+      "Innovation",
+      "Startups"
+    ],
+    "description": "Join the Global Web3 Innovation Challenge hosted by Google Developers Group. Build next-generation applications leveraging Web3. Expect intensive 48-hour coding, mentorship from industry leaders, and a chance to pitch your product to top-tier VC firms.",
+    "officialLink": "https://example.com/hackathon/web3-2026",
+    "registrationFee": "Free"
+  },
+  {
+    "id": "hackathon-xxs8hxw-1784228475764",
+    "name": "Global HealthTech Innovation Challenge 2026 - Series 76",
+    "organizer": "AWS Startups",
+    "platform": "Devfolio",
+    "deadline": "2026-10-10",
+    "startDate": "2026-10-10",
+    "endDate": "2026-10-14",
+    "mode": "Online",
+    "venue": "Remote",
+    "prizePool": "$20,000",
+    "teamSize": "1-4 members",
+    "difficulty": "Advanced",
+    "eligibleBranches": [
+      "All Branches",
+      "CS",
+      "Data Science",
+      "EECS"
+    ],
+    "technologies": [
+      "Python",
+      "React",
+      "Node.js",
+      "TensorFlow"
+    ],
+    "tags": [
+      "HealthTech",
+      "Innovation",
+      "Startups"
+    ],
+    "description": "Join the Global HealthTech Innovation Challenge hosted by AWS Startups. Build next-generation applications leveraging HealthTech. Expect intensive 48-hour coding, mentorship from industry leaders, and a chance to pitch your product to top-tier VC firms.",
+    "officialLink": "https://example.com/hackathon/healthtech-2026",
+    "registrationFee": "Free"
+  },
+  {
+    "id": "hackathon-cxusjqs-1784228475764",
+    "name": "Global FinTech Innovation Challenge 2026 - Series 77",
+    "organizer": "Microsoft Garage",
+    "platform": "Devpost",
+    "deadline": "2026-07-19",
+    "startDate": "2026-07-19",
+    "endDate": "2026-07-23",
+    "mode": "Offline",
+    "venue": "Bengaluru, India",
+    "prizePool": "$57,000",
+    "teamSize": "1-4 members",
+    "difficulty": "Beginner-Friendly",
+    "eligibleBranches": [
+      "All Branches",
+      "CS",
+      "Data Science",
+      "EECS"
+    ],
+    "technologies": [
+      "Python",
+      "React",
+      "Node.js",
+      "TensorFlow"
+    ],
+    "tags": [
+      "FinTech",
+      "Innovation",
+      "Startups"
+    ],
+    "description": "Join the Global FinTech Innovation Challenge hosted by Microsoft Garage. Build next-generation applications leveraging FinTech. Expect intensive 48-hour coding, mentorship from industry leaders, and a chance to pitch your product to top-tier VC firms.",
+    "officialLink": "https://example.com/hackathon/fintech-2026",
+    "registrationFee": "$20"
+  },
+  {
+    "id": "hackathon-j2fislk-1784228475764",
+    "name": "Global IoT Innovation Challenge 2026 - Series 78",
+    "organizer": "ETH Zurich Tech",
+    "platform": "Unstop",
+    "deadline": "2026-08-11",
+    "startDate": "2026-08-11",
+    "endDate": "2026-08-15",
+    "mode": "Online",
+    "venue": "Remote",
+    "prizePool": "$15,000",
+    "teamSize": "1-4 members",
+    "difficulty": "Advanced",
+    "eligibleBranches": [
+      "All Branches",
+      "CS",
+      "Data Science",
+      "EECS"
+    ],
+    "technologies": [
+      "Python",
+      "React",
+      "Node.js",
+      "TensorFlow"
+    ],
+    "tags": [
+      "IoT",
+      "Innovation",
+      "Startups"
+    ],
+    "description": "Join the Global IoT Innovation Challenge hosted by ETH Zurich Tech. Build next-generation applications leveraging IoT. Expect intensive 48-hour coding, mentorship from industry leaders, and a chance to pitch your product to top-tier VC firms.",
+    "officialLink": "https://example.com/hackathon/iot-2026",
+    "registrationFee": "Free"
+  },
+  {
+    "id": "hackathon-tvov005-1784228475764",
+    "name": "Global Cybersecurity Innovation Challenge 2026 - Series 79",
+    "organizer": "IIT Bombay",
+    "platform": "HackerEarth",
+    "deadline": "2026-07-29",
+    "startDate": "2026-07-29",
+    "endDate": "2026-08-02",
+    "mode": "Online",
+    "venue": "Remote",
+    "prizePool": "$34,000",
+    "teamSize": "1-4 members",
+    "difficulty": "Expert",
+    "eligibleBranches": [
+      "All Branches",
+      "CS",
+      "Data Science",
+      "EECS"
+    ],
+    "technologies": [
+      "Python",
+      "React",
+      "Node.js",
+      "TensorFlow"
+    ],
+    "tags": [
+      "Cybersecurity",
+      "Innovation",
+      "Startups"
+    ],
+    "description": "Join the Global Cybersecurity Innovation Challenge hosted by IIT Bombay. Build next-generation applications leveraging Cybersecurity. Expect intensive 48-hour coding, mentorship from industry leaders, and a chance to pitch your product to top-tier VC firms.",
+    "officialLink": "https://example.com/hackathon/cybersecurity-2026",
+    "registrationFee": "Free"
+  },
+  {
+    "id": "hackathon-ftazf6d-1784228475764",
+    "name": "Global AR/VR Innovation Challenge 2026 - Series 80",
+    "organizer": "NUS Computing",
+    "platform": "Devfolio",
+    "deadline": "2026-08-27",
+    "startDate": "2026-08-27",
+    "endDate": "2026-08-29",
+    "mode": "Hybrid",
+    "venue": "London, UK",
+    "prizePool": "$42,000",
+    "teamSize": "1-4 members",
+    "difficulty": "Intermediate",
+    "eligibleBranches": [
+      "All Branches",
+      "CS",
+      "Data Science",
+      "EECS"
+    ],
+    "technologies": [
+      "Python",
+      "React",
+      "Node.js",
+      "TensorFlow"
+    ],
+    "tags": [
+      "AR/VR",
+      "Innovation",
+      "Startups"
+    ],
+    "description": "Join the Global AR/VR Innovation Challenge hosted by NUS Computing. Build next-generation applications leveraging AR/VR. Expect intensive 48-hour coding, mentorship from industry leaders, and a chance to pitch your product to top-tier VC firms.",
+    "officialLink": "https://example.com/hackathon/ar/vr-2026",
+    "registrationFee": "Free"
+  },
+  {
+    "id": "hackathon-6btcarf-1784228475764",
+    "name": "Global AI Innovation Challenge 2026 - Series 81",
+    "organizer": "MIT Media Lab",
+    "platform": "Devpost",
+    "deadline": "2026-08-15",
+    "startDate": "2026-08-15",
+    "endDate": "2026-08-17",
+    "mode": "Hybrid",
+    "venue": "London, UK",
+    "prizePool": "$20,000",
+    "teamSize": "1-4 members",
+    "difficulty": "Intermediate",
+    "eligibleBranches": [
+      "All Branches",
+      "CS",
+      "Data Science",
+      "EECS"
+    ],
+    "technologies": [
+      "Python",
+      "React",
+      "Node.js",
+      "TensorFlow"
+    ],
+    "tags": [
+      "AI",
+      "Innovation",
+      "Startups"
+    ],
+    "description": "Join the Global AI Innovation Challenge hosted by MIT Media Lab. Build next-generation applications leveraging AI. Expect intensive 48-hour coding, mentorship from industry leaders, and a chance to pitch your product to top-tier VC firms.",
+    "officialLink": "https://example.com/hackathon/ai-2026",
+    "registrationFee": "$20"
+  },
+  {
+    "id": "hackathon-vck7uyg-1784228475764",
+    "name": "Global Blockchain Innovation Challenge 2026 - Series 82",
+    "organizer": "Stanford AI Hub",
+    "platform": "Unstop",
+    "deadline": "2026-08-22",
+    "startDate": "2026-08-22",
+    "endDate": "2026-08-26",
+    "mode": "Online",
+    "venue": "Remote",
+    "prizePool": "$55,000",
+    "teamSize": "1-4 members",
+    "difficulty": "Intermediate",
+    "eligibleBranches": [
+      "All Branches",
+      "CS",
+      "Data Science",
+      "EECS"
+    ],
+    "technologies": [
+      "Python",
+      "React",
+      "Node.js",
+      "TensorFlow"
+    ],
+    "tags": [
+      "Blockchain",
+      "Innovation",
+      "Startups"
+    ],
+    "description": "Join the Global Blockchain Innovation Challenge hosted by Stanford AI Hub. Build next-generation applications leveraging Blockchain. Expect intensive 48-hour coding, mentorship from industry leaders, and a chance to pitch your product to top-tier VC firms.",
+    "officialLink": "https://example.com/hackathon/blockchain-2026",
+    "registrationFee": "Free"
+  },
+  {
+    "id": "hackathon-hgtc4md-1784228475764",
+    "name": "Global Web3 Innovation Challenge 2026 - Series 83",
+    "organizer": "Google Developers Group",
+    "platform": "HackerEarth",
+    "deadline": "2026-08-05",
+    "startDate": "2026-08-05",
+    "endDate": "2026-08-08",
+    "mode": "Hybrid",
+    "venue": "London, UK",
+    "prizePool": "$23,000",
+    "teamSize": "1-4 members",
+    "difficulty": "Expert",
+    "eligibleBranches": [
+      "All Branches",
+      "CS",
+      "Data Science",
+      "EECS"
+    ],
+    "technologies": [
+      "Python",
+      "React",
+      "Node.js",
+      "TensorFlow"
+    ],
+    "tags": [
+      "Web3",
+      "Innovation",
+      "Startups"
+    ],
+    "description": "Join the Global Web3 Innovation Challenge hosted by Google Developers Group. Build next-generation applications leveraging Web3. Expect intensive 48-hour coding, mentorship from industry leaders, and a chance to pitch your product to top-tier VC firms.",
+    "officialLink": "https://example.com/hackathon/web3-2026",
+    "registrationFee": "Free"
+  },
+  {
+    "id": "hackathon-zio0iz1-1784228475764",
+    "name": "Global HealthTech Innovation Challenge 2026 - Series 84",
+    "organizer": "AWS Startups",
+    "platform": "Devfolio",
+    "deadline": "2026-10-09",
+    "startDate": "2026-10-09",
+    "endDate": "2026-10-12",
+    "mode": "Offline",
+    "venue": "Berlin, Germany",
+    "prizePool": "$29,000",
+    "teamSize": "1-4 members",
+    "difficulty": "Beginner-Friendly",
+    "eligibleBranches": [
+      "All Branches",
+      "CS",
+      "Data Science",
+      "EECS"
+    ],
+    "technologies": [
+      "Python",
+      "React",
+      "Node.js",
+      "TensorFlow"
+    ],
+    "tags": [
+      "HealthTech",
+      "Innovation",
+      "Startups"
+    ],
+    "description": "Join the Global HealthTech Innovation Challenge hosted by AWS Startups. Build next-generation applications leveraging HealthTech. Expect intensive 48-hour coding, mentorship from industry leaders, and a chance to pitch your product to top-tier VC firms.",
+    "officialLink": "https://example.com/hackathon/healthtech-2026",
+    "registrationFee": "Free"
+  },
+  {
+    "id": "hackathon-6ftowxe-1784228475764",
+    "name": "Global FinTech Innovation Challenge 2026 - Series 85",
+    "organizer": "Microsoft Garage",
+    "platform": "Devpost",
+    "deadline": "2026-08-21",
+    "startDate": "2026-08-21",
+    "endDate": "2026-08-24",
+    "mode": "Offline",
+    "venue": "London, UK",
+    "prizePool": "$30,000",
+    "teamSize": "1-4 members",
+    "difficulty": "Beginner-Friendly",
+    "eligibleBranches": [
+      "All Branches",
+      "CS",
+      "Data Science",
+      "EECS"
+    ],
+    "technologies": [
+      "Python",
+      "React",
+      "Node.js",
+      "TensorFlow"
+    ],
+    "tags": [
+      "FinTech",
+      "Innovation",
+      "Startups"
+    ],
+    "description": "Join the Global FinTech Innovation Challenge hosted by Microsoft Garage. Build next-generation applications leveraging FinTech. Expect intensive 48-hour coding, mentorship from industry leaders, and a chance to pitch your product to top-tier VC firms.",
+    "officialLink": "https://example.com/hackathon/fintech-2026",
+    "registrationFee": "$20"
+  },
+  {
+    "id": "hackathon-k4rhxlj-1784228475764",
+    "name": "Global IoT Innovation Challenge 2026 - Series 86",
+    "organizer": "ETH Zurich Tech",
+    "platform": "Unstop",
+    "deadline": "2026-09-13",
+    "startDate": "2026-09-13",
+    "endDate": "2026-09-16",
+    "mode": "Hybrid",
+    "venue": "Remote",
+    "prizePool": "$17,000",
+    "teamSize": "1-4 members",
+    "difficulty": "Advanced",
+    "eligibleBranches": [
+      "All Branches",
+      "CS",
+      "Data Science",
+      "EECS"
+    ],
+    "technologies": [
+      "Python",
+      "React",
+      "Node.js",
+      "TensorFlow"
+    ],
+    "tags": [
+      "IoT",
+      "Innovation",
+      "Startups"
+    ],
+    "description": "Join the Global IoT Innovation Challenge hosted by ETH Zurich Tech. Build next-generation applications leveraging IoT. Expect intensive 48-hour coding, mentorship from industry leaders, and a chance to pitch your product to top-tier VC firms.",
+    "officialLink": "https://example.com/hackathon/iot-2026",
+    "registrationFee": "Free"
+  },
+  {
+    "id": "hackathon-jgje1fk-1784228475764",
+    "name": "Global Cybersecurity Innovation Challenge 2026 - Series 87",
+    "organizer": "IIT Bombay",
+    "platform": "HackerEarth",
+    "deadline": "2026-10-09",
+    "startDate": "2026-10-09",
+    "endDate": "2026-10-11",
+    "mode": "Offline",
+    "venue": "Remote",
+    "prizePool": "$59,000",
+    "teamSize": "1-4 members",
+    "difficulty": "Intermediate",
+    "eligibleBranches": [
+      "All Branches",
+      "CS",
+      "Data Science",
+      "EECS"
+    ],
+    "technologies": [
+      "Python",
+      "React",
+      "Node.js",
+      "TensorFlow"
+    ],
+    "tags": [
+      "Cybersecurity",
+      "Innovation",
+      "Startups"
+    ],
+    "description": "Join the Global Cybersecurity Innovation Challenge hosted by IIT Bombay. Build next-generation applications leveraging Cybersecurity. Expect intensive 48-hour coding, mentorship from industry leaders, and a chance to pitch your product to top-tier VC firms.",
+    "officialLink": "https://example.com/hackathon/cybersecurity-2026",
+    "registrationFee": "Free"
+  },
+  {
+    "id": "hackathon-yxqcb20-1784228475764",
+    "name": "Global AR/VR Innovation Challenge 2026 - Series 88",
+    "organizer": "NUS Computing",
+    "platform": "Devfolio",
+    "deadline": "2026-08-15",
+    "startDate": "2026-08-15",
+    "endDate": "2026-08-18",
+    "mode": "Online",
+    "venue": "Remote",
+    "prizePool": "$26,000",
+    "teamSize": "1-4 members",
+    "difficulty": "Expert",
+    "eligibleBranches": [
+      "All Branches",
+      "CS",
+      "Data Science",
+      "EECS"
+    ],
+    "technologies": [
+      "Python",
+      "React",
+      "Node.js",
+      "TensorFlow"
+    ],
+    "tags": [
+      "AR/VR",
+      "Innovation",
+      "Startups"
+    ],
+    "description": "Join the Global AR/VR Innovation Challenge hosted by NUS Computing. Build next-generation applications leveraging AR/VR. Expect intensive 48-hour coding, mentorship from industry leaders, and a chance to pitch your product to top-tier VC firms.",
+    "officialLink": "https://example.com/hackathon/ar/vr-2026",
+    "registrationFee": "Free"
+  },
+  {
+    "id": "hackathon-ye1sgg1-1784228475764",
+    "name": "Global AI Innovation Challenge 2026 - Series 89",
+    "organizer": "MIT Media Lab",
+    "platform": "Devpost",
+    "deadline": "2026-07-27",
+    "startDate": "2026-07-27",
+    "endDate": "2026-07-29",
+    "mode": "Online",
+    "venue": "Remote",
+    "prizePool": "$54,000",
+    "teamSize": "1-4 members",
+    "difficulty": "Intermediate",
+    "eligibleBranches": [
+      "All Branches",
+      "CS",
+      "Data Science",
+      "EECS"
+    ],
+    "technologies": [
+      "Python",
+      "React",
+      "Node.js",
+      "TensorFlow"
+    ],
+    "tags": [
+      "AI",
+      "Innovation",
+      "Startups"
+    ],
+    "description": "Join the Global AI Innovation Challenge hosted by MIT Media Lab. Build next-generation applications leveraging AI. Expect intensive 48-hour coding, mentorship from industry leaders, and a chance to pitch your product to top-tier VC firms.",
+    "officialLink": "https://example.com/hackathon/ai-2026",
+    "registrationFee": "$20"
+  },
+  {
+    "id": "hackathon-mi6yfri-1784228475764",
+    "name": "Global Blockchain Innovation Challenge 2026 - Series 90",
+    "organizer": "Stanford AI Hub",
+    "platform": "Unstop",
+    "deadline": "2026-10-02",
+    "startDate": "2026-10-02",
+    "endDate": "2026-10-06",
+    "mode": "Offline",
+    "venue": "Singapore",
+    "prizePool": "$21,000",
+    "teamSize": "1-4 members",
+    "difficulty": "Intermediate",
+    "eligibleBranches": [
+      "All Branches",
+      "CS",
+      "Data Science",
+      "EECS"
+    ],
+    "technologies": [
+      "Python",
+      "React",
+      "Node.js",
+      "TensorFlow"
+    ],
+    "tags": [
+      "Blockchain",
+      "Innovation",
+      "Startups"
+    ],
+    "description": "Join the Global Blockchain Innovation Challenge hosted by Stanford AI Hub. Build next-generation applications leveraging Blockchain. Expect intensive 48-hour coding, mentorship from industry leaders, and a chance to pitch your product to top-tier VC firms.",
+    "officialLink": "https://example.com/hackathon/blockchain-2026",
+    "registrationFee": "Free"
+  },
+  {
+    "id": "hackathon-5fgdg8t-1784228475764",
+    "name": "Global Web3 Innovation Challenge 2026 - Series 91",
+    "organizer": "Google Developers Group",
+    "platform": "HackerEarth",
+    "deadline": "2026-08-06",
+    "startDate": "2026-08-06",
+    "endDate": "2026-08-09",
+    "mode": "Online",
+    "venue": "Remote",
+    "prizePool": "$24,000",
+    "teamSize": "1-4 members",
+    "difficulty": "Advanced",
+    "eligibleBranches": [
+      "All Branches",
+      "CS",
+      "Data Science",
+      "EECS"
+    ],
+    "technologies": [
+      "Python",
+      "React",
+      "Node.js",
+      "TensorFlow"
+    ],
+    "tags": [
+      "Web3",
+      "Innovation",
+      "Startups"
+    ],
+    "description": "Join the Global Web3 Innovation Challenge hosted by Google Developers Group. Build next-generation applications leveraging Web3. Expect intensive 48-hour coding, mentorship from industry leaders, and a chance to pitch your product to top-tier VC firms.",
+    "officialLink": "https://example.com/hackathon/web3-2026",
+    "registrationFee": "Free"
+  },
+  {
+    "id": "hackathon-072b91j-1784228475764",
+    "name": "Global HealthTech Innovation Challenge 2026 - Series 92",
+    "organizer": "AWS Startups",
+    "platform": "Devfolio",
+    "deadline": "2026-08-26",
+    "startDate": "2026-08-26",
+    "endDate": "2026-08-30",
+    "mode": "Online",
+    "venue": "Remote",
+    "prizePool": "$23,000",
+    "teamSize": "1-4 members",
+    "difficulty": "Expert",
+    "eligibleBranches": [
+      "All Branches",
+      "CS",
+      "Data Science",
+      "EECS"
+    ],
+    "technologies": [
+      "Python",
+      "React",
+      "Node.js",
+      "TensorFlow"
+    ],
+    "tags": [
+      "HealthTech",
+      "Innovation",
+      "Startups"
+    ],
+    "description": "Join the Global HealthTech Innovation Challenge hosted by AWS Startups. Build next-generation applications leveraging HealthTech. Expect intensive 48-hour coding, mentorship from industry leaders, and a chance to pitch your product to top-tier VC firms.",
+    "officialLink": "https://example.com/hackathon/healthtech-2026",
+    "registrationFee": "Free"
+  },
+  {
+    "id": "hackathon-0ud8ipg-1784228475764",
+    "name": "Global FinTech Innovation Challenge 2026 - Series 93",
+    "organizer": "Microsoft Garage",
+    "platform": "Devpost",
+    "deadline": "2026-10-04",
+    "startDate": "2026-10-04",
+    "endDate": "2026-10-06",
+    "mode": "Offline",
+    "venue": "London, UK",
+    "prizePool": "$15,000",
+    "teamSize": "1-4 members",
+    "difficulty": "Intermediate",
+    "eligibleBranches": [
+      "All Branches",
+      "CS",
+      "Data Science",
+      "EECS"
+    ],
+    "technologies": [
+      "Python",
+      "React",
+      "Node.js",
+      "TensorFlow"
+    ],
+    "tags": [
+      "FinTech",
+      "Innovation",
+      "Startups"
+    ],
+    "description": "Join the Global FinTech Innovation Challenge hosted by Microsoft Garage. Build next-generation applications leveraging FinTech. Expect intensive 48-hour coding, mentorship from industry leaders, and a chance to pitch your product to top-tier VC firms.",
+    "officialLink": "https://example.com/hackathon/fintech-2026",
+    "registrationFee": "$20"
+  },
+  {
+    "id": "hackathon-7x3mb9z-1784228475764",
+    "name": "Global IoT Innovation Challenge 2026 - Series 94",
+    "organizer": "ETH Zurich Tech",
+    "platform": "Unstop",
+    "deadline": "2026-07-23",
+    "startDate": "2026-07-23",
+    "endDate": "2026-07-27",
+    "mode": "Online",
+    "venue": "Remote",
+    "prizePool": "$56,000",
+    "teamSize": "1-4 members",
+    "difficulty": "Expert",
+    "eligibleBranches": [
+      "All Branches",
+      "CS",
+      "Data Science",
+      "EECS"
+    ],
+    "technologies": [
+      "Python",
+      "React",
+      "Node.js",
+      "TensorFlow"
+    ],
+    "tags": [
+      "IoT",
+      "Innovation",
+      "Startups"
+    ],
+    "description": "Join the Global IoT Innovation Challenge hosted by ETH Zurich Tech. Build next-generation applications leveraging IoT. Expect intensive 48-hour coding, mentorship from industry leaders, and a chance to pitch your product to top-tier VC firms.",
+    "officialLink": "https://example.com/hackathon/iot-2026",
+    "registrationFee": "Free"
+  },
+  {
+    "id": "hackathon-tb1fqwa-1784228475764",
+    "name": "Global Cybersecurity Innovation Challenge 2026 - Series 95",
+    "organizer": "IIT Bombay",
+    "platform": "HackerEarth",
+    "deadline": "2026-10-04",
+    "startDate": "2026-10-04",
+    "endDate": "2026-10-08",
+    "mode": "Offline",
+    "venue": "London, UK",
+    "prizePool": "$21,000",
+    "teamSize": "1-4 members",
+    "difficulty": "Beginner-Friendly",
+    "eligibleBranches": [
+      "All Branches",
+      "CS",
+      "Data Science",
+      "EECS"
+    ],
+    "technologies": [
+      "Python",
+      "React",
+      "Node.js",
+      "TensorFlow"
+    ],
+    "tags": [
+      "Cybersecurity",
+      "Innovation",
+      "Startups"
+    ],
+    "description": "Join the Global Cybersecurity Innovation Challenge hosted by IIT Bombay. Build next-generation applications leveraging Cybersecurity. Expect intensive 48-hour coding, mentorship from industry leaders, and a chance to pitch your product to top-tier VC firms.",
+    "officialLink": "https://example.com/hackathon/cybersecurity-2026",
+    "registrationFee": "Free"
+  },
+  {
+    "id": "hackathon-jp450rm-1784228475764",
+    "name": "Global AR/VR Innovation Challenge 2026 - Series 96",
+    "organizer": "NUS Computing",
+    "platform": "Devfolio",
+    "deadline": "2026-08-10",
+    "startDate": "2026-08-10",
+    "endDate": "2026-08-14",
+    "mode": "Online",
+    "venue": "Remote",
+    "prizePool": "$43,000",
+    "teamSize": "1-4 members",
+    "difficulty": "Intermediate",
+    "eligibleBranches": [
+      "All Branches",
+      "CS",
+      "Data Science",
+      "EECS"
+    ],
+    "technologies": [
+      "Python",
+      "React",
+      "Node.js",
+      "TensorFlow"
+    ],
+    "tags": [
+      "AR/VR",
+      "Innovation",
+      "Startups"
+    ],
+    "description": "Join the Global AR/VR Innovation Challenge hosted by NUS Computing. Build next-generation applications leveraging AR/VR. Expect intensive 48-hour coding, mentorship from industry leaders, and a chance to pitch your product to top-tier VC firms.",
+    "officialLink": "https://example.com/hackathon/ar/vr-2026",
+    "registrationFee": "Free"
+  },
+  {
+    "id": "hackathon-5zrg4n3-1784228475764",
+    "name": "Global AI Innovation Challenge 2026 - Series 97",
+    "organizer": "MIT Media Lab",
+    "platform": "Devpost",
+    "deadline": "2026-09-24",
+    "startDate": "2026-09-24",
+    "endDate": "2026-09-27",
+    "mode": "Hybrid",
+    "venue": "New York, NY",
+    "prizePool": "$46,000",
+    "teamSize": "1-4 members",
+    "difficulty": "Beginner-Friendly",
+    "eligibleBranches": [
+      "All Branches",
+      "CS",
+      "Data Science",
+      "EECS"
+    ],
+    "technologies": [
+      "Python",
+      "React",
+      "Node.js",
+      "TensorFlow"
+    ],
+    "tags": [
+      "AI",
+      "Innovation",
+      "Startups"
+    ],
+    "description": "Join the Global AI Innovation Challenge hosted by MIT Media Lab. Build next-generation applications leveraging AI. Expect intensive 48-hour coding, mentorship from industry leaders, and a chance to pitch your product to top-tier VC firms.",
+    "officialLink": "https://example.com/hackathon/ai-2026",
+    "registrationFee": "$20"
+  },
+  {
+    "id": "hackathon-ch5j2i0-1784228475764",
+    "name": "Global Blockchain Innovation Challenge 2026 - Series 98",
+    "organizer": "Stanford AI Hub",
+    "platform": "Unstop",
+    "deadline": "2026-08-10",
+    "startDate": "2026-08-10",
+    "endDate": "2026-08-14",
+    "mode": "Online",
+    "venue": "Remote",
+    "prizePool": "$38,000",
+    "teamSize": "1-4 members",
+    "difficulty": "Intermediate",
+    "eligibleBranches": [
+      "All Branches",
+      "CS",
+      "Data Science",
+      "EECS"
+    ],
+    "technologies": [
+      "Python",
+      "React",
+      "Node.js",
+      "TensorFlow"
+    ],
+    "tags": [
+      "Blockchain",
+      "Innovation",
+      "Startups"
+    ],
+    "description": "Join the Global Blockchain Innovation Challenge hosted by Stanford AI Hub. Build next-generation applications leveraging Blockchain. Expect intensive 48-hour coding, mentorship from industry leaders, and a chance to pitch your product to top-tier VC firms.",
+    "officialLink": "https://example.com/hackathon/blockchain-2026",
+    "registrationFee": "Free"
+  },
+  {
+    "id": "hackathon-gj3arfu-1784228475764",
+    "name": "Global Web3 Innovation Challenge 2026 - Series 99",
+    "organizer": "Google Developers Group",
+    "platform": "HackerEarth",
+    "deadline": "2026-09-25",
+    "startDate": "2026-09-25",
+    "endDate": "2026-09-29",
+    "mode": "Online",
+    "venue": "Remote",
+    "prizePool": "$51,000",
+    "teamSize": "1-4 members",
+    "difficulty": "Advanced",
+    "eligibleBranches": [
+      "All Branches",
+      "CS",
+      "Data Science",
+      "EECS"
+    ],
+    "technologies": [
+      "Python",
+      "React",
+      "Node.js",
+      "TensorFlow"
+    ],
+    "tags": [
+      "Web3",
+      "Innovation",
+      "Startups"
+    ],
+    "description": "Join the Global Web3 Innovation Challenge hosted by Google Developers Group. Build next-generation applications leveraging Web3. Expect intensive 48-hour coding, mentorship from industry leaders, and a chance to pitch your product to top-tier VC firms.",
+    "officialLink": "https://example.com/hackathon/web3-2026",
+    "registrationFee": "Free"
+  },
+  {
+    "id": "hackathon-enfs06n-1784228475764",
+    "name": "Global HealthTech Innovation Challenge 2026 - Series 100",
+    "organizer": "AWS Startups",
+    "platform": "Devfolio",
+    "deadline": "2026-08-05",
+    "startDate": "2026-08-05",
+    "endDate": "2026-08-08",
+    "mode": "Online",
+    "venue": "Remote",
+    "prizePool": "$11,000",
+    "teamSize": "1-4 members",
+    "difficulty": "Advanced",
+    "eligibleBranches": [
+      "All Branches",
+      "CS",
+      "Data Science",
+      "EECS"
+    ],
+    "technologies": [
+      "Python",
+      "React",
+      "Node.js",
+      "TensorFlow"
+    ],
+    "tags": [
+      "HealthTech",
+      "Innovation",
+      "Startups"
+    ],
+    "description": "Join the Global HealthTech Innovation Challenge hosted by AWS Startups. Build next-generation applications leveraging HealthTech. Expect intensive 48-hour coding, mentorship from industry leaders, and a chance to pitch your product to top-tier VC firms.",
+    "officialLink": "https://example.com/hackathon/healthtech-2026",
+    "registrationFee": "Free"
   }
 ]
