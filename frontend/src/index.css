@@ -222,21 +222,20 @@ input { font-family: inherit; }
 }
 
 .logo-icon {
-    width: 72px;
-    height: 72px;
+    width: 85px;
+    height: 85px;
     border-radius: var(--radius-md);
     display: flex;
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
-    overflow: hidden;
 }
 
 .logo-icon img {
   width: 100%;
   height: 100%;
   object-fit: contain;
-  transform: scale(1.6);
+  transform: scale(2.2);
 }
 
 .logo-text {
