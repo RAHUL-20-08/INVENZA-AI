@@ -268,6 +268,13 @@ function App() {
             </div>
           </>
         );
+      case 'admin-audit':
+        return userRole === 'founder' ? <FounderAudit /> : (
+          <div className="glass-panel" style={{ padding: '2rem', textAlign: 'center', border: '1px solid var(--color-danger)', margin: '1.5rem' }}>
+            <h2 style={{ color: 'var(--color-danger)', fontFamily: 'var(--font-display)' }}>Access Restricted</h2>
+            <p style={{ color: 'var(--text-muted)', marginTop: '0.5rem', fontSize: '0.9rem' }}>This module is restricted to administrators.</p>
+          </div>
+        );
       case 'explorer':
         return <Explorer onImportToStartup={handleImportToStartup} setCurrentPage={setCurrentPage} setGlobalQuery={setGlobalQuery} />;
       case 'startup':
@@ -496,15 +503,6 @@ function App() {
   // Render Login page if session is inactive
   if (!isLoggedIn) {
     return <Login onLoginSuccess={handleLoginSuccess} />;
-  }
-
-  // Early return for Founder Dashboard to bypass standard layout
-  if (userRole === 'founder') {
-    return (
-      <div className="founder-layout" style={{ background: '#000', width: '100vw', minHeight: '100vh', overflowX: 'hidden' }}>
-        <FounderAudit onLogout={handleLogout} />
-      </div>
-    );
   }
 
   // Early return for completely clean Presentation Layout (outside app-container, sidebar, main-content margins)

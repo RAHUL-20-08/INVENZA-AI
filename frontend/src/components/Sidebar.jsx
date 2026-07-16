@@ -23,6 +23,7 @@ const Sidebar = ({ currentPage, setCurrentPage, sidebarOpen, setSidebarOpen, use
 
   const authUserSession = JSON.parse(localStorage.getItem('auth_user') || '{}');
   const roles = authUserSession.roles || [authUserSession.role || 'student'];
+  const isFounder = roles.includes('founder');
   const isSuperAdmin = roles.includes('superadmin') || (userEmail && userEmail.toLowerCase().includes('superadmin'));
   const isAdmin = roles.includes('admin') || (userEmail && userEmail.toLowerCase().includes('admin'));
   const username = authUserSession.name || (userEmail ? userEmail.split('@')[0] : 'Invenza User');
@@ -87,7 +88,14 @@ const Sidebar = ({ currentPage, setCurrentPage, sidebarOpen, setSidebarOpen, use
   const menuGroups = portalMode === 'student' ? studentMenuGroups : businessMenuGroups;
 
   // Add superadmin/admin item if needed
-  if (isSuperAdmin) {
+  if (isFounder) {
+    menuGroups.push({
+      label: 'Admin Tools',
+      items: [
+        { id: 'admin-audit', label: 'System Audit Logs', icon: 'security' },
+      ]
+    });
+  } else if (isSuperAdmin) {
     menuGroups.push({
       label: 'Superadmin Panel',
       items: [

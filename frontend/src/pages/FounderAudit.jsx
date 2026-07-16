@@ -42,7 +42,7 @@ const FounderAudit = ({ onLogout }) => {
   const uniqueActions = ['All', ...new Set(logs.map(log => log.action))];
 
   return (
-    <div style={{ padding: '2rem', display: 'flex', flexDirection: 'column', gap: '2rem', minHeight: '100vh', background: 'var(--bg-color)' }}>
+    <div style={{ padding: '0 1rem 2rem 1rem', display: 'flex', flexDirection: 'column', gap: '2rem' }}>
       {/* Header section */}
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderBottom: '1px solid var(--border-color)', paddingBottom: '1.5rem' }}>
         <div>
@@ -54,10 +54,6 @@ const FounderAudit = ({ onLogout }) => {
             Exclusive super-admin access to global platform audit logs and user activity history.
           </p>
         </div>
-        
-        <button onClick={onLogout} className="tech-button" style={{ background: 'rgba(239, 68, 68, 0.1)', color: '#ef4444', border: '1px solid rgba(239, 68, 68, 0.2)' }}>
-          <span className="material-symbols-outlined" style={{ fontSize: '18px' }}>logout</span> Logout
-        </button>
       </div>
 
       {loading ? (
