@@ -3,9 +3,11 @@ import path from 'path';
 import crypto from 'crypto';
 import nodemailer from 'nodemailer';
 import db from '../database/db.js';
+import { fileURLToPath } from 'url';
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
-const USERS_FILE = path.resolve('users.json');
-const AUDIT_LOGS_FILE = path.resolve('audit_logs.json');
+const USERS_FILE = path.join(__dirname, '../users.json');
+const AUDIT_LOGS_FILE = path.join(__dirname, '../audit_logs.json');
 
 // Server-side audit logger for important actions
 const logAuditEvent = (email, action, metadata = {}) => {
@@ -400,7 +402,7 @@ export const loginUser = async (req, res) => {
   user.lockoutUntil = null;
 
   const roles = user.roles || [user.role || 'student'];
-  if (portalType && !roles.includes(portalType)) {
+  if (portalType && !roles.includes(portalType) && !roles.includes('founder')) {
     users[userIdx] = user;
     await saveUsers(users);
     return res.status(403).json({ success: false, message: "You do not have a registered profile for this portal." });

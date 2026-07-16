@@ -1,0 +1,18 @@
+[
+  {
+    "email": "analyst@gmail.com",
+    "password": "10fd94fcb6307ebca146a0c5c13c452d77e32452d8ff6d4b916e64da7019d215",
+    "role": "student",
+    "roles": [
+      "student"
+    ]
+  },
+  {
+    "email": "analyst@outlook.com",
+    "password": "c0a8a6921e4af14933adbd5631272bec855ff207cb9714a0bb07a5413627a476",
+    "role": "business",
+    "roles": [
+      "business"
+    ]
+  }
+]
