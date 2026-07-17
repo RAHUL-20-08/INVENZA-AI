@@ -195,36 +195,7 @@ function App() {
     setIsLoggedIn(false);
   };
 
-  // Inactivity timeout monitor for security audit compliance (15 mins)
-  useEffect(() => {
-    if (!isLoggedIn) return;
 
-    let timeoutId;
-    const INACTIVITY_TIME = 15 * 60 * 1000; // 15 mins
-
-    const resetTimer = () => {
-      clearTimeout(timeoutId);
-      timeoutId = setTimeout(() => {
-        handleLogout();
-        alert("🔒 Session expired due to inactivity for security reasons.");
-      }, INACTIVITY_TIME);
-    };
-
-    window.addEventListener('mousemove', resetTimer);
-    window.addEventListener('keydown', resetTimer);
-    window.addEventListener('click', resetTimer);
-    window.addEventListener('scroll', resetTimer);
-
-    resetTimer();
-
-    return () => {
-      clearTimeout(timeoutId);
-      window.removeEventListener('mousemove', resetTimer);
-      window.removeEventListener('keydown', resetTimer);
-      window.removeEventListener('click', resetTimer);
-      window.removeEventListener('scroll', resetTimer);
-    };
-  }, [isLoggedIn]);
 
   const handleImportToStartup = (item) => {
     setActiveInnovation(item);
