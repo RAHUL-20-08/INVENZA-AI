@@ -4,22 +4,32 @@
     "password": "f11884ec04f85de9f5c9c3ea73c6e1c4d85df5552262a9be6ad74916806e0b3a",
     "role": "student",
     "loginFailures": 0,
-    "lockoutUntil": 1784093812501
+    "lockoutUntil": null,
+    "activeSessions": []
   },
   {
     "email": "analyst@outlook.com",
     "password": "c0a8a6921e4af14933adbd5631272bec855ff207cb9714a0bb07a5413627a476",
-    "role": "business"
+    "role": "business",
+    "activeSessions": [],
+    "loginFailures": 0,
+    "lockoutUntil": null
   },
   {
     "email": "test_student@studentportal.org",
     "password": "d9d8e7ee4e92681edbb144557bbf512c15e51582ed8f4a03dac98e88d1065674",
-    "role": "student"
+    "role": "student",
+    "activeSessions": [],
+    "loginFailures": 0,
+    "lockoutUntil": null
   },
   {
     "email": "ceo_startup@businessgrowth.com",
     "password": "d9d8e7ee4e92681edbb144557bbf512c15e51582ed8f4a03dac98e88d1065674",
-    "role": "business"
+    "role": "business",
+    "activeSessions": [],
+    "loginFailures": 0,
+    "lockoutUntil": null
   },
   {
     "email": "bubaganesh1133@gmail.com",
@@ -27,44 +37,7 @@
     "role": "student",
     "loginFailures": 0,
     "lockoutUntil": null,
-    "activeSessions": [
-      {
-        "sessionId": "session_59b7306125f0d03f010420b4a105d3c9",
-        "token": "eyJlbWFpbCI6ImJ1YmFnYW5lc2gxMTMzQGdtYWlsLmNvbSIsInJvbGUiOiJzdHVkZW50IiwiZXhwIjoxNzgzOTM5OTAyfQ==",
-        "ip": "::1",
-        "os": "Windows",
-        "browser": "Chrome",
-        "deviceType": "Desktop",
-        "lastActive": "2026-07-13T09:51:42.347Z"
-      },
-      {
-        "sessionId": "session_e7dbf961ae5f8b4515bcb3ac997bf672",
-        "token": "eyJlbWFpbCI6ImJ1YmFnYW5lc2gxMTMzQGdtYWlsLmNvbSIsInJvbGUiOiJzdHVkZW50IiwiZXhwIjoxNzgzOTQ5MjIzfQ==",
-        "ip": "::1",
-        "os": "Windows",
-        "browser": "Chrome",
-        "deviceType": "Desktop",
-        "lastActive": "2026-07-13T12:27:03.341Z"
-      },
-      {
-        "sessionId": "session_a572db998a1c280d5b970e1a63b41b40",
-        "token": "eyJlbWFpbCI6ImJ1YmFnYW5lc2gxMTMzQGdtYWlsLmNvbSIsInJvbGUiOiJzdHVkZW50IiwiZXhwIjoxNzgzOTUwNzgzfQ==",
-        "ip": "::1",
-        "os": "Windows",
-        "browser": "Chrome",
-        "deviceType": "Desktop",
-        "lastActive": "2026-07-13T12:53:03.616Z"
-      },
-      {
-        "sessionId": "session_d017cb3bc756e82a745a5fc2fb387d9d",
-        "token": "eyJlbWFpbCI6ImJ1YmFnYW5lc2gxMTMzQGdtYWlsLmNvbSIsInJvbGUiOiJzdHVkZW50IiwiZXhwIjoxNzgzOTU3MTk1fQ==",
-        "ip": "::1",
-        "os": "Windows",
-        "browser": "Chrome",
-        "deviceType": "Desktop",
-        "lastActive": "2026-07-13T14:39:55.215Z"
-      }
-    ],
+    "activeSessions": [],
     "loginHistory": [
       {
         "dateTime": "2026-07-13T09:51:42.347Z",
@@ -132,7 +105,10 @@
       "country": "US",
       "website": "",
       "linkedin": ""
-    }
+    },
+    "activeSessions": [],
+    "loginFailures": 0,
+    "lockoutUntil": null
   },
   {
     "email": "founder_1783925481035@invenza.io",
@@ -145,7 +121,7 @@
     "mfaType": "none",
     "totpSecret": null,
     "backupCodes": [],
-    "loginFailures": 1,
+    "loginFailures": 0,
     "lockoutUntil": null,
     "activeSessions": [],
     "loginHistory": [],
@@ -200,7 +176,7 @@
     "mfaType": "none",
     "totpSecret": null,
     "backupCodes": [],
-    "loginFailures": 1,
+    "loginFailures": 0,
     "lockoutUntil": null,
     "activeSessions": [],
     "loginHistory": [],
@@ -256,7 +232,7 @@
     "totpSecret": null,
     "backupCodes": [],
     "loginFailures": 0,
-    "lockoutUntil": 1783926515502,
+    "lockoutUntil": null,
     "activeSessions": [],
     "loginHistory": [],
     "studentProfile": null,
@@ -419,7 +395,7 @@
     "totpSecret": null,
     "backupCodes": [],
     "loginFailures": 0,
-    "lockoutUntil": 1783933593342,
+    "lockoutUntil": null,
     "activeSessions": [],
     "loginHistory": [],
     "studentProfile": null,
@@ -474,7 +450,7 @@
     "totpSecret": null,
     "backupCodes": [],
     "loginFailures": 0,
-    "lockoutUntil": 1783934668663,
+    "lockoutUntil": null,
     "activeSessions": [],
     "loginHistory": [],
     "studentProfile": null,
@@ -545,7 +521,7 @@
     "totpSecret": null,
     "backupCodes": [],
     "loginFailures": 0,
-    "lockoutUntil": 1783945054623,
+    "lockoutUntil": null,
     "activeSessions": [],
     "loginHistory": [],
     "studentProfile": null,
@@ -601,17 +577,7 @@
     "backupCodes": [],
     "loginFailures": 0,
     "lockoutUntil": null,
-    "activeSessions": [
-      {
-        "sessionId": "session_f546106d52b3cbdb2b08c46048a46822",
-        "token": "eyJlbWFpbCI6InN1bmRhcnBpY2hhaUBnbWFpbC5jb20iLCJyb2xlIjoiYnVzaW5lc3MiLCJleHAiOjE3ODM5NTExNjR9",
-        "ip": "::1",
-        "os": "Windows",
-        "browser": "Chrome",
-        "deviceType": "Desktop",
-        "lastActive": "2026-07-13T12:59:24.465Z"
-      }
-    ],
+    "activeSessions": [],
     "loginHistory": [
       {
         "dateTime": "2026-07-13T12:59:24.465Z",
@@ -639,7 +605,9 @@
     "email": "harishwarankrish20@gmail.com",
     "password": "88da0b3e3627feac76703d5c194f3be2305805349bdb104d8d64fb32fd0c6a88",
     "role": "student",
-    "loginFailures": 2
+    "loginFailures": 0,
+    "activeSessions": [],
+    "lockoutUntil": null
   },
   {
     "email": "teststudent@gmail.com",
@@ -756,52 +724,6 @@
       }
     ],
     "lockoutUntil": null,
-    "activeSessions": [
-      {
-        "sessionId": "session_4c4d916fc4259f601a2963ffa8459b09",
-        "token": "eyJlbWFpbCI6InRoZV9mb3VuZGVyQGludmVuemEuaW8iLCJyb2xlIjoic3R1ZGVudCIsImV4cCI6MTc4NDIyMjE5M30=",
-        "ip": "::1",
-        "os": "Windows",
-        "browser": "Chrome",
-        "deviceType": "Desktop",
-        "lastActive": "2026-07-16T16:16:33.821Z"
-      },
-      {
-        "sessionId": "session_e349196581ac50ef80eff404015c9eb2",
-        "token": "eyJlbWFpbCI6InRoZV9mb3VuZGVyQGludmVuemEuaW8iLCJyb2xlIjoic3R1ZGVudCIsImV4cCI6MTc4NDIyMjIwNn0=",
-        "ip": "::1",
-        "os": "Windows",
-        "browser": "Chrome",
-        "deviceType": "Desktop",
-        "lastActive": "2026-07-16T16:16:46.003Z"
-      },
-      {
-        "sessionId": "session_8137ada78ffe7bb569a956066d6861d7",
-        "token": "eyJlbWFpbCI6InRoZV9mb3VuZGVyQGludmVuemEuaW8iLCJyb2xlIjoic3R1ZGVudCIsImV4cCI6MTc4NDIyMjQ1OH0=",
-        "ip": "::1",
-        "os": "Windows",
-        "browser": "Chrome",
-        "deviceType": "Desktop",
-        "lastActive": "2026-07-16T16:20:58.025Z"
-      },
-      {
-        "sessionId": "session_a932179b8921e9648d90bf92aee0a7e6",
-        "token": "eyJlbWFpbCI6InRoZV9mb3VuZGVyQGludmVuemEuaW8iLCJyb2xlIjoic3R1ZGVudCIsImV4cCI6MTc4NDIyMzE2MX0=",
-        "ip": "::1",
-        "os": "Windows",
-        "browser": "Chrome",
-        "deviceType": "Desktop",
-        "lastActive": "2026-07-16T16:32:41.532Z"
-      },
-      {
-        "sessionId": "session_94e455ae223b6cc3a94fcf7124d80360",
-        "token": "eyJlbWFpbCI6InRoZV9mb3VuZGVyQGludmVuemEuaW8iLCJyb2xlIjoic3R1ZGVudCIsImV4cCI6MTc4NDIyMzM1Nn0=",
-        "ip": "::1",
-        "os": "Windows",
-        "browser": "Chrome",
-        "deviceType": "Desktop",
-        "lastActive": "2026-07-16T16:35:56.714Z"
-      }
-    ]
+    "activeSessions": []
   }
 ]

@@ -273,7 +273,7 @@ export const registerUser = async (req, res) => {
     await saveUsers(users);
     await logAuditEvent(user.email, 'LINK_PORTAL_ROLE', { portalType });
 
-    const tokenPayload = { email: user.email, role: portalType, exp: Math.floor(Date.now() / 1000) + (3600) };
+    const tokenPayload = { email: user.email, role: portalType, exp: Math.floor(Date.now() / 1000) + 604800 };
     const token = Buffer.from(JSON.stringify(tokenPayload)).toString('base64');
     return res.json({
       success: true,
@@ -328,7 +328,7 @@ export const registerUser = async (req, res) => {
     await saveUsers(users);
     await logAuditEvent(newUser.email, 'REGISTER_USER', { portalType });
 
-    const tokenPayload = { email: newUser.email, role: portalType, exp: Math.floor(Date.now() / 1000) + (3600) };
+    const tokenPayload = { email: newUser.email, role: portalType, exp: Math.floor(Date.now() / 1000) + 604800 };
     const token = Buffer.from(JSON.stringify(tokenPayload)).toString('base64');
 
     res.json({ 
@@ -413,7 +413,7 @@ export const loginUser = async (req, res) => {
 
 
   const activeRole = portalType || roles[0];
-  const tokenPayload = { email: user.email, role: activeRole, exp: Math.floor(Date.now() / 1000) + (3600) }; // 1hr short lived access token
+  const tokenPayload = { email: user.email, role: activeRole, exp: Math.floor(Date.now() / 1000) + 604800 }; // 7-day access token
   const token = Buffer.from(JSON.stringify(tokenPayload)).toString('base64');
 
   // Track session details
@@ -432,6 +432,10 @@ export const loginUser = async (req, res) => {
   };
 
   user.activeSessions = user.activeSessions || [];
+  // Prune stale sessions - keep only the 10 most recent to prevent false session-revoked errors
+  if (user.activeSessions.length >= 10) {
+    user.activeSessions = user.activeSessions.slice(-9);
+  }
   user.activeSessions.push(currentSession);
 
   // New device detection check
@@ -457,6 +461,12 @@ export const loginUser = async (req, res) => {
   users[userIdx] = user;
   await saveUsers(users);
   await logAuditEvent(user.email, 'LOGIN_SUCCESS', { portalType: activeRole, sessionId });
+
+  // Set HttpOnly cookie so cookie-based auth also works
+  const isProd = process.env.NODE_ENV === 'production';
+  res.setHeader('Set-Cookie', [
+    `auth_token=${token}; HttpOnly; Path=/; Max-Age=604800; SameSite=Strict${isProd ? '; Secure' : ''}`
+  ]);
 
   res.json({
     success: true,
