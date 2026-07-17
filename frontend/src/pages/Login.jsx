@@ -1041,7 +1041,7 @@ const Login = ({ onLoginSuccess }) => {
 
                 <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.75rem' }}>
                   <div>
-                    <label style={{ fontSize: '0.75rem', color: 'var(--text-muted)', display: 'block', marginBottom: '0.35rem', fontFamily: 'var(--font-sans)' }}>CHOOSE PASSWORD</label>
+                    <label style={{ fontSize: '0.75rem', color: 'var(--text-muted)', display: 'block', marginBottom: '0.35rem', fontFamily: 'var(--font-sans)' }}>CREATE PASSWORD</label>
                     <div style={{ position: 'relative' }}>
                       <span className="material-symbols-outlined" style={{ fontSize: '14px', position: 'absolute', left: '12px', top: '15px', color: 'var(--text-dim)' }}>lock</span>
                       <input type={showPassword ? "text" : "password"} className="tech-input" style={{ paddingLeft: '2.5rem', paddingRight: '2.5rem' }} placeholder="••••••••" value={password} onChange={e => setPassword(e.target.value)} required />
@@ -1140,7 +1140,7 @@ const Login = ({ onLoginSuccess }) => {
 
                 <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.75rem' }}>
                   <div>
-                    <label style={{ fontSize: '0.75rem', color: 'var(--text-muted)', display: 'block', marginBottom: '0.35rem', fontFamily: 'var(--font-sans)' }}>CHOOSE PASSWORD</label>
+                    <label style={{ fontSize: '0.75rem', color: 'var(--text-muted)', display: 'block', marginBottom: '0.35rem', fontFamily: 'var(--font-sans)' }}>CREATE PASSWORD</label>
                     <div style={{ position: 'relative' }}>
                       <span className="material-symbols-outlined" style={{ fontSize: '14px', position: 'absolute', left: '12px', top: '15px', color: 'var(--text-dim)' }}>lock</span>
                       <input type={showPassword ? "text" : "password"} className="tech-input" style={{ paddingLeft: '2.5rem', paddingRight: '2.5rem' }} placeholder="••••••••" value={password} onChange={e => setPassword(e.target.value)} required />
