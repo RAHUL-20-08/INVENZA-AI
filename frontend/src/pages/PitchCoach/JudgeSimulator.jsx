@@ -51,10 +51,11 @@ const JudgeSimulator = ({
           </div>
 
           {/* Active Question display */}
-          <div style={{ background: 'rgba(255,255,255,0.01)', border: '1px solid var(--border-color)', padding: '1.25rem', borderRadius: '6px', display: 'flex', flexDirection: 'column', gap: '0.55rem', textAlign: 'left' }}>            <p style={{ fontSize: '0.85rem', color: '#fff', margin: 0, lineHeight: '1.4' }}>
+          <div style={{ background: 'var(--bg-main, rgba(0,0,0,0.02))', border: '1px solid var(--border-color)', padding: '1.25rem', borderRadius: '6px', display: 'flex', flexDirection: 'column', gap: '0.55rem', textAlign: 'left' }}>
+            <p style={{ fontSize: '0.9rem', color: 'var(--text-main)', margin: 0, lineHeight: '1.4', fontWeight: 600 }}>
               {practiceQuestions[activeQuestionIndex].question}
             </p>
-            <span style={{ fontSize: '0.7rem', color: 'var(--text-dim)', fontStyle: 'italic' }}>
+            <span style={{ fontSize: '0.75rem', color: 'var(--text-secondary, var(--text-dim))', fontStyle: 'italic' }}>
               Helper: {practiceQuestions[activeQuestionIndex].helper}
             </span>
           </div>
@@ -77,7 +78,7 @@ const JudgeSimulator = ({
               placeholder="Provide your technical answer here..."
               value={answers[activeQuestionIndex] || ""}
               onChange={e => setAnswers(prev => ({ ...prev, [activeQuestionIndex]: e.target.value }))}
-              style={{ flex: 1, fontSize: '0.8rem', padding: '0.75rem', resize: 'vertical', background: '#000' }}
+              style={{ flex: 1, fontSize: '0.8rem', padding: '0.75rem', resize: 'vertical' }}
             />
             <button
               type="button"
