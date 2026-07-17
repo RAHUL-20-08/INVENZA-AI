@@ -1005,11 +1005,19 @@ const Login = ({ onLoginSuccess }) => {
                 <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.75rem' }}>
                   <div>
                     <label style={{ fontSize: '0.75rem', color: 'var(--text-muted)', display: 'block', marginBottom: '0.35rem', fontFamily: 'var(--font-sans)' }}>CHOOSE PASSWORD</label>
-                    <input type="password" className="tech-input" placeholder="••••••••" value={password} onChange={e => setPassword(e.target.value)} required />
+                    <div style={{ position: 'relative' }}>
+                      <span className="material-symbols-outlined" style={{ fontSize: '14px', position: 'absolute', left: '12px', top: '15px', color: 'var(--text-dim)' }}>lock</span>
+                      <input type={showPassword ? "text" : "password"} className="tech-input" style={{ paddingLeft: '2.5rem', paddingRight: '2.5rem' }} placeholder="••••••••" value={password} onChange={e => setPassword(e.target.value)} required />
+                      <span className="material-symbols-outlined" onClick={() => setShowPassword(!showPassword)} style={{ fontSize: '14px', position: 'absolute', right: '12px', top: '15px', color: 'var(--text-dim)', cursor: 'pointer' }}>{showPassword ? "visibility_off" : "visibility"}</span>
+                    </div>
                   </div>
                   <div>
                     <label style={{ fontSize: '0.75rem', color: 'var(--text-muted)', display: 'block', marginBottom: '0.35rem', fontFamily: 'var(--font-sans)' }}>CONFIRM PASSWORD</label>
-                    <input type="password" className="tech-input" placeholder="••••••••" value={confirmPassword} onChange={e => setConfirmPassword(e.target.value)} required />
+                    <div style={{ position: 'relative' }}>
+                      <span className="material-symbols-outlined" style={{ fontSize: '14px', position: 'absolute', left: '12px', top: '15px', color: 'var(--text-dim)' }}>lock</span>
+                      <input type={showConfirmPassword ? "text" : "password"} className="tech-input" style={{ paddingLeft: '2.5rem', paddingRight: '2.5rem' }} placeholder="••••••••" value={confirmPassword} onChange={e => setConfirmPassword(e.target.value)} required />
+                      <span className="material-symbols-outlined" onClick={() => setShowConfirmPassword(!showConfirmPassword)} style={{ fontSize: '14px', position: 'absolute', right: '12px', top: '15px', color: 'var(--text-dim)', cursor: 'pointer' }}>{showConfirmPassword ? "visibility_off" : "visibility"}</span>
+                    </div>
                   </div>
                 </div>
 
@@ -1125,11 +1133,19 @@ const Login = ({ onLoginSuccess }) => {
                 <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.75rem' }}>
                   <div>
                     <label style={{ fontSize: '0.75rem', color: 'var(--text-muted)', display: 'block', marginBottom: '0.35rem', fontFamily: 'var(--font-sans)' }}>CHOOSE PASSWORD</label>
-                    <input type="password" className="tech-input" placeholder="••••••••" value={password} onChange={e => setPassword(e.target.value)} required />
+                    <div style={{ position: 'relative' }}>
+                      <span className="material-symbols-outlined" style={{ fontSize: '14px', position: 'absolute', left: '12px', top: '15px', color: 'var(--text-dim)' }}>lock</span>
+                      <input type={showPassword ? "text" : "password"} className="tech-input" style={{ paddingLeft: '2.5rem', paddingRight: '2.5rem' }} placeholder="••••••••" value={password} onChange={e => setPassword(e.target.value)} required />
+                      <span className="material-symbols-outlined" onClick={() => setShowPassword(!showPassword)} style={{ fontSize: '14px', position: 'absolute', right: '12px', top: '15px', color: 'var(--text-dim)', cursor: 'pointer' }}>{showPassword ? "visibility_off" : "visibility"}</span>
+                    </div>
                   </div>
                   <div>
                     <label style={{ fontSize: '0.75rem', color: 'var(--text-muted)', display: 'block', marginBottom: '0.35rem', fontFamily: 'var(--font-sans)' }}>CONFIRM PASSWORD</label>
-                    <input type="password" className="tech-input" placeholder="••••••••" value={confirmPassword} onChange={e => setConfirmPassword(e.target.value)} required />
+                    <div style={{ position: 'relative' }}>
+                      <span className="material-symbols-outlined" style={{ fontSize: '14px', position: 'absolute', left: '12px', top: '15px', color: 'var(--text-dim)' }}>lock</span>
+                      <input type={showConfirmPassword ? "text" : "password"} className="tech-input" style={{ paddingLeft: '2.5rem', paddingRight: '2.5rem' }} placeholder="••••••••" value={confirmPassword} onChange={e => setConfirmPassword(e.target.value)} required />
+                      <span className="material-symbols-outlined" onClick={() => setShowConfirmPassword(!showConfirmPassword)} style={{ fontSize: '14px', position: 'absolute', right: '12px', top: '15px', color: 'var(--text-dim)', cursor: 'pointer' }}>{showConfirmPassword ? "visibility_off" : "visibility"}</span>
+                    </div>
                   </div>
                 </div>
 
