@@ -91,10 +91,10 @@ const Login = ({ onLoginSuccess }) => {
   const getPasswordStrength = (pass) => {
     if (!pass) return { score: 0, label: 'Empty', color: 'gray', criteria: {} };
     const criteria = {
-      length: pass.length >= 12,
+      length: pass.length >= 8,
       upper: /[A-Z]/.test(pass),
       lower: /[a-z]/.test(pass),
-      number: /[0-9]/.test(pass),
+      number: (pass.match(/[0-9]/g) || []).length >= 2,
       special: /[!@#$%^&*(),.?":{}|<>]/.test(pass)
     };
     const score = Object.values(criteria).filter(Boolean).length;
@@ -108,6 +108,28 @@ const Login = ({ onLoginSuccess }) => {
       color = '#10b981'; // Green
     }
     return { score, label, color, criteria };
+  };
+
+  const renderPasswordStrength = () => {
+    if (!password) return null;
+    const strength = getPasswordStrength(password);
+    return (
+      <div style={{ marginTop: '0.5rem', fontSize: '0.7rem', color: 'var(--text-dim)', textAlign: 'left' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.25rem' }}>
+          <div style={{ height: '4px', flex: 1, background: '#333', borderRadius: '2px', overflow: 'hidden' }}>
+            <div style={{ height: '100%', width: `${(strength.score / 5) * 100}%`, background: strength.color, transition: 'all 0.3s' }}></div>
+          </div>
+          <span style={{ color: strength.color, fontWeight: 'bold' }}>{strength.label}</span>
+        </div>
+        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.25rem', marginTop: '0.5rem' }}>
+          <span style={{ color: strength.criteria.length ? '#10b981' : 'var(--text-muted)' }}>{strength.criteria.length ? '✓' : '○'} Min 8 chars</span>
+          <span style={{ color: strength.criteria.upper ? '#10b981' : 'var(--text-muted)' }}>{strength.criteria.upper ? '✓' : '○'} 1 Uppercase</span>
+          <span style={{ color: strength.criteria.lower ? '#10b981' : 'var(--text-muted)' }}>{strength.criteria.lower ? '✓' : '○'} 1 Lowercase</span>
+          <span style={{ color: strength.criteria.number ? '#10b981' : 'var(--text-muted)' }}>{strength.criteria.number ? '✓' : '○'} 2 Numbers</span>
+          <span style={{ color: strength.criteria.special ? '#10b981' : 'var(--text-muted)' }}>{strength.criteria.special ? '✓' : '○'} 1 Special Char</span>
+        </div>
+      </div>
+    );
   };
 
   const generateCaptcha = () => {
@@ -397,6 +419,12 @@ const Login = ({ onLoginSuccess }) => {
 
     if (password !== confirmPassword) {
       setErrorMsg("Passwords do not match.");
+      return;
+    }
+
+    const strength = getPasswordStrength(password);
+    if (strength.score < 5) {
+      setErrorMsg("Password does not meet the required rules.");
       return;
     }
 
@@ -1047,6 +1075,7 @@ const Login = ({ onLoginSuccess }) => {
                       <input type={showPassword ? "text" : "password"} className="tech-input" style={{ paddingLeft: '2.5rem', paddingRight: '2.5rem' }} placeholder="••••••••" value={password} onChange={e => setPassword(e.target.value)} required />
                       <span className="material-symbols-outlined" onClick={() => setShowPassword(!showPassword)} style={{ fontSize: '14px', position: 'absolute', right: '12px', top: '15px', color: 'var(--text-dim)', cursor: 'pointer' }}>{showPassword ? "visibility_off" : "visibility"}</span>
                     </div>
+                    {renderPasswordStrength()}
                   </div>
                   <div>
                     <label style={{ fontSize: '0.75rem', color: 'var(--text-muted)', display: 'block', marginBottom: '0.35rem', fontFamily: 'var(--font-sans)' }}>CONFIRM PASSWORD</label>
@@ -1146,6 +1175,7 @@ const Login = ({ onLoginSuccess }) => {
                       <input type={showPassword ? "text" : "password"} className="tech-input" style={{ paddingLeft: '2.5rem', paddingRight: '2.5rem' }} placeholder="••••••••" value={password} onChange={e => setPassword(e.target.value)} required />
                       <span className="material-symbols-outlined" onClick={() => setShowPassword(!showPassword)} style={{ fontSize: '14px', position: 'absolute', right: '12px', top: '15px', color: 'var(--text-dim)', cursor: 'pointer' }}>{showPassword ? "visibility_off" : "visibility"}</span>
                     </div>
+                    {renderPasswordStrength()}
                   </div>
                   <div>
                     <label style={{ fontSize: '0.75rem', color: 'var(--text-muted)', display: 'block', marginBottom: '0.35rem', fontFamily: 'var(--font-sans)' }}>CONFIRM PASSWORD</label>

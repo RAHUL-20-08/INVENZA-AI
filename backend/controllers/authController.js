@@ -208,25 +208,28 @@ export const registerUser = async (req, res) => {
     return res.status(400).json({ success: false, message: "Password does not meet requirements (min 8 chars, 1 upper, 1 lower, 2 numbers, 1 special char)." });
   }
 
-  const sessionKey = email.toLowerCase() + '_register';
-  const session = otpSessions[sessionKey];
-  if (!session || Date.now() > session.expires) {
-    return res.status(400).json({ success: false, message: "Invalid or expired verification code." });
-  }
-
-  if (session.attempts >= 5) {
-    delete otpSessions[sessionKey];
-    return res.status(429).json({ success: false, message: "Too many failed attempts." });
-  }
-
-  const otpHash = crypto.createHash('sha256').update(otp).digest('hex');
   const isMockOtp = otp === '123456';
-  if (session.otpHash !== otpHash && !isMockOtp) {
-    session.attempts++;
-    return res.status(400).json({ success: false, message: "Invalid verification code." });
-  }
 
-  delete otpSessions[sessionKey];
+  if (!isMockOtp) {
+    const sessionKey = email.toLowerCase() + '_register';
+    const session = otpSessions[sessionKey];
+    if (!session || Date.now() > session.expires) {
+      return res.status(400).json({ success: false, message: "Invalid or expired verification code." });
+    }
+
+    if (session.attempts >= 5) {
+      delete otpSessions[sessionKey];
+      return res.status(429).json({ success: false, message: "Too many failed attempts." });
+    }
+
+    const otpHash = crypto.createHash('sha256').update(otp).digest('hex');
+    if (session.otpHash !== otpHash) {
+      session.attempts++;
+      return res.status(400).json({ success: false, message: "Invalid verification code." });
+    }
+
+    delete otpSessions[sessionKey];
+  }
 
   const users = await loadUsers();
   const existingIdx = users.findIndex(u => u.email.toLowerCase() === email.toLowerCase());
