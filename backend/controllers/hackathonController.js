@@ -121,16 +121,23 @@ function calculateOverlapScore(array1, array2) {
 export const getHackathons = async (req, res) => {
   try {
     const profile = req.query.profile ? JSON.parse(req.query.profile) : null;
-    let list = [...HACKATHON_SEEDS];
+    const hackDbPath = path.resolve('backend/hackathons.json');
+    let dbHackathons = [];
+    if (fs.existsSync(hackDbPath)) {
+      try {
+        dbHackathons = JSON.parse(fs.readFileSync(hackDbPath, 'utf8'));
+      } catch(e) {}
+    }
+    let list = [...HACKATHON_SEEDS, ...dbHackathons];
 
-    // Filter out closed hackathons dynamically using current date: 2026-07-13
+    // Filter out closed hackathons dynamically using current date
     const currentDate = new Date("2026-07-13");
     list = list.filter(h => {
       const deadlineDate = new Date(h.deadline);
-      return deadlineDate >= currentDate;
+      return isNaN(deadlineDate.getTime()) || deadlineDate >= currentDate;
     }).map(h => {
       const deadlineDate = new Date(h.deadline);
-      const daysRemaining = Math.max(0, Math.ceil((deadlineDate - currentDate) / (1000 * 60 * 60 * 24)));
+      const daysRemaining = isNaN(deadlineDate.getTime()) ? 30 : Math.max(0, Math.ceil((deadlineDate - currentDate) / (1000 * 60 * 60 * 24)));
       const status = (daysRemaining <= 5) ? 'Closing Soon' : 'Open';
       return {
         ...h,

@@ -64,8 +64,10 @@ export const getInnovations = async (req, res) => {
     const searchTerms = query.toLowerCase();
     results = results.filter(item => 
       (item.name || "").toLowerCase().includes(searchTerms) ||
+      (item.description || "").toLowerCase().includes(searchTerms) ||
       (item.inventor || "").toLowerCase().includes(searchTerms) ||
       (item.sector || "").toLowerCase().includes(searchTerms) ||
+      (item.gitLang || "").toLowerCase().includes(searchTerms) ||
       (item.failureBottlenecks || []).some(b => (b || "").toLowerCase().includes(searchTerms))
     );
   }
@@ -138,6 +140,7 @@ export const searchPatents = async (req, res) => {
     let filtered = patents.filter(pat => 
       (pat.id && pat.id.toLowerCase().includes(searchTerms)) ||
       (pat.title && pat.title.toLowerCase().includes(searchTerms)) ||
+      (pat.description && pat.description.toLowerCase().includes(searchTerms)) ||
       (pat.inventor && pat.inventor.toLowerCase().includes(searchTerms)) ||
       (pat.classifications && 
         (Array.isArray(pat.classifications) 
@@ -217,11 +220,26 @@ export const getSuggestions = async (req, res) => {
 
   const db = await loadInnovationsFromDB();
   const innovations = db.innovations || [];
+  const dbPatents = db.patents || [];
+  const dbPapers = db.papers || [];
   
-  // Find local database matches
-  const localMatches = innovations
+  // Find local database matches across innovations, patents, and research papers
+  const localInnovationMatches = innovations
     .filter(item => (item.name || "").toLowerCase().includes(cleanQuery))
-    .map(item => ({ name: item.name, id: item.id, source: 'local' }));
+    .slice(0, 5)
+    .map(item => ({ name: item.name, id: item.id, type: 'Innovation', source: 'local' }));
+
+  const localPatentMatches = dbPatents
+    .filter(item => (item.title || "").toLowerCase().includes(cleanQuery))
+    .slice(0, 5)
+    .map(item => ({ name: item.title, id: item.id, type: 'Patent', source: 'local' }));
+
+  const localPaperMatches = dbPapers
+    .filter(item => (item.title || "").toLowerCase().includes(cleanQuery))
+    .slice(0, 5)
+    .map(item => ({ name: item.title, id: item.id, type: 'Paper', source: 'local' }));
+
+  const localMatches = [...localInnovationMatches, ...localPatentMatches, ...localPaperMatches];
 
   // Query Wikipedia for external matches
   let wikiMatches = [];

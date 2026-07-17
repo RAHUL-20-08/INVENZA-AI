@@ -1,3 +1,16 @@
+import fs from 'fs';
+import path from 'path';
+
+const loadPapersFromDB = () => {
+  try {
+    const rawData = fs.readFileSync(path.resolve('backend/database/database.json'), 'utf8');
+    const parsed = JSON.parse(rawData);
+    return parsed.papers || [];
+  } catch (e) {
+    return [];
+  }
+};
+
 // Client-side technology name validator to filter out keyboard spam and gibberish
 const isValidTechQuery = (title) => {
   const clean = (title || "").trim().toLowerCase();
@@ -269,10 +282,12 @@ const generateFallbackPaper = (cleanQuery, s, res) => {
 
 export const searchPapers = async (req, res) => {
   const { query } = req.query;
+  const dbPapers = loadPapersFromDB();
+  const allAvailablePapers = [...preSeededPapers, ...dbPapers];
 
   // If search query is empty, return standard list
   if (!query || query.trim() === '') {
-    return res.json({ success: true, data: preSeededPapers });
+    return res.json({ success: true, count: allAvailablePapers.length, data: allAvailablePapers });
   }
 
   const cleanQuery = query.trim();
@@ -288,14 +303,22 @@ export const searchPapers = async (req, res) => {
 
   const s = cleanQuery.toLowerCase();
 
-  // Check if query matches any pre-seeded paper
-  const matchedSeeded = preSeededPapers.filter(paper => 
-    paper.title.toLowerCase().includes(s) ||
-    paper.tags.some(t => t.toLowerCase().includes(s))
-  );
+  // Check if query matches any local database paper or pre-seeded paper
+  const matchedSeeded = allAvailablePapers.filter(paper => {
+    const titleMatch = paper.title && String(paper.title).toLowerCase().includes(s);
+    const journalMatch = paper.journal && String(paper.journal).toLowerCase().includes(s);
+    const abstractMatch = paper.abstract && String(paper.abstract).toLowerCase().includes(s);
+    const authorsMatch = paper.authors && (
+      Array.isArray(paper.authors) 
+        ? paper.authors.some(a => String(a).toLowerCase().includes(s))
+        : String(paper.authors).toLowerCase().includes(s)
+    );
+    const tagsMatch = paper.tags && Array.isArray(paper.tags) && paper.tags.some(t => String(t).toLowerCase().includes(s));
+    return titleMatch || authorsMatch || journalMatch || abstractMatch || tagsMatch;
+  });
 
   if (matchedSeeded.length > 0) {
-    return res.json({ success: true, data: matchedSeeded });
+    return res.json({ success: true, count: matchedSeeded.length, data: matchedSeeded });
   }
 
   try {
