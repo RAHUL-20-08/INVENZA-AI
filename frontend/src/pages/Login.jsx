@@ -1021,36 +1021,7 @@ const Login = ({ onLoginSuccess }) => {
                   </div>
                 </div>
 
-                {password && (
-                  <div style={{ background: 'rgba(255,255,255,0.01)', border: '1px solid var(--border-color)', padding: '0.85rem', borderRadius: '8px', display: 'flex', flexDirection: 'column', gap: '0.45rem' }}>
-                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                      <span style={{ fontSize: '0.7rem', color: 'var(--text-muted)', fontFamily: 'var(--font-sans)' }}>PASSWORD STRENGTH:</span>
-                      <span style={{ fontSize: '0.7rem', fontWeight: 'bold', color: getPasswordStrength(password).color }}>{getPasswordStrength(password).label}</span>
-                    </div>
-                    <div style={{ height: '4px', width: '100%', background: 'rgba(255,255,255,0.05)', borderRadius: '2px', overflow: 'hidden' }}>
-                      <div style={{ height: '100%', width: `${(getPasswordStrength(password).score / 5) * 100}%`, background: getPasswordStrength(password).color, transition: 'all 0.2s ease' }}></div>
-                    </div>
-                    <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.3rem', fontSize: '0.65rem', marginTop: '0.2rem' }}>
-                      <span style={{ color: getPasswordStrength(password).criteria.length ? 'var(--color-success)' : 'var(--text-dim)', display: 'flex', alignItems: 'center', gap: '0.2rem' }}>
-                        {getPasswordStrength(password).criteria.length ? '✓' : '✗'} Min 12 chars
-                      </span>
-                      <span style={{ color: getPasswordStrength(password).criteria.upper ? 'var(--color-success)' : 'var(--text-dim)', display: 'flex', alignItems: 'center', gap: '0.2rem' }}>
-                        {getPasswordStrength(password).criteria.upper ? '✓' : '✗'} 1 Uppercase
-                      </span>
-                      <span style={{ color: getPasswordStrength(password).criteria.lower ? 'var(--color-success)' : 'var(--text-dim)', display: 'flex', alignItems: 'center', gap: '0.2rem' }}>
-                        {getPasswordStrength(password).criteria.lower ? '✓' : '✗'} 1 Lowercase
-                      </span>
-                      <span style={{ color: getPasswordStrength(password).criteria.number ? 'var(--color-success)' : 'var(--text-dim)', display: 'flex', alignItems: 'center', gap: '0.2rem' }}>
-                        {getPasswordStrength(password).criteria.number ? '✓' : '✗'} 1 Number
-                      </span>
-                      <span style={{ color: getPasswordStrength(password).criteria.special ? 'var(--color-success)' : 'var(--text-dim)', display: 'flex', alignItems: 'center', gap: '0.2rem' }}>
-                        {getPasswordStrength(password).criteria.special ? '✓' : '✗'} 1 Special Char
-                      </span>
-                    </div>
-                  </div>
-                )}
-
-                <button type="submit" className="tech-button" disabled={isLoading} style={{ width: '100%', marginTop: '0.5rem', background: portalAccent, color: '#fff', borderColor: portalAccent }}>
+                <button type="submit" className="tech-button" disabled={isLoading} style={{ width: '80%', alignSelf: 'center', marginTop: '1.5rem', padding: '0.85rem', fontSize: '1rem', fontWeight: 'bold', background: portalAccent, color: '#fff', borderColor: portalAccent }}>
                   {isLoading ? "Generating credentials..." : "Verify & Continue"}
                 </button>
 
@@ -1149,36 +1120,7 @@ const Login = ({ onLoginSuccess }) => {
                   </div>
                 </div>
 
-                {password && (
-                  <div style={{ background: 'rgba(255,255,255,0.01)', border: '1px solid var(--border-color)', padding: '0.85rem', borderRadius: '8px', display: 'flex', flexDirection: 'column', gap: '0.45rem' }}>
-                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                      <span style={{ fontSize: '0.7rem', color: 'var(--text-muted)', fontFamily: 'var(--font-sans)' }}>PASSWORD STRENGTH:</span>
-                      <span style={{ fontSize: '0.7rem', fontWeight: 'bold', color: getPasswordStrength(password).color }}>{getPasswordStrength(password).label}</span>
-                    </div>
-                    <div style={{ height: '4px', width: '100%', background: 'rgba(255,255,255,0.05)', borderRadius: '2px', overflow: 'hidden' }}>
-                      <div style={{ height: '100%', width: `${(getPasswordStrength(password).score / 5) * 100}%`, background: getPasswordStrength(password).color, transition: 'all 0.2s ease' }}></div>
-                    </div>
-                    <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.3rem', fontSize: '0.65rem', marginTop: '0.2rem' }}>
-                      <span style={{ color: getPasswordStrength(password).criteria.length ? 'var(--color-success)' : 'var(--text-dim)', display: 'flex', alignItems: 'center', gap: '0.2rem' }}>
-                        {getPasswordStrength(password).criteria.length ? '✓' : '✗'} Min 12 chars
-                      </span>
-                      <span style={{ color: getPasswordStrength(password).criteria.upper ? 'var(--color-success)' : 'var(--text-dim)', display: 'flex', alignItems: 'center', gap: '0.2rem' }}>
-                        {getPasswordStrength(password).criteria.upper ? '✓' : '✗'} 1 Uppercase
-                      </span>
-                      <span style={{ color: getPasswordStrength(password).criteria.lower ? 'var(--color-success)' : 'var(--text-dim)', display: 'flex', alignItems: 'center', gap: '0.2rem' }}>
-                        {getPasswordStrength(password).criteria.lower ? '✓' : '✗'} 1 Lowercase
-                      </span>
-                      <span style={{ color: getPasswordStrength(password).criteria.number ? 'var(--color-success)' : 'var(--text-dim)', display: 'flex', alignItems: 'center', gap: '0.2rem' }}>
-                        {getPasswordStrength(password).criteria.number ? '✓' : '✗'} 1 Number
-                      </span>
-                      <span style={{ color: getPasswordStrength(password).criteria.special ? 'var(--color-success)' : 'var(--text-dim)', display: 'flex', alignItems: 'center', gap: '0.2rem' }}>
-                        {getPasswordStrength(password).criteria.special ? '✓' : '✗'} 1 Special Char
-                      </span>
-                    </div>
-                  </div>
-                )}
-
-                <button type="submit" className="tech-button tech-button-glow" disabled={isLoading} style={{ width: '100%', marginTop: '0.5rem' }}>
+                <button type="submit" className="tech-button tech-button-glow" disabled={isLoading} style={{ width: '80%', alignSelf: 'center', marginTop: '1.5rem', padding: '0.85rem', fontSize: '1rem', fontWeight: 'bold' }}>
                   {isLoading ? "Creating founder node..." : "Verify & Continue"}
                 </button>
 
