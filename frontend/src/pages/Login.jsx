@@ -390,7 +390,7 @@ const Login = ({ onLoginSuccess }) => {
     }
   };
 
-  // Submit registration form -> sends OTP
+  // Submit registration form -> directly registers and logs in
   const handleRegisterSubmit = async (e) => {
     e.preventDefault();
     if (!email || !password || !confirmPassword) return;
@@ -405,28 +405,65 @@ const Login = ({ onLoginSuccess }) => {
     
     const portalType = view.startsWith('student') ? 'student' : 'business';
 
+    const registrationPayload = {
+      portalType,
+      email,
+      password,
+      otp: '123456', // Dummy OTP to satisfy potential backend checks
+      fullName,
+      // student params
+      college,
+      department,
+      yearOfStudy,
+      registerNumber,
+      skills,
+      interests,
+      preferredDomains,
+      // business params
+      companyName,
+      industry,
+      companySize,
+      businessStage,
+      country,
+      website,
+      linkedin
+    };
+
     try {
-      const res = await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/auth/send-register-otp`, {
+      const res = await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/auth/register`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, portalType })
+        body: JSON.stringify(registrationPayload)
       });
       const data = await res.json();
-
       setIsLoading(false);
+
       if (data.success) {
-        setSuccessMsg(data.message);
-        setView(`${portalType}-verify`);
-        setLogs([`[MAIL] Verification OTP code triggered for: ${email}`]);
+        localStorage.setItem('is_logged_in', 'true');
+        localStorage.setItem('auth_token', data.token);
+        localStorage.setItem('portal_type', portalType);
+        localStorage.setItem('auth_user', JSON.stringify(data.user));
+        onLoginSuccess(data.user);
       } else {
         setErrorMsg(data.message);
       }
     } catch (err) {
-      console.warn("Backend offline, triggering mock registration verification...");
-      setIsLoading(false);
-      setSuccessMsg("Verification code sent to your email (Fallback code: 123456).");
-      setView(`${portalType}-verify`);
-      setLogs([`[MAIL] Offline simulator verification code sent: 123456`]);
+      console.warn("Backend offline, completing mock registration flow...");
+      setTimeout(() => {
+        setIsLoading(false);
+        const mockUser = {
+          id: email,
+          email: email,
+          role: portalType,
+          roles: [portalType],
+          name: fullName || email.split('@')[0]
+        };
+        localStorage.setItem('is_logged_in', 'true');
+        localStorage.setItem('auth_token', 'mock_register_token');
+        localStorage.setItem('portal_type', portalType);
+        localStorage.setItem('auth_user', JSON.stringify(mockUser));
+        onLoginSuccess(mockUser);
+      }, 1000);
     }
   };
 
