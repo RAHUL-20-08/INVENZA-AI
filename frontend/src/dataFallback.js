@@ -8,7 +8,7 @@ export const mockHackathons = [
     description: "Build cutting-edge AI solutions for global challenges. Open to students and professionals.",
     mode: "Online",
     venue: "Virtual / GatherTown",
-    prizePool: "$10,000",
+    prizePool: "₹10,000",
     deadline: "2026-08-15T23:59:59",
     teamSize: "1-4",
     officialLink: "#",
@@ -25,7 +25,7 @@ export const mockHackathons = [
     description: "Develop IoT infrastructure for the smart cities of tomorrow. Hardware provided for offline participants.",
     mode: "Hybrid",
     venue: "Campus / Zoom",
-    prizePool: "$5,000",
+    prizePool: "₹5,000",
     deadline: "2026-07-25T23:59:59",
     teamSize: "2-5",
     officialLink: "#",
@@ -42,7 +42,7 @@ export const mockHackathons = [
     description: "Revolutionizing healthcare through data and biotechnology.",
     mode: "Online",
     venue: "Virtual / Teams",
-    prizePool: "$15,000",
+    prizePool: "₹15,000",
     deadline: "2026-09-01T23:59:59",
     teamSize: "1-5",
     officialLink: "#",
@@ -59,7 +59,7 @@ export const mockHackathons = [
     description: "Design the next generation of decentralized finance applications and open banking APIs.",
     mode: "Hybrid",
     venue: "New York / Online",
-    prizePool: "$20,000",
+    prizePool: "₹20,000",
     deadline: "2026-10-15T23:59:59",
     teamSize: "2-4",
     officialLink: "#",
@@ -76,7 +76,7 @@ export const mockHackathons = [
     description: "Creating software solutions to track, reduce, and eliminate carbon emissions in supply chains.",
     mode: "Online",
     venue: "Virtual",
-    prizePool: "$8,000",
+    prizePool: "₹8,000",
     deadline: "2026-08-05T23:59:59",
     teamSize: "1-3",
     officialLink: "#",
@@ -93,7 +93,7 @@ export const mockHackathons = [
     description: "Redefining digital learning spaces and accessibility for students globally.",
     mode: "Offline",
     venue: "Bangalore",
-    prizePool: "$4,000",
+    prizePool: "₹4,000",
     deadline: "2026-07-20T23:59:59",
     teamSize: "2-5",
     officialLink: "#",
@@ -110,7 +110,7 @@ export const mockHackathons = [
     description: "A grueling 48-hour challenge to build automated threat detection systems.",
     mode: "Online",
     venue: "Discord / Devpost",
-    prizePool: "$12,000",
+    prizePool: "₹12,000",
     deadline: "2026-11-01T23:59:59",
     teamSize: "1-5",
     officialLink: "#",
@@ -127,7 +127,7 @@ export const mockHackathons = [
     description: "Leverage satellite data to build applications that help with disaster response and climate monitoring.",
     mode: "Hybrid",
     venue: "London / Online",
-    prizePool: "$25,000",
+    prizePool: "₹25,000",
     deadline: "2026-09-20T23:59:59",
     teamSize: "3-6",
     officialLink: "#",
@@ -199,7 +199,7 @@ export const fallbackInnovations = [
       {"step": "Phase 4: Hardware Prototyping", "desc": "Release an open-source optical module compatible with mobile developers and hobbyist camera rigs."}
     ],
     "financials": {
-      "estimatedCost": "$850,000",
+      "estimatedCost": "₹850,000",
       "requiredSkills": ["Computational Photography", "Optics Engineering", "CUDA/GPU programming", "Spatial computing API development"],
       "targetIndustries": ["VR/AR Content Creation", "Medical Imaging", "Autonomous Vehicle Vision Systems"],
       "potentialInvestors": ["Meta Reality Labs", "Apple Inc.", "Sony Ventures", "Sequoia Capital"]
@@ -248,7 +248,7 @@ export const fallbackInnovations = [
       {"step": "Phase 4: Crowd-Fund Launch", "desc": "Launch a Kickstarter campaign for the 'Pebble Revival' highlighting offline privacy and 15-day battery."}
     ],
     "financials": {
-      "estimatedCost": "$450,000",
+      "estimatedCost": "₹450,000",
       "requiredSkills": ["Embedded Systems", "E-Paper Display Systems", "TinyML on Microcontrollers", "Hardware manufacturing"],
       "targetIndustries": ["Wearable Electronics", "Digital Wellbeing", "Biometric Health Tracking"],
       "potentialInvestors": ["Y Combinator", "Fitbit Founders", "Kickstarter community", "Kholsa Ventures"]
@@ -271,7 +271,7 @@ export const fallbackInnovations = [
       "Social Backlash (Privacy): The visible front camera raised major privacy concerns (users dubbed 'Glassholes').",
       "Poor Display Optics: Small prism projection was difficult to see in bright light and caused eye strain.",
       "Inefficient Battery/Overheating: Heavy compute on-board caused the frame to heat up and drained battery in 45 minutes.",
-      "Undefined Consumer Value: No clear killer app or utility that justified the $1,500 developer pricing."
+      "Undefined Consumer Value: No clear killer app or utility that justified the ₹1,500 developer pricing."
     ],
     "aiEnhancementVector": [
       "Replace Prism with MicroLED Waveguides: Use transparent diffractive waveguide lenses for high-brightness overlay.",
@@ -298,7 +298,7 @@ export const fallbackInnovations = [
       {"step": "Phase 4: B2B Maintenance Pilot", "desc": "Partner with logistics hubs to roll out hands-free barcode scanning and route finding."}
     ],
     "financials": {
-      "estimatedCost": "$1,200,000",
+      "estimatedCost": "₹1,200,000",
       "requiredSkills": ["Waveguide Optics", "On-device AI / NPU optimization", "Embedded OS", "Industrial UX design"],
       "targetIndustries": ["Logistics & Warehousing", "Healthcare / Surgical Overlays", "Consumer Smart Glasses"],
       "potentialInvestors": ["Intel Capital", "Qualcomm Ventures", "Google Ventures", "Honeywell Labs"]
@@ -318,7 +318,7 @@ export const fallbackInnovations = [
     "readinessLevel": 9,
     "recommendationScore": 79,
     "failureBottlenecks": [
-      "Prohibitive Price Point: Launched at $5,000 in 2001, which was too expensive for casual commuters.",
+      "Prohibitive Price Point: Launched at ₹5,000 in 2001, which was too expensive for casual commuters.",
       "Over-engineering: Complex self-balancing gyroscopic sensors made the unit heavy (100 lbs) and hard to transport.",
       "Regulatory Hurdles: Sidewalk bans and lack of bike-lane classifications restricted where it could be legally driven.",
       "Social Stigma: Seen as bulky and uncool, losing the younger demographic to skateboards and bikes."
@@ -348,7 +348,7 @@ export const fallbackInnovations = [
       {"step": "Phase 4: Shared Fleet Pilot", "desc": "Roll out 100 units in a dense tourist destination for self-balancing rental tours."}
     ],
     "financials": {
-      "estimatedCost": "$600,000",
+      "estimatedCost": "₹600,000",
       "requiredSkills": ["Control Systems Engineering", "Brushless DC Motor Design", "IoT Firmware Development", "ADAS / Computer Vision"],
       "targetIndustries": ["Urban Commuting", "Campus & Tourism Transport", "Automated Security Devices"],
       "potentialInvestors": ["SoftBank Vision Fund", "Lime Ventures", "Bird Global", "Segway-Ninebot Group"]
@@ -398,7 +398,7 @@ export const fallbackInnovations = [
       {"step": "Phase 4: Kickstarter Module Launch", "desc": "Launch an initial phone kit featuring an e-ink screen module and high-capacity battery module."}
     ],
     "financials": {
-      "estimatedCost": "$1,800,000",
+      "estimatedCost": "₹1,800,000",
       "requiredSkills": ["Optoelectronic Engineering", "CAD/Hardware Housing", "Low-level Linux Kernel Development", "Electromagnetics"],
       "targetIndustries": ["Eco-friendly Consumer Tech", "Specialized Field Hardware", "Mobile Hardware Prototyping"],
       "potentialInvestors": ["Fairphone Ventures", "iFixit Investment Group", "European Circular Economy Fund", "Google ATAP Partners"]
@@ -549,7 +549,7 @@ export const calculateClientSimilarity = (title, desc, sector) => {
   const customTitle = title || "Custom Innovation";
 
   const textQuery = comparisonText;
-  let estimatedCost = "$250,000";
+  let estimatedCost = "₹250,000";
   let readinessLevel = 3;
   let bottlenecks = [];
   let enhancements = [];
@@ -562,7 +562,7 @@ export const calculateClientSimilarity = (title, desc, sector) => {
   // Determine target sector and populate specific parameters
   if (textQuery.includes("health") || textQuery.includes("medical") || textQuery.includes("blood") || textQuery.includes("theranos") || textQuery.includes("bio") || textQuery.includes("diagnostic") || textQuery.includes("clinical") || textQuery.includes("reagent")) {
     resolvedSector = "Bio-Diagnostics";
-    estimatedCost = "$680,000";
+    estimatedCost = "₹680,000";
     readinessLevel = 4;
     bottlenecks = [
       `Microfluidic flow constraints: Early versions of ${customTitle} faced inconsistent liquid sample routing across test arrays.`,
@@ -592,7 +592,7 @@ export const calculateClientSimilarity = (title, desc, sector) => {
     ];
   } else if (textQuery.includes("glass") || textQuery.includes("ar") || textQuery.includes("vr") || textQuery.includes("camera") || textQuery.includes("lytro") || textQuery.includes("optics") || textQuery.includes("lens") || textQuery.includes("projection") || textQuery.includes("waveguide") || textQuery.includes("display")) {
     resolvedSector = "Augmented Reality / Optics";
-    estimatedCost = "$450,000";
+    estimatedCost = "₹450,000";
     readinessLevel = 4;
     bottlenecks = [
       `Optical contrast limits: Display overlays in ${customTitle} were virtually unreadable under bright outdoor light.`,
@@ -622,7 +622,7 @@ export const calculateClientSimilarity = (title, desc, sector) => {
     ];
   } else if (textQuery.includes("watch") || textQuery.includes("wearable") || textQuery.includes("pebble") || textQuery.includes("ara") || textQuery.includes("modular") || textQuery.includes("device") || textQuery.includes("phone") || textQuery.includes("obsolete") || textQuery.includes("hardware") || textQuery.includes("fitbit")) {
     resolvedSector = "Smart Wearables";
-    estimatedCost = "$320,000";
+    estimatedCost = "₹320,000";
     readinessLevel = 5;
     bottlenecks = [
       `Display panel latency: Early electrophoretic panels in ${customTitle} suffered from screen ghosting.`,
@@ -652,7 +652,7 @@ export const calculateClientSimilarity = (title, desc, sector) => {
     ];
   } else if (textQuery.includes("segway") || textQuery.includes("scooter") || textQuery.includes("car") || textQuery.includes("ev") || textQuery.includes("electric") || textQuery.includes("battery") || textQuery.includes("vehicle") || textQuery.includes("mobility") || textQuery.includes("transport") || textQuery.includes("motor")) {
     resolvedSector = "Micro-Mobility";
-    estimatedCost = "$750,000";
+    estimatedCost = "₹750,000";
     readinessLevel = 5;
     bottlenecks = [
       `Prohibitive pricing: The mechanical motor parts of ${customTitle} priced it out of consumer budgets.`,
@@ -682,7 +682,7 @@ export const calculateClientSimilarity = (title, desc, sector) => {
     ];
   } else if (textQuery.includes("game") || textQuery.includes("console") || textQuery.includes("dreamcast") || textQuery.includes("stadia") || textQuery.includes("quibi") || textQuery.includes("streaming") || textQuery.includes("video") || textQuery.includes("play") || textQuery.includes("media") || textQuery.includes("social")) {
     resolvedSector = "Digital Media & Gaming";
-    estimatedCost = "$280,000";
+    estimatedCost = "₹280,000";
     readinessLevel = 6;
     bottlenecks = [
       `Bandwidth latency: Cloud frame encoding in ${customTitle} suffered from packet loss on standard connections.`,
@@ -712,7 +712,7 @@ export const calculateClientSimilarity = (title, desc, sector) => {
     ];
   } else if (textQuery.includes("water") || textQuery.includes("treatment") || textQuery.includes("filter") || textQuery.includes("purify") || textQuery.includes("filtration") || textQuery.includes("environmental") || textQuery.includes("waste") || textQuery.includes("solar") || textQuery.includes("eco")) {
     resolvedSector = "Environmental & Water Systems";
-    estimatedCost = "$390,000";
+    estimatedCost = "₹390,000";
     readinessLevel = 6;
     bottlenecks = [
       `Membrane degradation: Rapid accumulation of waste particles fouled the filtration mesh in ${customTitle}.`,
@@ -742,7 +742,7 @@ export const calculateClientSimilarity = (title, desc, sector) => {
     ];
   } else if (textQuery.includes("drone") || textQuery.includes("flight") || textQuery.includes("aerospace") || textQuery.includes("aviation") || textQuery.includes("aircraft") || textQuery.includes("wind") || textQuery.includes("satellite") || textQuery.includes("solar impulse")) {
     resolvedSector = "Aerospace & Flight Systems";
-    estimatedCost = "$820,000";
+    estimatedCost = "₹820,000";
     readinessLevel = 5;
     bottlenecks = [
       `Payload constraints: The structural weight of battery modules limited flight duration for ${customTitle}.`,
@@ -772,7 +772,7 @@ export const calculateClientSimilarity = (title, desc, sector) => {
     ];
   } else {
     resolvedSector = "General Tech & Software Platforms";
-    estimatedCost = "$250,000";
+    estimatedCost = "₹250,000";
     readinessLevel = 4;
     bottlenecks = [
       `Scalability bottlenecks: Database queries in early versions of ${customTitle} scaled poorly under concurrent requests.`,

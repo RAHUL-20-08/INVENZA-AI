@@ -62,7 +62,7 @@ const MyProjects = ({ activeInnovation, setActiveInnovation }) => {
   const [customName, setCustomName] = useState('');
   const [customSector, setCustomSector] = useState('General Tech');
   const [customHackathon, setCustomHackathon] = useState('Hardware Revival Hackathon 2026');
-  const [customBudget, setCustomBudget] = useState('$150,000');
+  const [customBudget, setCustomBudget] = useState('₹150,000');
 
   // Resolve active workspace - defaults to user custom concept, fallback to dynamic builder if empty
   const [selectedProject, setSelectedProject] = useState(() => {
@@ -71,7 +71,7 @@ const MyProjects = ({ activeInnovation, setActiveInnovation }) => {
       name: "Custom Innovation Project Alpha",
       sector: "General Tech",
       targetHackathon: "Systems Engineering Challenge 2026",
-      financials: { estimatedCost: "$150,000" }
+      financials: { estimatedCost: "₹150,000" }
     };
   });
 
@@ -107,7 +107,7 @@ const MyProjects = ({ activeInnovation, setActiveInnovation }) => {
       sector: customSector,
       targetHackathon: customHackathon || "Custom Innovation Challenge 2026",
       financials: {
-        estimatedCost: customBudget || "$150,000",
+        estimatedCost: customBudget || "₹150,000",
         requiredSkills: ["Systems Integration", "Engineering Design", "Software Auditing", "Rapid Prototyping"],
         targetIndustries: [customSector, "AI-Enhanced Systems", "Smart Technology Platforms"],
         potentialInvestors: ["Y Combinator", "Techstars", "Angel Investors", "System Incubators"]
@@ -236,7 +236,7 @@ const MyProjects = ({ activeInnovation, setActiveInnovation }) => {
               <input 
                 type="text" 
                 className="tech-input" 
-                placeholder="e.g. $100,000"
+                placeholder="e.g. ₹100,000"
                 value={customBudget}
                 onChange={(e) => setCustomBudget(e.target.value)}
               />
@@ -266,7 +266,7 @@ const MyProjects = ({ activeInnovation, setActiveInnovation }) => {
               </div>
               <div>
                 <span style={{ fontSize: '0.65rem', color: 'var(--text-muted)', display: 'block' }}>BUDGET LIMIT</span>
-                <span style={{ fontSize: '0.85rem', fontWeight: 600, color: 'var(--color-success)', fontFamily: 'var(--font-sans)' }}>{selectedProject.financials?.estimatedCost || "$150,000"}</span>
+                <span style={{ fontSize: '0.85rem', fontWeight: 600, color: 'var(--color-success)', fontFamily: 'var(--font-sans)' }}>{selectedProject.financials?.estimatedCost || "₹150,000"}</span>
               </div>
             </div>
 

@@ -54,9 +54,9 @@ const InnovationIntelligenceCenter = ({ theme, activeInnovation, setCurrentPage,
 
   // Preset list of Revival Opportunities (Feature 5)
   const revivalList = [
-    { name: "Betamax", sector: "Consumer Electronics", failure: "Restrictive licensing and early format wars", tech: "High-density digital encoding & open-source codec standards", score: 85, cost: "$150,000", diff: "Medium" },
-    { name: "Segway", sector: "Urban Mobility", failure: "High price point and lack of city infrastructure rules", tech: "Solid-state LIDAR, cellular telemetry, and leasing APIs", score: 78, cost: "$250,000", diff: "Hard" },
-    { name: "Pebble Smartwatch", sector: "Wearable Tech", failure: "Market saturation and acquisition transition limits", tech: "Low-power e-ink displays & offline RAG sync matrices", score: 92, cost: "$85,000", diff: "Easy" }
+    { name: "Betamax", sector: "Consumer Electronics", failure: "Restrictive licensing and early format wars", tech: "High-density digital encoding & open-source codec standards", score: 85, cost: "₹150,000", diff: "Medium" },
+    { name: "Segway", sector: "Urban Mobility", failure: "High price point and lack of city infrastructure rules", tech: "Solid-state LIDAR, cellular telemetry, and leasing APIs", score: 78, cost: "₹250,000", diff: "Hard" },
+    { name: "Pebble Smartwatch", sector: "Wearable Tech", failure: "Market saturation and acquisition transition limits", tech: "Low-power e-ink displays & offline RAG sync matrices", score: 92, cost: "₹85,000", diff: "Easy" }
   ];
 
   // Preset list of Opportunity Finder items (Feature 2)
@@ -68,9 +68,9 @@ const InnovationIntelligenceCenter = ({ theme, activeInnovation, setCurrentPage,
 
   // Challenge Center List (Feature 7)
   const challenges = [
-    { title: "National Innovation Challenge", prize: "$100,000 Fund", deadline: "July 31, 2026", difficulty: "Medium", eligibility: "Students & Startups", tech: "Edge RAG / Embedded Sensors" },
-    { title: "Clean Energy Hackathon", prize: "$25,000 Prize", deadline: "August 15, 2026", difficulty: "Easy", eligibility: "Open to All", tech: "IoT Grid Telemetry" },
-    { title: "B2B Startup Incubator Cycle", prize: "$150,000 Seed", deadline: "September 01, 2026", difficulty: "Hard", eligibility: "Incorporated Startups", tech: "SaaS API Platforms" }
+    { title: "National Innovation Challenge", prize: "₹100,000 Fund", deadline: "July 31, 2026", difficulty: "Medium", eligibility: "Students & Startups", tech: "Edge RAG / Embedded Sensors" },
+    { title: "Clean Energy Hackathon", prize: "₹25,000 Prize", deadline: "August 15, 2026", difficulty: "Easy", eligibility: "Open to All", tech: "IoT Grid Telemetry" },
+    { title: "B2B Startup Incubator Cycle", prize: "₹150,000 Seed", deadline: "September 01, 2026", difficulty: "Hard", eligibility: "Incorporated Startups", tech: "SaaS API Platforms" }
   ];
 
   const handleOpenDetails = (name) => {

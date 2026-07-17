@@ -20,7 +20,7 @@ const defaultFallback = {
   readinessLevel: 4,
   failureBottlenecks: ["Refractive prism aberrations and excessive compute overheads"],
   aiEnhancementVector: ["Local quantized neural waveguide aberration correction"],
-  financials: { estimatedCost: "$350,000", potentialInvestors: ["DeepTech Ventures"], requiredSkills: ["Optics", "CUDA"] },
+  financials: { estimatedCost: "₹350,000", potentialInvestors: ["DeepTech Ventures"], requiredSkills: ["Optics", "CUDA"] },
   swot: { strengths: ["Instant spatial rendering"], opportunities: ["Medical scan displays"] },
   marketGrowth: "15.4% CAGR",
   patentId: "US-482011",
@@ -62,7 +62,7 @@ const PitchCoach = ({ activeInnovation, forceProjector, onExitPresentation, onLa
           readinessLevel: 4,
           failureBottlenecks: ["High capital expense barriers"],
           aiEnhancementVector: ["Decentralized Edge LLM routing"],
-          financials: { estimatedCost: "$150,000", potentialInvestors: ["Y Combinator"], requiredSkills: ["React", "Python"] },
+          financials: { estimatedCost: "₹150,000", potentialInvestors: ["Y Combinator"], requiredSkills: ["React", "Python"] },
           swot: { strengths: ["Low-power operation"], opportunities: ["B2B SaaS subscription models"] },
           marketGrowth: "16.5% CAGR"
         };
@@ -265,7 +265,7 @@ const PitchCoach = ({ activeInnovation, forceProjector, onExitPresentation, onLa
     const name = activeItem.name || "Volumetric Light Field Display";
     const tech = activeItem.aiEnhancementVector?.[0] || "Edge AI NPUs";
     const bottleneck = activeItem.failureBottlenecks?.[0] || "obsolete hardware limitations";
-    const cost = activeItem.financials?.estimatedCost || "$350,000";
+    const cost = activeItem.financials?.estimatedCost || "₹350,000";
     const growth = activeItem.marketGrowth || "15.4% CAGR";
     const sector = activeItem.sector || "Display Technology";
 
@@ -654,7 +654,7 @@ const PitchCoach = ({ activeInnovation, forceProjector, onExitPresentation, onLa
     const name = activeItem.name || "Ng, R. & Levoy, M.";
     const tech = activeItem.aiEnhancementVector?.[0] || "Edge AI NPUs";
     const bottleneck = activeItem.failureBottlenecks?.[0] || "obsolete hardware limitations";
-    const cost = activeItem.financials?.estimatedCost || "$350,000";
+    const cost = activeItem.financials?.estimatedCost || "₹350,000";
     const growth = activeItem.marketGrowth || "15.4% CAGR";
     
     if (pitchMode === 'elevator') {
@@ -682,7 +682,7 @@ const PitchCoach = ({ activeInnovation, forceProjector, onExitPresentation, onLa
   const practiceQuestions = [
     { id: 0, question: `How exactly does your modern team bypass the legacy constraint of "${activeItem.failureBottlenecks?.[0] || 'high capital barrier'}" in this configuration?`, helper: "Highlight modern AI or software upgrades (like Edge AI NPU chips or cloud scale frameworks)." },
     { id: 1, question: `What defensive IP moat are you building for ${activeItem.name} to prevent clone entries in the market?`, helper: "Focus on proprietary SDK licenses, local datasets, or unique integrations." },
-    { id: 2, question: `If partners grant the cost estimate of ${activeItem.financials?.estimatedCost || "$350,000"}, what are the specific milestones for Phase 1 and 2?`, helper: "Discuss wireframing, MVP validation, and testing schedules." }
+    { id: 2, question: `If partners grant the cost estimate of ${activeItem.financials?.estimatedCost || "₹350,000"}, what are the specific milestones for Phase 1 and 2?`, helper: "Discuss wireframing, MVP validation, and testing schedules." }
   ];
 
   const handleStartRecording = () => {

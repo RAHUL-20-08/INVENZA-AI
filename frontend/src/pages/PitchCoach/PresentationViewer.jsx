@@ -447,7 +447,7 @@ const SlideRenderer = ({ slide, isMobile, audienceType }) => {
             {!isMobile && (
               <div style={{ background: 'rgba(16,185,129,0.03)', border: '1.5px solid var(--color-success)', padding: '1.5rem', borderRadius: '8px', textAlign: 'left' }}>
                 <strong style={{ fontSize: '0.85rem', color: '#fff', display: 'block', marginBottom: '0.5rem' }}>Financial Ask</strong>
-                <span style={{ fontSize: '1.25rem', color: 'var(--color-success)', fontWeight: 'bold', display: 'block', marginBottom: '0.25rem' }}>{slide.detail.split('|')[1]?.replace('Required Budget: ', '') || "$350,000"}</span>
+                <span style={{ fontSize: '1.25rem', color: 'var(--color-success)', fontWeight: 'bold', display: 'block', marginBottom: '0.25rem' }}>{slide.detail.split('|')[1]?.replace('Required Budget: ', '') || "₹350,000"}</span>
                 <span style={{ fontSize: '0.7rem', color: 'var(--text-dim)' }}>Requested seed funding to support prototype packaging.</span>
               </div>
             )}

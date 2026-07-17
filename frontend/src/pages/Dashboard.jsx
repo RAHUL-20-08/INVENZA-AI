@@ -514,7 +514,7 @@ const Dashboard = ({ activeInnovation, setActiveInnovation, globalQuery, setGlob
       `[SYSTEM] Mapping patent claims matching ${selectedItem.name}...`,
       `[SYSTEM] Aligning sector regulatory requirements for ${selectedItem.sector || "General Tech"}...`,
       `[SYSTEM] Spawning 100 autonomous agent instances in sandboxed marketplace...`,
-      `[MARKET] Testing entry strategy with estimated funding of ${selectedItem.financials?.estimatedCost || selectedItem.estimatedCost || "$250,000"}...`,
+      `[MARKET] Testing entry strategy with estimated funding of ${selectedItem.financials?.estimatedCost || selectedItem.estimatedCost || "₹250,000"}...`,
       `[MARKET] Calculating user conversion metrics and developer onboarding rates...`,
       `[SUCCESS] Simulation completed successfully!`,
       `[SUCCESS] Projected revival success index: ${selectedItem.revivalViability}%`,
@@ -1637,7 +1637,7 @@ const Dashboard = ({ activeInnovation, setActiveInnovation, globalQuery, setGlob
               <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1.5rem' }}>
                 <div>
                   <span style={{ fontSize: '0.7rem', color: 'var(--text-muted)', fontFamily: 'var(--font-sans)', textTransform: 'uppercase', fontWeight: 'bold' }}>Development Cost</span>
-                  <p style={{ fontSize: '1.25rem', fontWeight: 800, color: 'var(--color-success)', marginTop: '0.25rem' }}>{selectedItem.financials.estimatedCost || selectedItem.estimatedCost || "$150,000"}</p>
+                  <p style={{ fontSize: '1.25rem', fontWeight: 800, color: 'var(--color-success)', marginTop: '0.25rem' }}>{selectedItem.financials.estimatedCost || selectedItem.estimatedCost || "₹150,000"}</p>
                 </div>
                 <div>
                   <span style={{ fontSize: '0.7rem', color: 'var(--text-muted)', fontFamily: 'var(--font-sans)', textTransform: 'uppercase', fontWeight: 'bold' }}>Target Industries</span>

@@ -47,7 +47,7 @@ const StartupBuilder = ({ activeInnovation }) => {
         `Hardware distributor partnerships for ${cleanName} kits`
       ],
       costs: [
-        `R&D engineering budget: ${item.financials?.estimatedCost || '$250,000'}`,
+        `R&D engineering budget: ${item.financials?.estimatedCost || '₹250,000'}`,
         `Physical fabrication and crash testing of ${cleanName}`,
         "Cloud GPU training instances & API token usage"
       ],
