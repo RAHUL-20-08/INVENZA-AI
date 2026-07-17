@@ -149,38 +149,7 @@ const preSeededPapers = [
   }
 ];
 
-export const searchPapers = (req, res) => {
-  const { query } = req.query;
-
-  // If search query is empty, return standard list
-  if (!query || query.trim() === '') {
-    return res.json({ success: true, data: preSeededPapers });
-  }
-
-  const cleanQuery = query.trim();
-
-  // Validate query strictly. Block proper names or gibberish.
-  if (!isValidTechQuery(cleanQuery)) {
-    return res.status(422).json({
-      success: false,
-      errorType: 'invalid_tech',
-      message: `Invenza AI could not identify any technological concepts, patent claims, or scientific hardware systems in "${cleanQuery}". Please search for a tech-related topic or failed engineering project.`
-    });
-  }
-
-  const s = cleanQuery.toLowerCase();
-
-  // Check if query matches any pre-seeded paper
-  const matchedSeeded = preSeededPapers.filter(paper => 
-    paper.title.toLowerCase().includes(s) ||
-    paper.tags.some(t => t.toLowerCase().includes(s))
-  );
-
-  if (matchedSeeded.length > 0) {
-    return res.json({ success: true, data: matchedSeeded });
-  }
-
-  // Generate dynamic custom research paper from AI
+const getProceduralFields = (s, cleanQuery) => {
   const formattedName = cleanQuery.split(' ').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
   const targetGit = s.includes('wearable') || s.includes('watch') || s.includes('refresh') 
     ? { repo: 'vroland/epdiy', lang: 'Embedded C' }
@@ -264,6 +233,12 @@ export const searchPapers = (req, res) => {
     ];
   }
 
+  return { formattedName, targetGit, abstract, gap, pdfHighlights, tags };
+};
+
+const generateFallbackPaper = (cleanQuery, s, res) => {
+  const { formattedName, targetGit, abstract, gap, pdfHighlights, tags } = getProceduralFields(s, cleanQuery);
+
   const customPaper = {
     id: `paper-custom-${Date.now()}`,
     title: `Analytical Modeling of ${formattedName} Architectures and Operational Failure Nodes`,
@@ -290,4 +265,96 @@ export const searchPapers = (req, res) => {
     success: true,
     data: [customPaper]
   });
+};
+
+export const searchPapers = async (req, res) => {
+  const { query } = req.query;
+
+  // If search query is empty, return standard list
+  if (!query || query.trim() === '') {
+    return res.json({ success: true, data: preSeededPapers });
+  }
+
+  const cleanQuery = query.trim();
+
+  // Validate query strictly. Block proper names or gibberish.
+  if (!isValidTechQuery(cleanQuery)) {
+    return res.status(422).json({
+      success: false,
+      errorType: 'invalid_tech',
+      message: `Invenza AI could not identify any technological concepts, patent claims, or scientific hardware systems in "${cleanQuery}". Please search for a tech-related topic or failed engineering project.`
+    });
+  }
+
+  const s = cleanQuery.toLowerCase();
+
+  // Check if query matches any pre-seeded paper
+  const matchedSeeded = preSeededPapers.filter(paper => 
+    paper.title.toLowerCase().includes(s) ||
+    paper.tags.some(t => t.toLowerCase().includes(s))
+  );
+
+  if (matchedSeeded.length > 0) {
+    return res.json({ success: true, data: matchedSeeded });
+  }
+
+  try {
+    // Attempt OpenAlex API search
+    const response = await fetch(`https://api.openalex.org/works?search=${encodeURIComponent(cleanQuery)}&per-page=5`);
+    const data = await response.json();
+    
+    if (!data.results || data.results.length === 0) {
+      return generateFallbackPaper(cleanQuery, s, res);
+    }
+
+    const openAlexPapers = data.results.map(work => {
+      let abstract = "No abstract available.";
+      if (work.abstract_inverted_index) {
+        const words = [];
+        for (const word in work.abstract_inverted_index) {
+          work.abstract_inverted_index[word].forEach(pos => {
+            words[pos] = word;
+          });
+        }
+        abstract = words.join(' ').trim();
+      }
+
+      // Generate procedural fields for the UI layout
+      const { gap, pdfHighlights, targetGit, tags } = getProceduralFields(s, cleanQuery);
+      
+      const authorsList = work.authorships 
+        ? work.authorships.map(a => `${a.author.display_name}${a.institutions?.length > 0 ? ` (${a.institutions[0].display_name})` : ''}`).join(', ') 
+        : "Unknown Authors";
+
+      return {
+        id: work.id || `paper-${Date.now()}-${Math.random()}`,
+        title: work.title || cleanQuery,
+        authors: authorsList || "Unknown Authors",
+        journal: work.primary_location?.source?.display_name || "Unknown Journal",
+        year: work.publication_year || new Date().getFullYear(),
+        citations: work.cited_by_count || 0,
+        doi: work.doi || `10.xxxx/${Math.random().toString().slice(2, 10)}`,
+        publisher: work.primary_location?.source?.host_organization_name || "Unknown Publisher",
+        volume: work.biblio?.volume || 1,
+        issue: work.biblio?.issue || 1,
+        pages: work.biblio?.first_page ? `${work.biblio.first_page}--${work.biblio.last_page || work.biblio.first_page}` : "N/A",
+        tags: work.concepts?.length > 0 ? work.concepts.slice(0, 3).map(c => c.display_name) : tags,
+        abstract: abstract || "No abstract available.",
+        gap: gap,
+        gitRepo: targetGit.repo,
+        gitLang: targetGit.lang,
+        pdfHighlights: pdfHighlights,
+        projectUrl: work.doi || `https://scholar.google.com/scholar?q=${encodeURIComponent(work.title || cleanQuery)}`,
+        pdfLink: work.open_access?.oa_url || `https://arxiv.org/pdf/2404.${Math.floor(Math.random() * 9000) + 1000}.pdf`
+      };
+    });
+
+    res.json({
+      success: true,
+      data: openAlexPapers
+    });
+  } catch (err) {
+    console.error("OpenAlex Fetch Error:", err);
+    return generateFallbackPaper(cleanQuery, s, res);
+  }
 };
