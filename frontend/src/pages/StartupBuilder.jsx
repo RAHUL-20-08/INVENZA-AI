@@ -2,6 +2,17 @@ import React, { useState } from 'react';
 
 import { fallbackInnovations } from '../dataFallback';
 
+const formatRupees = (cost) => {
+  if (!cost) return '₹150,000';
+  let str = String(cost).trim();
+  if (str.startsWith('$')) {
+    str = '₹' + str.slice(1);
+  } else if (!str.startsWith('₹') && !str.toLowerCase().includes('inr')) {
+    str = '₹' + str;
+  }
+  return str;
+};
+
 const StartupBuilder = ({ activeInnovation }) => {
   const [activeTab, setActiveTab] = useState('roadmap');
 
@@ -47,7 +58,7 @@ const StartupBuilder = ({ activeInnovation }) => {
         `Hardware distributor partnerships for ${cleanName} kits`
       ],
       costs: [
-        `R&D engineering budget: ${item.financials?.estimatedCost || '₹250,000'}`,
+        `R&D engineering budget: ${formatRupees(item.financials?.estimatedCost || '₹250,000')}`,
         `Physical fabrication and crash testing of ${cleanName}`,
         "Cloud GPU training instances & API token usage"
       ],
@@ -174,13 +185,13 @@ const StartupBuilder = ({ activeInnovation }) => {
             {/* Financial Requirements */}
             <div className="glass-panel" style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                <span className="material-symbols-outlined" style={{ fontSize: '18px', color: 'var(--color-success)' }}>attach_money</span>
+                <span className="material-symbols-outlined" style={{ fontSize: '18px', color: 'var(--color-success)' }}>currency_rupee</span>
                 <h3 style={{ fontSize: '1rem', fontFamily: 'var(--font-display)' }}>Financial Forecasts</h3>
               </div>
 
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', background: 'var(--bg-panel)', padding: '0.75rem', borderRadius: '6px', border: '1px solid var(--border-color)' }}>
                 <span style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>Estimated R&D Budget</span>
-                <strong style={{ fontSize: '1.2rem', color: 'var(--color-success)', fontFamily: 'var(--font-sans)' }}>{activeItem.financials?.estimatedCost}</strong>
+                <strong style={{ fontSize: '1.2rem', color: 'var(--color-success)', fontFamily: 'var(--font-sans)' }}>{formatRupees(activeItem.financials?.estimatedCost)}</strong>
               </div>
 
               <div>
@@ -310,7 +321,7 @@ const StartupBuilder = ({ activeInnovation }) => {
             {/* Cost Structure */}
             <div style={{ background: 'rgba(255,255,255,0.01)', border: '1px solid var(--border-color)', padding: '0.75rem', borderRadius: '8px' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.35rem', marginBottom: '0.5rem', borderBottom: '1px solid var(--border-color)', paddingBottom: '0.25rem' }}>
-                <span className="material-symbols-outlined" style={{ fontSize: '14px', color: 'var(--color-danger)' }}>attach_money</span>
+                <span className="material-symbols-outlined" style={{ fontSize: '14px', color: 'var(--color-danger)' }}>currency_rupee</span>
                 <span style={{ fontSize: '0.75rem', fontWeight: 'bold', fontFamily: 'var(--font-display)' }}>Cost Structure</span>
               </div>
               <ul style={{ fontSize: '0.7rem', paddingLeft: '0.75rem', display: 'flex', flexDirection: 'column', gap: '0.35rem', color: 'var(--text-muted)' }}>
@@ -321,7 +332,7 @@ const StartupBuilder = ({ activeInnovation }) => {
             {/* Revenue Streams */}
             <div style={{ background: 'rgba(255,255,255,0.01)', border: '1px solid var(--border-color)', padding: '0.75rem', borderRadius: '8px' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.35rem', marginBottom: '0.5rem', borderBottom: '1px solid var(--border-color)', paddingBottom: '0.25rem' }}>
-                <span className="material-symbols-outlined" style={{ fontSize: '14px', color: 'var(--color-success)' }}>attach_money</span>
+                <span className="material-symbols-outlined" style={{ fontSize: '14px', color: 'var(--color-success)' }}>currency_rupee</span>
                 <span style={{ fontSize: '0.75rem', fontWeight: 'bold', fontFamily: 'var(--font-display)' }}>Revenue Streams</span>
               </div>
               <ul style={{ fontSize: '0.7rem', paddingLeft: '0.75rem', display: 'flex', flexDirection: 'column', gap: '0.35rem', color: 'var(--text-muted)' }}>

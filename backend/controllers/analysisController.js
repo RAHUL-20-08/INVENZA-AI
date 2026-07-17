@@ -202,7 +202,7 @@ const getFallbackAnalysis = (title, desc, sector, wikiData) => {
     ];
   } else if (textQuery.includes("glass") || textQuery.includes("ar") || textQuery.includes("vr") || textQuery.includes("camera") || textQuery.includes("lytro") || textQuery.includes("optics") || textQuery.includes("lens") || textQuery.includes("projection") || textQuery.includes("waveguide") || textQuery.includes("display")) {
     targetSector = "Augmented Reality / Optics";
-    estimatedCost = "$450,000";
+    estimatedCost = "₹450,000";
     readinessLevel = 4;
     bottlenecks = [
       `Optical contrast limits: Display overlays in ${cleanTitle} were virtually unreadable under bright outdoor light.`,
@@ -232,7 +232,7 @@ const getFallbackAnalysis = (title, desc, sector, wikiData) => {
     ];
   } else if (textQuery.includes("watch") || textQuery.includes("wearable") || textQuery.includes("pebble") || textQuery.includes("ara") || textQuery.includes("modular") || textQuery.includes("device") || textQuery.includes("phone") || textQuery.includes("obsolete") || textQuery.includes("hardware") || textQuery.includes("fitbit")) {
     targetSector = "Smart Wearables";
-    estimatedCost = "$320,000";
+    estimatedCost = "₹320,000";
     readinessLevel = 5;
     bottlenecks = [
       `Display panel latency: Early electrophoretic panels in ${cleanTitle} suffered from screen ghosting.`,
@@ -262,7 +262,7 @@ const getFallbackAnalysis = (title, desc, sector, wikiData) => {
     ];
   } else if (textQuery.includes("segway") || textQuery.includes("scooter") || textQuery.includes("car") || textQuery.includes("ev") || textQuery.includes("electric") || textQuery.includes("battery") || textQuery.includes("vehicle") || textQuery.includes("mobility") || textQuery.includes("transport") || textQuery.includes("motor")) {
     targetSector = "Micro-Mobility";
-    estimatedCost = "$750,000";
+    estimatedCost = "₹750,000";
     readinessLevel = 5;
     bottlenecks = [
       `Prohibitive pricing: The mechanical motor parts of ${cleanTitle} priced it out of consumer budgets.`,
@@ -292,7 +292,7 @@ const getFallbackAnalysis = (title, desc, sector, wikiData) => {
     ];
   } else if (textQuery.includes("game") || textQuery.includes("console") || textQuery.includes("dreamcast") || textQuery.includes("stadia") || textQuery.includes("quibi") || textQuery.includes("streaming") || textQuery.includes("video") || textQuery.includes("play") || textQuery.includes("media") || textQuery.includes("social")) {
     targetSector = "Digital Media & Gaming";
-    estimatedCost = "$280,000";
+    estimatedCost = "₹280,000";
     readinessLevel = 6;
     bottlenecks = [
       `Bandwidth latency: Cloud frame encoding in ${cleanTitle} suffered from packet loss on standard connections.`,
@@ -322,7 +322,7 @@ const getFallbackAnalysis = (title, desc, sector, wikiData) => {
     ];
   } else if (textQuery.includes("water") || textQuery.includes("treatment") || textQuery.includes("filter") || textQuery.includes("purify") || textQuery.includes("filtration") || textQuery.includes("environmental") || textQuery.includes("waste") || textQuery.includes("solar") || textQuery.includes("eco")) {
     targetSector = "Environmental & Water Systems";
-    estimatedCost = "$390,000";
+    estimatedCost = "₹390,000";
     readinessLevel = 6;
     bottlenecks = [
       `Membrane degradation: Rapid accumulation of waste particles fouled the filtration mesh in ${cleanTitle}.`,
@@ -352,7 +352,7 @@ const getFallbackAnalysis = (title, desc, sector, wikiData) => {
     ];
   } else if (textQuery.includes("drone") || textQuery.includes("flight") || textQuery.includes("aerospace") || textQuery.includes("aviation") || textQuery.includes("aircraft") || textQuery.includes("wind") || textQuery.includes("satellite") || textQuery.includes("solar impulse")) {
     targetSector = "Aerospace & Flight Systems";
-    estimatedCost = "$820,000";
+    estimatedCost = "₹820,000";
     readinessLevel = 5;
     bottlenecks = [
       `Payload constraints: The structural weight of battery modules limited flight duration for ${cleanTitle}.`,
@@ -382,7 +382,7 @@ const getFallbackAnalysis = (title, desc, sector, wikiData) => {
     ];
   } else {
     targetSector = "General Tech & Software Platforms";
-    estimatedCost = "$250,000";
+    estimatedCost = "₹250,000";
     readinessLevel = 4;
     bottlenecks = [
       `Scalability bottlenecks: Database queries in early versions of ${cleanTitle} scaled poorly under concurrent requests.`,

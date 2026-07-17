@@ -1541,7 +1541,7 @@ const Dashboard = ({ activeInnovation, setActiveInnovation, globalQuery, setGlob
           {selectedItem.financials && (
             <div className="glass-panel animate-fade-in" style={{ padding: '2rem', display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', borderBottom: '1px solid var(--border-color)', paddingBottom: '0.75rem' }}>
-                <span className="material-symbols-outlined" style={{ fontSize: '16px', color: 'var(--color-success)' }}>attach_money</span>
+                <span className="material-symbols-outlined" style={{ fontSize: '16px', color: 'var(--color-success)' }}>currency_rupee</span>
                 <h3 style={{ fontSize: '1rem', fontWeight: 700, fontFamily: 'var(--font-display)', color: 'var(--text-main)' }}>
                   Investment & Financial Portfolio
                 </h3>
@@ -1549,7 +1549,7 @@ const Dashboard = ({ activeInnovation, setActiveInnovation, globalQuery, setGlob
               <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1.5rem' }}>
                 <div>
                   <span style={{ fontSize: '0.7rem', color: 'var(--text-muted)', fontFamily: 'var(--font-sans)', textTransform: 'uppercase', fontWeight: 'bold' }}>Development Cost</span>
-                  <p style={{ fontSize: '1.25rem', fontWeight: 800, color: 'var(--color-success)', marginTop: '0.25rem' }}>{selectedItem.financials.estimatedCost || selectedItem.estimatedCost || "₹150,000"}</p>
+                  <p style={{ fontSize: '1.25rem', fontWeight: 800, color: 'var(--color-success)', marginTop: '0.25rem' }}>{String(selectedItem.financials.estimatedCost || selectedItem.estimatedCost || "₹150,000").replace(/\$/g, '₹')}</p>
                 </div>
                 <div>
                   <span style={{ fontSize: '0.7rem', color: 'var(--text-muted)', fontFamily: 'var(--font-sans)', textTransform: 'uppercase', fontWeight: 'bold' }}>Target Industries</span>
