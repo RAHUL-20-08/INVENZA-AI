@@ -1021,7 +1021,7 @@ const Login = ({ onLoginSuccess }) => {
                   </div>
                 </div>
 
-                <button type="submit" className="tech-button" disabled={isLoading} style={{ width: '80%', alignSelf: 'center', marginTop: '1.5rem', padding: '0.85rem', fontSize: '1rem', fontWeight: 'bold', background: portalAccent, color: '#fff', borderColor: portalAccent }}>
+                <button type="submit" className="tech-button" disabled={isLoading} style={{ width: '80%', alignSelf: 'center', justifyContent: 'center', marginTop: '1.5rem', padding: '0.85rem', fontSize: '1rem', fontWeight: 'bold', background: portalAccent, color: '#fff', borderColor: portalAccent }}>
                   {isLoading ? "Generating credentials..." : "Continue to Login"}
                 </button>
 
@@ -1120,7 +1120,7 @@ const Login = ({ onLoginSuccess }) => {
                   </div>
                 </div>
 
-                <button type="submit" className="tech-button tech-button-glow" disabled={isLoading} style={{ width: '80%', alignSelf: 'center', marginTop: '1.5rem', padding: '0.85rem', fontSize: '1rem', fontWeight: 'bold' }}>
+                <button type="submit" className="tech-button tech-button-glow" disabled={isLoading} style={{ width: '80%', alignSelf: 'center', justifyContent: 'center', marginTop: '1.5rem', padding: '0.85rem', fontSize: '1rem', fontWeight: 'bold' }}>
                   {isLoading ? "Creating founder node..." : "Continue to Login"}
                 </button>
 
