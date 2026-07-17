@@ -65,20 +65,7 @@ const Explorer = ({ onImportToStartup, setCurrentPage, setGlobalQuery }) => {
     setAnalysisResult(null);
     setAnalysisSteps([]);
 
-    // Simulating semantic audit steps
-    const steps = [
-      "Tokenizing abstract content and extracting keywords...",
-      "Embedding semantic vectors via on-device transformer models...",
-      "Querying global patent databases (USPTO, WIPO, EPO)...",
-      "Scanning IEEE Xplore, Google Scholar & Arxiv databases...",
-      "Evaluating tech readiness level (TRL) & sustainability rating...",
-      "Synthesizing Revival Roadmap & Financial models..."
-    ];
-
-    for (let i = 0; i < steps.length; i++) {
-      setAnalysisSteps(prev => [...prev, steps[i]]);
-      await new Promise(resolve => setTimeout(resolve, 300));
-    }
+    // Simulating semantic audit steps removed as per user request to hide the black process box.
 
     try {
       const response = await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/analyze`, {
@@ -251,21 +238,7 @@ const Explorer = ({ onImportToStartup, setCurrentPage, setGlobalQuery }) => {
             </form>
           </div>
 
-          {/* AI Processing Console */}
-          {isAnalyzing && (
-            <div className="glass-panel" style={{ background: '#000', border: '1px solid var(--color-secondary)', padding: '1.25rem' }}>
-              <span style={{ fontFamily: 'var(--font-sans)', fontSize: '0.75rem', color: 'var(--color-secondary)', display: 'block', marginBottom: '0.5rem' }}>
-                SYSTEM AUDIT CONSOLE: ACTIVE
-              </span>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '0.35rem' }}>
-                {analysisSteps.map((step, idx) => (
-                  <p key={idx} style={{ fontFamily: 'var(--font-sans)', fontSize: '0.75rem', color: '#10b981' }}>
-                    &gt; {step}
-                  </p>
-                ))}
-              </div>
-            </div>
-          )}
+          {/* AI Processing Console Hidden */}
 
           {/* Audit Results */}
           {analysisResult && !isAnalyzing && (
