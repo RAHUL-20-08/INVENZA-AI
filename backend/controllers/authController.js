@@ -1009,7 +1009,7 @@ export const oauthCallback = async (req, res) => {
 
     // Short-lived access token (15 mins) and long-lived refresh token (7 days)
     const tokenVersion = crypto.randomBytes(8).toString('hex');
-    const tokenPayload = { email: user.email, role: portalType, exp: Math.floor(Date.now() / 1000) + 900 };
+    const tokenPayload = { email: user.email, role: portalType, exp: Math.floor(Date.now() / 1000) + 604800 };
     const refreshPayload = { email: user.email, version: tokenVersion, exp: Math.floor(Date.now() / 1000) + 7 * 24 * 3600 };
     
     const token = Buffer.from(JSON.stringify(tokenPayload)).toString('base64');
@@ -1051,7 +1051,7 @@ export const oauthCallback = async (req, res) => {
     // Set secure HttpOnly cookies
     const isProd = process.env.NODE_ENV === 'production';
     res.setHeader('Set-Cookie', [
-      `auth_token=${token}; HttpOnly; Path=/; Max-Age=900; SameSite=Strict${isProd ? '; Secure' : ''}`,
+      `auth_token=${token}; HttpOnly; Path=/; Max-Age=604800; SameSite=Strict${isProd ? '; Secure' : ''}`,
       `refresh_token=${refreshToken}; HttpOnly; Path=/; Max-Age=604800; SameSite=Strict${isProd ? '; Secure' : ''}`
     ]);
 
@@ -1122,7 +1122,7 @@ export const refreshTokenRotation = async (req, res) => {
     
     // Rotate tokens
     const newTokenVersion = crypto.randomBytes(8).toString('hex');
-    const newTokenPayload = { email: user.email, role: portalType, exp: Math.floor(Date.now() / 1000) + 900 };
+    const newTokenPayload = { email: user.email, role: portalType, exp: Math.floor(Date.now() / 1000) + 604800 };
     const newRefreshPayload = { email: user.email, version: newTokenVersion, exp: Math.floor(Date.now() / 1000) + 7 * 24 * 3600 };
     
     const newToken = Buffer.from(JSON.stringify(newTokenPayload)).toString('base64');
@@ -1140,7 +1140,7 @@ export const refreshTokenRotation = async (req, res) => {
 
     const isProd = process.env.NODE_ENV === 'production';
     res.setHeader('Set-Cookie', [
-      `auth_token=${newToken}; HttpOnly; Path=/; Max-Age=900; SameSite=Strict${isProd ? '; Secure' : ''}`,
+      `auth_token=${newToken}; HttpOnly; Path=/; Max-Age=604800; SameSite=Strict${isProd ? '; Secure' : ''}`,
       `refresh_token=${newRefreshToken}; HttpOnly; Path=/; Max-Age=604800; SameSite=Strict${isProd ? '; Secure' : ''}`
     ]);
 
