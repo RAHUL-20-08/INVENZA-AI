@@ -36,10 +36,31 @@ const FounderAudit = ({ onLogout }) => {
     fetchAuditData();
   }, []);
 
-  const filteredLogs = logs.filter(log => filterAction === 'All' || log.action === filterAction);
-  
-  // Extract unique actions for the filter dropdown
-  const uniqueActions = ['All', ...new Set(logs.map(log => log.action))];
+  const actionOptions = [
+    { label: 'All Actions', value: 'All' },
+    { label: 'Login', value: 'LOGIN' },
+    { label: 'History Searched', value: 'HISTORY_SEARCHED' },
+    { label: 'Users', value: 'USERS' },
+    { label: 'Login Success', value: 'LOGIN_SUCCESS' }
+  ];
+
+  const filteredLogs = logs.filter(log => {
+    if (filterAction === 'All') return true;
+    const act = (log.action || '').toUpperCase();
+    if (filterAction === 'LOGIN') {
+      return act.includes('LOGIN');
+    }
+    if (filterAction === 'HISTORY_SEARCHED') {
+      return act.includes('SEARCH') || act.includes('HISTORY');
+    }
+    if (filterAction === 'USERS') {
+      return act.includes('USER') || act.includes('REGISTER') || act.includes('ONBOARDING');
+    }
+    if (filterAction === 'LOGIN_SUCCESS') {
+      return act === 'LOGIN_SUCCESS' || act === 'OAUTH_LOGIN_SUCCESS';
+    }
+    return act === filterAction;
+  });
 
   return (
     <div style={{ padding: '0 1rem 2rem 1rem', display: 'flex', flexDirection: 'column', gap: '2rem' }}>
@@ -96,8 +117,8 @@ const FounderAudit = ({ onLogout }) => {
                 className="tech-input"
                 style={{ width: '250px' }}
               >
-                {uniqueActions.map(action => (
-                  <option key={action} value={action}>{action === 'All' ? 'All Actions' : action}</option>
+                {actionOptions.map(opt => (
+                  <option key={opt.value} value={opt.value}>{opt.label}</option>
                 ))}
               </select>
             </div>
