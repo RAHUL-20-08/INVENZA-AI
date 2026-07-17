@@ -110,7 +110,6 @@ const FounderAudit = ({ onLogout }) => {
                       <th style={{ padding: '1.2rem 1rem', color: 'var(--text-muted)', fontWeight: 600 }}>Timestamp</th>
                       <th style={{ padding: '1.2rem 1rem', color: 'var(--text-muted)', fontWeight: 600 }}>User Email</th>
                       <th style={{ padding: '1.2rem 1rem', color: 'var(--text-muted)', fontWeight: 600 }}>Action</th>
-                      <th style={{ padding: '1.2rem 1rem', color: 'var(--text-muted)', fontWeight: 600 }}>Metadata</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -130,16 +129,11 @@ const FounderAudit = ({ onLogout }) => {
                             {log.action}
                           </span>
                         </td>
-                        <td style={{ padding: '1rem', color: 'var(--text-muted)' }}>
-                          <pre style={{ margin: 0, fontSize: '0.75rem', fontFamily: 'monospace', background: 'rgba(0,0,0,0.2)', padding: '0.5rem', borderRadius: '6px' }}>
-                            {JSON.stringify(log.metadata, null, 2)}
-                          </pre>
-                        </td>
                       </tr>
                     ))}
                     {filteredLogs.length === 0 && (
                       <tr>
-                        <td colSpan="4" style={{ padding: '3rem', textAlign: 'center', color: 'var(--text-dim)' }}>
+                        <td colSpan="3" style={{ padding: '3rem', textAlign: 'center', color: 'var(--text-dim)' }}>
                           No audit logs found for the selected action.
                         </td>
                       </tr>
