@@ -6,170 +6,220 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const dbPath = path.join(__dirname, '../database/database.json');
 
-// Helper to generate UUIDs
-const generateId = (prefix) => `${prefix}-${Math.random().toString(36).substring(2, 9)}-${Date.now()}`;
+// Helper to wait
+const delay = ms => new Promise(res => setTimeout(res, ms));
 
-// Sample domains and sectors
-const domains = ['Quantum Computing', 'Biotechnology', 'Artificial Intelligence', 'Neurotechnology', 'Clean Energy', 'Nanotechnology', 'Space Exploration'];
-const sectors = ['HealthTech', 'FinTech', 'DeepTech', 'EdTech', 'AgriTech', 'SpaceTech', 'ClimateTech'];
-
-// Generation Helpers
-const generatePapers = (count) => {
-  const papers = [];
-  for (let i = 0; i < count; i++) {
-    const domain = domains[i % domains.length];
-    papers.push({
-      id: generateId('paper'),
-      title: `Advanced Methods in ${domain} for Next-Generation Scalability - Part ${i + 1}`,
-      authors: [`Dr. Scientist ${i}`, `Prof. Researcher ${i+1}`],
-      publishedYear: 2020 + (i % 6),
-      institution: `Global Institute of ${domain} Studies`,
-      domain: domain,
-      abstract: `This paper explores the foundational mechanics and theoretical boundaries of ${domain}. By leveraging novel algorithmic architectures, we demonstrated a 40% efficiency increase over traditional models.`,
-      keyFindings: [
-        "Established new theoretical upper bounds for efficiency.",
-        "Demonstrated a novel framework for scalable deployment.",
-        "Identified 3 key bottleneck resolutions."
-      ],
-      commercialApplications: [
-        "Can be integrated into enterprise infrastructure.",
-        "Reduces computational overhead for consumer applications."
-      ],
-      citations: Math.floor(Math.random() * 500) + 10,
-      doiUrl: `https://doi.org/10.1000/xyz${i}`
-    });
+async function fetchPatents() {
+  console.log("Fetching Patents from Europe PMC API...");
+  try {
+    const response = await fetch('https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=SRC:PAT%20AND%20technology&format=json&resultType=lite&pageSize=20');
+    if (!response.ok) throw new Error(`HTTP ${response.status}`);
+    const data = await response.json();
+    
+    if (data.resultList && data.resultList.result) {
+      return data.resultList.result.map(p => {
+        return {
+          id: p.id,
+          patentId: p.id,
+          title: p.title || "Unknown Patent",
+          inventor: p.authorString || 'Unknown',
+          assignee: "Individual / Organization",
+          filedYear: p.pubYear ? parseInt(p.pubYear) : new Date().getFullYear(),
+          expiryYear: (p.pubYear ? parseInt(p.pubYear) : new Date().getFullYear()) + 20,
+          status: "Active",
+          classifications: ["General Tech"],
+          claims: ["See full patent text on European Patent Office."],
+          description: p.abstractText || "No abstract provided."
+        };
+      });
+    }
+    return [];
+  } catch (err) {
+    console.error("Failed to fetch patents", err);
+    return [];
   }
-  return papers;
-};
+}
 
-const generatePatents = (count) => {
-  const patents = [];
-  for (let i = 0; i < count; i++) {
-    const domain = domains[i % domains.length];
-    patents.push({
-      id: generateId('patent'),
-      title: `System and Method for Automated ${domain} Optimization`,
-      inventor: `Inventor ${i} Name`,
-      patentId: `US-${Math.floor(Math.random() * 9000000 + 1000000)}-B2`,
-      yearFiled: 2005 + (i % 15),
-      expiryYear: 2025 + (i % 15),
-      status: i % 3 === 0 ? 'Expired' : 'Active',
-      classifications: [domain, 'Hardware Systems', 'Algorithmic Optimization'],
-      claims: [
-        "A system comprising a centralized processing unit and distributed nodes.",
-        "A method for dynamically allocating resources based on real-time loads.",
-        "An apparatus configured to automatically reduce thermal output during peak loads."
-      ],
-      description: `A comprehensive patent detailing the architecture for improving ${domain} workflows using proprietary hardware-software integration.`,
-      modernEnablers: [
-        "Large Language Models for dynamic code synthesis.",
-        "Neural Processing Units (NPUs) for local edge inference."
-      ]
-    });
+async function fetchOpenAlex() {
+  console.log("Fetching Research Papers from OpenAlex...");
+  try {
+    const response = await fetch('https://api.openalex.org/works?search=technology&per-page=20&sort=cited_by_count:desc');
+    if (!response.ok) throw new Error(`HTTP ${response.status}`);
+    const data = await response.json();
+    
+    if (data.results) {
+      return data.results.map(work => {
+        let abstract = "No abstract available.";
+        if (work.abstract_inverted_index) {
+          const words = [];
+          for (const word in work.abstract_inverted_index) {
+            work.abstract_inverted_index[word].forEach(pos => {
+              words[pos] = word;
+            });
+          }
+          abstract = words.join(' ').trim();
+        }
+        
+        return {
+          id: work.id,
+          title: work.title,
+          authors: work.authorships ? work.authorships.map(a => a.author.display_name).join(', ') : "Unknown",
+          journal: work.primary_location?.source?.display_name || "Unknown Journal",
+          year: work.publication_year || new Date().getFullYear(),
+          citations: work.cited_by_count || 0,
+          doi: work.doi,
+          publisher: work.primary_location?.source?.host_organization_name || "Unknown",
+          tags: work.concepts ? work.concepts.slice(0,3).map(c => c.display_name) : ["Research", "Technology"],
+          abstract: abstract,
+          pdfLink: work.open_access?.oa_url || null
+        };
+      });
+    }
+    return [];
+  } catch (err) {
+    console.error("Failed to fetch OpenAlex", err);
+    return [];
   }
-  return patents;
-};
+}
 
-const generateFailedStartups = (count) => {
-  const startups = [];
-  for (let i = 0; i < count; i++) {
-    const sector = sectors[i % sectors.length];
-    startups.push({
-      id: generateId('failed'),
-      name: `${sector} Visionary Inc ${i}`,
-      founder: `Founder ${i}`,
-      sector: sector,
-      yearFounded: 2012 + (i % 5),
-      yearClosed: 2017 + (i % 5),
-      totalFunding: `$${(Math.random() * 50 + 1).toFixed(1)}M`,
-      coreConcept: `Attempted to revolutionize ${sector} by introducing a decentralized hardware mesh network.`,
-      failureBottlenecks: [
-        "Hardware manufacturing costs were too high for consumer adoption.",
-        "Network latency issues caused poor user experience.",
-        "Lack of developer ecosystem and third-party integrations."
-      ],
-      revivalViability: Math.floor(Math.random() * 40) + 50,
-      aiEnhancementVector: [
-        "Replace expensive proprietary hardware with AI-driven software emulation.",
-        "Use edge-caching LLMs to eliminate network latency.",
-        "Deploy automated API wrapper generators to instantly build a developer ecosystem."
-      ],
-      swot: {
-        strengths: ["Strong initial patent portfolio", "High-profile angel investors"],
-        weaknesses: ["High burn rate", "Complex onboarding"],
-        opportunities: ["Modern AI APIs lower the barrier to entry", "Cloud computing costs have plummeted"],
-        threats: ["Open source alternatives", "Entrenched legacy competitors"]
-      }
-    });
-  }
-  return startups;
-};
-
-const generateStartupIdeas = (count) => {
-  const ideas = [];
-  for (let i = 0; i < count; i++) {
-    const sector = sectors[i % sectors.length];
-    ideas.push({
-      id: generateId('idea'),
-      title: `AI-Powered ${sector} Copilot`,
-      sector: sector,
-      targetAudience: `Enterprise teams in ${sector}`,
-      problemStatement: `Professionals in ${sector} spend 40% of their time on manual, repetitive data processing tasks that lead to high error rates and burnout.`,
-      solutionArchitecture: `A cloud-based SaaS platform that uses fine-tuned LLMs and specialized RAG pipelines to instantly process, classify, and generate insights from industry-specific data.`,
-      roadmap: [
-        { step: "Phase 1: Minimum Viable Product", desc: "Develop the core RAG pipeline using open-source models." },
-        { step: "Phase 2: Beta Testing", desc: "Onboard 10 enterprise clients for closed beta testing." },
-        { step: "Phase 3: Scale & Launch", desc: "Integrate billing, scale database infrastructure, and launch publicly." }
-      ],
-      financials: {
-        estimatedCost: `$${(Math.random() * 100 + 50).toFixed(0)}K`,
-        requiredSkills: ["Full-Stack Development", "Machine Learning Engineering", "B2B Sales"],
-        targetIndustries: [sector, "B2B SaaS", "Automation"]
-      }
-    });
-  }
-  return ideas;
-};
-
-const seedDatabase = () => {
-  console.log("Reading database.json...");
-  let data = { innovations: [] };
+async function fetchWikipediaFailedStartups() {
+  console.log("Fetching Failed Startups from Wikipedia...");
+  const failedStartups = ["Theranos", "Quibi", "Juicero", "Jawbone", "Essential Products", "Color Labs", "ScaleFactor", "Katerra"];
+  const results = [];
   
-  if (fs.existsSync(dbPath)) {
+  for (const name of failedStartups) {
     try {
-      const raw = fs.readFileSync(dbPath, 'utf8');
-      data = JSON.parse(raw);
-    } catch (e) {
-      console.warn("Could not parse existing database, starting fresh.");
+      const response = await fetch(`https://en.wikipedia.org/w/api.php?action=query&prop=extracts&exintro=1&explaintext=1&titles=${encodeURIComponent(name)}&format=json`);
+      if (!response.ok) throw new Error(`HTTP ${response.status}`);
+      const data = await response.json();
+      const pages = data.query.pages;
+      const pageId = Object.keys(pages)[0];
+      
+      if (pageId !== "-1") {
+        const extract = pages[pageId].extract;
+        results.push({
+          id: `wiki-failed-${name.toLowerCase().replace(/\s/g,'-')}`,
+          name: name,
+          sector: "Defunct Startup",
+          status: "Failed",
+          description: extract.substring(0, 500) + (extract.length > 500 ? "..." : ""),
+          failureBottlenecks: [
+            "Market/Product Fit",
+            "Financial mismanagement",
+            "Strategic failure"
+          ],
+          yearFiled: 2015,
+          inventor: "Various Founders"
+        });
+      }
+      await delay(500); // Be polite to Wikipedia
+    } catch (err) {
+      console.error(`Failed to fetch Wikipedia for ${name}`, err);
     }
   }
+  return results;
+}
 
-  // Preserve existing innovations if any
-  const existingInnovations = data.innovations || [];
+async function fetchGitHubStartups() {
+  console.log("Fetching Active Tech Startups/Innovations from GitHub...");
+  try {
+    const query = encodeURIComponent("stars:>10000 pushed:>2023-01-01 topic:machine-learning");
+    const response = await fetch(`https://api.github.com/search/repositories?q=${query}&sort=stars&order=desc&per_page=20`, {
+      headers: {
+        'User-Agent': 'Invenza-Seed-Script'
+      }
+    });
+    if (!response.ok) throw new Error(`HTTP ${response.status}`);
+    const data = await response.json();
+    
+    if (data.items) {
+      return data.items.map(repo => {
+        return {
+          id: `github-${repo.id}`,
+          name: repo.name,
+          sector: "Open Source Tech",
+          status: "Active",
+          description: repo.description || "No description provided.",
+          gitRepo: repo.full_name,
+          gitLang: repo.language,
+          stars: repo.stargazers_count,
+          url: repo.html_url,
+          inventor: repo.owner.login,
+          yearFiled: parseInt(repo.created_at.split('-')[0]),
+        };
+      });
+    }
+    return [];
+  } catch (err) {
+    console.error("Failed to fetch GitHub", err);
+    return [];
+  }
+}
 
-  // Generate 50 items for each new category
-  console.log("Generating mock data models...");
-  const newPapers = generatePapers(50);
-  const newPatents = generatePatents(50);
-  const newFailedStartups = generateFailedStartups(50);
-  const newStartupIdeas = generateStartupIdeas(50);
+async function main() {
+  console.log("Starting Database Seeder...");
+  
+  // Ensure database directory exists
+  const dbDir = path.dirname(dbPath);
+  if (!fs.existsSync(dbDir)) {
+    fs.mkdirSync(dbDir, { recursive: true });
+  }
 
-  // Compile final DB
-  const newDb = {
-    innovations: existingInnovations, // keep old ones
-    papers: newPapers,
-    patents: newPatents,
-    failedStartups: newFailedStartups,
-    startupIdeas: newStartupIdeas
-  };
+  // Read existing DB
+  let db = { innovations: [], patents: [], papers: [] };
+  if (fs.existsSync(dbPath)) {
+    try {
+      db = JSON.parse(fs.readFileSync(dbPath, 'utf8'));
+    } catch (e) {
+      console.warn("Could not parse existing DB, creating new structure.");
+    }
+  }
+  
+  // Assure structure
+  db.innovations = db.innovations || [];
+  db.patents = db.patents || [];
+  db.papers = db.papers || [];
 
-  console.log("Writing to database.json...");
-  fs.writeFileSync(dbPath, JSON.stringify(newDb, null, 2));
-  console.log(`Successfully seeded database with:
-- ${newPapers.length} Research Papers
-- ${newPatents.length} Patents
-- ${newFailedStartups.length} Failed Startups
-- ${newStartupIdeas.length} Startup Ideas`);
-};
+  const [patents, papers, failedStartups, activeStartups] = await Promise.all([
+    fetchPatents(),
+    fetchOpenAlex(),
+    fetchWikipediaFailedStartups(),
+    fetchGitHubStartups()
+  ]);
+  
+  console.log(`Fetched ${patents.length} Patents.`);
+  console.log(`Fetched ${papers.length} Papers.`);
+  console.log(`Fetched ${failedStartups.length} Failed Startups.`);
+  console.log(`Fetched ${activeStartups.length} GitHub Innovations.`);
+  
+  // Merge Patents (dedupe by ID)
+  const existingPatentIds = new Set(db.patents.map(p => p.id));
+  patents.forEach(p => {
+    if (!existingPatentIds.has(p.id)) {
+      db.patents.push(p);
+    }
+  });
 
-seedDatabase();
+  // Merge Papers
+  const existingPaperIds = new Set(db.papers.map(p => p.id));
+  papers.forEach(p => {
+    if (!existingPaperIds.has(p.id)) {
+      db.papers.push(p);
+    }
+  });
+  
+  // Merge Startups into Innovations
+  const existingInnovationIds = new Set(db.innovations.map(i => i.id));
+  
+  [...failedStartups, ...activeStartups].forEach(i => {
+    if (!existingInnovationIds.has(i.id)) {
+      db.innovations.push(i);
+    }
+  });
+  
+  // Write back to file
+  fs.writeFileSync(dbPath, JSON.stringify(db, null, 2));
+  console.log("Database seeded successfully!");
+}
+
+main().catch(console.error);
