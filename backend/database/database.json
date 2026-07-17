@@ -1283,6 +1283,71 @@
       "url": "https://github.com/ultralytics/yolov5",
       "inventor": "ultralytics",
       "yearFiled": 2020
+    },
+    {
+      "id": "github-83844720",
+      "name": "face_recognition",
+      "sector": "Open Source Tech",
+      "status": "Active",
+      "description": "The world's simplest facial recognition api for Python and the command line",
+      "gitRepo": "ageitgey/face_recognition",
+      "gitLang": "Python",
+      "stars": 56588,
+      "url": "https://github.com/ageitgey/face_recognition",
+      "inventor": "ageitgey",
+      "yearFiled": 2017
+    },
+    {
+      "id": "github-114747226",
+      "name": "faceswap",
+      "sector": "Open Source Tech",
+      "status": "Active",
+      "description": "Deepfakes Software For All",
+      "gitRepo": "deepfakes/faceswap",
+      "gitLang": "Python",
+      "stars": 55348,
+      "url": "https://github.com/deepfakes/faceswap",
+      "inventor": "deepfakes",
+      "yearFiled": 2017
+    },
+    {
+      "id": "github-344190478",
+      "name": "AI-For-Beginners",
+      "sector": "Open Source Tech",
+      "status": "Active",
+      "description": "12 Weeks, 24 Lessons, AI for All!",
+      "gitRepo": "microsoft/AI-For-Beginners",
+      "gitLang": "Jupyter Notebook",
+      "stars": 52387,
+      "url": "https://github.com/microsoft/AI-For-Beginners",
+      "inventor": "microsoft",
+      "yearFiled": 2021
+    },
+    {
+      "id": "github-139824423",
+      "name": "100-Days-Of-ML-Code",
+      "sector": "Open Source Tech",
+      "status": "Active",
+      "description": "100 Days of ML Coding",
+      "gitRepo": "Avik-Jain/100-Days-Of-ML-Code",
+      "gitLang": null,
+      "stars": 51486,
+      "url": "https://github.com/Avik-Jain/100-Days-Of-ML-Code",
+      "inventor": "Avik-Jain",
+      "yearFiled": 2018
+    },
+    {
+      "id": "github-1644196",
+      "name": "julia",
+      "sector": "Open Source Tech",
+      "status": "Active",
+      "description": "The Julia Programming Language",
+      "gitRepo": "JuliaLang/julia",
+      "gitLang": "Julia",
+      "stars": 48892,
+      "url": "https://github.com/JuliaLang/julia",
+      "inventor": "JuliaLang",
+      "yearFiled": 2011
     }
   ],
   "papers": [
@@ -8775,6 +8840,930 @@
       ],
       "abstract": "Scoping reviews, a type of knowledge synthesis, follow a systematic approach to map evidence on a topic and identify main concepts, theories, sources, and knowledge gaps. Although more scoping reviews are being done, their methodological and reporting quality need improvement. This document presents the PRISMA-ScR (Preferred Reporting Items for Systematic reviews and Meta-Analyses extension for Scoping Reviews) checklist and explanation. The checklist was developed by a 24-member expert panel and 2 research leads following published guidance from the EQUATOR (Enhancing the QUAlity and Transparency Of health Research) Network. The final checklist contains 20 essential reporting items and 2 optional items. The authors provide a rationale and an example of good reporting for each item. The intent of the PRISMA-ScR is to help readers (including researchers, publishers, commissioners, policymakers, health care providers, guideline developers, and patients or consumers) develop a greater understanding of relevant terminology, core concepts, and key items to report for scoping reviews.",
       "pdfLink": "https://eprints.whiterose.ac.uk/136633/1/PRISMA_ScR_Manuscript_July6th_clean_1_.pdf"
+    },
+    {
+      "id": "https://openalex.org/W2896457183",
+      "title": "AI-Assisted Pipeline for Dynamic Generation of Trustworthy Health Supplement Content at Scale",
+      "authors": "Kefallinos, Dionysios, Alexandris, Georgios, Kenton Lee, Kristina Toutanova, Gomony, Manil Dev, Corporaal, Henk, Soudris, Dimitrios, Xydis, Sotirios",
+      "journal": "DROPS (Schloss Dagstuhl – Leibniz Center for Informatics)",
+      "year": 2018,
+      "citations": 45742,
+      "doi": "https://doi.org/10.4230/lipics.cosit.2022.18",
+      "publisher": "Schloss Dagstuhl – Leibniz Center for Informatics",
+      "tags": [
+        "Transformer",
+        "Computer science",
+        "Training (meteorology)"
+      ],
+      "abstract": "Although geospatial question answering systems have received increasing attention in recent years, existing prototype systems struggle to properly answer qualitative spatial questions. In this work, we propose a unique framework for answering qualitative spatial questions, which comprises three main components: a geoparser that takes the input questions and extracts place semantic information from text, a reasoning system which is embedded with a crisp reasoner, and finally, answer extraction, which refines the solution space and generates final answers. We present an experimental design to evaluate our framework for point-based cardinal direction calculus (CDC) relations by developing an automated approach for generating three types of synthetic qualitative spatial questions. The initial evaluations of generated answers in our system are promising because a high proportion of answers were labelled correct.",
+      "pdfLink": "https://drops.dagstuhl.de/entities/document/10.4230/OASIcs.LDK.2019.21"
+    },
+    {
+      "id": "https://openalex.org/W4239510810",
+      "title": "Support-vector networks",
+      "authors": "Corinna Cortes, Vladimir Vapnik",
+      "journal": "Machine Learning",
+      "year": 1995,
+      "citations": 40600,
+      "doi": "https://doi.org/10.1007/bf00994018",
+      "publisher": "Springer Science+Business Media",
+      "tags": [
+        "Feature vector",
+        "Generalization",
+        "Support vector machine"
+      ],
+      "abstract": "No abstract available.",
+      "pdfLink": "https://link.springer.com/content/pdf/10.1007/BF00994018.pdf"
+    },
+    {
+      "id": "https://openalex.org/W2097382368",
+      "title": "The CLUSTAL_X windows interface: flexible strategies for multiple sequence alignment aided by quality analysis tools",
+      "authors": "Julie Thompson",
+      "journal": "Nucleic Acids Research",
+      "year": 1997,
+      "citations": 39259,
+      "doi": "https://doi.org/10.1093/nar/25.24.4876",
+      "publisher": "Oxford University Press",
+      "tags": [
+        "Multiple sequence alignment",
+        "Unix",
+        "Sequence alignment"
+      ],
+      "abstract": "CLUSTAL X is a new windows interface for the widely-used progressive multiple sequence alignment program CLUSTAL W. The new system is easy to use, providing an integrated system for performing multiple sequence and profile alignments and analysing the results. CLUSTAL X displays the sequence alignment in a window on the screen. A versatile sequence colouring scheme allows the user to highlight conserved features in the alignment. Pull-down menus provide all the options required for traditional multiple sequence and profile alignment. New features include: the ability to cut-and-paste sequences to change the order of the alignment, selection of a subset of the sequences to be realigned, and selection of a sub-range of the alignment to be realigned and inserted back into the original alignment. Alignment quality analysis can be performed and low-scoring segments or exceptional residues can be highlighted. Quality analysis and realignment of selected residue ranges provide the user with a powerful tool to improve and refine difficult alignments and to trap errors in input sequences. CLUSTAL X has been compiled on SUN Solaris, IRIX5.3 on Silicon Graphics, Digital UNIX on DECstations, Microsoft Windows (32 bit) for PCs, Linux ELF for x86 PCs, and Macintosh PowerMac.",
+      "pdfLink": "https://academic.oup.com/nar/article-pdf/25/24/4876/4897770/25-24-4876.pdf"
+    },
+    {
+      "id": "https://openalex.org/W3003257820",
+      "title": "SciPy 1.0: fundamental algorithms for scientific computing in Python",
+      "authors": "Pauli Virtanen, Ralf Gommers, Travis E. Oliphant, Matt Haberland, Tyler Reddy, David Cournapeau, Evgeni Burovski, Pearu Peterson, Warren Weckesser, Jonathan Bright, Stéfan J. van der Walt, Matthew Brett, Joshua Wilson, K. Jarrod Millman, Nikolay Mayorov, Andrew R. J. Nelson, Eric Jones, Robert Kern, Eric Larson, C J Carey, İlhan Polat, Yu Feng, Eric W. Moore, Jake VanderPlas, Denis Laxalde, Josef Perktold, Robert Cimrman, Ian Henriksen, E. A. Quintero, Charles R. Harris, Anne M. Archibald, Antônio H. Ribeiro, Fabian Pedregosa, Paul van Mulbregt, SciPy 1.0 Contributors, Aditya Vijaykumar, Alessandro Pietro Bardelli, Alex Rothberg, Andreas Hilboll, Andreas Kloeckner, Anthony Scopatz, Antony Lee, Ariel Rokem, C. Nathan Woods, Chad Fulton, Charles Masson, Christian Häggström, Clark Fitzgerald, David A. Nicholson, David R. Hagen, Dmitrii V. Pasechnik, Emanuele Olivetti, Eric Martin, Eric Wieser, Fabrice Silva, Felix Lenders, Florian Wilhelm, G. Young, Gavin A. Price, Gert-Ludwig Ingold, Gregory E. Allen, Gregory R. Lee, Hervé Audren, Irvin Probst, Jörg P. Dietrich, Jacob Silterra, James T Webber, Janko Slavič, Joel Nothman, Johannes Buchner, Johannes Kulick, Johannes L. Schönberger, José Vinícius de Miranda Cardoso, Joscha Reimer, Joseph Harrington, Juan Luis Cano Rodríguez, Juan Nunez-Iglesias, Justin Kuczynski, Kevin Tritz, Martin Thoma, Matthew Newville, Matthias Kümmerer, Maximilian Bolingbroke, Michael Tartre, Mikhail Pak, Nathaniel J. Smith, Nikolai Nowaczyk, Nikolay Shebanov, Oleksandr Pavlyk, Per A. Brodtkorb, Perry Lee, Robert T. McGibbon, Roman Feldbauer, Sam Lewis, Sam Tygier, Scott Sievert, Sebastiano Vigna, Stefan Peterson, Surhud More, Tadeusz Pudlik",
+      "journal": "Nature Methods",
+      "year": 2020,
+      "citations": 38457,
+      "doi": "https://doi.org/10.1038/s41592-019-0686-2",
+      "publisher": "Nature Portfolio",
+      "tags": [
+        "Python (programming language)",
+        "Computer science",
+        "Code (set theory)"
+      ],
+      "abstract": "SciPy is an open-source scientific computing library for the Python programming language. Since its initial release in 2001, SciPy has become a de facto standard for leveraging scientific algorithms in Python, with over 600 unique code contributors, thousands of dependent packages, over 100,000 dependent repositories and millions of downloads per year. In this work, we provide an overview of the capabilities and development practices of SciPy 1.0 and highlight some recent technical developments.",
+      "pdfLink": "https://doi.org/10.1038/s41592-019-0686-2"
+    },
+    {
+      "id": "https://openalex.org/W2108795964",
+      "title": "Absorptive Capacity: A New Perspective on Learning and Innovation",
+      "authors": "Wesley M. Cohen, Daniel A. Levinthal",
+      "journal": "Administrative Science Quarterly",
+      "year": 1990,
+      "citations": 34711,
+      "doi": "https://doi.org/10.2307/2393553",
+      "publisher": "SAGE Publishing",
+      "tags": [
+        "Absorptive capacity",
+        "Perspective (graphical)",
+        "Knowledge management"
+      ],
+      "abstract": "Wesley M. Cohen, Daniel A. Levinthal, Absorptive Capacity: A New Perspective on Learning and Innovation, Administrative Science Quarterly, Vol. 35, No. 1, Special Issue: Technology, Organizations, and Innovation (Mar., 1990), pp. 128-152",
+      "pdfLink": null
+    },
+    {
+      "id": "crossref-10-62311-nesx-875595",
+      "title": "Machine Learning in Quantum Cryptography: Next-Gen Algorithms for Secure Computing",
+      "authors": "Murali Krishna Pasupuleti",
+      "journal": "Quantum Cryptography:Combining quantum computing with machine learning algorithms",
+      "year": 2024,
+      "citations": 0,
+      "doi": "https://doi.org/10.62311/nesx/875595",
+      "publisher": "National Education Services",
+      "tags": [
+        "Crossref",
+        "Peer-Reviewed",
+        "Science & Tech"
+      ],
+      "abstract": "Abstract: This chapter explores the intersection of machine learning (ML) and quantum cryptography, focusing on how next-generation algorithms are enhancing secure computing. It begins with an introduction to quantum cryptography, outlining its fundamental principles and importance in protecting data against classical and quantum attacks. The chapter then delves into the role of machine learning in cryptography, examining its applications in optimizing cryptographic protocols, detecting anomalies, and predicting vulnerabilities. The development of quantum-enhanced algorithms, particularly in Quantum Key Distribution (QKD) and quantum random number generation, is discussed, highlighting how ML is driving innovation in these areas. Practical case studies are presented to demonstrate real-world implementations, followed by an analysis of the challenges and risks associated with deploying ML-enhanced quantum cryptography, including computational complexity, security vulnerabilities, and ethical considerations. The chapter concludes with a discussion on future trends, such as quantum machine learning (QML) and the integration of AI, blockchain, and quantum cryptography, offering a vision for the future of secure computing in the quantum era. Keywords: Quantum Cryptography, Machine Learning, Quantum Key Distribution (QKD), Quantum Random Number Generation, Quantum Computing, Quantum Machine Learning (QML), Post-Quantum Cryptography, Secure Computing, AI in Cryptography, Blockchain Integration, Anomaly Detection, Cryptographic Algorithms, Adversarial Machine Learning, Data Security, Quantum Cryptographic Systems, Next-Generation Algorithms, Cybersecurity, Ethical Considerations in Cryptography, Computational Complexity.",
+      "pdfLink": "https://doi.org/10.62311/nesx/875595"
+    },
+    {
+      "id": "crossref-10-1201-9781003646068-6",
+      "title": "Quantum Leaps in Finance: Integrating Quantum Computing and Machine Learning",
+      "authors": "Kalpan Dharamshi",
+      "journal": "Quantum Machine Learning",
+      "year": 2026,
+      "citations": 0,
+      "doi": "https://doi.org/10.1201/9781003646068-6",
+      "publisher": "CRC Press",
+      "tags": [
+        "Crossref",
+        "Peer-Reviewed",
+        "Science & Tech"
+      ],
+      "abstract": "Crossref DOI registered scholarly publication.",
+      "pdfLink": "https://doi.org/10.1201/9781003646068-6"
+    },
+    {
+      "id": "crossref-10-1201-9781003646068-2",
+      "title": "Intersection of Quantum Computing and Machine Learning",
+      "authors": "Raghavendar Nellikondi",
+      "journal": "Quantum Machine Learning",
+      "year": 2026,
+      "citations": 0,
+      "doi": "https://doi.org/10.1201/9781003646068-2",
+      "publisher": "CRC Press",
+      "tags": [
+        "Crossref",
+        "Peer-Reviewed",
+        "Science & Tech"
+      ],
+      "abstract": "Crossref DOI registered scholarly publication.",
+      "pdfLink": "https://doi.org/10.1201/9781003646068-2"
+    },
+    {
+      "id": "crossref-10-1016-b978-0-12-800953-6-00004-9",
+      "title": "Quantum Computing",
+      "authors": "Peter Wittek",
+      "journal": "Quantum Machine Learning",
+      "year": 2014,
+      "citations": 95,
+      "doi": "https://doi.org/10.1016/b978-0-12-800953-6.00004-9",
+      "publisher": "Elsevier",
+      "tags": [
+        "Crossref",
+        "Peer-Reviewed",
+        "Science & Tech"
+      ],
+      "abstract": "Crossref DOI registered scholarly publication.",
+      "pdfLink": "https://doi.org/10.1016/b978-0-12-800953-6.00004-9"
+    },
+    {
+      "id": "crossref-10-1017-9781009548519-015",
+      "title": "Quantum Machine Learning",
+      "authors": "Unknown",
+      "journal": "Quantum Computing for Programmers",
+      "year": 2025,
+      "citations": 0,
+      "doi": "https://doi.org/10.1017/9781009548519.015",
+      "publisher": "Cambridge University Press",
+      "tags": [
+        "Crossref",
+        "Peer-Reviewed",
+        "Science & Tech"
+      ],
+      "abstract": "Crossref DOI registered scholarly publication.",
+      "pdfLink": "https://doi.org/10.1017/9781009548519.015"
+    },
+    {
+      "id": "crossref-10-62311-nesx-rb978-81-978755-9-5",
+      "title": "Quantum Cryptography:Combining quantum computing with machine learning algorithms",
+      "authors": "Murali Krishna Pasupuleti",
+      "journal": "Crossref Indexed Journal",
+      "year": 2024,
+      "citations": 1,
+      "doi": "https://doi.org/10.62311/nesx/rb978-81-978755-9-5",
+      "publisher": "National Education Services",
+      "tags": [
+        "Crossref",
+        "Peer-Reviewed",
+        "Science & Tech"
+      ],
+      "abstract": "Abstract:\nThis book presents a comprehensive exploration of quantum cryptography as an emergent paradigm in secure communications, enhanced through the integration of quantum computing and machine learning methodologies. Grounded in the principles of quantum mechanics—superposition, entanglement, and the no-cloning theorem—it develops a conceptual and mathematical framework for information-theoretic security resistant to both classical and quantum adversaries. The work identifies the limitations of classical cryptographic systems in the advent of large-scale quantum computation and proposes hybrid architectures that leverage machine learning for adaptive threat detection, protocol optimization, and anomaly classification in quantum key distribution (QKD) environments. Methodologically, the text synthesizes theoretical analysis, formal security proofs, and empirical evaluation using both quantum simulation platforms and experimental testbeds. Key results demonstrate that quantum–machine learning synergies can improve key generation rates, enhance noise tolerance, and accelerate real-time countermeasure deployment. The implications extend to the design of scalable, interoperable cryptographic systems compatible with emerging quantum internet infrastructures, while also addressing ethical and regulatory considerations in deployment. By combining rigorous academic analysis with practical implementation insights, this book establishes a scholarly and applied foundation for next-generation secure communication systems in the quantum era.\nKeywords\nQuantum cryptography, quantum key distribution, quantum computing, machine learning, quantum machine learning, cryptographic security, post-quantum cryptography, hybrid architectures, adaptive protocol optimization, information-theoretic security, secure communications, quantum internet, ethical implications in cryptography",
+      "pdfLink": "https://doi.org/10.62311/nesx/rb978-81-978755-9-5"
+    },
+    {
+      "id": "crossref-10-1515-9783111342276-008",
+      "title": "8 Decentralized quantum machine learning: distributed quantum computing for enhanced learning",
+      "authors": "Malik Muzamil Ishaq, Inam Ul Haq, Aya Gamal",
+      "journal": "Quantum Machine Learning",
+      "year": 2024,
+      "citations": 3,
+      "doi": "https://doi.org/10.1515/9783111342276-008",
+      "publisher": "De Gruyter",
+      "tags": [
+        "Crossref",
+        "Peer-Reviewed",
+        "Science & Tech"
+      ],
+      "abstract": "Crossref DOI registered scholarly publication.",
+      "pdfLink": "https://doi.org/10.1515/9783111342276-008"
+    },
+    {
+      "id": "crossref-10-1201-9781003637400-6",
+      "title": "Quantum Machine Learning",
+      "authors": "Iti Batra",
+      "journal": "Quantum Learning",
+      "year": 2026,
+      "citations": 0,
+      "doi": "https://doi.org/10.1201/9781003637400-6",
+      "publisher": "CRC Press",
+      "tags": [
+        "Crossref",
+        "Peer-Reviewed",
+        "Science & Tech"
+      ],
+      "abstract": "Crossref DOI registered scholarly publication.",
+      "pdfLink": "https://doi.org/10.1201/9781003637400-6"
+    },
+    {
+      "id": "crossref-10-1016-b978-0-12-800953-6-00014-1",
+      "title": "Boosting and Adiabatic Quantum Computing",
+      "authors": "Peter Wittek",
+      "journal": "Quantum Machine Learning",
+      "year": 2014,
+      "citations": 1,
+      "doi": "https://doi.org/10.1016/b978-0-12-800953-6.00014-1",
+      "publisher": "Elsevier",
+      "tags": [
+        "Crossref",
+        "Peer-Reviewed",
+        "Science & Tech"
+      ],
+      "abstract": "Crossref DOI registered scholarly publication.",
+      "pdfLink": "https://doi.org/10.1016/b978-0-12-800953-6.00014-1"
+    },
+    {
+      "id": "crossref-10-1016-b978-0-12-800953-6-00010-4",
+      "title": "Clustering Structure and Quantum Computing",
+      "authors": "Peter Wittek",
+      "journal": "Quantum Machine Learning",
+      "year": 2014,
+      "citations": 4,
+      "doi": "https://doi.org/10.1016/b978-0-12-800953-6.00010-4",
+      "publisher": "Elsevier",
+      "tags": [
+        "Crossref",
+        "Peer-Reviewed",
+        "Science & Tech"
+      ],
+      "abstract": "Crossref DOI registered scholarly publication.",
+      "pdfLink": "https://doi.org/10.1016/b978-0-12-800953-6.00010-4"
+    },
+    {
+      "id": "crossref-10-1016-b978-0-443-34193-9-00012-0",
+      "title": "The convergence of quantum computing and machine learning",
+      "authors": "Tiffany Khou, Christopher Stuetzle",
+      "journal": "Quantum Computing in Medicine",
+      "year": 2026,
+      "citations": 0,
+      "doi": "https://doi.org/10.1016/b978-0-443-34193-9.00012-0",
+      "publisher": "Elsevier",
+      "tags": [
+        "Crossref",
+        "Peer-Reviewed",
+        "Science & Tech"
+      ],
+      "abstract": "Crossref DOI registered scholarly publication.",
+      "pdfLink": "https://doi.org/10.1016/b978-0-443-34193-9.00012-0"
+    },
+    {
+      "id": "crossref-10-1016-b978-0-12-821982-9-00007-1",
+      "title": "Quantum Machine Learning",
+      "authors": "Ivan B. Djordjevic",
+      "journal": "Quantum Information Processing, Quantum Computing, and Quantum Error Correction",
+      "year": 2021,
+      "citations": 1,
+      "doi": "https://doi.org/10.1016/b978-0-12-821982-9.00007-1",
+      "publisher": "Elsevier",
+      "tags": [
+        "Crossref",
+        "Peer-Reviewed",
+        "Science & Tech"
+      ],
+      "abstract": "Crossref DOI registered scholarly publication.",
+      "pdfLink": "https://doi.org/10.1016/b978-0-12-821982-9.00007-1"
+    },
+    {
+      "id": "crossref-10-1063-12-0025020",
+      "title": "Preface: International Workshop on Machine Learning and Quantum Computing Applications in Medicine and Physics",
+      "authors": "Unknown",
+      "journal": "AIP Conference Proceedings",
+      "year": 2024,
+      "citations": 0,
+      "doi": "https://doi.org/10.1063/12.0025020",
+      "publisher": "AIP Publishing",
+      "tags": [
+        "Crossref",
+        "Peer-Reviewed",
+        "Science & Tech"
+      ],
+      "abstract": "Crossref DOI registered scholarly publication.",
+      "pdfLink": "https://doi.org/10.1063/12.0025020"
+    },
+    {
+      "id": "crossref-10-1007-978-981-19-6897-6-3",
+      "title": "Basics of Quantum Computing",
+      "authors": "Davide Pastorello",
+      "journal": "Machine Learning: Foundations, Methodologies, and Applications",
+      "year": 2023,
+      "citations": 0,
+      "doi": "https://doi.org/10.1007/978-981-19-6897-6_3",
+      "publisher": "Springer Nature Singapore",
+      "tags": [
+        "Crossref",
+        "Peer-Reviewed",
+        "Science & Tech"
+      ],
+      "abstract": "Crossref DOI registered scholarly publication.",
+      "pdfLink": "https://doi.org/10.1007/978-981-19-6897-6_3"
+    },
+    {
+      "id": "crossref-10-20944-preprints202103-0583-v1",
+      "title": "Quantum Computing Aided Machine Learning Through Quantum State Fidelity",
+      "authors": "Samuel A. Stein",
+      "journal": "Crossref Indexed Journal",
+      "year": 2021,
+      "citations": 3,
+      "doi": "https://doi.org/10.20944/preprints202103.0583.v1",
+      "publisher": "MDPI AG",
+      "tags": [
+        "Crossref",
+        "Peer-Reviewed",
+        "Science & Tech"
+      ],
+      "abstract": "Tremendous progress has been witnessed in artificial intelligence within the domain of neural network backed deep learning systems and its applications. As we approach the post Moore&amp;rsquo;s Law era, the limit of semiconductor fabrication technology along with a rapid increase in data generation rates have lead to an impending growing challenge of tackling newer and more modern machine learning problems. In parallel, quantum computing has exhibited rapid development in recent years. Due to the potential of a quantum speedup, quantum based learning applications have become an area of significant interest, in hopes that we can leverage quantum systems to solve classical problems. In this work, we propose a quantum deep learning architecture; we demonstrate our quantum neural network architecture on tasks ranging from binary and multi-class classification to generative modelling. Powered by a modified quantum differentiation function along with a hybrid quantum-classic design, our architecture encodes the data with a reduced number of qubits and generates a quantum circuit, loading it onto a quantum platform where the model learns the optimal states iteratively. We conduct intensive experiments on both the local computing environment and IBM-Q quantum platform. The evaluation results demonstrate that our architecture is able to outperform Tensorflow-Quantum by up to 12.51% and 11.71% for a comparable classic deep neural network on the task of classification trained with the same network settings. Furthermore, our GAN architecture runs the discriminator and the generator purely on quantum hardware and utilizes the swap test on qubits to calculate the values of loss functions. In comparing our quantum GAN, we note our architecture is able to achieve similar performance with 98.5% reduction on the parameter set when compared to classical GANs. With the same number of parameters, additionally, QuGAN outperforms other quantum based GANs in the literature for up to 125.0% in terms of similarity between generated distributions and original data sets.",
+      "pdfLink": "https://doi.org/10.20944/preprints202103.0583.v1"
+    },
+    {
+      "id": "crossref-10-1515-9783110791402-004",
+      "title": "Chapter 4 Machine learning and deep learning",
+      "authors": "Sourabh Sharma, Poonam Chaudhary",
+      "journal": "Quantum Computing and Artificial Intelligence",
+      "year": 2023,
+      "citations": 18,
+      "doi": "https://doi.org/10.1515/9783110791402-004",
+      "publisher": "De Gruyter",
+      "tags": [
+        "Crossref",
+        "Peer-Reviewed",
+        "Science & Tech"
+      ],
+      "abstract": "Crossref DOI registered scholarly publication.",
+      "pdfLink": "https://doi.org/10.1515/9783110791402-004"
+    },
+    {
+      "id": "crossref-10-62311-nesx-rrv125",
+      "title": "Quantum-Enhanced Machine Learning: Harnessing Quantum Computing for Next-Generation AI Systems",
+      "authors": "Murali Krishna Pasupuleti",
+      "journal": "Crossref Indexed Journal",
+      "year": 2025,
+      "citations": 0,
+      "doi": "https://doi.org/10.62311/nesx/rrv125",
+      "publisher": "National Education Services",
+      "tags": [
+        "Crossref",
+        "Peer-Reviewed",
+        "Science & Tech"
+      ],
+      "abstract": "Abstract\nQuantum-enhanced machine learning (QML) represents a paradigm shift in artificial intelligence by integrating quantum computing principles to solve complex computational problems more efficiently than classical methods. By leveraging quantum superposition, entanglement, and parallelism, QML has the potential to accelerate deep learning training, optimize combinatorial problems, and enhance feature selection in high-dimensional spaces. This research explores foundational quantum computing concepts relevant to AI, including quantum circuits, variational quantum algorithms, and quantum kernel methods, while analyzing their impact on neural networks, generative models, and reinforcement learning. Hybrid quantum-classical AI architectures, which combine quantum subroutines with classical deep learning models, are examined for their ability to provide computational advantages in optimization and large-scale data processing. Despite the promise of quantum AI, challenges such as qubit noise, error correction, and hardware scalability remain barriers to full-scale implementation. This study provides an in-depth evaluation of quantum-enhanced AI, highlighting existing applications, ongoing research, and future directions in quantum deep learning, autonomous systems, and scientific computing. The findings contribute to the development of scalable quantum machine learning frameworks, offering novel solutions for next-generation AI systems across finance, healthcare, cybersecurity, and robotics.\nKeywords\nQuantum machine learning, quantum computing, artificial intelligence, quantum neural networks, quantum kernel methods, hybrid quantum-classical AI, variational quantum algorithms, quantum generative models, reinforcement learning, quantum optimization, quantum advantage, deep learning, quantum circuits, quantum-enhanced AI, quantum deep learning, error correction, quantum-inspired algorithms, quantum annealing, probabilistic computing.",
+      "pdfLink": "https://doi.org/10.62311/nesx/rrv125"
+    },
+    {
+      "id": "crossref-10-1007-978-1-4842-9801-5-9",
+      "title": "Quantum Computers, Computing, and Machine Learning: A Review",
+      "authors": "Patanjali Kashyap",
+      "journal": "Machine Learning for Decision Makers",
+      "year": 2023,
+      "citations": 0,
+      "doi": "https://doi.org/10.1007/978-1-4842-9801-5_9",
+      "publisher": "Apress",
+      "tags": [
+        "Crossref",
+        "Peer-Reviewed",
+        "Science & Tech"
+      ],
+      "abstract": "Crossref DOI registered scholarly publication.",
+      "pdfLink": "https://doi.org/10.1007/978-1-4842-9801-5_9"
+    },
+    {
+      "id": "crossref-10-1007-978-3-032-03325-3-38",
+      "title": "Quantum Machine Learning",
+      "authors": "Osama M. Raisuddin, Suvranu De",
+      "journal": "Quantum Computing for Engineers",
+      "year": 2025,
+      "citations": 0,
+      "doi": "https://doi.org/10.1007/978-3-032-03325-3_38",
+      "publisher": "Springer Nature Switzerland",
+      "tags": [
+        "Crossref",
+        "Peer-Reviewed",
+        "Science & Tech"
+      ],
+      "abstract": "Crossref DOI registered scholarly publication.",
+      "pdfLink": "https://doi.org/10.1007/978-3-032-03325-3_38"
+    },
+    {
+      "id": "crossref-10-1007-978-3-031-66342-0-15",
+      "title": "Geometric Quantum Computing",
+      "authors": "Eduardo Bayro-Corrochano",
+      "journal": "Geometric Algebra Applications Vol. III",
+      "year": 2024,
+      "citations": 0,
+      "doi": "https://doi.org/10.1007/978-3-031-66342-0_15",
+      "publisher": "Springer International Publishing",
+      "tags": [
+        "Crossref",
+        "Peer-Reviewed",
+        "Science & Tech"
+      ],
+      "abstract": "Crossref DOI registered scholarly publication.",
+      "pdfLink": "https://doi.org/10.1007/978-3-031-66342-0_15"
+    },
+    {
+      "id": "crossref-10-1016-b978-0-443-29096-1-00004-0",
+      "title": "Quantum machine learning: current trends and applications",
+      "authors": "Sumitha Valsalam, Tony Thomas",
+      "journal": "Quantum Computing",
+      "year": 2025,
+      "citations": 1,
+      "doi": "https://doi.org/10.1016/b978-0-443-29096-1.00004-0",
+      "publisher": "Elsevier",
+      "tags": [
+        "Crossref",
+        "Peer-Reviewed",
+        "Science & Tech"
+      ],
+      "abstract": "Crossref DOI registered scholarly publication.",
+      "pdfLink": "https://doi.org/10.1016/b978-0-443-29096-1.00004-0"
+    },
+    {
+      "id": "crossref-10-1002-9781394238118-ch3",
+      "title": "Introduction to Quantum Computing",
+      "authors": "Shilpa Mehta, Celestine Iwendi",
+      "journal": "Quantum Computing and Machine Learning for 6G",
+      "year": 2026,
+      "citations": 0,
+      "doi": "https://doi.org/10.1002/9781394238118.ch3",
+      "publisher": "Wiley",
+      "tags": [
+        "Crossref",
+        "Peer-Reviewed",
+        "Science & Tech"
+      ],
+      "abstract": "Crossref DOI registered scholarly publication.",
+      "pdfLink": "https://doi.org/10.1002/9781394238118.ch3"
+    },
+    {
+      "id": "crossref-10-1142-9789819830237-0019",
+      "title": "Quantum Reservoir Computing",
+      "authors": "Unknown",
+      "journal": "Reservoir Computing",
+      "year": 2026,
+      "citations": 0,
+      "doi": "https://doi.org/10.1142/9789819830237_0019",
+      "publisher": "WORLD SCIENTIFIC",
+      "tags": [
+        "Crossref",
+        "Peer-Reviewed",
+        "Science & Tech"
+      ],
+      "abstract": "Crossref DOI registered scholarly publication.",
+      "pdfLink": "https://doi.org/10.1142/9789819830237_0019"
+    },
+    {
+      "id": "crossref-10-1002-9781394220649-ch5",
+      "title": "Machine Learning Algorithms in Quantum Computing",
+      "authors": "Unknown",
+      "journal": "Machine Learning Theory and Applications",
+      "year": 2024,
+      "citations": 0,
+      "doi": "https://doi.org/10.1002/9781394220649.ch5",
+      "publisher": "Wiley",
+      "tags": [
+        "Crossref",
+        "Peer-Reviewed",
+        "Science & Tech"
+      ],
+      "abstract": "Crossref DOI registered scholarly publication.",
+      "pdfLink": "https://doi.org/10.1002/9781394220649.ch5"
+    },
+    {
+      "id": "dblp-2832808",
+      "title": "Shallow Neural Networks beat Deep Neural Networks trained with transfer learning: A Use Case based on training Neural Networks to identify Covid-19 in chest X-ray images",
+      "authors": "Dimitrios Manolakis, Georgios Spanos, Ioannis Refanidis",
+      "journal": "PCI",
+      "year": 2021,
+      "citations": 62,
+      "doi": "https://doi.org/10.1145/3503823.3503834",
+      "publisher": "DBLP",
+      "tags": [
+        "Computer Science",
+        "DBLP",
+        "Algorithms"
+      ],
+      "abstract": "Peer-reviewed publication in PCI. Key topics: computer science, software algorithms, and artificial intelligence.",
+      "pdfLink": null
+    },
+    {
+      "id": "dblp-4494501",
+      "title": "Interstitial Lung Diseases via Deep Convolutional Neural Networks: Segmentation Label Propagation, Unordered Pooling and Cross-Dataset Learning",
+      "authors": "Mingchen Gao, Ziyue Xu 0001, Daniel J. Mollura",
+      "journal": "Deep Learning and Convolutional Neural Networks for Medical Image Computing",
+      "year": 2017,
+      "citations": 96,
+      "doi": "https://doi.org/10.1007/978-3-319-42999-1_7",
+      "publisher": "DBLP",
+      "tags": [
+        "Computer Science",
+        "DBLP",
+        "Algorithms"
+      ],
+      "abstract": "Peer-reviewed publication in Deep Learning and Convolutional Neural Networks for Medical Image Computing. Key topics: computer science, software algorithms, and artificial intelligence.",
+      "pdfLink": null
+    },
+    {
+      "id": "dblp-4497787",
+      "title": "Deep Learning and Convolutional Neural Networks for Medical Image Computing - Precision Medicine, High Performance and Large-Scale Datasets",
+      "authors": "Le Lu 0001, Yefeng Zheng 0001, Gustavo Carneiro 0001, Lin Yang 0002",
+      "journal": [
+        "Deep Learning and Convolutional Neural Networks for Medical Image Computing",
+        "Advances in Computer Vision and Pattern Recognition"
+      ],
+      "year": 2017,
+      "citations": 84,
+      "doi": "https://doi.org/10.1007/978-3-319-42999-1",
+      "publisher": "DBLP",
+      "tags": [
+        "Computer Science",
+        "DBLP",
+        "Algorithms"
+      ],
+      "abstract": "Peer-reviewed publication in Deep Learning and Convolutional Neural Networks for Medical Image Computing,Advances in Computer Vision and Pattern Recognition. Key topics: computer science, software algorithms, and artificial intelligence.",
+      "pdfLink": null
+    },
+    {
+      "id": "dblp-4533728",
+      "title": "Deep Learning Neural Networks - Design and Case Studies",
+      "authors": "Daniel Graupe",
+      "journal": "Deep Learning Neural Networks",
+      "year": 2016,
+      "citations": 46,
+      "doi": "https://doi.org/10.1142/10190",
+      "publisher": "DBLP",
+      "tags": [
+        "Computer Science",
+        "DBLP",
+        "Algorithms"
+      ],
+      "abstract": "Peer-reviewed publication in Deep Learning Neural Networks. Key topics: computer science, software algorithms, and artificial intelligence.",
+      "pdfLink": null
+    },
+    {
+      "id": "dblp-1097379",
+      "title": "Challenges and Opportunities in Deep Reinforcement Learning With Graph Neural Networks: A Comprehensive Review of Algorithms and Applications",
+      "authors": "Sai Munikoti, Deepesh Agarwal, Laya Das, Mahantesh Halappanavar, Balasubramaniam Natarajan",
+      "journal": "IEEE Trans. Neural Networks Learn. Syst.",
+      "year": 2024,
+      "citations": 93,
+      "doi": "https://doi.org/10.1109/TNNLS.2023.3283523",
+      "publisher": "DBLP",
+      "tags": [
+        "Computer Science",
+        "DBLP",
+        "Algorithms"
+      ],
+      "abstract": "Peer-reviewed publication in IEEE Trans. Neural Networks Learn. Syst.. Key topics: computer science, software algorithms, and artificial intelligence.",
+      "pdfLink": null
+    },
+    {
+      "id": "dblp-1469080",
+      "title": "A Survey on Attacks and Their Countermeasures in Deep Learning: Applications in Deep Neural Networks, Federated, Transfer, and Deep Reinforcement Learning",
+      "authors": "Haider Ali, Dian Chen 0007, Matthew Harrington, Nathaniel Salazar, Mohannad Al Ameedi, Ahmad Faraz Khan 0001, Ali Raza Butt, Jin-Hee Cho",
+      "journal": "IEEE Access",
+      "year": 2023,
+      "citations": 90,
+      "doi": "https://doi.org/10.1109/ACCESS.2023.3326410",
+      "publisher": "DBLP",
+      "tags": [
+        "Computer Science",
+        "DBLP",
+        "Algorithms"
+      ],
+      "abstract": "Peer-reviewed publication in IEEE Access. Key topics: computer science, software algorithms, and artificial intelligence.",
+      "pdfLink": null
+    },
+    {
+      "id": "dblp-1597867",
+      "title": "A wholistic view of continual learning with deep neural networks: Forgotten lessons and the bridge to active and open world learning",
+      "authors": "Martin Mundt, Yongwon Hong, Iuliia Pliushch, Visvanathan Ramesh",
+      "journal": "Neural Networks",
+      "year": 2023,
+      "citations": 24,
+      "doi": "https://doi.org/10.1016/j.neunet.2023.01.014",
+      "publisher": "DBLP",
+      "tags": [
+        "Computer Science",
+        "DBLP",
+        "Algorithms"
+      ],
+      "abstract": "Peer-reviewed publication in Neural Networks. Key topics: computer science, software algorithms, and artificial intelligence.",
+      "pdfLink": null
+    },
+    {
+      "id": "dblp-1678731",
+      "title": "Bio-inspired deep residual neural network learning model for QoS routing enhancement in mobile ad-hoc networks",
+      "authors": "S. Tamizharasi, Arunadevi Baladhandapani, S. N. Deepa 0001",
+      "journal": "Wirel. Networks",
+      "year": 2023,
+      "citations": 27,
+      "doi": "https://doi.org/10.1007/s11276-023-03424-3",
+      "publisher": "DBLP",
+      "tags": [
+        "Computer Science",
+        "DBLP",
+        "Algorithms"
+      ],
+      "abstract": "Peer-reviewed publication in Wirel. Networks. Key topics: computer science, software algorithms, and artificial intelligence.",
+      "pdfLink": null
+    },
+    {
+      "id": "dblp-2612473",
+      "title": "Biologically motivated learning method for deep neural networks using hierarchical competitive learning",
+      "authors": "Takashi Shinozaki",
+      "journal": "Neural Networks",
+      "year": 2021,
+      "citations": 83,
+      "doi": "https://doi.org/10.1016/j.neunet.2021.08.027",
+      "publisher": "DBLP",
+      "tags": [
+        "Computer Science",
+        "DBLP",
+        "Algorithms"
+      ],
+      "abstract": "Peer-reviewed publication in Neural Networks. Key topics: computer science, software algorithms, and artificial intelligence.",
+      "pdfLink": null
+    },
+    {
+      "id": "dblp-2672495",
+      "title": "When Dictionary Learning Meets Deep Learning: Deep Dictionary Learning and Coding Network for Image Recognition With Limited Data",
+      "authors": "Hao Tang 0005, Hong Liu 0008, Wei Xiao 0002, Nicu Sebe",
+      "journal": "IEEE Trans. Neural Networks Learn. Syst.",
+      "year": 2021,
+      "citations": 21,
+      "doi": "https://doi.org/10.1109/TNNLS.2020.2997289",
+      "publisher": "DBLP",
+      "tags": [
+        "Computer Science",
+        "DBLP",
+        "Algorithms"
+      ],
+      "abstract": "Peer-reviewed publication in IEEE Trans. Neural Networks Learn. Syst.. Key topics: computer science, software algorithms, and artificial intelligence.",
+      "pdfLink": null
+    },
+    {
+      "id": "dblp-3074950",
+      "title": "Deep learning and deep knowledge representation in Spiking Neural Networks for Brain-Computer Interfaces",
+      "authors": "Kaushalya Kumarasinghe, Nikola K. Kasabov, Denise Taylor",
+      "journal": "Neural Networks",
+      "year": 2020,
+      "citations": 87,
+      "doi": "https://doi.org/10.1016/j.neunet.2019.08.029",
+      "publisher": "DBLP",
+      "tags": [
+        "Computer Science",
+        "DBLP",
+        "Algorithms"
+      ],
+      "abstract": "Peer-reviewed publication in Neural Networks. Key topics: computer science, software algorithms, and artificial intelligence.",
+      "pdfLink": null
+    },
+    {
+      "id": "dblp-3507496",
+      "title": "Concept learning through deep reinforcement learning with memory-augmented neural networks",
+      "authors": "Jing Shi 0003, Jiaming Xu 0001, Yiqun Yao, Bo Xu 0002",
+      "journal": "Neural Networks",
+      "year": 2019,
+      "citations": 41,
+      "doi": "https://doi.org/10.1016/j.neunet.2018.10.018",
+      "publisher": "DBLP",
+      "tags": [
+        "Computer Science",
+        "DBLP",
+        "Algorithms"
+      ],
+      "abstract": "Peer-reviewed publication in Neural Networks. Key topics: computer science, software algorithms, and artificial intelligence.",
+      "pdfLink": null
+    },
+    {
+      "id": "dblp-3748728",
+      "title": "Deep Spatial-Temporal Convolutional Neural Networks for Medical Image Restoration",
+      "authors": "Yao Xiao, Skylar E. Stolte, Peng Liu 0037, Yun Liang 0012, Pina C. Sanelli, Ajay Gupta, Jana Ivanidze, Ruogu Fang",
+      "journal": "Deep Learning and Convolutional Neural Networks for Medical Imaging and Clinical Informatics",
+      "year": 2019,
+      "citations": 45,
+      "doi": "https://doi.org/10.1007/978-3-030-13969-8_13",
+      "publisher": "DBLP",
+      "tags": [
+        "Computer Science",
+        "DBLP",
+        "Algorithms"
+      ],
+      "abstract": "Peer-reviewed publication in Deep Learning and Convolutional Neural Networks for Medical Imaging and Clinical Informatics. Key topics: computer science, software algorithms, and artificial intelligence.",
+      "pdfLink": null
+    },
+    {
+      "id": "dblp-3750771",
+      "title": "Artificial Neural Networks and Machine Learning - ICANN 2019: Deep Learning - 28th International Conference on Artificial Neural Networks, Munich, Germany, September 17-19, 2019, Proceedings, Part II",
+      "authors": "Igor V. Tetko, Vera Kurková, Pavel Karpov, Fabian J. Theis",
+      "journal": [
+        "ICANN",
+        "Lecture Notes in Computer Science"
+      ],
+      "year": 2019,
+      "citations": 38,
+      "doi": "https://doi.org/10.1007/978-3-030-30484-3",
+      "publisher": "DBLP",
+      "tags": [
+        "Computer Science",
+        "DBLP",
+        "Algorithms"
+      ],
+      "abstract": "Peer-reviewed publication in ICANN,Lecture Notes in Computer Science. Key topics: computer science, software algorithms, and artificial intelligence.",
+      "pdfLink": null
+    },
+    {
+      "id": "dblp-3952902",
+      "title": "DeepX: Deep Learning Accelerator for Restricted Boltzmann Machine Artificial Neural Networks",
+      "authors": "Lok-Won Kim",
+      "journal": "IEEE Trans. Neural Networks Learn. Syst.",
+      "year": 2018,
+      "citations": 86,
+      "doi": "https://doi.org/10.1109/TNNLS.2017.2665555",
+      "publisher": "DBLP",
+      "tags": [
+        "Computer Science",
+        "DBLP",
+        "Algorithms"
+      ],
+      "abstract": "Peer-reviewed publication in IEEE Trans. Neural Networks Learn. Syst.. Key topics: computer science, software algorithms, and artificial intelligence.",
+      "pdfLink": null
+    },
+    {
+      "id": "dblp-4448321",
+      "title": "Computer vision approaches based on deep learning and neural networks: Deep neural networks for video analysis of human pose estimation",
+      "authors": "Eralda Nishani, Betim Cico",
+      "journal": "MECO",
+      "year": 2017,
+      "citations": 74,
+      "doi": "https://doi.org/10.1109/MECO.2017.7977207",
+      "publisher": "DBLP",
+      "tags": [
+        "Computer Science",
+        "DBLP",
+        "Algorithms"
+      ],
+      "abstract": "Peer-reviewed publication in MECO. Key topics: computer science, software algorithms, and artificial intelligence.",
+      "pdfLink": null
+    },
+    {
+      "id": "dblp-5262381",
+      "title": "Learning Deep and Wide: A Spectral Method for Learning Deep Networks",
+      "authors": "Ling Shao 0001, Di Wu 0009, Xuelong Li 0001",
+      "journal": "IEEE Trans. Neural Networks Learn. Syst.",
+      "year": 2014,
+      "citations": 84,
+      "doi": "https://doi.org/10.1109/TNNLS.2014.2308519",
+      "publisher": "DBLP",
+      "tags": [
+        "Computer Science",
+        "DBLP",
+        "Algorithms"
+      ],
+      "abstract": "Peer-reviewed publication in IEEE Trans. Neural Networks Learn. Syst.. Key topics: computer science, software algorithms, and artificial intelligence.",
+      "pdfLink": null
+    },
+    {
+      "id": "dblp-38919",
+      "title": "Efficient surrogate-based optimization framework integrating physics-informed neural networks, deep active learning and deep reinforcement learning: Multilayer thin films case study",
+      "authors": "Jinglai Zheng, Jie Huang, Andi Lin, Fan Li, Haiming Huang",
+      "journal": "Eng. Appl. Artif. Intell.",
+      "year": 2026,
+      "citations": 72,
+      "doi": "https://doi.org/10.1016/j.engappai.2025.113609",
+      "publisher": "DBLP",
+      "tags": [
+        "Computer Science",
+        "DBLP",
+        "Algorithms"
+      ],
+      "abstract": "Peer-reviewed publication in Eng. Appl. Artif. Intell.. Key topics: computer science, software algorithms, and artificial intelligence.",
+      "pdfLink": null
+    },
+    {
+      "id": "dblp-87684",
+      "title": "Novel deep learning solutions with layered recurrent neural networks for nonlinear stiff Dahl hysteresis model in piezoelectric actuator",
+      "authors": "Aneela Kausar, Chuan-Yu Chang, Sidra Naz, Rooh Ullah Khan, Chung-Chian Hsu, Muhammad Safiullah, Saeeda Naz, Muhammad Asif Zahoor Raja",
+      "journal": "Neural Networks",
+      "year": 2026,
+      "citations": 21,
+      "doi": "https://doi.org/10.1016/j.neunet.2025.108378",
+      "publisher": "DBLP",
+      "tags": [
+        "Computer Science",
+        "DBLP",
+        "Algorithms"
+      ],
+      "abstract": "Peer-reviewed publication in Neural Networks. Key topics: computer science, software algorithms, and artificial intelligence.",
+      "pdfLink": null
+    },
+    {
+      "id": "dblp-88099",
+      "title": "A hierarchical and privacy-preserving intrusion detection framework for SAGIN-enabled IIot using graph neural networks and deep Q-learning",
+      "authors": "Mueen Uddin, Sonia Khan, Fuhid Alanazi, Maha M. Althobaiti, Meshari Huwaytim Alanazi, Mohammad N. Alanazi",
+      "journal": "Neural Networks",
+      "year": 2026,
+      "citations": 46,
+      "doi": "https://doi.org/10.1016/j.neunet.2026.108876",
+      "publisher": "DBLP",
+      "tags": [
+        "Computer Science",
+        "DBLP",
+        "Algorithms"
+      ],
+      "abstract": "Peer-reviewed publication in Neural Networks. Key topics: computer science, software algorithms, and artificial intelligence.",
+      "pdfLink": null
+    },
+    {
+      "id": "dblp-104379",
+      "title": "Low-Rank Tensor Decompositions for the Theory of Neural Networks: Understanding deep learning through the lens of tensor formats [Special Issue on the Mathematics of Deep Learning]",
+      "authors": "Ricardo Augusto Borsoi, Konstantin Usevich, Marianne Clausel",
+      "journal": "IEEE Signal Process. Mag.",
+      "year": 2026,
+      "citations": 27,
+      "doi": "https://doi.org/10.1109/MSP.2025.3646570",
+      "publisher": "DBLP",
+      "tags": [
+        "Computer Science",
+        "DBLP",
+        "Algorithms"
+      ],
+      "abstract": "Peer-reviewed publication in IEEE Signal Process. Mag.. Key topics: computer science, software algorithms, and artificial intelligence.",
+      "pdfLink": null
+    },
+    {
+      "id": "dblp-432491",
+      "title": "BotMHG: a hybrid deep learning-based graphical approach to detect botnets using graph neural networks and graph attention networks on topological and temporal features",
+      "authors": "Mohan Honnagudi Gururaj, Jalesh Kumar",
+      "journal": "Neural Comput. Appl.",
+      "year": 2025,
+      "citations": 91,
+      "doi": "https://doi.org/10.1007/s00521-025-11402-3",
+      "publisher": "DBLP",
+      "tags": [
+        "Computer Science",
+        "DBLP",
+        "Algorithms"
+      ],
+      "abstract": "Peer-reviewed publication in Neural Comput. Appl.. Key topics: computer science, software algorithms, and artificial intelligence.",
+      "pdfLink": null
+    },
+    {
+      "id": "dblp-435585",
+      "title": "Near-optimal learning of Banach-valued, high-dimensional functions via deep neural networks",
+      "authors": "Ben Adcock, Simone Brugiapaglia, Nick C. Dexter, Sebastian Moraga",
+      "journal": "Neural Networks",
+      "year": 2025,
+      "citations": 89,
+      "doi": "https://doi.org/10.1016/j.neunet.2024.106761",
+      "publisher": "DBLP",
+      "tags": [
+        "Computer Science",
+        "DBLP",
+        "Algorithms"
+      ],
+      "abstract": "Peer-reviewed publication in Neural Networks. Key topics: computer science, software algorithms, and artificial intelligence.",
+      "pdfLink": null
+    },
+    {
+      "id": "dblp-505563",
+      "title": "Advancing Spiking Neural Networks Toward Deep Residual Learning",
+      "authors": "Yifan Hu 0013, Lei Deng 0003, Yujie Wu 0002, Man Yao, Guoqi Li 0002",
+      "journal": "IEEE Trans. Neural Networks Learn. Syst.",
+      "year": 2025,
+      "citations": 59,
+      "doi": "https://doi.org/10.1109/TNNLS.2024.3355393",
+      "publisher": "DBLP",
+      "tags": [
+        "Computer Science",
+        "DBLP",
+        "Algorithms"
+      ],
+      "abstract": "Peer-reviewed publication in IEEE Trans. Neural Networks Learn. Syst.. Key topics: computer science, software algorithms, and artificial intelligence.",
+      "pdfLink": null
+    },
+    {
+      "id": "dblp-511793",
+      "title": "DeepTrace: Learning to Optimize Contact Tracing in Epidemic Networks With Graph Neural Networks",
+      "authors": "Chee-Wei Tan 0001, Pei-Duo Yu, Siya Chen, H. Vincent Poor",
+      "journal": "IEEE Trans. Signal Inf. Process. over Networks",
+      "year": 2025,
+      "citations": 22,
+      "doi": "https://doi.org/10.1109/TSIPN.2025.3530346",
+      "publisher": "DBLP",
+      "tags": [
+        "Computer Science",
+        "DBLP",
+        "Algorithms"
+      ],
+      "abstract": "Peer-reviewed publication in IEEE Trans. Signal Inf. Process. over Networks. Key topics: computer science, software algorithms, and artificial intelligence.",
+      "pdfLink": null
     }
   ],
   "patents": [
@@ -9977,6 +10966,431 @@
         "Large Language Models for dynamic code synthesis.",
         "Neural Processing Units (NPUs) for local edge inference."
       ]
+    },
+    {
+      "id": "MX2012000128",
+      "patentId": "MX2012000128",
+      "title": "BENZOIC ACID, BENZOIC ACID DERIVATIVES AND HETEROARYL CARBOXYLIC ACID CONJUGATES OF HYDROCODONE, PRODRUGS, METHODS OF MAKING AND USE THEREOF.",
+      "inventor": "MICKLE TRAVIS, GUENTHER SVEN, MICKLE CHRISTAL, KANSKI JAROSLAW, MARTIN ANDREA K, BERA BINDU, CHI GOUCHEN.",
+      "assignee": "Individual / Organization",
+      "filedYear": 2012,
+      "expiryYear": 2032,
+      "status": "Active",
+      "classifications": [
+        "General Tech"
+      ],
+      "claims": [
+        "See full patent text on European Patent Office."
+      ],
+      "description": "No abstract provided."
+    },
+    {
+      "id": "US2012070535",
+      "patentId": "US2012070535",
+      "title": "APPLICATION OF FLUID BED TECHNOLOGY IN BREWING",
+      "inventor": "KAMIL GERHARD.",
+      "assignee": "Individual / Organization",
+      "filedYear": 2012,
+      "expiryYear": 2032,
+      "status": "Active",
+      "classifications": [
+        "General Tech"
+      ],
+      "claims": [
+        "See full patent text on European Patent Office."
+      ],
+      "description": "No abstract provided."
+    },
+    {
+      "id": "CN202164835U",
+      "patentId": "CN202164835U",
+      "title": "BRT (Bus Rapid Transit) intelligent bus shelter",
+      "inventor": "SHUGANG HE, SHENGRUI ZHANG, ZHIJIE LIANG.",
+      "assignee": "Individual / Organization",
+      "filedYear": 2012,
+      "expiryYear": 2032,
+      "status": "Active",
+      "classifications": [
+        "General Tech"
+      ],
+      "claims": [
+        "See full patent text on European Patent Office."
+      ],
+      "description": "No abstract provided."
+    },
+    {
+      "id": "WO2012031562",
+      "patentId": "WO2012031562",
+      "title": "VIRTUAL NAVIGATION ASSISTED BIOPSY MODEL FOR TUMOR TISSUE UNABLE TO BE DISPLAYED BY ULTRASONOGRAPHY",
+      "inventor": "LI KAI, ZHENG RONGQIN, ZHANG AOHUA, HE XUQI, YUAN SHUFANG.",
+      "assignee": "Individual / Organization",
+      "filedYear": 2012,
+      "expiryYear": 2032,
+      "status": "Active",
+      "classifications": [
+        "General Tech"
+      ],
+      "claims": [
+        "See full patent text on European Patent Office."
+      ],
+      "description": "No abstract provided."
+    },
+    {
+      "id": "EP2444800",
+      "patentId": "EP2444800",
+      "title": "A direct solid sample analytical technology for determining a content and a uniformity thereof in a lyophilized kit of a sulfur-containing chelator with a stable complex capacity for radiotechnetium (Tc-99m) and radiorhenium (Re-186, Re-188)",
+      "inventor": "LIU KUNG-TIEN, CHAO MING-YU, HSIA YI-CHIH, YEH SHIH-WOEI, LIAO MEI-HSIU, MEN LEE-CHUNG, SHEN LIE-HANG.",
+      "assignee": "Individual / Organization",
+      "filedYear": 2012,
+      "expiryYear": 2032,
+      "status": "Active",
+      "classifications": [
+        "General Tech"
+      ],
+      "claims": [
+        "See full patent text on European Patent Office."
+      ],
+      "description": "No abstract provided."
+    },
+    {
+      "id": "US2011313348",
+      "patentId": "US2011313348",
+      "title": "NOVEL DRUG DELIVERY TECHNOLOGY",
+      "inventor": "POTTER DAVID STUART, POTTER CHARLES DAVID OGILVY.",
+      "assignee": "Individual / Organization",
+      "filedYear": 2011,
+      "expiryYear": 2031,
+      "status": "Active",
+      "classifications": [
+        "General Tech"
+      ],
+      "claims": [
+        "See full patent text on European Patent Office."
+      ],
+      "description": "No abstract provided."
+    },
+    {
+      "id": "US2011190530",
+      "patentId": "US2011190530",
+      "title": "Polycationic Viscoelastic Compositions",
+      "inventor": "KNOX PAUL.",
+      "assignee": "Individual / Organization",
+      "filedYear": 2011,
+      "expiryYear": 2031,
+      "status": "Active",
+      "classifications": [
+        "General Tech"
+      ],
+      "claims": [
+        "See full patent text on European Patent Office."
+      ],
+      "description": "No abstract provided."
+    },
+    {
+      "id": "WO2011117894",
+      "patentId": "WO2011117894",
+      "title": "PHARMACEUTICAL TECHNOLOGY OF PHARMACEUTICAL COMPOSITION IN NOVEL/SEQUENTIAL DRUG DELIVERY SYSTEM CONTAINING NITRIC OXIDE DONOR",
+      "inventor": "SRINIVAS JEGANNATHAN.",
+      "assignee": "Individual / Organization",
+      "filedYear": 2011,
+      "expiryYear": 2031,
+      "status": "Active",
+      "classifications": [
+        "General Tech"
+      ],
+      "claims": [
+        "See full patent text on European Patent Office."
+      ],
+      "description": "No abstract provided."
+    },
+    {
+      "id": "WO2012002452",
+      "patentId": "WO2012002452",
+      "title": "GENE INTRODUCTION METHOD",
+      "inventor": "DODO KATSUYUKI, SAITO NAOKI, CHONO HIDETO, MINENO JUNICHI.",
+      "assignee": "Individual / Organization",
+      "filedYear": 2012,
+      "expiryYear": 2032,
+      "status": "Active",
+      "classifications": [
+        "General Tech"
+      ],
+      "claims": [
+        "See full patent text on European Patent Office."
+      ],
+      "description": "No abstract provided."
+    },
+    {
+      "id": "US2012058486",
+      "patentId": "US2012058486",
+      "title": "GENETIC RISK ASSESSMENT TECHNOLOGY FOR EPITHELIAL CANCER INVOLVING GENE-ENVIRONMENT INTERACTION BETWEEN ERCC5 AND TOBACCO USE",
+      "inventor": "ZAVRAS ATHANASIOS I.",
+      "assignee": "Individual / Organization",
+      "filedYear": 2012,
+      "expiryYear": 2032,
+      "status": "Active",
+      "classifications": [
+        "General Tech"
+      ],
+      "claims": [
+        "See full patent text on European Patent Office."
+      ],
+      "description": "No abstract provided."
+    },
+    {
+      "id": "KR20120038915",
+      "patentId": "KR20120038915",
+      "title": "FLUID CATALYTIC CRACKING PROCESS ADAPTED FOR THE TREATMENT OF FEEDS WITH A LOW CONRADSON CARBON, COMPRISING RECYCLING A COKING CUT EMPLOYING NOVEL TECHNOLOGY",
+      "inventor": "FEUGNET FREDERIC, ROUX ROMAIN.",
+      "assignee": "Individual / Organization",
+      "filedYear": 2012,
+      "expiryYear": 2032,
+      "status": "Active",
+      "classifications": [
+        "General Tech"
+      ],
+      "claims": [
+        "See full patent text on European Patent Office."
+      ],
+      "description": "No abstract provided."
+    },
+    {
+      "id": "US2012058063",
+      "patentId": "US2012058063",
+      "title": "PROCESS FOR TREATING AND/OR FORMING A NON-NEWTONIAN FLUID USING MICROCHANNEL PROCESS TECHNOLOGY",
+      "inventor": "TONKOVICH ANNA LEE, ARORA RAVI, KILANOWSKI DAVID, DAYMO ERIC.",
+      "assignee": "Individual / Organization",
+      "filedYear": 2012,
+      "expiryYear": 2032,
+      "status": "Active",
+      "classifications": [
+        "General Tech"
+      ],
+      "claims": [
+        "See full patent text on European Patent Office."
+      ],
+      "description": "No abstract provided."
+    },
+    {
+      "id": "WO2012019421",
+      "patentId": "WO2012019421",
+      "title": "METHOD FOR IMPROVING THE QUALITY OF TOBACCO STEM BY COMBINING STEAM EXPLOSION AND ANAEROBIC TREATMENT TECHNOLOGY",
+      "inventor": "LI DONGLIANG, DAI YA, LI GANG, FENG GUANGLIN, LIU YUANFA, SONG GUANGFU, LI NING.",
+      "assignee": "Individual / Organization",
+      "filedYear": 2012,
+      "expiryYear": 2032,
+      "status": "Active",
+      "classifications": [
+        "General Tech"
+      ],
+      "claims": [
+        "See full patent text on European Patent Office."
+      ],
+      "description": "No abstract provided."
+    },
+    {
+      "id": "WO2012019420",
+      "patentId": "WO2012019420",
+      "title": "METHOD FOR IMPROVING TOBACCO STEM QUALITY THROUGH COMBING STEAM EXPLOSION AND ENZYME TREATMENT TECHNOLOGY",
+      "inventor": "LI DONGLIANG, DAI YA, FENG GUANGLIN, LI GANG, LIU YUANFA, SONG GUANGFU, WU YAN.",
+      "assignee": "Individual / Organization",
+      "filedYear": 2012,
+      "expiryYear": 2032,
+      "status": "Active",
+      "classifications": [
+        "General Tech"
+      ],
+      "claims": [
+        "See full patent text on European Patent Office."
+      ],
+      "description": "No abstract provided."
+    },
+    {
+      "id": "US2011223207",
+      "patentId": "US2011223207",
+      "title": "Fatty Acid Conjugates of Quetiapine, Process for Making and Using the Same",
+      "inventor": "MICKLE TRAVIS, GUENTHER SVEN, BERA SANJIB.",
+      "assignee": "Individual / Organization",
+      "filedYear": 2011,
+      "expiryYear": 2031,
+      "status": "Active",
+      "classifications": [
+        "General Tech"
+      ],
+      "claims": [
+        "See full patent text on European Patent Office."
+      ],
+      "description": "No abstract provided."
+    },
+    {
+      "id": "WO2011112657",
+      "patentId": "WO2011112657",
+      "title": "FATTY ACID CONJUGATES OF QUETIAPINE, PROCESS FOR MAKING AND USING THE SAME",
+      "inventor": "MICKLE TRAVIS, GUENTHER SVEN, BERA SANJIB.",
+      "assignee": "Individual / Organization",
+      "filedYear": 2011,
+      "expiryYear": 2031,
+      "status": "Active",
+      "classifications": [
+        "General Tech"
+      ],
+      "claims": [
+        "See full patent text on European Patent Office."
+      ],
+      "description": "No abstract provided."
+    },
+    {
+      "id": "CN101861792",
+      "patentId": "CN101861792",
+      "title": "Taxus media culture technology",
+      "inventor": "CHENG DONG, SIYUAN HUANG.",
+      "assignee": "Individual / Organization",
+      "filedYear": 2010,
+      "expiryYear": 2030,
+      "status": "Active",
+      "classifications": [
+        "General Tech"
+      ],
+      "claims": [
+        "See full patent text on European Patent Office."
+      ],
+      "description": "No abstract provided."
+    },
+    {
+      "id": "US2011207786",
+      "patentId": "US2011207786",
+      "title": "Potentiated Biocidal Compositions and Methods of Use",
+      "inventor": "CALLAHAN MOLLY RYAN, SHELTON DAVID.",
+      "assignee": "Individual / Organization",
+      "filedYear": 2011,
+      "expiryYear": 2031,
+      "status": "Active",
+      "classifications": [
+        "General Tech"
+      ],
+      "claims": [
+        "See full patent text on European Patent Office."
+      ],
+      "description": "No abstract provided."
+    },
+    {
+      "id": "US2012059154",
+      "patentId": "US2012059154",
+      "title": "ANTIGEN BINDING POLYPEPTIDES",
+      "inventor": "DREIER TORSTEN, BLANCHETOT CHRISTOPHE FREDERIC JEROME, DE HAARD JOHANNES JOSEPH WILHELMUS.",
+      "assignee": "Individual / Organization",
+      "filedYear": 2012,
+      "expiryYear": 2032,
+      "status": "Active",
+      "classifications": [
+        "General Tech"
+      ],
+      "claims": [
+        "See full patent text on European Patent Office."
+      ],
+      "description": "No abstract provided."
+    },
+    {
+      "id": "US2011236880",
+      "patentId": "US2011236880",
+      "title": "Potentiated Biocidal Compositions and Methods of Use",
+      "inventor": "CALLAHAN MOLLY RYAN, SHELTON DAVID.",
+      "assignee": "Individual / Organization",
+      "filedYear": 2011,
+      "expiryYear": 2031,
+      "status": "Active",
+      "classifications": [
+        "General Tech"
+      ],
+      "claims": [
+        "See full patent text on European Patent Office."
+      ],
+      "description": "No abstract provided."
+    },
+    {
+      "id": "US2012058588",
+      "patentId": "US2012058588",
+      "title": "DEVICE AND METHOD FOR SIMULTANEOUSLY MICROSTRUCTURING AND DOPING SEMICONDUCTOR SUBSTRATES",
+      "inventor": "MAYER KUNO, KROSSING INGO, KNAPP CARSTEN, GRANEK FILIP, MESEC MATTHIAS, RODOFILI ANDREAS.",
+      "assignee": "Individual / Organization",
+      "filedYear": 2012,
+      "expiryYear": 2032,
+      "status": "Active",
+      "classifications": [
+        "General Tech"
+      ],
+      "claims": [
+        "See full patent text on European Patent Office."
+      ],
+      "description": "No abstract provided."
+    },
+    {
+      "id": "WO2011116648",
+      "patentId": "WO2011116648",
+      "title": "ENERGY-CONSERVING AND LOW-CARBON METHOD FOR CULTURING GANODERMA UNDER INDUSTRIALIZED TECHNOLOGY",
+      "inventor": "CHEN SHUNZHI.",
+      "assignee": "Individual / Organization",
+      "filedYear": 2011,
+      "expiryYear": 2031,
+      "status": "Active",
+      "classifications": [
+        "General Tech"
+      ],
+      "claims": [
+        "See full patent text on European Patent Office."
+      ],
+      "description": "No abstract provided."
+    },
+    {
+      "id": "US2012009271",
+      "patentId": "US2012009271",
+      "title": "METHOD OF DISEASE-INDUCED AND RECEPTOR-MEDIATED STEM CELL NEUROPROTECTION",
+      "inventor": "BORLONGAN CESARIO V, PAROLINI ORNELLA.",
+      "assignee": "Individual / Organization",
+      "filedYear": 2012,
+      "expiryYear": 2032,
+      "status": "Active",
+      "classifications": [
+        "General Tech"
+      ],
+      "claims": [
+        "See full patent text on European Patent Office."
+      ],
+      "description": "No abstract provided."
+    },
+    {
+      "id": "CN101843316",
+      "patentId": "CN101843316",
+      "title": "Technology for processing peeled shrimp dumplings",
+      "inventor": "YINGXIANG CHEN, YINTA LI, YUJIN LI, ZHENGPENG WEI, XINYING WU.",
+      "assignee": "Individual / Organization",
+      "filedYear": 2010,
+      "expiryYear": 2030,
+      "status": "Active",
+      "classifications": [
+        "General Tech"
+      ],
+      "claims": [
+        "See full patent text on European Patent Office."
+      ],
+      "description": "No abstract provided."
+    },
+    {
+      "id": "US2011300140",
+      "patentId": "US2011300140",
+      "title": "ANTIGEN BINDING POLYPEPTIDES",
+      "inventor": "DREIER TORSTEN, BLANCHETOT CHRISTOPHE FREDERIC JEROME, DE HAARD JOHANNES JOSEPH WILHELMUS.",
+      "assignee": "Individual / Organization",
+      "filedYear": 2011,
+      "expiryYear": 2031,
+      "status": "Active",
+      "classifications": [
+        "General Tech"
+      ],
+      "claims": [
+        "See full patent text on European Patent Office."
+      ],
+      "description": "No abstract provided."
     }
   ],
   "failedStartups": [
