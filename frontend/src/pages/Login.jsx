@@ -241,16 +241,12 @@ const Login = ({ onLoginSuccess }) => {
         }
 
         addLog("Clearance verification: GRANTED");
-        addLog("Initializing secure session payload...");
-        
-        setTimeout(() => {
-          setIsLoading(false);
-          localStorage.setItem('is_logged_in', 'true');
-          localStorage.setItem('auth_token', data.token);
-          localStorage.setItem('portal_type', portalType);
-          localStorage.setItem('auth_user', JSON.stringify(data.user));
-          onLoginSuccess(data.user);
-        }, 1000);
+        setIsLoading(false);
+        localStorage.setItem('is_logged_in', 'true');
+        localStorage.setItem('auth_token', data.token);
+        localStorage.setItem('portal_type', portalType);
+        localStorage.setItem('auth_user', JSON.stringify(data.user));
+        onLoginSuccess(data.user);
       } else {
         setIsLoading(false);
         setErrorMsg(data.message || "Failed to log in.");
@@ -263,49 +259,54 @@ const Login = ({ onLoginSuccess }) => {
       }
     } catch (err) {
       console.warn("Backend offline, launching local mockup authentication...");
-      setTimeout(() => {
-        const lowerEmail = email.toLowerCase();
-        let matchedUser = null;
+      const lowerEmail = email.toLowerCase();
+      let matchedUser = null;
 
-        if (lowerEmail === 'analyst@gmail.com' && password === 'googlepassword') {
-          matchedUser = { email: 'analyst@gmail.com', role: 'student', roles: ['student'] };
-        } else if (lowerEmail === 'analyst@outlook.com' && password === 'microsoftpassword') {
-          matchedUser = { email: 'analyst@outlook.com', role: 'business', roles: ['business'] };
-        } else if (lowerEmail === 'superadmin@invenza.ai' && password === 'superadmin123') {
-          matchedUser = { email: 'superadmin@invenza.ai', role: 'superadmin', roles: ['superadmin'] };
-        }
+      // 1. Check hardcoded dev accounts
+      if (lowerEmail === 'analyst@gmail.com' && password === 'googlepassword') {
+        matchedUser = { email: 'analyst@gmail.com', role: 'student', roles: ['student'] };
+      } else if (lowerEmail === 'analyst@outlook.com' && password === 'microsoftpassword') {
+        matchedUser = { email: 'analyst@outlook.com', role: 'business', roles: ['business'] };
+      } else if (lowerEmail === 'superadmin@invenza.ai' && password === 'superadmin123') {
+        matchedUser = { email: 'superadmin@invenza.ai', role: 'superadmin', roles: ['superadmin'] };
+      }
 
-        if (matchedUser) {
-          if (matchedUser.role !== 'superadmin' && matchedUser.role !== portalType) {
-            setIsLoading(false);
-            setErrorMsg(`You do not have a registered account for the ${portalType === 'student' ? 'Student' : 'Business'} Portal.`);
-            addLog("Clearance verification: DENIED (Unauthorized Role)");
-            return;
+      // 2. If no hardcoded match, check locally-registered users in localStorage
+      if (!matchedUser) {
+        try {
+          const localUsers = JSON.parse(localStorage.getItem('offline_registered_users') || '[]');
+          const found = localUsers.find(u => u.email.toLowerCase() === lowerEmail && u.password === password);
+          if (found) {
+            matchedUser = { email: found.email, role: found.role, roles: found.roles, name: found.name };
           }
+        } catch(e) { /* ignore */ }
+      }
+
+      if (matchedUser) {
+        if (matchedUser.role !== 'superadmin' && !matchedUser.roles.includes(portalType)) {
           setIsLoading(false);
-          localStorage.setItem('is_logged_in', 'true');
-          localStorage.setItem('auth_token', 'mock_token_' + matchedUser.email);
-          localStorage.setItem('portal_type', portalType);
-          localStorage.setItem('auth_user', JSON.stringify({
-            id: matchedUser.email,
-            email: matchedUser.email,
-            role: matchedUser.role,
-            roles: matchedUser.roles,
-            name: matchedUser.email.split('@')[0]
-          }));
-          onLoginSuccess({
-            id: matchedUser.email,
-            email: matchedUser.email,
-            role: matchedUser.role,
-            roles: matchedUser.roles,
-            name: matchedUser.email.split('@')[0]
-          });
-        } else {
-          setIsLoading(false);
-          setErrorMsg("Wrong email or password.");
-          addLog("Clearance verification: FAILED (Wrong Credentials)");
+          setErrorMsg(`You do not have a registered account for the ${portalType === 'student' ? 'Student' : 'Business'} Portal.`);
+          addLog("Clearance verification: DENIED (Unauthorized Role)");
+          return;
         }
-      }, 1000);
+        setIsLoading(false);
+        const userObj = {
+          id: matchedUser.email,
+          email: matchedUser.email,
+          role: portalType,
+          roles: matchedUser.roles,
+          name: matchedUser.name || matchedUser.email.split('@')[0]
+        };
+        localStorage.setItem('is_logged_in', 'true');
+        localStorage.setItem('auth_token', 'mock_token_' + matchedUser.email);
+        localStorage.setItem('portal_type', portalType);
+        localStorage.setItem('auth_user', JSON.stringify(userObj));
+        onLoginSuccess(userObj);
+      } else {
+        setIsLoading(false);
+        setErrorMsg("Wrong email or password.");
+        addLog("Clearance verification: FAILED (Wrong Credentials)");
+      }
     }
   };
 
@@ -477,21 +478,27 @@ const Login = ({ onLoginSuccess }) => {
       }
     } catch (err) {
       console.warn("Backend offline, completing mock registration flow...");
-      setTimeout(() => {
-        setIsLoading(false);
-        const mockUser = {
-          id: email,
-          email: email,
-          role: portalType,
-          roles: [portalType],
-          name: fullName || email.split('@')[0]
-        };
-        localStorage.setItem('is_logged_in', 'true');
-        localStorage.setItem('auth_token', 'mock_register_token');
-        localStorage.setItem('portal_type', portalType);
-        localStorage.setItem('auth_user', JSON.stringify(mockUser));
-        onLoginSuccess(mockUser);
-      }, 1000);
+      setIsLoading(false);
+      const mockUser = {
+        id: email,
+        email: email,
+        role: portalType,
+        roles: [portalType],
+        name: fullName || email.split('@')[0]
+      };
+      // Save to offline registry so user can login later without backend
+      try {
+        const localUsers = JSON.parse(localStorage.getItem('offline_registered_users') || '[]');
+        if (!localUsers.some(u => u.email.toLowerCase() === email.toLowerCase())) {
+          localUsers.push({ email: email.toLowerCase(), password, role: portalType, roles: [portalType], name: mockUser.name });
+          localStorage.setItem('offline_registered_users', JSON.stringify(localUsers));
+        }
+      } catch(e) { /* ignore */ }
+      localStorage.setItem('is_logged_in', 'true');
+      localStorage.setItem('auth_token', 'mock_register_token');
+      localStorage.setItem('portal_type', portalType);
+      localStorage.setItem('auth_user', JSON.stringify(mockUser));
+      onLoginSuccess(mockUser);
     }
   };
 
