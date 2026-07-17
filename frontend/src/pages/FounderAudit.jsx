@@ -129,32 +129,60 @@ const FounderAudit = ({ onLogout }) => {
                   <thead>
                     <tr style={{ background: 'rgba(255,255,255,0.03)', borderBottom: '1px solid var(--border-color)' }}>
                       <th style={{ padding: '1.2rem 1rem', color: 'var(--text-muted)', fontWeight: 600 }}>Timestamp</th>
-                      <th style={{ padding: '1.2rem 1rem', color: 'var(--text-muted)', fontWeight: 600 }}>User Email</th>
+                      <th style={{ padding: '1.2rem 1rem', color: 'var(--text-muted)', fontWeight: 600 }}>Applicant Email</th>
+                      <th style={{ padding: '1.2rem 1rem', color: 'var(--text-muted)', fontWeight: 600 }}>Applicant Type</th>
                       <th style={{ padding: '1.2rem 1rem', color: 'var(--text-muted)', fontWeight: 600 }}>Action</th>
+                      <th style={{ padding: '1.2rem 1rem', color: 'var(--text-muted)', fontWeight: 600 }}>Search Query / Details</th>
                     </tr>
                   </thead>
                   <tbody>
-                    {filteredLogs.map((log, idx) => (
-                      <tr key={idx} style={{ borderBottom: '1px solid rgba(255,255,255,0.03)', transition: 'background 0.2s', ':hover': { background: 'rgba(255,255,255,0.05)' } }}>
-                        <td style={{ padding: '1rem', color: 'var(--text-main)', whiteSpace: 'nowrap' }}>{new Date(log.timestamp).toLocaleString()}</td>
-                        <td style={{ padding: '1rem', color: 'var(--blue-400)' }}>{log.email}</td>
-                        <td style={{ padding: '1rem' }}>
-                          <span style={{
-                            padding: '0.3rem 0.6rem',
-                            borderRadius: '4px',
-                            fontSize: '0.75rem',
-                            background: log.action.includes('LOGIN') ? 'rgba(16,185,129,0.1)' : log.action.includes('REGISTER') ? 'rgba(59,130,246,0.1)' : log.action.includes('LOCKED') ? 'rgba(239,68,68,0.1)' : 'rgba(245,158,11,0.1)',
-                            color: log.action.includes('LOGIN') ? '#10b981' : log.action.includes('REGISTER') ? '#3b82f6' : log.action.includes('LOCKED') ? '#ef4444' : '#f59e0b',
-                            fontWeight: 'bold'
-                          }}>
-                            {log.action}
-                          </span>
-                        </td>
-                      </tr>
-                    ))}
+                    {filteredLogs.map((log, idx) => {
+                      const portalType = log.metadata?.portalType || (log.email.includes('founder') ? 'Founder' : log.email.includes('student') ? 'Student' : 'Business');
+                      const searchQuery = log.metadata?.query 
+                        ? `🔍 "${log.metadata.query}"` 
+                        : log.metadata?.provider 
+                        ? `OAuth: ${log.metadata.provider}`
+                        : log.metadata?.sessionId 
+                        ? `Session: ${log.metadata.sessionId.substring(0, 10)}...`
+                        : 'Platform Action';
+
+                      return (
+                        <tr key={idx} style={{ borderBottom: '1px solid rgba(255,255,255,0.03)', transition: 'background 0.2s' }}>
+                          <td style={{ padding: '1rem', color: 'var(--text-main)', whiteSpace: 'nowrap' }}>{new Date(log.timestamp).toLocaleString()}</td>
+                          <td style={{ padding: '1rem', color: 'var(--blue-400)' }}>{log.email}</td>
+                          <td style={{ padding: '1rem' }}>
+                            <span style={{
+                              padding: '0.2rem 0.5rem',
+                              borderRadius: '4px',
+                              fontSize: '0.7rem',
+                              fontWeight: 'bold',
+                              background: portalType.toLowerCase() === 'student' ? 'rgba(59,130,246,0.1)' : portalType.toLowerCase() === 'founder' ? 'rgba(245,158,11,0.1)' : 'rgba(16,185,129,0.1)',
+                              color: portalType.toLowerCase() === 'student' ? '#3b82f6' : portalType.toLowerCase() === 'founder' ? '#f59e0b' : '#10b981'
+                            }}>
+                              {portalType.toUpperCase()}
+                            </span>
+                          </td>
+                          <td style={{ padding: '1rem' }}>
+                            <span style={{
+                              padding: '0.3rem 0.6rem',
+                              borderRadius: '4px',
+                              fontSize: '0.75rem',
+                              background: log.action.includes('LOGIN') ? 'rgba(16,185,129,0.1)' : log.action.includes('SEARCH') ? 'rgba(168,85,247,0.1)' : log.action.includes('REGISTER') ? 'rgba(59,130,246,0.1)' : 'rgba(245,158,11,0.1)',
+                              color: log.action.includes('LOGIN') ? '#10b981' : log.action.includes('SEARCH') ? '#a855f7' : log.action.includes('REGISTER') ? '#3b82f6' : '#f59e0b',
+                              fontWeight: 'bold'
+                            }}>
+                              {log.action}
+                            </span>
+                          </td>
+                          <td style={{ padding: '1rem', color: log.metadata?.query ? '#a855f7' : 'var(--text-muted)', fontWeight: log.metadata?.query ? '600' : 'normal' }}>
+                            {searchQuery}
+                          </td>
+                        </tr>
+                      );
+                    })}
                     {filteredLogs.length === 0 && (
                       <tr>
-                        <td colSpan="3" style={{ padding: '3rem', textAlign: 'center', color: 'var(--text-dim)' }}>
+                        <td colSpan="5" style={{ padding: '3rem', textAlign: 'center', color: 'var(--text-dim)' }}>
                           No audit logs found for the selected action.
                         </td>
                       </tr>
