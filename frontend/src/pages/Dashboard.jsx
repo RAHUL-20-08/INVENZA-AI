@@ -31,16 +31,16 @@ const Dashboard = ({ activeInnovation, setActiveInnovation, globalQuery, setGlob
   const isValidTechnologyName = (q) => {
     if (!q) return false;
     const clean = q.trim().toLowerCase();
-    
+
     // 1. Length constraint
     if (clean.length < 3) return false;
-    
+
     // 2. Reject pure numbers or special character spam
     if (/^[^\w\s]+$/.test(clean) || /^\d+$/.test(clean)) return false;
-    
+
     // 3. Check for consecutive repeated letters (e.g. "aaaa")
     if (/(.)\1\1\1/.test(clean)) return false;
-    
+
     // 4. Consonant clustering limit (e.g. "sdfgh")
     if (/[bcdfghjklmnpqrstvwxz]{5,}/.test(clean)) return false;
 
@@ -61,15 +61,15 @@ const Dashboard = ({ activeInnovation, setActiveInnovation, globalQuery, setGlob
         if (vowels > 0 && consonants / vowels > 4.5) return false;
       }
     }
-    
+
     return true;
   };
 
   const extractTechnicalKeywords = (text, title) => {
     if (!text) return [title];
     const stopWords = new Set([
-      'the', 'and', 'of', 'to', 'in', 'is', 'a', 'was', 'for', 'on', 'by', 'an', 'it', 'with', 'as', 'at', 
-      'from', 'that', 'this', 'be', 'or', 'which', 'were', 'are', 'its', 'their', 'but', 'not', 'he', 'she', 
+      'the', 'and', 'of', 'to', 'in', 'is', 'a', 'was', 'for', 'on', 'by', 'an', 'it', 'with', 'as', 'at',
+      'from', 'that', 'this', 'be', 'or', 'which', 'were', 'are', 'its', 'their', 'but', 'not', 'he', 'she',
       'they', 'who', 'has', 'have', 'had', 'been', 'would', 'could', 'should', 'more', 'most', 'some', 'any',
       'other', 'such', 'into', 'than', 'then', 'also', 'first', 'two', 'new', 'used', 'using', 'use', 'made',
       'after', 'before', 'during', 'under', 'over', 'between', 'through', 'about', 'against', 'these', 'those',
@@ -79,16 +79,16 @@ const Dashboard = ({ activeInnovation, setActiveInnovation, globalQuery, setGlob
     const cleanTitle = title.toLowerCase();
     const capitalizedReg = /\b[A-Z][a-zA-Z\-]+(?:\s+[A-Z][a-zA-Z\-]+)*\b/g;
     const matches = text.match(capitalizedReg) || [];
-    
+
     const entities = [];
     const seenEntities = new Set();
-    
+
     for (let match of matches) {
       const cleanMatch = match.trim();
       const lowerMatch = cleanMatch.toLowerCase();
       if (lowerMatch === cleanTitle || stopWords.has(lowerMatch) || cleanMatch.length < 3) continue;
       if (/^(However|Although|Therefore|Furthermore|Initially|Subsequently|During|Under|Despite|Unlike|Additionally|Alternatively|Consequently|Moreover|Meanwhile)$/.test(cleanMatch)) continue;
-      
+
       if (!seenEntities.has(lowerMatch)) {
         seenEntities.add(lowerMatch);
         entities.push(cleanMatch);
@@ -100,12 +100,12 @@ const Dashboard = ({ activeInnovation, setActiveInnovation, globalQuery, setGlob
         .replace(/[^\w\s\-]/g, ' ')
         .split(/\s+/)
         .filter(w => w.length >= 5 && !stopWords.has(w) && w !== cleanTitle);
-        
+
       const freq = {};
       for (let w of words) {
         freq[w] = (freq[w] || 0) + 1;
       }
-      
+
       const sortedWords = Object.keys(freq).sort((a, b) => freq[b] - freq[a]);
       for (let w of sortedWords) {
         if (!seenEntities.has(w)) {
@@ -146,7 +146,7 @@ const Dashboard = ({ activeInnovation, setActiveInnovation, globalQuery, setGlob
 
     const delayDebounceFn = setTimeout(async () => {
       const cleanQ = globalQuery.trim().toLowerCase();
-      
+
       // 1. Check similarity with pre-seeded local database first (exact/substring match OR high Jaccard)
       let bestLocalMatch = null;
       let maxSim = 0;
@@ -160,7 +160,7 @@ const Dashboard = ({ activeInnovation, setActiveInnovation, globalQuery, setGlob
           break;
         }
       }
-      
+
       if (!isExactOrSubMatch) {
         const queryWords = new Set(cleanQ.replace(/[^\w\s]/g, ' ').split(/\s+/).filter(w => w.length > 2));
         innovations.forEach(item => {
@@ -176,12 +176,12 @@ const Dashboard = ({ activeInnovation, setActiveInnovation, globalQuery, setGlob
       }
 
       const matchPercent = isExactOrSubMatch ? 100 : Math.round(maxSim * 100);
-      
+
       if (bestLocalMatch && (isExactOrSubMatch || matchPercent >= 45)) {
         const filedYear = bestLocalMatch.yearFiled || 2012;
         const currentYear = new Date().getFullYear();
         const isExpired = (filedYear + 20) < currentYear;
-        
+
         const keywords = extractTechnicalKeywords(bestLocalMatch.description, bestLocalMatch.name);
         const keyword1 = keywords[0] || "Edge AI";
         const keyword2 = keywords[1] || "Decentralized RAG";
@@ -214,7 +214,7 @@ const Dashboard = ({ activeInnovation, setActiveInnovation, globalQuery, setGlob
         const wikiSearchUrl = `https://en.wikipedia.org/w/api.php?action=query&format=json&list=search&srsearch=${encodeURIComponent(globalQuery)}&origin=*`;
         const response = await fetch(wikiSearchUrl);
         const searchData = await response.json();
-        
+
         if (!searchData.query || !searchData.query.search || searchData.query.search.length === 0) {
           setHudPreview({
             invalid: true,
@@ -228,7 +228,7 @@ const Dashboard = ({ activeInnovation, setActiveInnovation, globalQuery, setGlob
         const titleWords = new Set(bestWikiMatch.title.toLowerCase().split(/\s+/));
         const queryWordsArr = cleanQ.split(/\s+/);
         const overlap = queryWordsArr.filter(w => titleWords.has(w));
-        
+
         if (overlap.length === 0 && !bestWikiMatch.title.toLowerCase().includes(cleanQ) && !cleanQ.includes(bestWikiMatch.title.toLowerCase())) {
           setHudPreview({
             invalid: true,
@@ -242,11 +242,11 @@ const Dashboard = ({ activeInnovation, setActiveInnovation, globalQuery, setGlob
         const detailUrl = `https://en.wikipedia.org/w/api.php?action=query&format=json&prop=extracts&exintro=1&explaintext=1&titles=${encodeURIComponent(bestWikiMatch.title)}&origin=*`;
         const detailRes = await fetch(detailUrl);
         const detailData = await detailRes.json();
-        
+
         const pages = detailData.query.pages;
         const pageId = Object.keys(pages)[0];
         const extract = pageId !== "-1" ? pages[pageId].extract : "";
-        
+
         // Reject biography queries
         const bioKeywords = ["born ", "was born", "personal life", "cricketer", "actor", "politician", "singer", "actress", "novelist", "artist"];
         if (extract && bioKeywords.some(kw => extract.toLowerCase().includes(kw))) {
@@ -273,7 +273,7 @@ const Dashboard = ({ activeInnovation, setActiveInnovation, globalQuery, setGlob
           for (let i = 0; i < cleanQ.length; i++) hash += cleanQ.charCodeAt(i);
           filedYear = 1990 + (hash % 22);
         }
-        
+
         const currentYear = new Date().getFullYear();
         const isExpired = (filedYear + 20) < currentYear;
 
@@ -362,7 +362,7 @@ const Dashboard = ({ activeInnovation, setActiveInnovation, globalQuery, setGlob
           top: isHeader ? '100%' : 'auto',
           left: 0
         }}>
-          <span className="material-symbols-outlined glow-text-cyan" style={{ fontSize: '12px',  animation: 'spin 2.5s linear infinite', marginRight: '0.5rem'  }}>refresh</span>
+          <span className="material-symbols-outlined glow-text-cyan" style={{ fontSize: '12px', animation: 'spin 2.5s linear infinite', marginRight: '0.5rem' }}>refresh</span>
           <span style={{ fontSize: '0.65rem', fontFamily: 'var(--font-sans)', color: 'var(--text-muted)' }}>
             [AUDITING GLOBAL REGISTRIES...]
           </span>
@@ -499,8 +499,8 @@ const Dashboard = ({ activeInnovation, setActiveInnovation, globalQuery, setGlob
   };
 
 
-  const predictedProjects = (globalQuery || '').trim() ? innovations.filter(item => 
-    item.name.toLowerCase().includes(globalQuery.toLowerCase()) || 
+  const predictedProjects = (globalQuery || '').trim() ? innovations.filter(item =>
+    item.name.toLowerCase().includes(globalQuery.toLowerCase()) ||
     item.sector.toLowerCase().includes(globalQuery.toLowerCase())
   ).slice(0, 4) : [];
 
@@ -512,7 +512,7 @@ const Dashboard = ({ activeInnovation, setActiveInnovation, globalQuery, setGlob
         const data = await response.json();
         if (data.success && data.data.length > 0) {
           setInnovations(data.data);
-          
+
           // Set selection ONLY if activeInnovation is set, allowing landing on Welcome Console
           if (activeInnovation) {
             setSelectedItem(activeInnovation);
@@ -522,7 +522,7 @@ const Dashboard = ({ activeInnovation, setActiveInnovation, globalQuery, setGlob
       } catch (error) {
         console.warn("Backend offline. Dashboard loading from local fallback.");
         setInnovations(fallbackInnovations);
-        
+
         if (activeInnovation) {
           setSelectedItem(activeInnovation);
         }
@@ -587,9 +587,9 @@ const Dashboard = ({ activeInnovation, setActiveInnovation, globalQuery, setGlob
             sector: "General Tech"
           })
         });
-        
+
         const data = await response.json();
-        
+
         if (data.success && data.report) {
           setSelectedItem(data.report);
           if (setActiveInnovation) setActiveInnovation(data.report);
@@ -655,7 +655,7 @@ const Dashboard = ({ activeInnovation, setActiveInnovation, globalQuery, setGlob
   if (!selectedItem) {
     return (
       <div className="animate-fade-in" style={{ display: 'flex', flexDirection: 'column', gap: '1.75rem', position: 'relative' }}>
-        
+
         {/* Terminal Loading Screen Overlay for Real-Time Generation */}
         {isGenerating && (
           <div style={{
@@ -675,7 +675,7 @@ const Dashboard = ({ activeInnovation, setActiveInnovation, globalQuery, setGlob
           }}>
             <div className="glass-panel" style={{ width: '480px', padding: '2rem', border: '1px solid var(--color-primary)', background: '#090a10' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1.25rem' }}>
-                <span className="material-symbols-outlined glow-text-pink" style={{ fontSize: '24px',  animation: 'spin 2s linear infinite'  }}>developer_board</span>
+                <span className="material-symbols-outlined glow-text-pink" style={{ fontSize: '24px', animation: 'spin 2s linear infinite' }}>developer_board</span>
                 <span style={{ fontFamily: 'var(--font-sans)', fontSize: '0.9rem', color: 'var(--color-primary)', fontWeight: 'bold' }}>[INVENZA_AI: SYNTHESIZING...]</span>
               </div>
               <div style={{
@@ -705,13 +705,13 @@ const Dashboard = ({ activeInnovation, setActiveInnovation, globalQuery, setGlob
 
         {/* Critical Red HUD Validation Warning Banner */}
         {queryError && (
-          <div className="glass-panel animate-fade-in" style={{ 
-            borderLeft: '4px solid var(--color-danger)', 
+          <div className="glass-panel animate-fade-in" style={{
+            borderLeft: '4px solid var(--color-danger)',
             borderTop: 'none',
-            background: 'var(--color-danger-light)', 
-            padding: '1rem 1.5rem', 
-            display: 'flex', 
-            justifyContent: 'space-between', 
+            background: 'var(--color-danger-light)',
+            padding: '1rem 1.5rem',
+            display: 'flex',
+            justifyContent: 'space-between',
             alignItems: 'center',
             marginBottom: '1.5rem'
           }}>
@@ -721,14 +721,14 @@ const Dashboard = ({ activeInnovation, setActiveInnovation, globalQuery, setGlob
                 [CRITICAL_ERROR: INVALID_QUERY] {queryError}
               </span>
             </div>
-            <button 
-              onClick={() => setQueryError(null)} 
-              style={{ 
-                background: 'transparent', 
-                border: 'none', 
-                color: 'var(--text-muted)', 
-                cursor: 'pointer', 
-                fontSize: '1rem', 
+            <button
+              onClick={() => setQueryError(null)}
+              style={{
+                background: 'transparent',
+                border: 'none',
+                color: 'var(--text-muted)',
+                cursor: 'pointer',
+                fontSize: '1rem',
                 fontWeight: 'bold',
                 padding: '0 0.5rem'
               }}
@@ -777,7 +777,7 @@ const Dashboard = ({ activeInnovation, setActiveInnovation, globalQuery, setGlob
 
         {/* Central Action Console */}
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '2rem', alignItems: 'start', marginTop: '1rem' }}>
-          
+
           {/* Quick Start Audit Form */}
           <div className="glass-panel" style={{ padding: '2rem', display: 'flex', flexDirection: 'column', gap: '1.25rem', overflow: 'visible' }}>
             <h3 style={{ fontSize: '1.2rem', fontFamily: 'var(--font-display)', color: 'var(--text-main)' }}>
@@ -852,15 +852,15 @@ const Dashboard = ({ activeInnovation, setActiveInnovation, globalQuery, setGlob
                     </td>
                     <td style={{ padding: '0.75rem 0.5rem', color: 'var(--text-muted)' }}>
                       {item.id === '1' ? 'High CPU rendering loads / Slow storage access' :
-                       item.id === '2' ? 'Low network bandwidth / Micro-billing friction' :
-                       item.id === '3' ? 'Legacy tube optics / Bulky hardware scaling' :
-                       'High raw manufacturing & solar wafer price bounds'}
+                        item.id === '2' ? 'Low network bandwidth / Micro-billing friction' :
+                          item.id === '3' ? 'Legacy tube optics / Bulky hardware scaling' :
+                            'High raw manufacturing & solar wafer price bounds'}
                     </td>
                     <td style={{ padding: '0.75rem 0.5rem', color: 'var(--color-success)', fontWeight: '500' }}>
                       {item.id === '1' ? 'Local NPU processors / NVMe storage grids' :
-                       item.id === '2' ? '5G Websockets / Smart Contract micro-pay' :
-                       item.id === '3' ? 'Refocused micro-lens arrays / Neural splatting' :
-                       'Automated film layer backing / Recycled silicon'}
+                        item.id === '2' ? '5G Websockets / Smart Contract micro-pay' :
+                          item.id === '3' ? 'Refocused micro-lens arrays / Neural splatting' :
+                            'Automated film layer backing / Recycled silicon'}
                     </td>
                     <td style={{ padding: '0.75rem 0.5rem', textAlign: 'right' }}>
                       <button
@@ -936,34 +936,34 @@ const Dashboard = ({ activeInnovation, setActiveInnovation, globalQuery, setGlob
     if (words.length === 0) return { matches: [], suggestions: [] };
 
     const keywords = [
-      'water', 'treatment', 'filter', 'filtration', 'purify', 'purification', 'membrane', 'recycle', 'recycling', 
-      'waste', 'chemical', 'chemistry', 'physics', 'biological', 'biology', 'clinical', 'pharmaceutical', 
-      'energy', 'wind', 'hydro', 'turbine', 'electric', 'grid', 'nuclear', 'fusion', 'fission', 'reactor', 
-      'generator', 'carbon', 'emission', 'environmental', 'climate', 'ecological', 'sustainability', 
-      'agriculture', 'irrigation', 'thermal', 'thermoelectric', 'geothermal', 'hvac', 'ventilation', 'air', 
-      'gas', 'liquid', 'fluid', 'fluidic', 'aerodynamic', 'motor', 'brushless', 'rotor', 'stator', 'servo', 
-      'actuator', 'transducer', 'pixel', 'led', 'oled', 'lcd', 'eink', 'smartphone', 'semiconductor', 
-      'transistor', 'diode', 'motherboard', 'ram', 'ssd', 'antenna', 'gps', 'radar', 'sonar', 'vision', 
-      'uav', 'quadcopter', 'train', 'aircraft', 'spacecraft', 'rocket', 'propulsion', 'alloy', 'metal', 
-      'carbon-fiber', 'graphene', 'nanotech', 'nanotechnology', 'superconductor', 'encryption', 
-      'cryptography', 'blockchain', 'database', 'server', 'camera', 'cameras', 'optic', 'optics', 
-      'lens', 'lenses', 'glass', 'glasses', 'screen', 'screens', 'display', 'displays', 'battery', 
-      'batteries', 'charge', 'charger', 'chargers', 'charging', 'ev', 'evs', 'car', 'cars', 'vehicle', 
-      'vehicles', 'scooter', 'scooters', 'blood', 'diagnostics', 'diagnostic', 'medical', 'medicine', 
-      'health', 'bio', 'biotech', 'dna', 'cell', 'cells', 'sensor', 'sensors', 'game', 'games', 
-      'gaming', 'console', 'consoles', 'stream', 'streaming', 'play', 'player', 'players', 'stadia', 
-      'pebble', 'watch', 'watches', 'smartwatch', 'phone', 'phones', 'device', 'devices', 'hardware', 
-      'software', 'app', 'apps', 'web', 'network', 'networks', 'cloud', 'data', 'computer', 'computers', 
-      'computing', 'ar', 'vr', 'mr', 'xr', 'innovation', 'innovations', 'patent', 'patents', 'tech', 
-      'technology', 'technologies', 'system', 'systems', 'mechanic', 'mechanical', 'robot', 'robots', 
-      'robotic', 'robotics', 'drone', 'drones', 'engine', 'engines', 'solar', 'power', 'electricity', 
-      'electrical', 'circuit', 'circuits', 'chip', 'chips', 'processor', 'processors', 'npu', 'gpu', 
-      'cpu', 'memory', 'storage', 'saas', 'platform', 'platforms', 'ai', 'ml', 'nlp', 'rag', 'splat', 
-      'splatting', 'quantum', 'satellite', 'satellites', 'wire', 'wireless', 'radio', 'signal', 'signals', 
-      'laser', 'lasers', 'audio', 'sound', 'acoustic', 'acoustics', 'wave', 'waves', 'automotive', 'transit', 
-      'lytro', 'theranos', 'segway', 'zune', 'ara', 'quibi', 'dreamcast', 'n-gage', 'ouya', 'pippin', 
-      'lumia', 'kin', 'juicero', 'betamax', 'hd-dvd', 'laserdisc', 'solyndra', 'jawbone', 'vine', 
-      'hologram', 'holograms', 'wearable', 'wearables', 'telecom', 'telecommunications', 'micro', 'mobility', 
+      'water', 'treatment', 'filter', 'filtration', 'purify', 'purification', 'membrane', 'recycle', 'recycling',
+      'waste', 'chemical', 'chemistry', 'physics', 'biological', 'biology', 'clinical', 'pharmaceutical',
+      'energy', 'wind', 'hydro', 'turbine', 'electric', 'grid', 'nuclear', 'fusion', 'fission', 'reactor',
+      'generator', 'carbon', 'emission', 'environmental', 'climate', 'ecological', 'sustainability',
+      'agriculture', 'irrigation', 'thermal', 'thermoelectric', 'geothermal', 'hvac', 'ventilation', 'air',
+      'gas', 'liquid', 'fluid', 'fluidic', 'aerodynamic', 'motor', 'brushless', 'rotor', 'stator', 'servo',
+      'actuator', 'transducer', 'pixel', 'led', 'oled', 'lcd', 'eink', 'smartphone', 'semiconductor',
+      'transistor', 'diode', 'motherboard', 'ram', 'ssd', 'antenna', 'gps', 'radar', 'sonar', 'vision',
+      'uav', 'quadcopter', 'train', 'aircraft', 'spacecraft', 'rocket', 'propulsion', 'alloy', 'metal',
+      'carbon-fiber', 'graphene', 'nanotech', 'nanotechnology', 'superconductor', 'encryption',
+      'cryptography', 'blockchain', 'database', 'server', 'camera', 'cameras', 'optic', 'optics',
+      'lens', 'lenses', 'glass', 'glasses', 'screen', 'screens', 'display', 'displays', 'battery',
+      'batteries', 'charge', 'charger', 'chargers', 'charging', 'ev', 'evs', 'car', 'cars', 'vehicle',
+      'vehicles', 'scooter', 'scooters', 'blood', 'diagnostics', 'diagnostic', 'medical', 'medicine',
+      'health', 'bio', 'biotech', 'dna', 'cell', 'cells', 'sensor', 'sensors', 'game', 'games',
+      'gaming', 'console', 'consoles', 'stream', 'streaming', 'play', 'player', 'players', 'stadia',
+      'pebble', 'watch', 'watches', 'smartwatch', 'phone', 'phones', 'device', 'devices', 'hardware',
+      'software', 'app', 'apps', 'web', 'network', 'networks', 'cloud', 'data', 'computer', 'computers',
+      'computing', 'ar', 'vr', 'mr', 'xr', 'innovation', 'innovations', 'patent', 'patents', 'tech',
+      'technology', 'technologies', 'system', 'systems', 'mechanic', 'mechanical', 'robot', 'robots',
+      'robotic', 'robotics', 'drone', 'drones', 'engine', 'engines', 'solar', 'power', 'electricity',
+      'electrical', 'circuit', 'circuits', 'chip', 'chips', 'processor', 'processors', 'npu', 'gpu',
+      'cpu', 'memory', 'storage', 'saas', 'platform', 'platforms', 'ai', 'ml', 'nlp', 'rag', 'splat',
+      'splatting', 'quantum', 'satellite', 'satellites', 'wire', 'wireless', 'radio', 'signal', 'signals',
+      'laser', 'lasers', 'audio', 'sound', 'acoustic', 'acoustics', 'wave', 'waves', 'automotive', 'transit',
+      'lytro', 'theranos', 'segway', 'zune', 'ara', 'quibi', 'dreamcast', 'n-gage', 'ouya', 'pippin',
+      'lumia', 'kin', 'juicero', 'betamax', 'hd-dvd', 'laserdisc', 'solyndra', 'jawbone', 'vine',
+      'hologram', 'holograms', 'wearable', 'wearables', 'telecom', 'telecommunications', 'micro', 'mobility',
       'splats', 'light', 'lenslet', 'refocuser', 'retinal'
     ];
 
@@ -979,7 +979,7 @@ const Dashboard = ({ activeInnovation, setActiveInnovation, globalQuery, setGlob
 
   return (
     <div className="animate-fade-in" style={{ display: 'flex', flexDirection: 'column', gap: '1.75rem', position: 'relative' }}>
-      
+
       {/* Terminal Loading Screen Overlay for Real-Time Generation */}
       {isGenerating && (
         <div style={{
@@ -999,7 +999,7 @@ const Dashboard = ({ activeInnovation, setActiveInnovation, globalQuery, setGlob
         }}>
           <div className="glass-panel" style={{ width: '480px', padding: '2rem', border: '1px solid var(--color-primary)', background: '#090a10' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1.25rem' }}>
-              <span className="material-symbols-outlined glow-text-pink" style={{ fontSize: '24px',  animation: 'spin 2s linear infinite'  }}>developer_board</span>
+              <span className="material-symbols-outlined glow-text-pink" style={{ fontSize: '24px', animation: 'spin 2s linear infinite' }}>developer_board</span>
               <span style={{ fontFamily: 'var(--font-sans)', fontSize: '0.9rem', color: 'var(--color-primary)', fontWeight: 'bold' }}>[INVENZA_AI: SYNTHESIZING...]</span>
             </div>
             <div style={{
@@ -1029,14 +1029,14 @@ const Dashboard = ({ activeInnovation, setActiveInnovation, globalQuery, setGlob
 
       {/* Critical Red HUD Validation Warning Banner */}
       {queryError && (
-        <div className="glass-panel animate-fade-in" style={{ 
-          borderLeft: '4px solid var(--color-danger)', 
+        <div className="glass-panel animate-fade-in" style={{
+          borderLeft: '4px solid var(--color-danger)',
           borderTop: 'none',
-          background: 'rgba(255, 0, 85, 0.08)', 
-          padding: '1rem 1.5rem', 
-          display: 'flex', 
-          justifyContent: 'space-between', 
-          alignItems: 'center' 
+          background: 'rgba(255, 0, 85, 0.08)',
+          padding: '1rem 1.5rem',
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: 'center'
         }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
             <span className="material-symbols-outlined" style={{ fontSize: '18px', color: 'var(--color-danger)' }}>warning</span>
@@ -1044,14 +1044,14 @@ const Dashboard = ({ activeInnovation, setActiveInnovation, globalQuery, setGlob
               [CRITICAL_ERROR: INVALID_QUERY] {queryError}
             </span>
           </div>
-          <button 
-            onClick={() => setQueryError(null)} 
-            style={{ 
-              background: 'transparent', 
-              border: 'none', 
-              color: 'var(--text-muted)', 
-              cursor: 'pointer', 
-              fontSize: '1rem', 
+          <button
+            onClick={() => setQueryError(null)}
+            style={{
+              background: 'transparent',
+              border: 'none',
+              color: 'var(--text-muted)',
+              cursor: 'pointer',
+              fontSize: '1rem',
               fontWeight: 'bold',
               padding: '0 0.5rem'
             }}
@@ -1083,24 +1083,24 @@ const Dashboard = ({ activeInnovation, setActiveInnovation, globalQuery, setGlob
           )}
         </div>
 
-          {/* Quick Selector Dropdown for pre-indexed ones */}
-          <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', alignSelf: 'flex-end' }}>
-            {isLocalMode && (
-              <span style={{ fontSize: '0.65rem', fontFamily: 'var(--font-sans)', color: 'var(--color-warning)', fontWeight: 600 }}>Offline Mode</span>
-            )}
-            <span style={{ fontSize: '0.65rem', fontFamily: 'var(--font-sans)', color: 'var(--text-muted)' }}>PRE-SEEDED DATASETS:</span>
-            <select 
-              className="tech-select"
-              value={selectedItem.id}
-              onChange={(e) => handleSelectItem(e.target.value)}
-              style={{ width: '150px', height: '32px', fontSize: '0.75rem', padding: '0 1.5rem 0 0.5rem' }}
-            >
-              {innovations.map(item => (
-                <option key={item.id} value={item.id}>{item.name}</option>
-              ))}
-            </select>
-          </div>
+        {/* Quick Selector Dropdown for pre-indexed ones */}
+        <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', alignSelf: 'flex-end' }}>
+          {isLocalMode && (
+            <span style={{ fontSize: '0.65rem', fontFamily: 'var(--font-sans)', color: 'var(--color-warning)', fontWeight: 600 }}>Offline Mode</span>
+          )}
+          <span style={{ fontSize: '0.65rem', fontFamily: 'var(--font-sans)', color: 'var(--text-muted)' }}>PRE-SEEDED DATASETS:</span>
+          <select
+            className="tech-select"
+            value={selectedItem.id}
+            onChange={(e) => handleSelectItem(e.target.value)}
+            style={{ width: '150px', height: '32px', fontSize: '0.75rem', padding: '0 1.5rem 0 0.5rem' }}
+          >
+            {innovations.map(item => (
+              <option key={item.id} value={item.id}>{item.name}</option>
+            ))}
+          </select>
         </div>
+      </div>
 
       {/* 4 Stats Grid */}
       <div className="stats-grid">
@@ -1147,10 +1147,10 @@ const Dashboard = ({ activeInnovation, setActiveInnovation, globalQuery, setGlob
 
       {/* Main Core Dashboard Layout */}
       <div className="dashboard-layout">
-        
+
         {/* Left Side: Innovation Details Card */}
         <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
-          
+
           {/* Main Card */}
           <div className="glass-panel" style={{ padding: '2rem', display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
@@ -1160,7 +1160,7 @@ const Dashboard = ({ activeInnovation, setActiveInnovation, globalQuery, setGlob
                   Filed: {selectedItem.yearFiled || "N/A"}
                 </span>
               </div>
-              <button 
+              <button
                 onClick={() => {
                   setSelectedItem(null);
                   if (setActiveInnovation) setActiveInnovation(null);
@@ -1184,11 +1184,11 @@ const Dashboard = ({ activeInnovation, setActiveInnovation, globalQuery, setGlob
                     </linearGradient>
                   </defs>
                   <circle className="circle-gauge-bg" cx="55" cy="55" r="45" />
-                  <circle 
-                    className="circle-gauge-fill" 
-                    cx="55" 
-                    cy="55" 
-                    r="45" 
+                  <circle
+                    className="circle-gauge-fill"
+                    cx="55"
+                    cy="55"
+                    r="45"
                     strokeDasharray={282}
                     strokeDashoffset={282 - (282 * (selectedItem.revivalViability || 0)) / 100}
                     style={{ stroke: 'url(#viabilityGradient)' }}
@@ -1216,7 +1216,7 @@ const Dashboard = ({ activeInnovation, setActiveInnovation, globalQuery, setGlob
                   {selectedItem.description || selectedItem.abstract || "Real-time AI diagnostics have audited this concept's viability profile. By linking historic commercial bottlenecks with modern technology enablers, we formulate a sustainable market-re-entry vector."}
                 </p>
                 <div style={{ display: 'flex', gap: '0.5rem', marginTop: '0.75rem' }}>
-                  <button 
+                  <button
                     onClick={handleSaveAudit}
                     className="tech-button tech-button-outline"
                     style={{ fontSize: '0.75rem', padding: '0.45rem 1.1rem', display: 'flex', alignItems: 'center', gap: '0.35rem' }}
@@ -1432,7 +1432,7 @@ const Dashboard = ({ activeInnovation, setActiveInnovation, globalQuery, setGlob
                   Historical Innovation Timeline
                 </h3>
               </div>
-              
+
               <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(130px, 1fr))', gap: '1rem', position: 'relative' }}>
                 <div style={{ padding: '1rem', background: 'rgba(255,255,255,0.01)', border: '1px solid var(--border-color)', borderRadius: '6px' }}>
                   <span style={{ fontSize: '0.75rem', fontFamily: 'var(--font-sans)', color: 'var(--color-secondary)', fontWeight: 'bold' }}>{selectedItem.yearFiled || 2012}</span>
@@ -1475,7 +1475,7 @@ const Dashboard = ({ activeInnovation, setActiveInnovation, globalQuery, setGlob
                   SUSTAINABLE GRADE: A-
                 </span>
               </div>
-              
+
               <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1.25rem' }}>
                 <div style={{ padding: '0.75rem', background: 'rgba(255,255,255,0.01)', border: '1px solid var(--border-color)', borderRadius: '6px' }}>
                   <span style={{ fontSize: '0.65rem', color: 'var(--text-muted)', fontFamily: 'var(--font-sans)', display: 'block', textTransform: 'uppercase' }}>Ecological Footprint Offset</span>
@@ -1597,7 +1597,7 @@ const Dashboard = ({ activeInnovation, setActiveInnovation, globalQuery, setGlob
 
           {/* Compact Metrics Grid */}
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 240px))', gap: '1rem', justifyContent: 'start' }}>
-            
+
             {/* Innovation Score Circle Box */}
             <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'space-between', background: 'transparent', border: '1px solid var(--border-color)', borderRadius: '8px', padding: '1.25rem 1rem', gap: '0.75rem' }}>
               <div style={{ textAlign: 'center' }}>
@@ -1613,11 +1613,11 @@ const Dashboard = ({ activeInnovation, setActiveInnovation, globalQuery, setGlob
                     </linearGradient>
                   </defs>
                   <circle className="circle-gauge-bg" cx="30" cy="30" r="24" />
-                  <circle 
-                    className="circle-gauge-fill" 
-                    cx="30" 
-                    cy="30" 
-                    r="24" 
+                  <circle
+                    className="circle-gauge-fill"
+                    cx="30"
+                    cy="30"
+                    r="24"
                     strokeDasharray={150}
                     strokeDashoffset={150 - (150 * (selectedItem.recommendationScore || 75)) / 100}
                     style={{ stroke: 'url(#innovGrad)', strokeWidth: '5px' }}
@@ -1677,18 +1677,18 @@ const Dashboard = ({ activeInnovation, setActiveInnovation, globalQuery, setGlob
                     <stop offset="100%" stopColor="var(--color-primary)" stopOpacity="0" />
                   </linearGradient>
                 </defs>
-                <path 
-                  d={`${getSvgPath(selectedItem.marketTrend)} L 230 50 L 10 50 Z`} 
-                  fill="url(#trendGrad)" 
+                <path
+                  d={`${getSvgPath(selectedItem.marketTrend)} L 230 50 L 10 50 Z`}
+                  fill="url(#trendGrad)"
                 />
-                <path 
-                  d={getSvgPath(selectedItem.marketTrend)} 
-                  fill="none" 
-                  stroke="var(--color-primary)" 
-                  strokeWidth="2" 
+                <path
+                  d={getSvgPath(selectedItem.marketTrend)}
+                  fill="none"
+                  stroke="var(--color-primary)"
+                  strokeWidth="2"
                   strokeLinecap="round"
                 />
-                <circle 
+                <circle
                   cx={230}
                   cy={60 - 10 - (((selectedItem.marketTrend?.[selectedItem.marketTrend.length - 1]?.value) || 75) * 40) / 100}
                   r="4"
@@ -1721,7 +1721,7 @@ const Dashboard = ({ activeInnovation, setActiveInnovation, globalQuery, setGlob
 
           {/* Supplementary Diagnostics Grid */}
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '1rem', marginTop: '1rem' }}>
-            
+
             {/* AI Patent Claims Auditor */}
             <div className="glass-panel animate-fade-in" style={{ padding: '1.25rem', borderLeft: '3px solid var(--color-primary)', background: 'var(--bg-panel)' }}>
               <h4 style={{ fontSize: '0.85rem', color: 'var(--text-main)', margin: '0.25rem 0 0.75rem 0', fontWeight: 700 }}>Independent Patent Claims Status</h4>
@@ -1748,7 +1748,7 @@ const Dashboard = ({ activeInnovation, setActiveInnovation, globalQuery, setGlob
                 "Hello, we are launching a modernized revival of {selectedItem.name}. While original configurations failed due to early mechanical bottlenecks, we solve this by coupling the architecture with edge RAG processors and low-latency local NPUs. This lets us capture the market at a projected CAGR of {selectedItem.marketGrowth || '14.5%'} with a lean development budget..."
               </div>
               <p style={{ fontSize: '0.65rem', color: 'var(--text-muted)', marginTop: '0.75rem', display: 'flex', alignItems: 'center', gap: '0.35rem' }}>
-                <span className="material-symbols-outlined" style={{ fontSize: '12px',  color: 'var(--color-warning)', flexShrink: 0  }}>lightbulb</span>
+                <span className="material-symbols-outlined" style={{ fontSize: '12px', color: 'var(--color-warning)', flexShrink: 0 }}>lightbulb</span>
                 <span>Practice this script in the <strong>AI Pitch Coach</strong>!</span>
               </p>
             </div>
@@ -1785,13 +1785,13 @@ const Dashboard = ({ activeInnovation, setActiveInnovation, globalQuery, setGlob
                   Related Innovations
                 </h3>
               </div>
-              
+
               <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '1rem' }}>
                 {innovations
                   .filter(item => item.id !== selectedItem.id && item.sector === selectedItem.sector)
                   .slice(0, 3)
                   .map(related => (
-                    <div 
+                    <div
                       key={related.id}
                       onClick={() => {
                         if (executeSearch) {
@@ -1802,10 +1802,10 @@ const Dashboard = ({ activeInnovation, setActiveInnovation, globalQuery, setGlob
                         }
                       }}
                       className="glass-panel"
-                      style={{ 
-                        padding: '1.25rem', 
-                        cursor: 'pointer', 
-                        border: '1px solid var(--border-color)', 
+                      style={{
+                        padding: '1.25rem',
+                        cursor: 'pointer',
+                        border: '1px solid var(--border-color)',
                         transition: 'all 0.2s ease',
                         background: 'rgba(255,255,255,0.01)'
                       }}
