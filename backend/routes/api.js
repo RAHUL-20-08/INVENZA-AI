@@ -23,14 +23,16 @@ import {
   terminateSession,
   terminateAllSessions,
   changePassword,
+
   deleteAccount,
   verifySensitiveAction,
   getOauthConfig,
   oauthCallback,
   completeOnboarding,
   refreshTokenRotation,
-  adminOauthConfig,
-  getFounderAuditLogs
+  adminOauthConfig,
+  getFounderAuditLogs,
+  getSuperAdminAuditLogs
 } from '../controllers/authController.js';
 import { getHackathons, getPrepGuide } from '../controllers/hackathonController.js';
 
@@ -153,6 +155,7 @@ router.post('/auth/oauth/onboarding', authenticateToken(), completeOnboarding);
 router.post('/auth/refresh', refreshTokenRotation);
 router.get('/auth/admin/config', authenticateToken(), adminOauthConfig);
 router.get('/auth/founder/audit', authenticateToken(), getFounderAuditLogs);
+router.get('/auth/superadmin/audit', authenticateToken(), getSuperAdminAuditLogs);
 router.post('/analysis/save-startup', authenticateToken('business'), saveStartupIdea);
 router.get('/analysis/saved-startups', authenticateToken('business'), getSavedStartupIdeas);
 router.post('/analysis/regenerate-section', authenticateToken('business'), regenerateSection);

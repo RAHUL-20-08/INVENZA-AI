@@ -1284,3 +1284,61 @@ export const getFounderAuditLogs = async (req, res) => {
     userHistory: userHistory
   });
 };
+
+// Get global audit logs + user list for superadmin
+export const getSuperAdminAuditLogs = async (req, res) => {
+  const roles = req.user.roles || [];
+  if (!roles.includes('superadmin') && req.user.role !== 'superadmin') {
+    return res.status(403).json({ success: false, message: 'Access denied. Superadmin role required.' });
+  }
+
+  // Load audit logs
+  let audits = [];
+  if (fs.existsSync(AUDIT_LOGS_FILE)) {
+    try {
+      audits = JSON.parse(fs.readFileSync(AUDIT_LOGS_FILE, 'utf8'));
+    } catch (e) {
+      console.error('Error reading audit logs:', e);
+    }
+  }
+
+  // Load users and build enriched list
+  const users = await loadUsers();
+  const userList = users.map((u, idx) => {
+    const lastLoginEntry = (u.loginHistory || []).slice(-1)[0];
+    const isLocked = u.lockoutUntil && Date.now() < u.lockoutUntil;
+    const roles = u.roles || [u.role || 'student'];
+    const name = (u.studentProfile?.fullName || u.businessProfile?.fullName || u.email.split('@')[0]);
+    return {
+      id: u.email,
+      name,
+      email: u.email,
+      roles,
+      portal: roles.includes('business') ? 'business' : 'student',
+      lastLogin: lastLoginEntry?.dateTime || null,
+      loginHistory: u.loginHistory || [],
+      loginFailures: u.loginFailures || 0,
+      status: isLocked ? 'Locked' : 'Active',
+      lockoutUntil: u.lockoutUntil || null
+    };
+  });
+
+  // Enrich audit logs with portal info
+  const enrichedAudits = audits.map(log => {
+    const user = users.find(u => u.email.toLowerCase() === log.email.toLowerCase());
+    const userRoles = user ? (user.roles || [user.role || 'student']) : [];
+    return {
+      ...log,
+      portal: log.metadata?.portalType || (userRoles.includes('business') ? 'business' : userRoles.includes('superadmin') ? 'system' : 'student'),
+      type: log.action
+    };
+  });
+
+  res.json({
+    success: true,
+    auditLogs: enrichedAudits,
+    users: userList,
+    totalEvents: enrichedAudits.length,
+    totalUsers: userList.length
+  });
+};

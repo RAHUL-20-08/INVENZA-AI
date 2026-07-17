@@ -1347,7 +1347,7 @@ h4, .subtitle {
 
 @media (max-width: 1024px) {
   .main-content {
-    padding: 24px 24px 40px !important;
+    padding: 84px 24px 40px !important; /* 60px header + 24px original padding */
     margin-left: 0 !important;
   }
   .content-grid { grid-template-columns: 1fr; }
@@ -1395,7 +1395,6 @@ h4, .subtitle {
 }
 
 @media (max-width: 768px) {
-  .sidebar { display: none; }
   .stats-row { grid-template-columns: 1fr; }
-  .main-content { padding: 20px 16px 32px !important; }
+  .main-content { padding: 84px 16px 32px !important; }
 }

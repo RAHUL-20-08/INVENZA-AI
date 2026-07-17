@@ -673,7 +673,7 @@ const Dashboard = ({ activeInnovation, setActiveInnovation, globalQuery, setGlob
             gap: '1.5rem',
             backdropFilter: 'blur(10px)'
           }}>
-            <div className="glass-panel" style={{ width: '480px', padding: '2rem', border: '1px solid var(--color-primary)', background: '#090a10' }}>
+            <div className="glass-panel" style={{ width: '100%', maxWidth: '480px', padding: '2rem', border: '1px solid var(--color-primary)', background: '#090a10' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1.25rem' }}>
                 <span className="material-symbols-outlined glow-text-pink" style={{ fontSize: '24px', animation: 'spin 2s linear infinite' }}>developer_board</span>
                 <span style={{ fontFamily: 'var(--font-sans)', fontSize: '0.9rem', color: 'var(--color-primary)', fontWeight: 'bold' }}>[INVENZA_AI: SYNTHESIZING...]</span>
@@ -997,7 +997,7 @@ const Dashboard = ({ activeInnovation, setActiveInnovation, globalQuery, setGlob
           gap: '1.5rem',
           backdropFilter: 'blur(10px)'
         }}>
-          <div className="glass-panel" style={{ width: '480px', padding: '2rem', border: '1px solid var(--color-primary)', background: '#090a10' }}>
+          <div className="glass-panel" style={{ width: '100%', maxWidth: '480px', padding: '2rem', border: '1px solid var(--color-primary)', background: '#090a10' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1.25rem' }}>
               <span className="material-symbols-outlined glow-text-pink" style={{ fontSize: '24px', animation: 'spin 2s linear infinite' }}>developer_board</span>
               <span style={{ fontFamily: 'var(--font-sans)', fontSize: '0.9rem', color: 'var(--color-primary)', fontWeight: 'bold' }}>[INVENZA_AI: SYNTHESIZING...]</span>
