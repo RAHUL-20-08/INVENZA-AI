@@ -23,6 +23,7 @@ import AuthCallback from './components/AuthCallback';
 import AdminConfig from './components/AdminConfig';
 import AuditLog from './pages/AuditLog';
 import AccountManagement from './pages/AccountManagement';
+import ThemeToggle from './components/ThemeToggle';
 
 function App() {
   const getInitialPageFromUrl = () => {
@@ -145,27 +146,26 @@ function App() {
     }
   };
 
-  // Light Mode / Dark Mode state selection — defaults to light (Google-style white theme)
+  // Light Mode / Dark Mode state selection
   const [theme, setTheme] = useState(() => {
-    const saved = localStorage.getItem('theme');
-    // Reset any previously saved dark theme to show the new white design
-    if (saved === 'dark' && !localStorage.getItem('theme_user_set')) {
-      localStorage.removeItem('theme');
-      return 'light';
-    }
-    return saved || 'light';
+    return localStorage.getItem('theme') || 'light';
   });
 
   // Toggle Theme helper
   const toggleTheme = () => {
-    localStorage.setItem('theme_user_set', '1');
-    setTheme(prev => (prev === 'light' ? 'dark' : 'light'));
+    setTheme(prev => {
+      const nextTheme = prev === 'light' ? 'dark' : 'light';
+      localStorage.setItem('theme', nextTheme);
+      return nextTheme;
+    });
   };
 
-  // Persist theme preference (light only for new design)
+  // Synchronize theme attribute on root elements and persist preference
   useEffect(() => {
-    localStorage.setItem('theme', 'light');
-  }, []);
+    document.documentElement.setAttribute('data-theme', theme);
+    document.body.setAttribute('data-theme', theme);
+    localStorage.setItem('theme', theme);
+  }, [theme]);
 
   // Synchronize portal switcher with user role on mount/login
   useEffect(() => {
@@ -457,13 +457,19 @@ function App() {
 
   // Render Login page if session is inactive
   if (!isLoggedIn) {
-    return <Login onLoginSuccess={handleLoginSuccess} />;
+    return (
+      <>
+        <ThemeToggle theme={theme} toggleTheme={toggleTheme} />
+        <Login onLoginSuccess={handleLoginSuccess} />
+      </>
+    );
   }
 
   // Early return for completely clean Presentation Layout (outside app-container, sidebar, main-content margins)
   if (currentPage === 'presentation') {
     return (
       <div className="presentation-layout" style={{ background: '#000', width: '100vw', height: '100vh', overflow: 'hidden', position: 'fixed', top: 0, left: 0, zIndex: 9999999 }}>
+        <ThemeToggle theme={theme} toggleTheme={toggleTheme} />
         <PitchCoach 
           activeInnovation={activeInnovation} 
           forceProjector={true} 
@@ -478,6 +484,7 @@ function App() {
 
   return (
     <div className="app-container">
+      <ThemeToggle theme={theme} toggleTheme={toggleTheme} />
 
       {/* Mobile header */}
       <header className="mobile-header">

@@ -136,6 +136,183 @@
 }
 
 /* ==========================================================================
+   DARK THEME OVERRIDES
+   ========================================================================== */
+[data-theme="dark"] {
+  /* — Dark Foundation — */
+  --white:          #1e293b;
+  --grey-25:        #0f172a;
+  --grey-50:        #0f172a;
+  --grey-100:       #1e293b;
+  --grey-200:       #334155;
+  --grey-300:       #475569;
+  --grey-400:       #64748b;
+  --grey-500:       #94a3b8;
+  --grey-600:       #cbd5e1;
+  --grey-700:       #e2e8f0;
+  --grey-800:       #f1f5f9;
+  --grey-900:       #f8fafc;
+
+  /* — Accent System — */
+  --blue-50:        rgba(37, 99, 235, 0.15);
+  --blue-100:       rgba(37, 99, 235, 0.25);
+  --blue-200:       rgba(59, 130, 246, 0.35);
+  --blue-300:       #60a5fa;
+  --blue-400:       #60a5fa;
+  --blue-500:       #3b82f6;
+  --blue-600:       #3b82f6;
+  --blue-700:       #60a5fa;
+  --blue-800:       #93c5fd;
+
+  /* — Surfaces — */
+  --bg-body:        #0b0f19;
+  --bg-main:        #0b0f19;
+  --bg-sidebar:     #111827;
+  --bg-card:        #1f2937;
+  --bg-panel:       #1f2937;
+  --bg-panel-solid: #1f2937;
+  --bg-input:       #111827;
+  --bg-list-item:   #1f2937;
+  --bg-hover:       #374151;
+  --bg-active:      rgba(59, 130, 246, 0.2);
+  --bg-overlay:     rgba(0, 0, 0, 0.75);
+  --border-main:    #374151;
+  --border-color:   #374151;
+  --border-light:   #1f2937;
+  --border-color-glow: rgba(59, 130, 246, 0.4);
+
+  /* — Typography — */
+  --text-primary:   #f9fafb;
+  --text-main:      #f9fafb;
+  --text-secondary: #cbd5e1;
+  --text-muted:     #94a3b8;
+  --text-tertiary:  #64748b;
+  --text-dim:       #64748b;
+  --text-heading:   #ffffff;
+  --text-link:      #60a5fa;
+
+  /* — Shadows — */
+  --shadow-xs:      0 1px 2px rgba(0,0,0,0.5);
+  --shadow-sm:      0 1px 3px rgba(0,0,0,0.6);
+  --shadow-md:      0 4px 6px rgba(0,0,0,0.5);
+  --shadow-card:    0 1px 3px rgba(0,0,0,0.4), 0 0 0 1px rgba(255,255,255,0.05);
+  --shadow-1:       var(--shadow-xs);
+  --shadow-2:       var(--shadow-sm);
+  --shadow-3:       var(--shadow-md);
+}
+
+/* ==========================================================================
+   THEME TOGGLE SWITCH (TOP RIGHT CORNER)
+   ========================================================================== */
+.theme-toggle-wrapper {
+  position: fixed;
+  top: 16px;
+  right: 24px;
+  z-index: 9999;
+}
+
+.theme-toggle-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 12px 5px 6px;
+  background: var(--bg-panel-solid);
+  border: 1px solid var(--border-main);
+  border-radius: var(--radius-pill);
+  box-shadow: var(--shadow-sm);
+  color: var(--text-primary);
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  transition: all var(--duration-base) var(--ease-out);
+}
+
+.theme-toggle-btn:hover {
+  border-color: var(--blue-400);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-1px);
+}
+
+.theme-toggle-track {
+  position: relative;
+  width: 44px;
+  height: 22px;
+  background: var(--grey-200);
+  border-radius: var(--radius-pill);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 4px;
+  transition: background var(--duration-base) var(--ease-out);
+}
+
+[data-theme="dark"] .theme-toggle-track {
+  background: #334155;
+}
+
+.theme-toggle-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  transition: color var(--duration-base) var(--ease-out);
+}
+
+.theme-toggle-icon .material-symbols-outlined {
+  font-size: 13px;
+}
+
+.theme-toggle-icon.sun {
+  color: #f59e0b;
+}
+
+.theme-toggle-icon.moon {
+  color: #94a3b8;
+}
+
+[data-theme="dark"] .theme-toggle-icon.moon {
+  color: #38bdf8;
+}
+
+.theme-toggle-thumb {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--white);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+  transition: transform var(--duration-base) cubic-bezier(0.34, 1.56, 0.64, 1);
+  z-index: 1;
+}
+
+[data-theme="dark"] .theme-toggle-thumb {
+  transform: translateX(22px);
+  background: #0f172a;
+}
+
+.theme-toggle-text {
+  user-select: none;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: -0.2px;
+}
+
+@media (max-width: 768px) {
+  .theme-toggle-wrapper {
+    top: 14px;
+    right: 14px;
+  }
+  .theme-toggle-text {
+    display: none;
+  }
+}
+
+
+/* ==========================================================================
    RESET & BASE
    ========================================================================== */
 *, *::before, *::after {
@@ -161,6 +338,7 @@ body {
   display: flex;
   min-height: 100vh;
   overflow-x: hidden;
+  transition: background-color 0.25s ease, color 0.25s ease;
 }
 
 a { text-decoration: none; color: inherit; }
