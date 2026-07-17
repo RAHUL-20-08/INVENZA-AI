@@ -203,26 +203,7 @@ function App() {
   };
 
   const renderPageContent = () => {
-    // Portal access security gates (RBAC)
-    if (portalMode === 'student') {
-      if (['startup'].includes(currentPage)) {
-        return (
-          <div className="glass-panel" style={{ padding: '2rem', textAlign: 'center', border: '1px solid var(--color-danger)', margin: '1.5rem' }}>
-            <h2 style={{ color: 'var(--color-danger)', fontFamily: 'var(--font-display)' }}>Access Restricted</h2>
-            <p style={{ color: 'var(--text-muted)', marginTop: '0.5rem', fontSize: '0.9rem' }}>The Startup Builder is restricted to the Business Portal.</p>
-          </div>
-        );
-      }
-    } else if (portalMode === 'business') {
-      if (['papers', 'github', 'synergy'].includes(currentPage)) {
-        return (
-          <div className="glass-panel" style={{ padding: '2rem', textAlign: 'center', border: '1px solid var(--color-danger)', margin: '1.5rem' }}>
-            <h2 style={{ color: 'var(--color-danger)', fontFamily: 'var(--font-display)' }}>Access Restricted</h2>
-            <p style={{ color: 'var(--text-muted)', marginTop: '0.5rem', fontSize: '0.9rem' }}>This academic module is restricted to the Student Portal.</p>
-          </div>
-        );
-      }
-    }
+    // Portal access security gates (RBAC) removed per user request
 
     switch (currentPage) {
       case 'dashboard':
