@@ -51,11 +51,32 @@ const JudgeSimulator = ({
           </div>
 
           {/* Active Question display */}
-          <div style={{ background: 'var(--bg-main, rgba(0,0,0,0.02))', border: '1px solid var(--border-color)', padding: '1.25rem', borderRadius: '6px', display: 'flex', flexDirection: 'column', gap: '0.55rem', textAlign: 'left' }}>
-            <p style={{ fontSize: '0.9rem', color: 'var(--text-main)', margin: 0, lineHeight: '1.4', fontWeight: 600 }}>
+          <div style={{ 
+            background: 'var(--bg-panel-solid, var(--bg-card, #f8fafc))', 
+            border: '1.5px solid var(--border-main, #cbd5e1)', 
+            padding: '1.25rem 1.5rem', 
+            borderRadius: '8px', 
+            display: 'flex', 
+            flexDirection: 'column', 
+            gap: '0.65rem', 
+            textAlign: 'left',
+            boxShadow: 'var(--shadow-xs)'
+          }}>
+            <p style={{ 
+              fontSize: '0.98rem', 
+              color: 'var(--text-primary, #0f172a)', 
+              margin: 0, 
+              lineHeight: '1.5', 
+              fontWeight: 700 
+            }}>
               {practiceQuestions[activeQuestionIndex].question}
             </p>
-            <span style={{ fontSize: '0.75rem', color: 'var(--text-secondary, var(--text-dim))', fontStyle: 'italic' }}>
+            <span style={{ 
+              fontSize: '0.82rem', 
+              color: 'var(--text-secondary, #475569)', 
+              fontStyle: 'italic',
+              fontWeight: 500 
+            }}>
               Helper: {practiceQuestions[activeQuestionIndex].helper}
             </span>
           </div>
@@ -78,7 +99,16 @@ const JudgeSimulator = ({
               placeholder="Provide your technical answer here..."
               value={answers[activeQuestionIndex] || ""}
               onChange={e => setAnswers(prev => ({ ...prev, [activeQuestionIndex]: e.target.value }))}
-              style={{ flex: 1, fontSize: '0.8rem', padding: '0.75rem', resize: 'vertical' }}
+              style={{ 
+                flex: 1, 
+                fontSize: '0.85rem', 
+                padding: '0.85rem 1rem', 
+                resize: 'vertical',
+                background: 'var(--bg-input, #ffffff)',
+                color: 'var(--text-primary, #0f172a)',
+                border: '1.5px solid var(--border-main, #cbd5e1)',
+                borderRadius: '8px'
+              }}
             />
             <button
               type="button"
