@@ -334,19 +334,12 @@
     }
   },
   {
-<<<<<<< HEAD
     "timestamp": "2026-07-16T16:59:47.889Z",
-=======
-    "timestamp": "2026-07-16T16:16:33.824Z",
->>>>>>> 3070b5eb2159d7a7a667b877cd7c4855bd050071
     "email": "the_founder@invenza.io",
     "action": "LOGIN_SUCCESS",
     "metadata": {
       "portalType": "student",
-<<<<<<< HEAD
       "sessionId": "session_7cfc9c13c40736df1ea77992cd0abd30"
-=======
-      "sessionId": "session_4c4d916fc4259f601a2963ffa8459b09"
     }
   },
   {
@@ -383,7 +376,6 @@
     "metadata": {
       "portalType": "student",
       "sessionId": "session_94e455ae223b6cc3a94fcf7124d80360"
->>>>>>> 3070b5eb2159d7a7a667b877cd7c4855bd050071
     }
   }
 ]
