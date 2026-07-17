@@ -502,7 +502,7 @@ function App() {
           </strong>
         </div>
 
-        <div style={{ width: '30px' }} />
+        <div style={{ width: '56px' }} />
       </header>
 
       {/* Sidebar overlay (mobile) */}

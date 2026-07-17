@@ -1074,7 +1074,7 @@ const Dashboard = ({ activeInnovation, setActiveInnovation, globalQuery, setGlob
         </div>
 
         {/* Input box to generate AI data for ANY technology */}
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', position: 'relative', width: '380px' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', position: 'relative', width: '100%', maxWidth: '380px' }}>
           <UnifiedSearchBar placeholder="Type any tech to audit (e.g. Zune, Stadia)..." />
           {error && (
             <div style={{ color: 'var(--color-error)', fontSize: '0.75rem', fontFamily: 'var(--font-sans)', marginTop: '0.25rem' }}>

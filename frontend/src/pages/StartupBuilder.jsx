@@ -221,14 +221,13 @@ const StartupBuilder = ({ activeInnovation }) => {
         </div>
       ) : (
         /* Tab 2: Business Model Canvas */
-        <div className="glass-panel animate-fade-in" style={{ display: 'flex', flexDirection: 'column', gap: '1rem', padding: '1.5rem', background: 'var(--bg-panel-solid)' }}>
+        <div className="glass-panel animate-fade-in responsive-scroll-container" style={{ display: 'flex', flexDirection: 'column', gap: '1rem', padding: '1.5rem', background: 'var(--bg-panel-solid)', overflowX: 'auto', maxWidth: '100%' }}>
           <div style={{
             display: 'grid',
             gridTemplateColumns: 'repeat(5, 1fr)',
             gridTemplateRows: 'repeat(2, 200px)',
             gap: '0.75rem',
-            minWidth: '800px',
-            overflowX: 'auto'
+            minWidth: '800px'
           }}>
             
             {/* Key Partners */}
@@ -315,8 +314,7 @@ const StartupBuilder = ({ activeInnovation }) => {
             display: 'grid',
             gridTemplateColumns: '1fr 1fr',
             gap: '0.75rem',
-            minWidth: '800px',
-            overflowX: 'auto'
+            minWidth: '800px'
           }}>
             {/* Cost Structure */}
             <div style={{ background: 'rgba(255,255,255,0.01)', border: '1px solid var(--border-color)', padding: '0.75rem', borderRadius: '8px' }}>

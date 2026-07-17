@@ -133,10 +133,11 @@ const ChatAssistant = () => {
           className="glass-panel"
           style={{
             position: 'fixed',
-            bottom: '6rem',
-            right: '2rem',
-            width: '400px',
-            height: '550px',
+            bottom: '5rem',
+            right: '1rem',
+            width: 'min(400px, calc(100vw - 2rem))',
+            height: 'min(550px, 75vh)',
+            maxHeight: 'calc(100vh - 6rem)',
             zIndex: 1000,
             display: 'flex',
             flexDirection: 'column',
