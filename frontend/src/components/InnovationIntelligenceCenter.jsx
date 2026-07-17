@@ -66,12 +66,6 @@ const InnovationIntelligenceCenter = ({ theme, activeInnovation, setCurrentPage,
     { id: 'opt3', title: "7 Discontinued Products for Redesign", whyFailed: "Pebble smartwatch lacked hardware caches to sustain heavy alert streams.", whyToday: "Lightweight offline RAG models index notifications seamlessly.", revival: 89, difficulty: "Easy", bizOpportunity: "Offline smart assistant hardware adapters.", tech: "Local RAG pipelines, e-ink APIs" }
   ];
 
-  // Challenge Center List (Feature 7)
-  const challenges = [
-    { title: "National Innovation Challenge", prize: "₹100,000 Fund", deadline: "July 31, 2026", difficulty: "Medium", eligibility: "Students & Startups", tech: "Edge RAG / Embedded Sensors" },
-    { title: "Clean Energy Hackathon", prize: "₹25,000 Prize", deadline: "August 15, 2026", difficulty: "Easy", eligibility: "Open to All", tech: "IoT Grid Telemetry" },
-    { title: "B2B Startup Incubator Cycle", prize: "₹150,000 Seed", deadline: "September 01, 2026", difficulty: "Hard", eligibility: "Incorporated Startups", tech: "SaaS API Platforms" }
-  ];
 
   const handleOpenDetails = (name) => {
     if (setGlobalQuery) {
@@ -406,32 +400,7 @@ const InnovationIntelligenceCenter = ({ theme, activeInnovation, setCurrentPage,
             </div>
           ))}
         </div>
-      </div>
-
-      {/* FEATURE 7: INNOVATION CHALLENGE CENTER */}
-      <div className="glass-panel" style={{ padding: '1.5rem' }}>        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '1rem' }}>
-          {challenges.map((c, idx) => (
-            <div key={idx} style={{ background: 'rgba(255,255,255,0.01)', border: '1px solid var(--border-color)', padding: '1rem', borderRadius: '8px', display: 'flex', flexDirection: 'column', gap: '0.55rem' }}>
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                <strong style={{ fontSize: '0.85rem', color: 'var(--text-main)' }}>{c.title}</strong>
-                <span className="status-badge badge-active" style={{ fontSize: '0.6rem' }}>{c.difficulty}</span>
-              </div>
-              <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>
-                <div>Prize: <strong style={{ color: 'var(--color-success)' }}>{c.prize}</strong></div>
-                <div>Deadline: {c.deadline}</div>
-                <div>Eligibility: {c.eligibility}</div>
-              </div>
-              <button 
-                onClick={() => alert(`Applied to ${c.title}!`)}
-                className="tech-button tech-button-outline"
-                style={{ width: '100%', fontSize: '0.7rem', padding: '0.35rem', marginTop: '0.25rem' }}
-              >
-                Apply Now
-              </button>
-            </div>
-          ))}
         </div>
-      </div>
 
       {/* FEATURE 13: QUICK ACTION CARDS */}
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: '1rem' }}>
