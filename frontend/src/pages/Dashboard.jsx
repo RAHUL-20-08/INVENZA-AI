@@ -498,48 +498,6 @@ const Dashboard = ({ activeInnovation, setActiveInnovation, globalQuery, setGlob
     );
   };
 
-  // Interactive simulator states
-  const [simulating, setSimulating] = useState(false);
-  const [simLogs, setSimLogs] = useState([
-    "[SYS] Simulation core idle.",
-    "Click 'RUN SIMULATION' to forecast market re-entry vector metrics."
-  ]);
-
-  const runMarketSimulation = () => {
-    if (!selectedItem) return;
-    setSimulating(true);
-    setSimLogs(["[SYSTEM] Initializing Invenza Neural Network Simulation..."]);
-    
-    const logsList = [
-      `[SYSTEM] Mapping patent claims matching ${selectedItem.name}...`,
-      `[SYSTEM] Aligning sector regulatory requirements for ${selectedItem.sector || "General Tech"}...`,
-      `[SYSTEM] Spawning 100 autonomous agent instances in sandboxed marketplace...`,
-      `[MARKET] Testing entry strategy with estimated funding of ${selectedItem.financials?.estimatedCost || selectedItem.estimatedCost || "₹250,000"}...`,
-      `[MARKET] Calculating user conversion metrics and developer onboarding rates...`,
-      `[SUCCESS] Simulation completed successfully!`,
-      `[SUCCESS] Projected revival success index: ${selectedItem.revivalViability}%`,
-      `[SUCCESS] Net projected growth: ${selectedItem.marketGrowth || "14.5% CAGR"}`
-    ];
-
-    let i = 0;
-    const interval = setInterval(() => {
-      if (i < logsList.length) {
-        setSimLogs(prev => [...prev, logsList[i]]);
-        i++;
-      } else {
-        clearInterval(interval);
-        setSimulating(false);
-      }
-    }, 450);
-  };
-
-  useEffect(() => {
-    setSimulating(false);
-    setSimLogs([
-      "[SYS] Simulation core idle.",
-      "Click 'RUN SIMULATION' to forecast market re-entry vector metrics."
-    ]);
-  }, [selectedItem]);
 
   const predictedProjects = (globalQuery || '').trim() ? innovations.filter(item => 
     item.name.toLowerCase().includes(globalQuery.toLowerCase()) || 
@@ -1578,52 +1536,6 @@ const Dashboard = ({ activeInnovation, setActiveInnovation, globalQuery, setGlob
             </div>
           </div>
 
-          {/* Interactive AI Sandbox Simulator */}
-          <div className="glass-panel animate-fade-in" style={{ padding: '2rem', display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderBottom: '1px solid var(--border-color)', paddingBottom: '0.75rem' }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                <span className="material-symbols-outlined" style={{ fontSize: '16px', color: 'var(--color-secondary)' }}>terminal</span>
-                <h3 style={{ fontSize: '1rem', fontWeight: 700, fontFamily: 'var(--font-display)', color: 'var(--text-main)' }}>
-                  AI Market Revival Simulator
-                </h3>
-              </div>
-              <button 
-                onClick={runMarketSimulation} 
-                disabled={simulating}
-                className="tech-button" 
-                style={{ fontSize: '0.75rem', padding: '0.35rem 0.85rem' }}
-              >
-                {simulating ? 'SIMULATING...' : 'RUN SIMULATION'}
-              </button>
-            </div>
-            
-            <div style={{
-              background: '#04060a',
-              border: '1px solid var(--border-color)',
-              borderRadius: '6px',
-              padding: '1rem',
-              fontFamily: 'var(--font-sans)',
-              fontSize: '0.75rem',
-              color: 'var(--color-success)',
-              minHeight: '140px',
-              display: 'flex',
-              flexDirection: 'column',
-              gap: '0.35rem',
-              maxHeight: '200px',
-              overflowY: 'auto'
-            }}>
-              {simLogs.map((log, idx) => (
-                <div key={idx} style={{
-                  color: (typeof log === 'string' && log.startsWith('[ERROR]')) ? 'var(--color-danger)' : (typeof log === 'string' && log.startsWith('[SUCCESS]')) ? 'var(--color-success)' : (typeof log === 'string' && log.startsWith('[SYSTEM]')) ? 'var(--color-secondary)' : '#fff'
-                }}>
-                  {log}
-                </div>
-              ))}
-              {simulating && (
-                <div style={{ color: 'var(--text-muted)' }}>[SYS_PING] Running network checks... ▒▒▒▒▒▒▒▒▒▒</div>
-              )}
-            </div>
-          </div>
 
           {/* Financials & Investment Portfolio */}
           {selectedItem.financials && (
