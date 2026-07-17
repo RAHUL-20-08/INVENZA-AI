@@ -31,12 +31,12 @@ function hashPassword(password) {
   return crypto.createHash('sha256').update(password).digest('hex');
 }
 
-// Password strength checker matching Enterprise policy
+// Password strength checker matching user policy
 function isPasswordStrong(password) {
-  if (password.length < 12) return false;
+  if (password.length < 8) return false;
   if (!/[A-Z]/.test(password)) return false;
   if (!/[a-z]/.test(password)) return false;
-  if (!/[0-9]/.test(password)) return false;
+  if ((password.match(/[0-9]/g) || []).length < 2) return false;
   if (!/[!@#$%^&*(),.?":{}|<>]/.test(password)) return false;
   
   // Prevent common weak passwords
@@ -205,7 +205,7 @@ export const registerUser = async (req, res) => {
 
   // Strong password check for Business Portal registrations
   if (portalType === 'business' && !isPasswordStrong(password)) {
-    return res.status(400).json({ success: false, message: "Password does not meet enterprise requirements (min 12 chars, upper, lower, number, special char)." });
+    return res.status(400).json({ success: false, message: "Password does not meet requirements (min 8 chars, 1 upper, 1 lower, 2 numbers, 1 special char)." });
   }
 
   const sessionKey = email.toLowerCase() + '_register';
