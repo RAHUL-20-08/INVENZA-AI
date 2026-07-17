@@ -694,7 +694,7 @@ Contributions: ${analysis.highlights.contributions}`;
 
         {/* Paper Details side panel */}
         {selectedPaper && (
-          <div className="glass-panel animate-fade-in" style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem', background: 'rgba(10,13,20,0.9)', padding: '1.5rem' }}>
+          <div className="glass-panel animate-fade-in" style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem', padding: '1.5rem' }}>
             
             {/* Header controls & Bookmark */}
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', borderBottom: '1px solid var(--border-color)', paddingBottom: '0.75rem' }}>
@@ -725,17 +725,26 @@ Contributions: ${analysis.highlights.contributions}`;
             </div>
 
             {/* Extended Metadata Display */}
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.75rem', fontSize: '0.75rem', borderBottom: '1px solid rgba(255,255,255,0.03)', paddingBottom: '0.75rem' }}>
-              <div><span style={{ color: 'var(--text-muted)' }}>Publisher:</span> <strong style={{ color: 'var(--text-main)' }}>{selectedPaper.publisher}</strong></div>
-              <div><span style={{ color: 'var(--text-muted)' }}>Journal:</span> <strong style={{ color: 'var(--text-main)' }}>{selectedPaper.journal}</strong></div>
-              <div><span style={{ color: 'var(--text-muted)' }}>Citation Count:</span> <strong style={{ color: 'var(--color-secondary)' }}>{selectedPaper.citations}</strong></div>
-              <div><span style={{ color: 'var(--text-muted)' }}>Volume / Issue:</span> <strong style={{ color: 'var(--text-main)' }}>{selectedPaper.volume} ({selectedPaper.issue})</strong></div>
-              <div><span style={{ color: 'var(--text-muted)' }}>Pages:</span> <strong style={{ color: 'var(--text-main)' }}>{selectedPaper.pages}</strong></div>
-              <div><span style={{ color: 'var(--text-muted)' }}>Publish Year:</span> <strong style={{ color: 'var(--text-main)' }}>{selectedPaper.year}</strong></div>
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.6rem', fontSize: '0.75rem', borderBottom: '1px solid rgba(99,102,241,0.15)', paddingBottom: '0.75rem' }}>
+              {[
+                { label: 'Publisher', val: selectedPaper.publisher, color: 'var(--text-main)' },
+                { label: 'Journal', val: selectedPaper.journal, color: 'var(--text-main)' },
+                { label: 'Citation Count', val: selectedPaper.citations, color: 'var(--color-secondary)' },
+                { label: 'Volume / Issue', val: `${selectedPaper.volume} (${selectedPaper.issue})`, color: 'var(--text-main)' },
+                { label: 'Pages', val: selectedPaper.pages, color: 'var(--text-main)' },
+                { label: 'Publish Year', val: selectedPaper.year, color: 'var(--color-primary)' },
+              ].map(({ label, val, color }) => (
+                <div key={label} style={{ border: '1px solid var(--border-color)', borderRadius: '6px', padding: '0.4rem 0.6rem' }}>
+                  <span style={{ color: 'var(--text-muted)', fontSize: '0.6rem', display: 'block', marginBottom: '0.15rem', textTransform: 'uppercase', letterSpacing: '0.05em' }}>{label}</span>
+                  <strong style={{ color, fontSize: '0.78rem' }}>{val}</strong>
+                </div>
+              ))}
             </div>
 
             {/* Abstract text */}
-            <div>              <p style={{ fontSize: '0.85rem', color: 'var(--text-main)', lineHeight: '1.4', margin: 0 }}>
+            <div style={{ background: 'rgba(99,102,241,0.06)', border: '1px solid rgba(99,102,241,0.15)', borderRadius: '8px', padding: '0.85rem 1rem' }}>
+              <span style={{ fontSize: '0.6rem', fontWeight: 700, color: 'var(--color-primary)', textTransform: 'uppercase', letterSpacing: '0.08em', display: 'block', marginBottom: '0.4rem' }}>Abstract</span>
+              <p style={{ fontSize: '0.82rem', color: 'var(--text-main)', lineHeight: '1.55', margin: 0 }}>
                 "{selectedPaper.abstract}"
               </p>
             </div>
@@ -750,14 +759,14 @@ Contributions: ${analysis.highlights.contributions}`;
 
             {/* Git Code Repository link/view */}
             {selectedPaper.gitRepo && (
-              <div style={{ borderTop: '1px solid var(--border-color)', paddingTop: '1rem', display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+              <div style={{ borderTop: '1px solid rgba(99,102,241,0.15)', paddingTop: '1rem', display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
                 <h4 style={{ fontSize: '0.8rem', fontWeight: 700, color: 'var(--color-primary)', display: 'flex', alignItems: 'center', gap: '0.35rem', margin: 0 }}>
                   <span className="material-symbols-outlined" style={{ fontSize: '13px' }}>folder</span> Open-Source Git Reference:
                 </h4>
-                <div style={{ background: 'rgba(255,255,255,0.01)', border: '1px solid var(--border-color)', padding: '0.85rem', borderRadius: '6px', display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
+                <div style={{ background: 'linear-gradient(135deg, rgba(59,130,246,0.08), rgba(99,102,241,0.08))', border: '1px solid rgba(99,102,241,0.2)', padding: '0.85rem', borderRadius: '8px', display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', width: '100%' }}>
                     <div>
-                      <strong style={{ fontSize: '0.75rem', color: '#fff', fontFamily: 'var(--font-sans)', display: 'block' }}>{selectedPaper.gitRepo}</strong>
+                      <strong style={{ fontSize: '0.75rem', color: 'var(--text-main)', fontFamily: 'var(--font-sans)', display: 'block' }}>{selectedPaper.gitRepo}</strong>
                       <span style={{ fontSize: '0.65rem', color: 'var(--text-muted)', display: 'block', marginTop: '0.15rem' }}>Core Language: <strong style={{ color: 'var(--color-secondary)' }}>{selectedPaper.gitLang}</strong></span>
                     </div>
                     <div style={{ display: 'flex', gap: '0.35rem' }}>
@@ -766,8 +775,8 @@ Contributions: ${analysis.highlights.contributions}`;
                           if (setGlobalQuery) setGlobalQuery(selectedPaper.gitRepo);
                           if (setCurrentPage) setCurrentPage('github');
                         }}
-                        className="tech-button tech-button-outline"
-                        style={{ fontSize: '0.7rem', padding: '0.4rem 0.8rem', border: '1px solid var(--color-primary)', color: 'var(--color-primary)' }}
+                        className="tech-button"
+                        style={{ fontSize: '0.7rem', padding: '0.4rem 0.8rem' }}
                       >
                         Explore in Hub
                       </button>
@@ -804,7 +813,7 @@ Contributions: ${analysis.highlights.contributions}`;
             <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem', borderTop: '1px solid var(--border-color)', paddingTop: '1rem' }}>
               
               {/* Citation layout */}
-              <div className="glass-panel" style={{ padding: '0.85rem', background: '#07090e', border: '1px solid var(--border-color)' }}>
+              <div className="glass-panel" style={{ padding: '0.85rem', borderRadius: '8px' }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.55rem' }}>                  <div style={{ display: 'flex', gap: '0.35rem' }}>
                     <button 
                       onClick={handleCopyBib}
@@ -812,7 +821,7 @@ Contributions: ${analysis.highlights.contributions}`;
                     >
                       {copiedBib ? '✓ Copied' : 'Copy'}
                     </button>
-                    <span style={{ color: 'rgba(255,255,255,0.1)' }}>|</span>
+                    <span style={{ color: 'var(--border-color)' }}>|</span>
                     <button 
                       onClick={handleDownloadBib}
                       style={{ background: 'transparent', border: 'none', color: 'var(--color-secondary)', cursor: 'pointer', fontSize: '0.65rem', fontWeight: 'bold' }}
@@ -846,12 +855,15 @@ Contributions: ${analysis.highlights.contributions}`;
                 </button>
               </div>
 
-              {/* Scanned Console Panel (Feature 2) */}
+              {/* Scanned Console Panel */}
               {scanSteps.length > 0 && (
-                <div className="animate-fade-in" style={{ background: '#000', border: '1px solid var(--border-color)', padding: '0.85rem', borderRadius: '6px', fontFamily: 'var(--font-sans)', fontSize: '0.7rem' }}>
-                  <div style={{ display: 'flex', flexDirection: 'column', gap: '0.25rem', marginBottom: '0.5rem' }}>
+                <div className="animate-fade-in" style={{ background: 'rgba(16,185,129,0.06)', border: '1px solid rgba(16,185,129,0.2)', padding: '0.85rem', borderRadius: '8px', fontFamily: 'var(--font-sans)', fontSize: '0.7rem' }}>
+                  <span style={{ fontSize: '0.6rem', fontWeight: 700, color: '#10b981', textTransform: 'uppercase', letterSpacing: '0.08em', display: 'block', marginBottom: '0.4rem' }}>Scan Progress</span>
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: '0.25rem' }}>
                     {scanSteps.map((step, i) => (
-                      <span key={i} style={{ color: '#10b981' }}>&gt; {step}</span>
+                      <span key={i} style={{ color: 'var(--text-main)', display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
+                        <span style={{ color: '#10b981', fontSize: '0.65rem' }}>✓</span> {step}
+                      </span>
                     ))}
                   </div>
                 </div>
@@ -862,7 +874,7 @@ Contributions: ${analysis.highlights.contributions}`;
                 <div className="animate-fade-in" style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem', marginTop: '0.5rem' }}>
                   
                   {/* Summary segment */}
-                  <div className="glass-panel" style={{ borderLeft: '3px solid var(--color-primary)', padding: '1rem', background: 'rgba(255,255,255,0.01)' }}>
+                  <div className="glass-panel" style={{ borderLeft: '3px solid var(--color-primary)', padding: '1rem' }}>
                     <h5 style={{ fontSize: '0.8rem', color: 'var(--color-primary)', fontWeight: 'bold', margin: '0 0 0.5rem 0' }}>PAPER SUMMARY</h5>
                     <div style={{ display: 'flex', flexDirection: 'column', gap: '0.45rem', fontSize: '0.75rem', lineHeight: '1.4' }}>
                       <div><strong>Objective:</strong> {currentAnalysis.summary.objective}</div>
@@ -876,7 +888,7 @@ Contributions: ${analysis.highlights.contributions}`;
                   </div>
 
                   {/* Tech Specs segment */}
-                  <div className="glass-panel" style={{ borderLeft: '3px solid var(--color-secondary)', padding: '1rem', background: 'rgba(255,255,255,0.01)' }}>
+                  <div className="glass-panel" style={{ borderLeft: '3px solid var(--color-secondary)', padding: '1rem' }}>
                     <h5 style={{ fontSize: '0.8rem', color: 'var(--color-secondary)', fontWeight: 'bold', margin: '0 0 0.5rem 0' }}>TECHNICAL ANALYSIS</h5>
                     <div style={{ display: 'flex', flexDirection: 'column', gap: '0.45rem', fontSize: '0.75rem', lineHeight: '1.4' }}>
                       <div><strong>Technologies:</strong> {currentAnalysis.techAnalysis.tech}</div>
@@ -888,7 +900,7 @@ Contributions: ${analysis.highlights.contributions}`;
                   </div>
 
                   {/* Moats and Startup potential */}
-                  <div className="glass-panel" style={{ borderLeft: '3px solid var(--color-success)', padding: '1rem', background: 'rgba(255,255,255,0.01)' }}>
+                  <div className="glass-panel" style={{ borderLeft: '3px solid var(--color-success)', padding: '1rem' }}>
                     <h5 style={{ fontSize: '0.8rem', color: 'var(--color-success)', fontWeight: 'bold', margin: '0 0 0.5rem 0' }}>INNOVATION INSIGHTS</h5>
                     <div style={{ display: 'flex', flexDirection: 'column', gap: '0.45rem', fontSize: '0.75rem', lineHeight: '1.4' }}>
                       <div><strong>Importance:</strong> {currentAnalysis.innovationInsights.importance}</div>
@@ -899,7 +911,7 @@ Contributions: ${analysis.highlights.contributions}`;
                   </div>
 
                   {/* Highlights equations */}
-                  <div className="glass-panel" style={{ borderLeft: '3px solid var(--color-warning)', padding: '1rem', background: 'rgba(255,255,255,0.01)' }}>
+                  <div className="glass-panel" style={{ borderLeft: '3px solid var(--color-warning)', padding: '1rem' }}>
                     <h5 style={{ fontSize: '0.8rem', color: 'var(--color-warning)', fontWeight: 'bold', margin: '0 0 0.5rem 0' }}>HIGHLIGHTED EQUATIONS & REFS</h5>
                     <div style={{ display: 'flex', flexDirection: 'column', gap: '0.45rem', fontSize: '0.75rem', lineHeight: '1.4' }}>
                       <div><strong>Novel Contributions:</strong> {currentAnalysis.highlights.contributions}</div>

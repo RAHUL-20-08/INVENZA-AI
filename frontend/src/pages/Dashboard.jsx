@@ -821,7 +821,7 @@ const Dashboard = ({ activeInnovation, setActiveInnovation, globalQuery, setGlob
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '2rem', alignItems: 'start', marginTop: '1rem' }}>
           
           {/* Quick Start Audit Form */}
-          <div className="glass-panel" style={{ padding: '2rem', display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
+          <div className="glass-panel" style={{ padding: '2rem', display: 'flex', flexDirection: 'column', gap: '1.25rem', overflow: 'visible' }}>
             <h3 style={{ fontSize: '1.2rem', fontFamily: 'var(--font-display)', color: 'var(--text-main)' }}>
               Run Real-Time AI Diagnostic Audit
             </h3>
@@ -959,7 +959,7 @@ const Dashboard = ({ activeInnovation, setActiveInnovation, globalQuery, setGlob
 
   // Calculate SVG line coordinates for Market Trend
   const getSvgPath = (trend) => {
-    if (!trend || trend.length === 0) return '';
+    if (!trend || trend.length === 0) return 'M 0 50 L 240 50';
     const width = 240;
     const height = 60;
     const padding = 10;
@@ -1614,7 +1614,7 @@ const Dashboard = ({ activeInnovation, setActiveInnovation, globalQuery, setGlob
             }}>
               {simLogs.map((log, idx) => (
                 <div key={idx} style={{
-                  color: log.startsWith('[ERROR]') ? 'var(--color-danger)' : log.startsWith('[SUCCESS]') ? 'var(--color-success)' : log.startsWith('[SYSTEM]') ? 'var(--color-secondary)' : '#fff'
+                  color: (typeof log === 'string' && log.startsWith('[ERROR]')) ? 'var(--color-danger)' : (typeof log === 'string' && log.startsWith('[SUCCESS]')) ? 'var(--color-success)' : (typeof log === 'string' && log.startsWith('[SYSTEM]')) ? 'var(--color-secondary)' : '#fff'
                 }}>
                   {log}
                 </div>
